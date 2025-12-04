@@ -210,27 +210,7 @@ const DevelopmentProcessStory = () => {
         />
       </div>
 
-      {/* Chapter navigation dots */}
-      <div style={styles.dotsContainer}>
-        {chapters.map((ch, index) => (
-          <motion.button
-            key={ch.id}
-            style={{
-              ...styles.dot,
-              backgroundColor:
-                index === currentChapter
-                  ? chapter.color
-                  : "rgba(255, 255, 255, 0.3)",
-              width: index === currentChapter ? "12px" : "8px",
-              height: index === currentChapter ? "12px" : "8px",
-            }}
-            onClick={() => goToChapter(index)}
-            whileHover={{ scale: 1.3 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={`Go to ${ch.title}`}
-          />
-        ))}
-      </div>
+      {/* Chapter navigation dots are rendered inside the chapter container now */}
       
       <AnimatePresence mode="wait" custom={currentChapter}>
         <motion.div
@@ -241,6 +221,28 @@ const DevelopmentProcessStory = () => {
           animate="center"
           exit="exit"
         >
+          {/* Chapter navigation dots (placed relative to chapter top) */}
+          <div style={styles.dotsContainer}>
+            {chapters.map((ch, index) => (
+              <motion.button
+                key={ch.id}
+                style={{
+                  ...styles.dot,
+                  backgroundColor:
+                    index === currentChapter
+                      ? chapter.color
+                      : "rgba(255, 255, 255, 0.3)",
+                  width: index === currentChapter ? "12px" : "8px",
+                  height: index === currentChapter ? "12px" : "8px",
+                }}
+                onClick={() => goToChapter(index)}
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label={`Go to ${ch.title}`}
+              />
+            ))}
+          </div>
+
           <motion.div
             style={styles.chapterContent}
             variants={containerVariants}
