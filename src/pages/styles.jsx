@@ -656,7 +656,7 @@ const style = {
     marginBottom: "3rem",
   },
   stepCard: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "15px",
     padding: "clamp(1.5rem, 3vw, 2rem)",
     boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
@@ -676,13 +676,13 @@ const style = {
   stepTitle: {
     fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
     fontWeight: "700",
-    color: "#333",
+    color: "#bde4ceff",
     marginBottom: "0.8rem",
   },
   stepDescription: {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
-    color: "#666",
+    color: "#4aa07cff",
   },
   stepFlow: {
     backgroundColor: "rgba(75, 177, 180, 0.1)",
@@ -695,7 +695,7 @@ const style = {
   flowText: {
     fontSize: "clamp(0.95rem, 1.7vw, 1.1rem)",
     lineHeight: 1.7,
-    color: "#333",
+    color: "#bde4ceff",
     textAlign: "center",
   },
   // Types section
