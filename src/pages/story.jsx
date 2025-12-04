@@ -128,8 +128,9 @@ const DevelopmentProcessStory = () => {
             {" "}
             <motion.div style={styles.introContent} animate={floatingAnimation}>
               {" "}
-              <motion.div style={styles.introIcon}> ☕ </motion.div>{" "}
-              <motion.h1 style={styles.contentIntroTitle}>
+              <motion.div style={styles.introIcon}> ☕ </motion.div>
+              {""}
+              <motion.h1 style={styles.introTitle}>
                 {" "}
                 Sarah's Coffee Shop App{" "}
               </motion.h1>{" "}
@@ -228,7 +229,7 @@ const DevelopmentProcessStory = () => {
           />
         ))}
       </div>
-
+      
       <AnimatePresence mode="wait" custom={currentChapter}>
         <motion.div
           key={currentChapter}
@@ -242,6 +243,7 @@ const DevelopmentProcessStory = () => {
             style={styles.chapterContent}
             variants={containerVariants}
           >
+
             {/* Chapter Icon */}
             <motion.div
               style={styles.chapterIcon}
@@ -318,7 +320,7 @@ const DevelopmentProcessStory = () => {
                     },
                   }}
                 >
-                  Let's Go Plan! 📋✨
+                  Let's Go Plan!
                 </motion.button>
               </motion.div>
             )}
@@ -367,18 +369,9 @@ const DevelopmentProcessStory = () => {
         >
           Next →
         </motion.button>
+
       </div>
-
-      {/* Chapter counter */}
-      <motion.div
-        style={styles.chapterCounter}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        Chapter {currentChapter + 1} of {chapters.length}
-      </motion.div>
-
+      
       {/* Background particles */}
       {[...Array(8)].map((_, i) => (
         <motion.div
@@ -400,11 +393,10 @@ const DevelopmentProcessStory = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["☕", "📱", "💻", "🚀", "✨"][Math.floor(Math.random() * 5)]}
+          {["☕", "📱 ", "💻 ", "🚀 ", "✨ "][Math.floor(Math.random() * 5)]}
         </motion.div>
       ))}
     </div>
   );
 };
-
 export default DevelopmentProcessStory;
