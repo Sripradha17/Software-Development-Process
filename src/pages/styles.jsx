@@ -172,7 +172,7 @@ const style = {
     justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
-    gap: "2rem",
+    gap: "1rem",
     minHeight: "200px",
     padding: "1rem",
   },
@@ -194,7 +194,6 @@ const style = {
     width: "100%",
     height: "100%",
     borderRadius: "15px",
-    padding: "1.5rem",
   },
   cardContent: {
     padding: "1.5rem",
@@ -216,7 +215,7 @@ const style = {
   },
   stageCircle: {
     width: "100%",
-    minHeight: "180px",
+    minHeight: "120px",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",

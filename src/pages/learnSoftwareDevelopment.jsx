@@ -47,10 +47,10 @@ const LearnSoftwareDevelopment = () => {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
-
       opacity: 1,
       transition: { duration: 0.6, delay: 1 },
     },
+
     hover: {
       scale: 1.05,
       transition: {
@@ -90,6 +90,7 @@ const LearnSoftwareDevelopment = () => {
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
+
       {backgroundParticles}
 
       <div style={styles.contentWrapper}>
@@ -118,7 +119,6 @@ const LearnSoftwareDevelopment = () => {
               style={{
                 ...styles.stageWrapper,
                 zIndex: selectedStage === stage.id ? 100 : 10,
-
                 width: selectedStage === stage.id ? "280px" : "120px",
                 height: selectedStage === stage.id ? "200px" : "120px",
               }}
@@ -190,9 +190,9 @@ const LearnSoftwareDevelopment = () => {
             Let me tell you a story
           </motion.span>
         </motion.button>
+        
       </div>
     </motion.div>
   );
 };
-
 export default LearnSoftwareDevelopment;
