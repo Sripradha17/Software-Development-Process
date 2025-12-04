@@ -569,10 +569,10 @@ const style = {
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
   },
   navItemActive: {
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4496a5ff 0%, #2dac6cff 100%)",
     color: "white",
     transform: "scale(1.1)",
-    boxShadow: "0 6px 20px rgba(102, 126, 234, 0.4)",
+    boxShadow: "0 6px 20px rgba(68, 150, 165, 0.4)",
   },
   // Content container
   contentContainer: {
@@ -608,14 +608,14 @@ const style = {
     fontWeight: "800",
     textAlign: "center",
     marginBottom: "3rem",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4bb1b4ff 0%, #325fa1ff 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
   // Intro card
   introCard: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "20px",
     padding: "clamp(1.5rem, 3vw, 3rem)",
     marginBottom: "2rem",
@@ -626,7 +626,7 @@ const style = {
   cardText: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     lineHeight: 1.8,
-    color: "#333",
+    color: "#bde4ceff",
     marginBottom: "2rem",
   },
   keyPoints: {
@@ -640,7 +640,7 @@ const style = {
     alignItems: "center",
     gap: "12px",
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
-    color: "#555",
+    color: "#bde4ceff",
   },
   keyPointIcon: {
     fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
@@ -666,7 +666,7 @@ const style = {
   stepNumber: {
     fontSize: "clamp(1.5rem, 3vw, 2rem)",
     fontWeight: "800",
-    color: "#667eea",
+    color: "#4aa07cff",
     marginBottom: "1rem",
   },
   stepIcon: {
@@ -685,7 +685,7 @@ const style = {
     color: "#666",
   },
   stepFlow: {
-    backgroundColor: "rgba(102, 126, 234, 0.1)",
+    backgroundColor: "rgba(75, 177, 180, 0.1)",
     borderRadius: "15px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
     marginBottom: "2rem",
@@ -901,7 +901,7 @@ const style = {
   jokePunchline: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontStyle: "italic",
-    color: "#667eea",
+    color: "#4aa07cff",
     fontWeight: "600",
     lineHeight: 1.6,
   },
@@ -933,11 +933,11 @@ const style = {
     fontWeight: "600",
     border: "none",
     borderRadius: "30px",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4496a5ff 0%, #2dac6cff 100%)",
     color: "white",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    boxShadow: "0 6px 25px rgba(102, 126, 234, 0.3)",
+    boxShadow: "0 6px 25px rgba(68, 150, 165, 0.3)",
     marginTop: "2rem",
   },
   buttonGroup: {
@@ -951,10 +951,10 @@ const style = {
     padding: "clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px)",
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontWeight: "600",
-    border: "2px solid #667eea",
+    border: "2px solid #4bb1b4ff",
     borderRadius: "30px",
     background: "white",
-    color: "#667eea",
+    color: "#4bb1b4ff",
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
@@ -965,11 +965,11 @@ const style = {
     fontWeight: "600",
     border: "none",
     borderRadius: "30px",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4496a5ff 0%, #2dac6cff 100%)",
     color: "white",
     cursor: "pointer",
     transition: "all 0.3s ease",
-    boxShadow: "0 6px 25px rgba(102, 126, 234, 0.3)",
+    boxShadow: "0 6px 25px rgba(68, 150, 165, 0.3)",
   },
   // Media query helpers for responsive design
   // Note: Responsive design is achieved using:
