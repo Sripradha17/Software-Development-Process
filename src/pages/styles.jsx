@@ -424,7 +424,7 @@ const style = {
     fontWeight: "800",
     textAlign: "center",
     marginBottom: "10px",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4bb1b4ff 0%, #325fa1ff 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -434,32 +434,36 @@ const style = {
     fontSize: "clamp(1rem, 2vw, 1.4rem)",
     fontWeight: "600",
     textAlign: "center",
-    color: "#666",
+    color: "#ffeb3b", // Bright yellow for subtitle
     marginBottom: "40px",
     fontStyle: "italic",
+    textShadow: "0 2px 8px rgba(0,0,0,0.7)", // Add shadow for readability
   },
   storyContent: {
     marginBottom: "40px",
     padding: "0 1rem",
   },
   storyLine: {
-    fontSize: "clamp(1rem, 2vw, 1.2rem)",
-    lineHeight: 1.8,
-    color: "#333",
-    marginBottom: "20px",
-    textAlign: "left",
+     fontSize: "clamp(1rem, 2vw, 1.2rem)",
+     lineHeight: 1.8,
+     color: "#fff", // Bright white for high contrast
+     marginBottom: "20px",
+     textAlign: "left",
+     textShadow: "0 2px 8px rgba(0,0,0,0.7)", // Add shadow for readability
   },
   bulletPoint: {
-    paddingLeft: "20px",
-    fontWeight: "500",
-    color: "#555",
+     paddingLeft: "20px",
+     fontWeight: "700",
+     color: "#ffeb3b", // Bright yellow for bullets
+     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   quoteLine: {
-    fontStyle: "italic",
-    color: "#4a5568",
-    borderLeft: "4px solid #667eea",
-    paddingLeft: "20px",
-    fontWeight: "500",
+     fontStyle: "italic",
+     color: "#00eaff", // Bright cyan for quotes
+     borderLeft: "4px solid #ffeb3b", // Bright yellow border
+     paddingLeft: "20px",
+     fontWeight: "700",
+     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   illustration: {
     fontSize: "clamp(40px, 6vw, 60px)",
