@@ -1,6 +1,51 @@
-
+/**
+* ============================================
+* CONSOLIDATED STYLES FOR SOFTWARE DEVELOPMENT PROCESS APP
+* ============================================
+*
+* This file contains all styling for the application pages including:
+* - IntroPage (Homepage)
+* - Learn Software Development Page
+* - Story Page
+* - Planning Page
+* - Analysis Page
+* - Design Page
+*
+* RESPONSIVE DESIGN APPROACH:
+* - Uses CSS clamp() for fluid, responsive typography and spacing
+* - Flexbox and Grid layouts with auto-fit/auto-fill for responsive
+containers
+* - Viewport units (vw, vh) and percentages for flexible sizing
+* - Global font-size adjustments in index.css for different
+breakpoints
+*
+* SCREEN SIZE BREAKPOINTS:
+* - Small (Mobile): < 480px
+* - Medium (Tablet Portrait): 480px - 768px
+* - Large (Tablet Landscape/Small Laptop): 768px - 1024px
+* - Extra Large (Desktop): > 1024px
+*
+* USAGE:
+* import styles from './styles';
+* <div style={styles.pageContainer}>...</div>
+*
+* Last Updated: December 2025
+* ============================================
+*/
 const style = {
-  //css for software development learn page
+  // ============================================
+  // GLOBAL & SHARED STYLES
+  // ============================================
+  // Common page container for all pages
+  pageContainer: {
+    minHeight: "100vh",
+    padding: "2rem",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    background: "linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)",
+    position: "relative",
+    overflow: "hidden",
+  },
+  // Software development intro page
   softwareDevIntro: {
     minHeight: "100vh",
     position: "relative",
@@ -9,19 +54,16 @@ const style = {
     justifyContent: "center",
     fontFamily: "Arial, sans-serif",
     padding: "20px",
-    "@media (maxWidth: 768px)": { padding: "10px" },
   },
-
   responsiveContainer: {
-    "@media (maxWidth: 1024px)": { padding: "15px" },
-    "@media (maxWidth: 768px)": { padding: "10px" },
+    maxWidth: "100%",
   },
-
+  // Back link styling - consistent across all pages
   backLink: {
     position: "absolute",
     top: "20px",
     left: "20px",
-    padding: "5px 24px",
+    padding: "8px 24px",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     color: "#0E7B71",
     textDecoration: "none",
@@ -34,54 +76,97 @@ const style = {
     zIndex: 1000,
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
   },
-
+  // ============================================
+  // INTRO PAGE (HOMEPAGE) STYLES
+  // ============================================
+  introContainer: {
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "2rem",
+    fontFamily: "'Segoe UI', sans-serif",
+    background: "linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)",
+  },
+  introTitle: {
+    fontSize: "clamp(2rem, 5vw, 3.5rem)",
+    fontWeight: "700",
+    color: "#1ABC9C",
+    marginBottom: "2rem",
+    textAlign: "center",
+    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+  },
+  mainImage: {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    marginBottom: "2rem",
+  },
+  introButton: {
+    height: "fit-content",
+    padding: "1rem 2rem",
+    fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
+    fontWeight: "600",
+    borderRadius: "30px",
+    border: "2px solid rgba(255, 255, 255, 0.3)",
+    backgroundColor: "rgba(26, 188, 156, 0.2)",
+    color: "#1ABC9C",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    backdropFilter: "blur(10px)",
+  },
+  buttonSection: {
+    marginTop: "2rem",
+    display: "flex",
+    gap: "2rem",
+    justifyContent: "center",
+    paddingBottom: "2rem",
+    flexWrap: "wrap",
+  },
+  // ============================================
+  // LEARN SOFTWARE DEVELOPMENT PAGE STYLES
+  // ============================================
   contentWrapper: {
     position: "relative",
     zIndex: 2,
     textAlign: "center",
     maxWidth: "1200px",
     width: "100%",
+    margin: "0 auto",
+    padding: "2rem",
     top: 30,
   },
-
   mainTitle: {
-    fontSize: "3.5rem",
+    fontSize: "clamp(2rem, 5vw, 3.5rem)",
     fontWeight: 700,
-    color: "#1ABC9C", // teal shade
+    color: "#1ABC9C",
     marginBottom: "2rem",
     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
     background:
-      "linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(26, 188, 156, 0.9)) text",
+      "linear-gradient(45deg, rgba(255, 255, 255, 0.9),rgba(26, 188, 156, 0.9))",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
-    "@media (maxWidth: 768px)": { fontSize: "2.5rem" },
-    "@media (maxWidth: 480px)": { fontSize: "2rem" },
   },
-
   descriptionSection: {
     marginBottom: "4rem",
     maxWidth: "800px",
     marginLeft: "auto",
     marginRight: "auto",
+    padding: "0 1rem",
   },
-
   mainDescription: {
-    fontSize: "1.2rem",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
     lineHeight: 1.8,
-    color: "#16A085", // teal shade
+    color: "#16A085",
     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)",
     background: "rgba(255, 255, 255, 0.1)",
     padding: "2rem",
     borderRadius: "15px",
     backdropFilter: "blur(10px)",
     border: "1px solid rgba(255, 255, 255, 0.2)",
-    "@media (maxWidth: 768px)": {
-      fontSize: "1rem",
-      padding: "1.5rem",
-    },
   },
-
   stagesContainer: {
     display: "flex",
     justifyContent: "center",
@@ -89,16 +174,15 @@ const style = {
     flexWrap: "wrap",
     gap: "2rem",
     minHeight: "200px",
-    "@media (maxWidth: 768px)": { gap: "1.5rem", padding: "1rem" },
-    "@media (maxWidth: 480px)": { gap: "1rem", flexDirection: "column" },
+    padding: "1rem",
   },
-
   stageWrapper: {
     position: "relative",
     cursor: "pointer",
     transition: "all 0.3s ease-in-out",
+    width: "100%",
+    maxWidth: "350px",
   },
-
   stageCard: {
     display: "flex",
     alignItems: "center",
@@ -109,50 +193,45 @@ const style = {
     backdropFilter: "blur(10px)",
     width: "100%",
     height: "100%",
+    borderRadius: "15px",
+    padding: "1.5rem",
   },
-
-  cardContent: { padding: "1.5rem", textAlign: "center" },
-
+  cardContent: {
+    padding: "1.5rem",
+    textAlign: "center",
+    width: "100%",
+  },
   cardTitle: {
-    fontSize: "2rem",
+    fontSize: "clamp(1.5rem, 3vw, 2rem)",
     fontWeight: "700",
     color: "rgb(2 253 255)",
     marginBottom: "20px",
   },
-
   cardDescription: {
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
     lineHeight: 1.5,
     opacity: 0.95,
     textShadow: "rgb(60 171 0) 3px 4px 2px",
     color: "rgb(2 253 255)",
-    "@media (maxWidth: 768px)": { fontSize: "0.8rem" },
   },
-
   stageCircle: {
     width: "100%",
-    height: "100%",
+    minHeight: "180px",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
     color: "white",
     fontWeight: 600,
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
     textAlign: "center",
     boxShadow: "0 8px 32px rgba(170, 188, 209, 0.3)",
     border: "2px solid rgba(23, 7, 68, 0.3)",
     backdropFilter: "blur(5px)",
     transition: "all 0.3s ease",
     overflow: "hidden",
-    ":hover": {
-      transform: "scale(1.1)",
-    },
-    "@media (maxWidth: 768px)": { fontSize: "0.8rem" },
-    "@media (maxWidth: 480px)": { fontSize: "0.7rem" },
+    padding: "1rem",
   },
-
   circleTitle: {
     padding: "10px",
     textShadow: "rgb(60 171 0) 3px 4px 2px",
@@ -160,36 +239,29 @@ const style = {
     position: "relative",
     color: "rgb(2 253 255)",
   },
-
   storyButton: {
     background:
       "linear-gradient(45deg, #A7FFF0, #0b3833ff, #1e7a74ff, #05463eff)",
     backgroundSize: "300% 300%",
     border: "none",
-    color: "#004F4F", // dark teal text
-    fontSize: "1.2rem",
+    color: "#004F4F",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
     fontWeight: 600,
     padding: "1rem 2.5rem",
     borderRadius: "50px",
     cursor: "pointer",
     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-    border: "2px solid rgba(0, 79, 79, 0.25)", // dark teal border tint
+    border: "2px solid rgba(0, 79, 79, 0.25)",
     backdropFilter: "blur(10px)",
     position: "relative",
     overflow: "hidden",
     marginTop: "3rem",
     marginBottom: "5rem",
     transition: "all 0.3s ease",
-    ":hover": {
-      transform: "translateY(-2px)",
-      boxShadow: "0 12px 40px rgba(0, 0, 0, 0.3)",
-    },
-    "@media (maxWidth: 768px)": { fontSize: "1rem", padding: "0.8rem 2rem" },
   },
-
   storyButtonSpan: {
     background:
-      "linear-gradient(45deg, #6ada4eff, #37b92cff, #338f21ff, #29610fff)", // dark-teal spectrum
+      "linear-gradient(45deg, #6ada4eff, #37b92cff,#338f21ff, #29610fff)",
     backgroundSize: "200% 200%",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -197,8 +269,17 @@ const style = {
     position: "relative",
     zIndex: 2,
   },
-
-  //story page styles
+  backgroundParticle: {
+    position: "absolute",
+    width: "10px",
+    height: "10px",
+    borderRadius: "50%",
+    background: "rgba(26, 188, 156, 0.5)",
+    pointerEvents: "none",
+  },
+  // ============================================
+  // STORY PAGE STYLES
+  // ============================================
   storyContainer: {
     minHeight: "100vh",
     position: "relative",
@@ -210,7 +291,6 @@ const style = {
     transition: "background 0.5s ease",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
   },
-
   introWrapper: {
     position: "relative",
     zIndex: 10,
@@ -219,27 +299,25 @@ const style = {
     textAlign: "center",
     marginTop: "5rem",
     gap: "20px",
+    padding: "1rem",
   },
-
   introContent: {
     backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "30px",
-    padding: "80px 60px",
+    padding: "clamp(2rem, 5vw, 5rem)",
     boxShadow: "50px 30px 20px rgba(43, 139, 151, 0.3)",
     backdropFilter: "blur(20px)",
     border: "3px solid rgba(255, 255, 255, 0.5)",
     position: "relative",
     zIndex: 2,
   },
-
   introIcon: {
-    fontSize: "100px",
+    fontSize: "clamp(60px, 10vw, 100px)",
     marginBottom: "30px",
     filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))",
   },
-
-  introTitle: {
-    fontSize: "3.5rem",
+  contentIntroTitle: {
+    fontSize: "clamp(2rem, 5vw, 3.5rem)",
     fontWeight: "900",
     background: "linear-gradient(135deg, #4bb1b4ff 0%, #325fa1ff 100%)",
     WebkitBackgroundClip: "text",
@@ -248,27 +326,25 @@ const style = {
     marginBottom: "15px",
     lineHeight: 1.2,
   },
-
   introSubtitle: {
-    fontSize: "1.8rem",
+    fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
     color: "#4aa07cff",
     fontWeight: "600",
     marginBottom: "30px",
     fontStyle: "italic",
   },
-
   introDescription: {
-    fontSize: "1.3rem",
+    fontSize: "clamp(1rem, 2vw, 1.3rem)",
     color: "#bde4ceff",
     lineHeight: 1.8,
     marginBottom: "50px",
     maxWidth: "600px",
     margin: "0 auto 50px",
+    padding: "0 1rem",
   },
-
   startButton: {
-    padding: "18px 50px",
-    fontSize: "1.3rem",
+    padding: "clamp(12px, 2vw, 18px) clamp(30px, 5vw, 50px)",
+    fontSize: "clamp(1rem, 2vw, 1.3rem)",
     fontWeight: "700",
     border: "none",
     borderRadius: "50px",
@@ -278,15 +354,12 @@ const style = {
     transition: "all 0.3s ease",
     boxShadow: "0 10px 30px rgba(151, 198, 206, 0.4)",
   },
-
   floatingBean: {
     position: "absolute",
-    fontSize: "30px",
+    fontSize: "clamp(20px, 3vw, 30px)",
     zIndex: 1,
     pointerEvents: "none",
   },
-
-  //story tiles styles
   progressContainer: {
     position: "fixed",
     top: 0,
@@ -296,17 +369,15 @@ const style = {
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     zIndex: 999,
   },
-
   progressBar: {
     height: "100%",
     transition: "background 0.5s ease",
     boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
   },
-
   dotsContainer: {
-    position: "relative",
-    bottom: "450px",
-    left: "63%",
+    position: "fixed",
+    bottom: "clamp(100px, 15vw, 450px)",
+    left: "50%",
     transform: "translateX(-50%)",
     display: "flex",
     gap: "12px",
@@ -315,8 +386,10 @@ const style = {
     padding: "10px 20px",
     borderRadius: "30px",
     backdropFilter: "blur(10px)",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    maxWidth: "90%",
   },
-
   dot: {
     border: "none",
     borderRadius: "50%",
@@ -324,34 +397,30 @@ const style = {
     transition: "all 0.3s ease",
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
   },
-
   chapterContainer: {
     maxWidth: "900px",
     width: "100%",
-    padding: "80px",
+    padding: "clamp(1rem, 5vw, 5rem)",
     position: "relative",
     justifyContent: "center",
     zIndex: 10,
   },
-
   chapterContent: {
     backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "30px",
-    padding: "100px 80px",
+    padding: "clamp(2rem, 5vw, 6rem) clamp(1.5rem, 4vw, 5rem)",
     boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3)",
     backdropFilter: "blur(20px)",
     border: "2px solid rgba(255, 255, 255, 0.5)",
   },
-
   chapterIcon: {
-    fontSize: "80px",
+    fontSize: "clamp(50px, 8vw, 80px)",
     textAlign: "center",
     marginBottom: "20px",
     filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))",
   },
-
   chapterTitle: {
-    fontSize: "2.8rem",
+    fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
     fontWeight: "800",
     textAlign: "center",
     marginBottom: "10px",
@@ -361,27 +430,30 @@ const style = {
     backgroundClip: "text",
     lineHeight: 1.2,
   },
-
   chapterSubtitle: {
-    fontSize: "1.4rem",
+    fontSize: "clamp(1rem, 2vw, 1.4rem)",
     fontWeight: "600",
     textAlign: "center",
     color: "#666",
     marginBottom: "40px",
     fontStyle: "italic",
   },
-
-  storyContent: { marginBottom: "40px" },
-
+  storyContent: {
+    marginBottom: "40px",
+    padding: "0 1rem",
+  },
   storyLine: {
-    fontSize: "1.2rem",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
     lineHeight: 1.8,
     color: "#333",
     marginBottom: "20px",
     textAlign: "left",
   },
-
-  bulletPoint: { paddingLeft: "20px", fontWeight: "500", color: "#555" },
+  bulletPoint: {
+    paddingLeft: "20px",
+    fontWeight: "500",
+    color: "#555",
+  },
   quoteLine: {
     fontStyle: "italic",
     color: "#4a5568",
@@ -389,19 +461,19 @@ const style = {
     paddingLeft: "20px",
     fontWeight: "500",
   },
-
   illustration: {
-    fontSize: "60px",
+    fontSize: "clamp(40px, 6vw, 60px)",
     textAlign: "center",
     marginTop: "30px",
     filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))",
   },
-
-  planButtonContainer: { marginTop: "40px", textAlign: "center" },
-
+  planButtonContainer: {
+    marginTop: "40px",
+    textAlign: "center",
+  },
   planButton: {
-    padding: "18px 45px",
-    fontSize: "1.3rem",
+    padding: "clamp(12px, 2vw, 18px) clamp(30px, 4vw, 45px)",
+    fontSize: "clamp(1rem, 2vw, 1.3rem)",
     fontWeight: "700",
     border: "none",
     borderRadius: "50px",
@@ -411,25 +483,26 @@ const style = {
     transition: "all 0.3s ease",
     boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)",
   },
-
   controls: {
     position: "fixed",
     bottom: "30px",
     left: "50%",
     transform: "translateX(-50%)",
     display: "flex",
-    gap: "20px",
+    gap: "clamp(10px, 2vw, 20px)",
     zIndex: 999,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     padding: "15px 25px",
     borderRadius: "50px",
     backdropFilter: "blur(10px)",
     border: "2px solid rgba(255, 255, 255, 0.3)",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    maxWidth: "90%",
   },
-
   navButton: {
-    padding: "12px 30px",
-    fontSize: "1rem",
+    padding: "clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px)",
+    fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
     fontWeight: "600",
     border: "none",
     borderRadius: "30px",
@@ -438,11 +511,11 @@ const style = {
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    whiteSpace: "nowrap",
   },
-
   playButton: {
-    padding: "12px 30px",
-    fontSize: "1rem",
+    padding: "clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px)",
+    fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
     fontWeight: "600",
     border: "none",
     borderRadius: "30px",
@@ -450,33 +523,476 @@ const style = {
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+    whiteSpace: "nowrap",
   },
-
   chapterCounter: {
     position: "fixed",
-    bottom: "100px",
+    bottom: "clamp(80px, 12vw, 100px)",
     left: "50%",
     transform: "translateX(-50%)",
     padding: "8px 20px",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     color: "#333",
     borderRadius: "20px",
-    fontSize: "0.9rem",
+    fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
     fontWeight: "600",
     backdropFilter: "blur(10px)",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
     zIndex: 999,
   },
-
   particle: {
     position: "absolute",
     pointerEvents: "none",
     zIndex: 1,
     opacity: 0,
   },
-
-
-  
+  // ============================================
+  // PLANNING, ANALYSIS & DESIGN PAGES STYLES
+  // ============================================
+  // Floating navigation
+  floatingNav: {
+    position: "fixed",
+    top: "50%",
+    right: "clamp(10px, 2vw, 20px)",
+    transform: "translateY(-50%)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "clamp(10px, 1.5vw, 15px)",
+    zIndex: 1000,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    padding: "clamp(10px, 1.5vw, 15px) clamp(8px, 1.2vw, 10px)",
+    borderRadius: "50px",
+    backdropFilter: "blur(10px)",
+    border: "2px solid rgba(255, 255, 255, 0.2)",
+  },
+  navItem: {
+    background: "rgba(255, 255, 255, 0.8)",
+    border: "none",
+    borderRadius: "50%",
+    width: "clamp(35px, 4vw, 50px)",
+    height: "clamp(35px, 4vw, 50px)",
+    fontSize: "clamp(1rem, 1.8vw, 1.5rem)",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+  },
+  navItemActive: {
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "white",
+    transform: "scale(1.1)",
+    boxShadow: "0 6px 20px rgba(102, 126, 234, 0.4)",
+  },
+  // Content container
+  contentContainer: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "clamp(2rem, 4vw, 4rem) clamp(1rem, 2vw, 2rem)",
+    paddingTop: "80px",
+  },
+  // Section styles
+  section: {
+    minHeight: "80vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "clamp(1rem, 3vw, 2rem)",
+  },
+  heroIcon: {
+    fontSize: "clamp(60px, 10vw, 100px)",
+    marginBottom: "2rem",
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: "clamp(1rem, 2vw, 1.3rem)",
+    color: "#bde4ceff",
+    textAlign: "center",
+    marginBottom: "3rem",
+    fontStyle: "italic",
+    fontWeight: "500",
+  },
+  sectionTitle: {
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    fontWeight: "800",
+    textAlign: "center",
+    marginBottom: "3rem",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
+  // Intro card
+  introCard: {
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "20px",
+    padding: "clamp(1.5rem, 3vw, 3rem)",
+    marginBottom: "2rem",
+    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+    maxWidth: "800px",
+    width: "100%",
+  },
+  cardText: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    lineHeight: 1.8,
+    color: "#333",
+    marginBottom: "2rem",
+  },
+  keyPoints: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "1.5rem",
+    marginTop: "2rem",
+  },
+  keyPoint: {
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+    color: "#555",
+  },
+  keyPointIcon: {
+    fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+    flexShrink: 0,
+  },
+  // Steps section
+  stepsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "clamp(1.5rem, 3vw, 2rem)",
+    width: "100%",
+    maxWidth: "1200px",
+    marginBottom: "3rem",
+  },
+  stepCard: {
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "15px",
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+  },
+  stepNumber: {
+    fontSize: "clamp(1.5rem, 3vw, 2rem)",
+    fontWeight: "800",
+    color: "#667eea",
+    marginBottom: "1rem",
+  },
+  stepIcon: {
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    marginBottom: "1rem",
+  },
+  stepTitle: {
+    fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+    fontWeight: "700",
+    color: "#333",
+    marginBottom: "0.8rem",
+  },
+  stepDescription: {
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+    lineHeight: 1.6,
+    color: "#666",
+  },
+  stepFlow: {
+    backgroundColor: "rgba(102, 126, 234, 0.1)",
+    borderRadius: "15px",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
+    marginBottom: "2rem",
+    maxWidth: "800px",
+    width: "100%",
+  },
+  flowText: {
+    fontSize: "clamp(0.95rem, 1.7vw, 1.1rem)",
+    lineHeight: 1.7,
+    color: "#333",
+    textAlign: "center",
+  },
+  // Types section
+  typesContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "clamp(1.5rem, 3vw, 2.5rem)",
+    width: "100%",
+    maxWidth: "1200px",
+    marginBottom: "3rem",
+  },
+  typeCard: {
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "20px",
+    overflow: "hidden",
+    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s ease",
+  },
+  typeHeader: {
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+    display: "flex",
+    alignItems: "center",
+    gap: "15px",
+    color: "white",
+  },
+  typeEmoji: {
+    fontSize: "clamp(2rem, 4vw, 2.5rem)",
+  },
+  typeName: {
+    fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+    fontWeight: "700",
+    margin: 0,
+  },
+  typeContent: {
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+  },
+  storyTitle: {
+    fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+    fontWeight: "700",
+    color: "#333",
+    marginBottom: "1rem",
+  },
+  storyScenario: {
+    fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
+    lineHeight: 1.7,
+    color: "#666",
+    marginBottom: "1.5rem",
+  },
+  revealButton: {
+    width: "100%",
+    padding: "clamp(10px, 2vw, 12px) clamp(20px, 3vw, 24px)",
+    fontSize: "clamp(0.95rem, 1.6vw, 1rem)",
+    fontWeight: "600",
+    border: "none",
+    borderRadius: "10px",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    marginBottom: "1rem",
+  },
+  failureBox: {
+    backgroundColor: "#fff5f5",
+    border: "2px solid #feb2b2",
+    borderRadius: "10px",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
+    marginTop: "1rem",
+  },
+  failureTitle: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "700",
+    color: "#c53030",
+    marginBottom: "0.5rem",
+  },
+  failureText: {
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+    lineHeight: 1.6,
+    color: "#742a2a",
+  },
+  fixBox: {
+    backgroundColor: "#f0fff4",
+    border: "2px solid #9ae6b4",
+    borderRadius: "10px",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
+    marginTop: "1rem",
+  },
+  fixTitle: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "700",
+    color: "#22543d",
+    marginBottom: "0.5rem",
+  },
+  fixText: {
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+    lineHeight: 1.6,
+    color: "#22543d",
+  },
+  // Drawbacks section
+  drawbackIntro: {
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    lineHeight: 1.8,
+    color: "#bde4ceff",
+    textAlign: "center",
+    marginBottom: "3rem",
+    maxWidth: "800px",
+    padding: "0 1rem",
+  },
+  drawbacksGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "clamp(1.5rem, 3vw, 2rem)",
+    width: "100%",
+    maxWidth: "1200px",
+    marginBottom: "3rem",
+  },
+  drawbackCard: {
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "15px",
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+    position: "relative",
+  },
+  drawbackIcon: {
+    fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+    marginBottom: "1rem",
+    textAlign: "center",
+  },
+  drawbackTitle: {
+    fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+    fontWeight: "700",
+    color: "#c53030",
+    marginBottom: "1rem",
+    textAlign: "center",
+  },
+  drawbackProblem: {
+    fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
+    lineHeight: 1.7,
+    color: "#666",
+    marginBottom: "1.5rem",
+    textAlign: "center",
+  },
+  resolutionBox: {
+    backgroundColor: "#f0fff4",
+    border: "2px solid #9ae6b4",
+    borderRadius: "10px",
+    padding: "clamp(1rem, 2vw, 1.5rem)",
+    marginTop: "1rem",
+  },
+  resolutionTitle: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "700",
+    color: "#22543d",
+    marginBottom: "0.5rem",
+  },
+  resolutionText: {
+    fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
+    lineHeight: 1.6,
+    color: "#22543d",
+  },
+  tapHint: {
+    fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
+    color: "#999",
+    textAlign: "center",
+    marginTop: "1rem",
+    fontStyle: "italic",
+  },
+  // Joke section
+  jokeContainer: {
+    maxWidth: "800px",
+    width: "100%",
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "20px",
+    padding: "clamp(2rem, 4vw, 3rem)",
+    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+  },
+  jokeIcon: {
+    fontSize: "clamp(60px, 10vw, 80px)",
+    textAlign: "center",
+    marginBottom: "1.5rem",
+  },
+  jokeTitle: {
+    fontSize: "clamp(1.5rem, 3vw, 2rem)",
+    fontWeight: "700",
+    color: "#333",
+    textAlign: "center",
+    marginBottom: "2rem",
+  },
+  jokeBox: {
+    backgroundColor: "#fef5e7",
+    borderRadius: "15px",
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+    marginBottom: "1.5rem",
+    border: "2px solid #f9e79f",
+  },
+  jokeSetup: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: "1rem",
+    lineHeight: 1.6,
+  },
+  jokePunchline: {
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontStyle: "italic",
+    color: "#667eea",
+    fontWeight: "600",
+    lineHeight: 1.6,
+  },
+  wisdomBox: {
+    backgroundColor: "#e8f5e9",
+    borderRadius: "15px",
+    padding: "clamp(1.5rem, 3vw, 2rem)",
+    marginTop: "2rem",
+    marginBottom: "2rem",
+    border: "2px solid #81c784",
+  },
+  wisdomText: {
+    fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+    fontWeight: "700",
+    color: "#1b5e20",
+    marginBottom: "1rem",
+    textAlign: "center",
+  },
+  wisdomExplanation: {
+    fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
+    lineHeight: 1.7,
+    color: "#2e7d32",
+    textAlign: "center",
+  },
+  // Button styles
+  nextButton: {
+    padding: "clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px)",
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "600",
+    border: "none",
+    borderRadius: "30px",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 6px 25px rgba(102, 126, 234, 0.3)",
+    marginTop: "2rem",
+  },
+  buttonGroup: {
+    display: "flex",
+    gap: "clamp(1rem, 2vw, 1.5rem)",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: "2rem",
+  },
+  homeButton: {
+    padding: "clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px)",
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "600",
+    border: "2px solid #667eea",
+    borderRadius: "30px",
+    background: "white",
+    color: "#667eea",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+  },
+  nextPhaseButton: {
+    padding: "clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px)",
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "600",
+    border: "none",
+    borderRadius: "30px",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 6px 25px rgba(102, 126, 234, 0.3)",
+  },
+  // Media query helpers for responsive design
+  // Note: Responsive design is achieved using:
+  // 1. clamp() for fluid typography and spacing
+  // 2. flexbox and grid with auto-fit/auto-fill for layouts
+  // 3. percentage and viewport units for sizing
+  // 4. Global CSS media queries in index.css for font-size
+  //
+  // Screen size breakpoints:
+  // - Small: < 480px (mobile phones)
+  // - Medium: 480px - 768px (tablets portrait)
+  // - Large: 768px - 1024px (tablets landscape, small laptops)
+  // - Extra Large: > 1024px (desktops)
 };
-
 export default style;

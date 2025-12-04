@@ -18,10 +18,8 @@ function App() {
         <Route path="/planning" element={<PlanningPage />} />
         <Route path="/analysis" element={<AnalysisPage />} />
         <Route path="/design" element={<DesignPage />} />
-
       </Routes>
     </Router>
   );
 }
-
 export default App;

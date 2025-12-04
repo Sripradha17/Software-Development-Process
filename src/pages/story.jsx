@@ -129,7 +129,7 @@ const DevelopmentProcessStory = () => {
             <motion.div style={styles.introContent} animate={floatingAnimation}>
               {" "}
               <motion.div style={styles.introIcon}> ☕ </motion.div>{" "}
-              <motion.h1 style={styles.introTitle}>
+              <motion.h1 style={styles.contentIntroTitle}>
                 {" "}
                 Sarah's Coffee Shop App{" "}
               </motion.h1>{" "}
