@@ -56,8 +56,8 @@ const planningTypes = [
       failure: `❌ Halfway through construction, they discovered the
 soil couldn't support their planned foundation. But
 all plans were 'locked in' - no flexibility to adapt. The project
-halted for 4 months while they re-planned everything from scratch.",
-fix: "✅ BuildCo learned to include 'validation checkpoints' in their
+halted for 4 months while they re-planned everything from scratch.`,
+fix: `✅ BuildCo learned to include 'validation checkpoints' in their
 waterfall plans. Now they do soil testing and
 prototype key components BEFORE finalizing all plans. They still plan
 upfront but validate assumptions early.`,
@@ -76,8 +76,8 @@ upfront but validate assumptions early.`,
       failure: `❌ After 6 months, they had 30 small features but no
 cohesive product. The app was confusing - users
 couldn't figure out how to order! They never planned the 'big picture'
-of user experience.",
-fix: "✅ They adopted 'dual-track agile' - maintain a lightweight
+of user experience.`,
+fix: `✅ They adopted 'dual-track agile' - maintain a lightweight
 long-term vision (the 'north star') while planning details in sprints.
 Now each sprint aligns with the overall product vision, creating both
 flexibility AND coherence.`,
@@ -96,8 +96,8 @@ flexibility AND coherence.`,
       failure: `❌ The security team (waterfall mode) took 8 months to
 finalize requirements. Meanwhile, the feature
 team (agile mode) built 5 modules that didn't meet those security
-requirements. Massive rework needed!",
-fix: "✅ They created 'synchronized gates' - security team provides
+requirements. Massive rework needed`,
+fix: `✅ They created 'synchronized gates' - security team provides
 incremental guidelines every 2 weeks, not all at once. Both teams now
 work in aligned sprints. Fixed architecture evolves with just-in-time
 details that guide (not block) agile development.`,

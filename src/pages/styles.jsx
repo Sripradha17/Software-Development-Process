@@ -706,13 +706,18 @@ const style = {
     width: "100%",
     maxWidth: "1200px",
     marginBottom: "3rem",
+    alignItems: "stretch",
   },
   typeCard: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "20px",
     overflow: "hidden",
-    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
     transition: "all 0.3s ease",
+    border: "2px solid rgba(255,255,255,0.05)",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
   },
   typeHeader: {
     padding: "clamp(1.5rem, 3vw, 2rem)",
@@ -731,17 +736,21 @@ const style = {
   },
   typeContent: {
     padding: "clamp(1.5rem, 3vw, 2rem)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    flexGrow: 1,
   },
   storyTitle: {
     fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
     fontWeight: "700",
-    color: "#333",
+    color: "#bde4ceff",
     marginBottom: "1rem",
   },
   storyScenario: {
     fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
     lineHeight: 1.7,
-    color: "#666",
+    color: "#4aa07cff",
     marginBottom: "1.5rem",
   },
   revealButton: {
@@ -755,6 +764,7 @@ const style = {
     cursor: "pointer",
     transition: "all 0.3s ease",
     marginBottom: "1rem",
+    marginTop: "auto",
   },
   failureBox: {
     backgroundColor: "#fff5f5",
