@@ -320,7 +320,7 @@ const DevelopmentProcessStory = () => {
                     },
                   }}
                 >
-                  Let's Go Plan! 📋 ✨
+                  Let's Go Plan!
                 </motion.button>
               </motion.div>
             )}
@@ -371,16 +371,6 @@ const DevelopmentProcessStory = () => {
         </motion.button>
 
       </div>
-
-      {/* Chapter counter */}
-      <motion.div
-        style={styles.chapterCounter}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        Chapter {currentChapter + 1} of {chapters.length}
-      </motion.div>
       
       {/* Background particles */}
       {[...Array(8)].map((_, i) => (
