@@ -138,7 +138,7 @@ const style = {
     top: 30,
   },
   mainTitle: {
-    fontSize: "clamp(2rem, 5vw, 3.5rem)",
+    fontSize: "clamp(2rem, 5vw, 2.5rem)",
     fontWeight: 700,
     color: "#1ABC9C",
     marginBottom: "2rem",
@@ -148,6 +148,7 @@ const style = {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
+    width: "fit-content",
   },
   descriptionSection: {
     marginBottom: "4rem",

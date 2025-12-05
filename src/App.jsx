@@ -5,6 +5,7 @@ import DevelopmentProcessStory from "./pages/story";
 import PlanningPage from "./pages/planning";
 import AnalysisPage from "./pages/analysis";
 import DesignPage from "./pages/design";
+import ImplementationPage from "./pages/implementation";
 function App() {
   return (
     <Router>
@@ -18,6 +19,8 @@ function App() {
         <Route path="/planning" element={<PlanningPage />} />
         <Route path="/analysis" element={<AnalysisPage />} />
         <Route path="/design" element={<DesignPage />} />
+        <Route path="/implementation" element={<ImplementationPage />} />
+        
       </Routes>
     </Router>
   );
