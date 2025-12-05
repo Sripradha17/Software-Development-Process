@@ -1,10 +1,12 @@
+
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { designSteps, designTypes, drawbacks } from "./constants/design";
+import { implementationSteps, implementationTypes, drawbacks } from "./constants/implementation";
 import styles from "./styles";
 
-const DesignPage = () => {
+const ImplementationPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -30,14 +32,13 @@ const DesignPage = () => {
 
   const floatAnimation = {
     y: [0, -10, 0],
-
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
   };
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/analysis" style={styles.backLink}>
-        ← Back to Analysis
+      <Link to="/design" style={styles.backLink}>
+        ← Back to Design
       </Link>
 
       {/* Floating navigation */}
@@ -51,8 +52,9 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🎨
+          🛠️
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -62,8 +64,9 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🏗️
+          🚀
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -73,8 +76,9 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📖
+          📚
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -84,15 +88,16 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠️
+          ⚠
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
             ...(activeSection === "joke" && styles.navItemActive),
           }}
           onClick={() => setActiveSection("joke")}
-          whileHover={{ scale: 1.05 }}
+          while3Hover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           😄
@@ -112,47 +117,43 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🎨✨
+                🛠️ ✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                {" "}
-                Design in Software Development
+                Implementation in Software Development
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                {" "}
-                Creating the Blueprint for Your Software Solution
+                Turning Plans into Reality
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Design?</h2>
+                <h2 style={styles.cardTitle}>What is Implementation?</h2>
+
                 <p style={styles.cardText}>
-                  Design is the <strong>creative and technical process</strong>{" "}
-                  of architecting how your software will be structured, how
-                  components will interact, what the user interface will look
-                  like, and how data will flow. It's the bridge between{" "}
-                  <em>understanding the problem</em> (analysis) and{" "}
-                  <em>building the solution</em> (implementation).
+                  Implementation is the <strong>hands-on process</strong> of building, coding, and integrating the planned solution. It's where ideas and designs are transformed into a working product.
                 </p>
+
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🏗️</span>
-                    <span>Creates a blueprint that guides development</span>
+                    <span style={styles.keyPointIcon}>💻 </span>
+                    <span>Translates designs into working code</span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
-                    <span>
-                      Balances performance, scalability, and maintainability
-                    </span>
+                    <span style={styles.keyPointIcon}>🔗 </span>
+                    <span>Integrates components and systems</span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🎯</span>
-                    <span>Aligns technical decisions with business goals</span>
+                    <span style={styles.keyPointIcon}>🧪 </span>
+                    <span>Requires testing and validation</span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💡</span>
-                    <span>Prevents costly architectural mistakes early</span>
+                    <span style={styles.keyPointIcon}>🤝 </span>
+                    <span>Involves collaboration and communication</span>
                   </div>
                 </div>
               </motion.div>
@@ -168,7 +169,6 @@ const DesignPage = () => {
               </motion.button>
             </motion.div>
           )}
-
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -180,12 +180,10 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                6 Essential Design Steps
+                6 Essential Implementation Steps
               </motion.h1>
-
               <div style={styles.stepsGrid}>
-                {designSteps.map((step, index) => (
+                {implementationSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -206,11 +204,7 @@ const DesignPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Good design is like architecture
-                  for buildings - you wouldn't start construction without
-                  blueprints. Similarly, don't start coding without a solid
-                  design that considers scalability, maintainability, and user
-                  experience.
+                  💡 <strong>Remember:</strong> Implementation is iterative! You'll often refactor and improve as you build. Embrace feedback and adapt as needed.
                 </p>
               </motion.div>
 
@@ -221,12 +215,12 @@ const DesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Design Types →
+                See Implementation Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* DESIGN TYPES WITH STORIES */}
+          {/* IMPLEMENTATION TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -237,19 +231,20 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                Design Approaches: Lessons from the Field
+                Implementation Approaches: Tales of Success & Failure
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {designTypes.map((type, index) => (
+                {implementationTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
                     variants={itemVariants}
                     custom={index}
                   >
-                    <div style={{ ...styles.typeHeader, background: type.color }}>
+                    <div
+                      style={{ ...styles.typeHeader, background: type.color }}
+                    >
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
@@ -257,7 +252,10 @@ const DesignPage = () => {
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
                       <motion.button
-                        style={{ ...styles.revealButton, background: type.color }}
+                        style={{
+                          ...styles.revealButton,
+                          background: type.color,
+                        }}
                         onClick={() => {
                           setModalData({
                             name: type.name,
@@ -325,6 +323,7 @@ const DesignPage = () => {
           )}
 
           {/* DRAWBACKS SECTION */}
+
           {activeSection === "drawbacks" && (
             <motion.div
               key="drawbacks"
@@ -335,16 +334,11 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                Major Design Pitfalls & Solutions
+                Major Drawbacks & Their Resolutions
               </motion.h1>
-
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                {" "}
-                Avoid these common design mistakes that plague software
-                projects:
+                Even the best implementation has pitfalls. Here's how to overcome them:
               </motion.p>
-
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
                   <motion.div
@@ -390,7 +384,6 @@ const DesignPage = () => {
                   </motion.div>
                 ))}
               </div>
-
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("joke")}
@@ -402,7 +395,6 @@ const DesignPage = () => {
               </motion.button>
             </motion.div>
           )}
-
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -428,12 +420,10 @@ const DesignPage = () => {
                 >
                   😂
                 </motion.div>
-
-                <h2 style={styles.jokeTitle}>Design Humor Break!</h2>
-
+                <h2 style={styles.jokeTitle}>Implementation Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why do architects always carry a pencil and eraser?
+                    Q: Why did the developer go broke after implementing a new feature?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -441,15 +431,12 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because every design is perfect... until stakeholders see
-                    it! ✏️🗑️
+                    A: Because he used up all his cache! 💸
                   </motion.p>
                 </div>
-
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: What's the difference between a well-designed system and
-                    a poorly designed one?
+                    Q: How do programmers enjoy their implementation phase?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -457,13 +444,12 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: About 6 months and 3 complete rewrites! 🏗️😅
+                    A: By pushing all the right buttons! 😅
                   </motion.p>
                 </div>
-
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A UX designer walks into a bar...
+                    A developer, a tester, and a project manager walk into a sprint...
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -471,13 +457,13 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    ...and immediately redesigns it because the door should have
-                    been more intuitive, the menu needed better information
-                    architecture, and don't even get them started on the poor
-                    accessibility of the bar stools! 🍺🎨
+                    The developer says "Let's implement!"
+                    <br />
+                    The tester says "Let's break it!"
+                    <br />
+                    The project manager says "Let's document it!" 📝
                   </motion.p>
                 </div>
-
                 <motion.div
                   style={styles.wisdomBox}
                   initial={{ opacity: 0, y: 20 }}
@@ -485,20 +471,12 @@ const DesignPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭{" "}
-                    <em>
-                      "Design is not just what it looks like and feels like.
-                      Design is how it works."
-                    </em>{" "}
-                    - Steve Jobs
+                    💭 <em>"The best code is no code at all."</em> - Jeff Atwood
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Great design isn't just about aesthetics - it's about
-                    creating systems that are scalable, maintainable, and
-                    actually solve real problems elegantly!
+                    Simplicity in implementation leads to maintainable and robust software. Build only what is needed!
                   </p>
                 </motion.div>
-
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
@@ -509,18 +487,17 @@ const DesignPage = () => {
                   >
                     🏠 Back to Start
                   </motion.button>
-
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/implementation")}
+                    onClick={() => navigate("/testing")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
-                        "0 10px 30px rgba(255, 234, 167, 0.4)",
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -531,7 +508,7 @@ const DesignPage = () => {
                       },
                     }}
                   >
-                    Next: Implementation 💻✨
+                    Next: Testing 🔍 ✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -539,7 +516,6 @@ const DesignPage = () => {
           )}
         </AnimatePresence>
       </div>
-
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -560,11 +536,10 @@ const DesignPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🎨", "🏗️", "📐", "💡", "✨"][i % 5]}
+          {["🛠️ ", "🚀 ", "💻 ", "🧪 ", "✨ "][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-
-export default DesignPage;
+export default ImplementationPage;

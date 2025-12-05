@@ -61,10 +61,8 @@ const designTypes = [
       title: "The Social Media Platform",
       scenario:
         "SocialNet designed a monolithic architecture where all features (posts, messages, notifications, feeds) lived in one massive application. Initially, deployment was simple - just one codebase.",
-      failure: `❌ As they grew to 10 million users, the single server couldn't handle the load. Worse, a bug in the
-messaging feature crashed the ENTIRE platform - posts, feeds, everything went down. Scaling meant duplicating the whole massive app, wasting resources on underused features.",
-fix: "✅ They redesigned using Microservices Architecture - separated into independent services: PostService,
-MessageService, NotificationService, etc. Each could scale independently. When messaging went down, posts still worked! They could deploy bug fixes to one service without touching others. Result: 99.99% uptime achieved.`,
+      failure: "❌ As they grew to 10 million users, the single server couldn't handle the load. Worse, a bug in the messaging feature crashed the ENTIRE platform - posts, feeds, everything went down. Scaling meant duplicating the whole massive app, wasting resources on underused features.",
+      fix: "✅ They redesigned using Microservices Architecture - separated into independent services: PostService, MessageService, NotificationService, etc. Each could scale independently. When messaging went down, posts still worked! They could deploy bug fixes to one service without touching others. Result: 99.99% uptime achieved."
     },
   },
   {
@@ -77,10 +75,8 @@ MessageService, NotificationService, etc. Each could scale independently. When m
       title: "The E-Learning Platform",
       scenario:
         "EduTech designed their database with a single 'Users' table storing students, teachers, admins, and parents. They thought 'everyone is a user, right?' and added columns: has_teaching_degree, student_grade_level, parent_of_student_id.",
-      failure: `❌ The table became a nightmare with 50+ columns, most NULL for any given user. Queries were slow
-(scanning irrelevant columns). Adding new user types meant altering the massive table. A student accidentally got marked as 'has_teaching_degree=true' and could grade assignments!",
-fix: "✅ They redesigned using Table-Per-Type pattern: Base 'Users' table with common fields (name, email),
-plus separate Student, Teacher, Admin, Parent tables linked via foreign keys. Clean structure, fast queries, type-safe operations. Added role-based access control. Query performance improved 10x.`,
+      failure: "❌ The table became a nightmare with 50+ columns, most NULL for any given user. Queries were slow (scanning irrelevant columns). Adding new user types meant altering the massive table. A student accidentally got marked as 'has_teaching_degree=true' and could grade assignments!",
+      fix: "✅ They redesigned using Table-Per-Type pattern: Base 'Users' table with common fields (name, email), plus separate Student, Teacher, Admin, Parent tables linked via foreign keys. Clean structure, fast queries, type-safe operations. Added role-based access control. Query performance improved 10x."
     },
   },
   {
@@ -93,12 +89,8 @@ plus separate Student, Teacher, Admin, Parent tables linked via foreign keys. Cl
       title: "The Food Ordering App",
       scenario:
         "FoodieGo designers created a beautiful app with animated transitions, custom fonts, parallax scrolling, and vibrant gradients. It looked stunning in design showcases and won awards for aesthetics.",
-      failure: `❌ Real users struggled! The custom font was hard to read. Animations made the app feel sluggish.
-The 'Order' button was hidden at the bottom requiring scrolling. Users took an average of 47 seconds to place an order - competitors averaged 12 seconds. Conversion rate: 8% (industry average: 35%).",
-fix: "✅ They applied Jakob's Law: 'Users spend most of their time on OTHER sites' - follow familiar patterns.
-Redesigned with: Standard readable font, prominent 'Order' button, simplified navigation, reduced animations. Added
- 
-A/B testing to validate every design decision with real user data. Order time dropped to 9 seconds, conversion jumped to 42%.`,
+      failure: "❌ Real users struggled! The custom font was hard to read. Animations made the app feel sluggish. The 'Order' button was hidden at the bottom requiring scrolling. Users took an average of 47 seconds to place an order - competitors averaged 12 seconds. Conversion rate: 8% (industry average: 35%).",
+      fix: "✅ They applied Jakob's Law: 'Users spend most of their time on OTHER sites' - follow familiar patterns. Redesigned with: Standard readable font, prominent 'Order' button, simplified navigation, reduced animations. Added A/B testing to validate every design decision with real user data. Order time dropped to 9 seconds, conversion jumped to 42%."
     },
   },
 ];
