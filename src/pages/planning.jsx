@@ -52,6 +52,7 @@ const PlanningPage = () => {
         >
           📋
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -63,6 +64,7 @@ const PlanningPage = () => {
         >
           🎯
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -74,6 +76,7 @@ const PlanningPage = () => {
         >
           📖
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -83,8 +86,9 @@ const PlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠️
+          ⚠
         </motion.button>
+
         <motion.button
           style={{
             ...styles.navItem,
@@ -111,7 +115,7 @@ const PlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                📋✨
+                📋 ✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -126,30 +130,34 @@ const PlanningPage = () => {
 
               <motion.div style={styles.introCard} variants={itemVariants}>
                 <h2 style={styles.cardTitle}>What is Planning?</h2>
+
                 <p style={styles.cardText}>
-                  Planning is the <strong>strategic process</strong> of defining
-                  what needs to be built, how it will be built, who will build
-                  it, and when it will be completed. It's the roadmap that
-                  transforms vague ideas into actionable tasks.
+                  Planning is the <strong>strategic process</strong>
+                  of defining what needs to be built, how it will be built, who
+                  will build it, and when it will be completed. It's the roadmap
+                  that transforms vague ideas into actionable tasks.
                 </p>
 
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🎯</span>
+                    <span style={styles.keyPointIcon}>🎯 </span>
                     <span>Sets clear objectives and success metrics</span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🗺️</span>
+                    <span style={styles.keyPointIcon}>🗺 </span>
                     <span>
                       Creates a shared understanding among team members
                     </span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⏰</span>
+                    <span style={styles.keyPointIcon}>⏰ </span>
                     <span>Helps estimate effort and manage expectations</span>
                   </div>
+
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💰</span>
+                    <span style={styles.keyPointIcon}>💰 </span>
                     <span>Prevents costly mistakes and rework</span>
                   </div>
                 </div>
@@ -166,7 +174,6 @@ const PlanningPage = () => {
               </motion.button>
             </motion.div>
           )}
-
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -181,7 +188,6 @@ const PlanningPage = () => {
                 {" "}
                 6 Essential Planning Steps
               </motion.h1>
-
               <div style={styles.stepsGrid}>
                 {planningSteps.map((step, index) => (
                   <motion.div
@@ -251,12 +257,9 @@ const PlanningPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
-
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
-
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
-
                       <motion.button
                         style={{
                           ...styles.revealButton,
@@ -276,7 +279,6 @@ const PlanningPage = () => {
                           ? "Hide Details"
                           : "🔍 What Went Wrong?"}
                       </motion.button>
-
                       <AnimatePresence>
                         {selectedStory === type.id && (
                           <motion.div
@@ -291,7 +293,6 @@ const PlanningPage = () => {
                                 {type.story.failure}
                               </p>
                             </div>
-
                             <div style={styles.fixBox}>
                               <h5 style={styles.fixTitle}>The Fix:</h5>
                               <p style={styles.fixText}>{type.story.fix}</p>
@@ -336,7 +337,6 @@ const PlanningPage = () => {
                 Even the best planning has pitfalls. Here's how to overcome
                 them:
               </motion.p>
-
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
                   <motion.div
@@ -346,7 +346,8 @@ const PlanningPage = () => {
                       cursor: "pointer",
                       background:
                         selectedDrawback === drawback.id
-                          ? `linear-gradient(135deg, ${drawback.color}20, ${drawback.color}40)`
+                          ? `linear-gradient(135deg, ${drawback.color}
+20, ${drawback.color}40)`
                           : "rgba(255, 255, 255, 0.95)",
                     }}
                     variants={itemVariants}
@@ -361,7 +362,6 @@ const PlanningPage = () => {
                     <div style={styles.drawbackIcon}>{drawback.icon}</div>
                     <h3 style={styles.drawbackTitle}>{drawback.title}</h3>
                     <p style={styles.drawbackProblem}>{drawback.problem}</p>
-
                     <AnimatePresence>
                       {selectedDrawback === drawback.id && (
                         <motion.div
@@ -377,7 +377,6 @@ const PlanningPage = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-
                     <div style={styles.tapHint}>
                       {selectedDrawback === drawback.id
                         ? "👆 Tap to close"
@@ -386,7 +385,6 @@ const PlanningPage = () => {
                   </motion.div>
                 ))}
               </div>
-
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("joke")}
@@ -398,7 +396,6 @@ const PlanningPage = () => {
               </motion.button>
             </motion.div>
           )}
-
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -424,9 +421,7 @@ const PlanningPage = () => {
                 >
                   😂
                 </motion.div>
-
                 <h2 style={styles.jokeTitle}>Planning Humor Break!</h2>
-
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
                     Q: Why do programmers always confuse Halloween and
@@ -438,10 +433,9 @@ const PlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because Oct 31 == Dec 25! 🎃🎄
+                    A: Because Oct 31 == Dec 25! 🎃 🎄
                   </motion.p>
                 </div>
-
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
                     Q: How many software developers does it take to plan a
@@ -457,13 +451,11 @@ const PlanningPage = () => {
                     changing their minds! 😅
                   </motion.p>
                 </div>
-
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
                     A project manager, a developer, and a tester walk into a
                     bar...
                   </p>
-
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
@@ -475,10 +467,9 @@ const PlanningPage = () => {
                     The developer says "But we haven't defined the
                     requirements!"
                     <br /> The tester says "I already found 3 bugs in your
-                    planning." 🍺🐛
+                    planning." 🍺 🐛
                   </motion.p>
                 </div>
-
                 <motion.div
                   style={styles.wisdomBox}
                   initial={{ opacity: 0, y: 20 }}
@@ -495,7 +486,6 @@ const PlanningPage = () => {
                     planning!
                   </p>
                 </motion.div>
-
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
@@ -506,7 +496,6 @@ const PlanningPage = () => {
                   >
                     🏠 Back to Start
                   </motion.button>
-
                   <motion.button
                     style={styles.nextPhaseButton}
                     onClick={() => navigate("/analysis")}
@@ -528,7 +517,7 @@ const PlanningPage = () => {
                       },
                     }}
                   >
-                    Next: Analysis 🔍✨
+                    Next: Analysis 🔍 ✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -536,14 +525,12 @@ const PlanningPage = () => {
           )}
         </AnimatePresence>
       </div>
-
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
           style={{
             ...styles.particle,
-
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
@@ -558,11 +545,10 @@ const PlanningPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["📋", "🎯", "📝", "💡", "✨"][i % 5]}
+          {["📋 ", "🎯 ", "📝 ", "💡 ", "✨ "][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-
 export default PlanningPage;
