@@ -6,7 +6,8 @@ import styles from "./styles";
 
 const DesignPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
-  const [selectedStory, setSelectedStory] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
   const [selectedDrawback, setSelectedDrawback] = useState(null);
   const navigate = useNavigate();
 
@@ -248,62 +249,68 @@ const DesignPage = () => {
                     variants={itemVariants}
                     custom={index}
                   >
-                    <div
-                      style={{ ...styles.typeHeader, background: type.color }}
-                    >
+                    <div style={{ ...styles.typeHeader, background: type.color }}>
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
-
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
-
                       <motion.button
-                        style={{
-                          ...styles.revealButton,
-                          background:
-                            selectedStory === type.id ? "#FF6B6B" : type.color,
+                        style={{ ...styles.revealButton, background: type.color }}
+                        onClick={() => {
+                          setModalData({
+                            name: type.name,
+                            failure: type.story.failure,
+                            fix: type.story.fix,
+                            color: type.color,
+                          });
+                          setModalOpen(true);
                         }}
-                        onClick={() =>
-                          setSelectedStory(
-                            selectedStory === type.id ? null : type.id
-                          )
-                        }
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {selectedStory === type.id
-                          ? "Hide Details"
-                          : "🔍 What Went Wrong?"}
+                        {"🔍 What Went Wrong?"}
                       </motion.button>
-
-                      <AnimatePresence>
-                        {selectedStory === type.id && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <div style={styles.failureBox}>
-                              <h5 style={styles.failureTitle}>The Failure:</h5>
-                              <p style={styles.failureText}>
-                                {type.story.failure}
-                              </p>
-                            </div>
-
-                            <div style={styles.fixBox}>
-                              <h5 style={styles.fixTitle}>The Fix:</h5>
-                              <p style={styles.fixText}>{type.story.fix}</p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </div>
                   </motion.div>
                 ))}
               </div>
+              {/* Modal for What Went Wrong? */}
+              <AnimatePresence>
+                {modalOpen && (
+                  <motion.div
+                    style={styles.modalOverlay}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <motion.div
+                      style={{ ...styles.modalContainer, background: modalData?.color || '#4bb1b4ff' }}
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.8, opacity: 0 }}
+                    >
+                      <button
+                        style={{ ...styles.modalCloseBtn, color: modalData?.color || '#4bb1b4ff' }}
+                        onClick={() => setModalOpen(false)}
+                        aria-label="Close"
+                      >
+                        ×
+                      </button>
+                      <h3 style={styles.modalTitle}>{modalData?.name} – What Went Wrong?</h3>
+                      <div style={styles.modalFailure}>
+                        <h5 style={styles.modalFailureTitle}>The Failure:</h5>
+                        <p style={styles.modalFailureText}>{modalData?.failure}</p>
+                      </div>
+                      <div style={styles.modalFix}>
+                        <h5 style={styles.modalFixTitle}>The Fix:</h5>
+                        <p style={styles.modalFixText}>{modalData?.fix}</p>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <motion.button
                 style={styles.nextButton}
@@ -342,47 +349,43 @@ const DesignPage = () => {
                 {drawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
-                    style={{
-                      ...styles.drawbackCard,
-                      cursor: "pointer",
-                      background:
-                        selectedDrawback === drawback.id
-                          ? `linear-gradient(135deg, ${drawback.color}20, ${drawback.color}40)`
-                          : "rgba(255, 255, 255, 0.95)",
-                    }}
+                    style={styles.drawbackTypeCard}
                     variants={itemVariants}
                     custom={index}
-                    onClick={() =>
-                      setSelectedDrawback(
-                        selectedDrawback === drawback.id ? null : drawback.id
-                      )
-                    }
-                    whileHover={{ scale: 1.02, y: -3 }}
                   >
-                    <div style={styles.drawbackIcon}>{drawback.icon}</div>
-                    <h3 style={styles.drawbackTitle}>{drawback.title}</h3>
-                    <p style={styles.drawbackProblem}>{drawback.problem}</p>
-
-                    <AnimatePresence>
-                      {selectedDrawback === drawback.id && (
-                        <motion.div
-                          style={styles.resolutionBox}
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                        >
-                          <h4 style={styles.resolutionTitle}>💡 Resolution:</h4>
-                          <p style={styles.resolutionText}>
-                            {drawback.resolution}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    <div style={styles.tapHint}>
-                      {selectedDrawback === drawback.id
-                        ? "👆 Tap to close"
-                        : "👆 Tap for solution"}
+                    <div style={styles.drawbackTypeHeader}>
+                      <span style={styles.drawbackTypeEmoji}>{drawback.icon}</span>
+                      <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
+                    </div>
+                    <div style={styles.drawbackTypeContent}>
+                      <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
+                      <p style={styles.drawbackTypeScenario}>{drawback.problem}</p>
+                      <motion.button
+                        style={styles.drawbackRevealButton}
+                        onClick={() => setSelectedDrawback(selectedDrawback === drawback.id ? null : drawback.id)}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {selectedDrawback === drawback.id ? "Hide Solution" : "💡 Show Solution"}
+                      </motion.button>
+                      <AnimatePresence>
+                        {selectedDrawback === drawback.id && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                          >
+                            <div style={styles.drawbackFailureBox}>
+                              <h5 style={styles.drawbackFailureTitle}>The Failure:</h5>
+                              <p style={styles.drawbackFailureText}>{drawback.problem}</p>
+                            </div>
+                            <div style={styles.drawbackFixBox}>
+                              <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
+                              <p style={styles.drawbackFixText}>{drawback.resolution}</p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </motion.div>
                 ))}
