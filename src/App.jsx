@@ -6,6 +6,7 @@ import PlanningPage from "./pages/planning";
 import AnalysisPage from "./pages/analysis";
 import DesignPage from "./pages/design";
 import ImplementationPage from "./pages/implementation";
+import TestingPage from "./pages/testing";
 function App() {
   return (
     <Router>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/analysis" element={<AnalysisPage />} />
         <Route path="/design" element={<DesignPage />} />
         <Route path="/implementation" element={<ImplementationPage />} />
-        
+        <Route path="/testing" element={<TestingPage />} />
       </Routes>
     </Router>
   );
