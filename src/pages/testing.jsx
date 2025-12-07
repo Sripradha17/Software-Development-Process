@@ -307,7 +307,7 @@ const TestingPage = () => {
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 							>
-								Learn About Common Pitfalls →
+								Common Pitfalls →
 							</motion.button>
 						</motion.div>
 					)}
@@ -380,7 +380,7 @@ const TestingPage = () => {
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 							>
-								Take a Break with Some Humor →
+								 Need a Laugh? →
 							</motion.button>
 						</motion.div>
 					)}
