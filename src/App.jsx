@@ -7,6 +7,7 @@ import AnalysisPage from "./pages/analysis";
 import DesignPage from "./pages/design";
 import ImplementationPage from "./pages/implementation";
 import TestingPage from "./pages/testing";
+import DeploymentPage from  "./pages/deployment"
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/design" element={<DesignPage />} />
         <Route path="/implementation" element={<ImplementationPage />} />
         <Route path="/testing" element={<TestingPage />} />
+        <Route path="/deployment" element={<DeploymentPage />} />
       </Routes>
     </Router>
   );
