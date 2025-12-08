@@ -9,6 +9,7 @@ import ImplementationPage from "./pages/implementation";
 import TestingPage from "./pages/testing";
 import DeploymentPage from  "./pages/deployment";
 import MaintenancePage from "./pages/maintenance";
+import ReviewPage from "./pages/review";
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/testing" element={<TestingPage />} />
         <Route path="/deployment" element={<DeploymentPage />} />
         <Route path="/maintenance" element={<MaintenancePage />} />
+        <Route path="/review" element={<ReviewPage />} />
       </Routes>
     </Router>
   );
