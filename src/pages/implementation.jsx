@@ -1,10 +1,13 @@
-
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { implementationSteps, implementationTypes, drawbacks } from "./constants/implementation";
+import {
+  implementationSteps,
+  implementationTypes,
+  drawbacks,
+} from "./constants/implementation";
 import styles from "./styles";
+import StageNavigation from "./StageNavigation";
 
 const ImplementationPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -37,9 +40,10 @@ const ImplementationPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/design" style={styles.backLink}>
-        ← Back to Design
+      <Link to="/" style={styles.backLink}>
+        ← Back to Home
       </Link>
+      <StageNavigation />
 
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
@@ -132,7 +136,10 @@ const ImplementationPage = () => {
                 <h2 style={styles.cardTitle}>What is Implementation?</h2>
 
                 <p style={styles.cardText}>
-                  Implementation is the <strong>hands-on process</strong> of building, coding, and integrating the planned solution. It's where ideas and designs are transformed into a working product.
+                  Implementation is the <strong>hands-on process</strong> of
+                  building, coding, and integrating the planned solution. It's
+                  where ideas and designs are transformed into a working
+                  product.
                 </p>
 
                 <div style={styles.keyPoints}>
@@ -204,7 +211,9 @@ const ImplementationPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Implementation is iterative! You'll often refactor and improve as you build. Embrace feedback and adapt as needed.
+                  💡 <strong>Remember:</strong> Implementation is iterative!
+                  You'll often refactor and improve as you build. Embrace
+                  feedback and adapt as needed.
                 </p>
               </motion.div>
 
@@ -284,22 +293,32 @@ const ImplementationPage = () => {
                     exit={{ opacity: 0 }}
                   >
                     <motion.div
-                      style={{ ...styles.modalContainer, background: modalData?.color || '#4bb1b4ff' }}
+                      style={{
+                        ...styles.modalContainer,
+                        background: modalData?.color || "#4bb1b4ff",
+                      }}
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.8, opacity: 0 }}
                     >
                       <button
-                        style={{ ...styles.modalCloseBtn, color: modalData?.color || '#4bb1b4ff' }}
+                        style={{
+                          ...styles.modalCloseBtn,
+                          color: modalData?.color || "#4bb1b4ff",
+                        }}
                         onClick={() => setModalOpen(false)}
                         aria-label="Close"
                       >
                         ×
                       </button>
-                      <h3 style={styles.modalTitle}>{modalData?.name} – What Went Wrong?</h3>
+                      <h3 style={styles.modalTitle}>
+                        {modalData?.name} – What Went Wrong?
+                      </h3>
                       <div style={styles.modalFailure}>
                         <h5 style={styles.modalFailureTitle}>The Failure:</h5>
-                        <p style={styles.modalFailureText}>{modalData?.failure}</p>
+                        <p style={styles.modalFailureText}>
+                          {modalData?.failure}
+                        </p>
                       </div>
                       <div style={styles.modalFix}>
                         <h5 style={styles.modalFixTitle}>The Fix:</h5>
@@ -337,7 +356,8 @@ const ImplementationPage = () => {
                 Major Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the best implementation has pitfalls. Here's how to overcome them:
+                Even the best implementation has pitfalls. Here's how to
+                overcome them:
               </motion.p>
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
@@ -348,19 +368,31 @@ const ImplementationPage = () => {
                     custom={index}
                   >
                     <div style={styles.drawbackTypeHeader}>
-                      <span style={styles.drawbackTypeEmoji}>{drawback.icon}</span>
+                      <span style={styles.drawbackTypeEmoji}>
+                        {drawback.icon}
+                      </span>
                       <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
                     </div>
                     <div style={styles.drawbackTypeContent}>
                       <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
-                      <p style={styles.drawbackTypeScenario}>{drawback.problem}</p>
+                      <p style={styles.drawbackTypeScenario}>
+                        {drawback.problem}
+                      </p>
                       <motion.button
                         style={styles.drawbackRevealButton}
-                        onClick={() => setSelectedDrawback(selectedDrawback === drawback.id ? null : drawback.id)}
+                        onClick={() =>
+                          setSelectedDrawback(
+                            selectedDrawback === drawback.id
+                              ? null
+                              : drawback.id
+                          )
+                        }
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {selectedDrawback === drawback.id ? "Hide Solution" : "💡 Show Solution"}
+                        {selectedDrawback === drawback.id
+                          ? "Hide Solution"
+                          : "💡 Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -370,12 +402,18 @@ const ImplementationPage = () => {
                             exit={{ opacity: 0, height: 0 }}
                           >
                             <div style={styles.drawbackFailureBox}>
-                              <h5 style={styles.drawbackFailureTitle}>The Failure:</h5>
-                              <p style={styles.drawbackFailureText}>{drawback.problem}</p>
+                              <h5 style={styles.drawbackFailureTitle}>
+                                The Failure:
+                              </h5>
+                              <p style={styles.drawbackFailureText}>
+                                {drawback.problem}
+                              </p>
                             </div>
                             <div style={styles.drawbackFixBox}>
                               <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
-                              <p style={styles.drawbackFixText}>{drawback.resolution}</p>
+                              <p style={styles.drawbackFixText}>
+                                {drawback.resolution}
+                              </p>
                             </div>
                           </motion.div>
                         )}
@@ -423,7 +461,8 @@ const ImplementationPage = () => {
                 <h2 style={styles.jokeTitle}>Implementation Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the developer go broke after implementing a new feature?
+                    Q: Why did the developer go broke after implementing a new
+                    feature?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -449,7 +488,8 @@ const ImplementationPage = () => {
                 </div>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A developer, a tester, and a project manager walk into a sprint...
+                    A developer, a tester, and a project manager walk into a
+                    sprint...
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -474,7 +514,8 @@ const ImplementationPage = () => {
                     💭 <em>"The best code is no code at all."</em> - Jeff Atwood
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Simplicity in implementation leads to maintainable and robust software. Build only what is needed!
+                    Simplicity in implementation leads to maintainable and
+                    robust software. Build only what is needed!
                   </p>
                 </motion.div>
                 <div style={styles.buttonGroup}>
