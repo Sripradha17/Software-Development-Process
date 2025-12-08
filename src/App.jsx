@@ -7,7 +7,8 @@ import AnalysisPage from "./pages/analysis";
 import DesignPage from "./pages/design";
 import ImplementationPage from "./pages/implementation";
 import TestingPage from "./pages/testing";
-import DeploymentPage from  "./pages/deployment"
+import DeploymentPage from  "./pages/deployment";
+import MaintenancePage from "./pages/maintenance";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/implementation" element={<ImplementationPage />} />
         <Route path="/testing" element={<TestingPage />} />
         <Route path="/deployment" element={<DeploymentPage />} />
+        <Route path="/maintenance" element={<MaintenancePage />} />
       </Routes>
     </Router>
   );

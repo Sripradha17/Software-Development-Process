@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  deploymentSteps,
-  deploymentTypes,
+  maintenanceSteps,
+  maintenanceTypes,
   drawbacks,
-} from "./constants/deployment";
+} from "./constants/maintenance";
 import styles from "./styles";
 
-const DeploymentPage = () => {
+const MaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [selectedStory, setSelectedStory] = useState(null);
   const [selectedDrawback, setSelectedDrawback] = useState(null);
@@ -23,7 +23,6 @@ const DeploymentPage = () => {
       transition: { staggerChildren: 0.1 },
     },
   };
-
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -32,7 +31,6 @@ const DeploymentPage = () => {
       transition: { duration: 0.3 },
     },
   };
-
   const floatAnimation = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
@@ -40,10 +38,9 @@ const DeploymentPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/testing" style={styles.backLink}>
-        ← Back to Testing
+      <Link to="/deployment" style={styles.backLink}>
+        ← Back to Deployment
       </Link>
-
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         <motion.button
@@ -55,7 +52,7 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          🔧
         </motion.button>
         <motion.button
           style={{
@@ -66,7 +63,7 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📦
+          🛠
         </motion.button>
         <motion.button
           style={{
@@ -102,7 +99,6 @@ const DeploymentPage = () => {
           😄
         </motion.button>
       </div>
-
       <div style={styles.contentContainer}>
         <AnimatePresence mode="wait">
           {/* INTRO SECTION */}
@@ -116,40 +112,38 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🚀 ✨
+                🔧 ✨
               </motion.div>
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Deployment in Software Development
+                Maintenance in Software Development
               </motion.h1>
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Releasing Your Software to the World
+                Keeping Your Software Healthy
               </motion.p>
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Deployment?</h2>
+                <h2 style={styles.cardTitle}>What is Maintenance?</h2>
                 <p style={styles.cardText}>
-                  Deployment is the{" "}
-                  <strong>
-                    process of releasing, installing, and configuring software
-                  </strong>{" "}
-                  so it is available for users. It includes everything from
-                  packaging and delivery to monitoring and rollback.
+                  Maintenance is the <strong>ongoing process</strong> of
+                  updating, improving, and fixing software after its initial
+                  release. It ensures the product remains reliable, secure, and
+                  valuable to users over time.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🚚</span>
-                    <span>Delivers software to users or production</span>
+                    <span style={styles.keyPointIcon}>🔍</span>
+                    <span>Identifies bugs before they reach users</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔄</span>
-                    <span>Handles updates, rollbacks, and migrations</span>
+                    <span style={styles.keyPointIcon}>🛠</span>
+                    <span>Validates functionality meets requirements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📈</span>
-                    <span>Monitors health and performance</span>
+                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span>Ensures performance and scalability</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🛡️</span>
-                    <span>Ensures security and compliance</span>
+                    <span>Builds confidence in code changes</span>
                   </div>
                 </div>
               </motion.div>
@@ -175,10 +169,10 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Deployment Steps
+                6 Essential Maintenance Steps
               </motion.h1>
               <div style={styles.stepsGrid}>
-                {deploymentSteps.map((step, index) => (
+                {maintenanceSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -198,11 +192,10 @@ const DeploymentPage = () => {
               </div>
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Successful deployment is more
-                  than just pushing code—it's about planning, monitoring, and
-                  ensuring a smooth transition for users. Good deployment
-                  minimizes downtime, enables quick rollback, and keeps your
-                  team and customers confident in every release.
+                  💡 <strong>Remember:</strong> Maintenance is not just about
+                  fixing bugs—it's about keeping your software valuable and
+                  reliable. Good maintenance prevents issues, adapts to new
+                  needs, and extends the life of your product.
                 </p>
               </motion.div>
               <motion.button
@@ -212,11 +205,11 @@ const DeploymentPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Deployment Approaches →
+                See Maintenance Approaches →
               </motion.button>
             </motion.div>
           )}
-          {/* DEPLOYMENT TYPES WITH STORIES */}
+          /* MAINTENANCE TYPES WITH STORIES */
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -227,10 +220,10 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Deployment Strategies: Real-World Lessons
+                Maintenance Strategies: Best Practices
               </motion.h1>
               <div style={styles.typesContainer}>
-                {deploymentTypes.map((type, index) => (
+                {maintenanceTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -252,18 +245,8 @@ const DeploymentPage = () => {
                           background: type.color,
                         }}
                         onClick={() => {
-                          setSelectedStory(
-                            selectedStory === type.id ? null : type.id
-                          );
-                          setModalData({
-                            name: type.name,
-                            failure: type.story.failure,
-                            fix: type.story.fix,
-                            color: type.color,
-                          });
-                          setModalOpen(
-                            selectedStory === type.id ? false : true
-                          );
+                          setModalData(type);
+                          setModalOpen(true);
                         }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -274,6 +257,15 @@ const DeploymentPage = () => {
                   </motion.div>
                 ))}
               </div>
+              <motion.button
+                style={styles.nextButton}
+                onClick={() => setActiveSection("drawbacks")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Common Pitfalls →
+              </motion.button>
               {/* Modal for What Went Wrong? */}
               <AnimatePresence>
                 {modalOpen && (
@@ -308,26 +300,19 @@ const DeploymentPage = () => {
                       <div style={styles.modalFailure}>
                         <h5 style={styles.modalFailureTitle}>The Failure:</h5>
                         <p style={styles.modalFailureText}>
-                          {modalData?.failure}
+                          {modalData?.story.failure}
                         </p>
                       </div>
                       <div style={styles.modalFix}>
                         <h5 style={styles.modalFixTitle}>The Fix:</h5>
-                        <p style={styles.modalFixText}>{modalData?.fix}</p>
+                        <p style={styles.modalFixText}>
+                          {modalData?.story.fix}
+                        </p>
                       </div>
                     </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
-              <motion.button
-                style={styles.nextButton}
-                onClick={() => setActiveSection("drawbacks")}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Common Pitfalls →
-              </motion.button>
             </motion.div>
           )}
           {/* DRAWBACKS SECTION */}
@@ -341,87 +326,14 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Deployment Pitfalls
+                Common Maintenance Pitfalls
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Deployment is crucial, but many teams struggle with it. Here are
-                common challenges and their solutions.
-              </motion.p>
-           <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
-                  <motion.div
-                    key={drawback.id}
-                    style={styles.drawbackTypeCard}
-                    variants={itemVariants}
-                    custom={index}
-                  >
-                    <div style={styles.drawbackTypeHeader}>
-                      <span style={styles.drawbackTypeEmoji}>{drawback.icon}</span>
-                      <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
-                    </div>
-                    <div style={styles.drawbackTypeContent}>
-                      <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
-                      <p style={styles.drawbackTypeScenario}>{drawback.problem}</p>
-                      <motion.button
-                        style={styles.drawbackRevealButton}
-                        onClick={() => setSelectedDrawback(selectedDrawback === drawback.id ? null : drawback.id)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {selectedDrawback === drawback.id ? "Hide Solution" : "💡 Show Solution"}
-                      </motion.button>
-                      <AnimatePresence>
-                        {selectedDrawback === drawback.id && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                          >
-                            <div style={styles.drawbackFailureBox}>
-                              <h5 style={styles.drawbackFailureTitle}>The Failure:</h5>
-                              <p style={styles.drawbackFailureText}>{drawback.problem}</p>
-                            </div>
-                            <div style={styles.drawbackFixBox}>
-                              <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
-                              <p style={styles.drawbackFixText}>{drawback.resolution}</p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <motion.button
-                style={styles.nextButton}
-                onClick={() => setActiveSection("joke")}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Need a Laugh? →
-              </motion.button>
-            </motion.div>
-          )}
-          {activeSection === "deploymentDrawbacks" && (
-            <motion.div
-              key="deploymentDrawbacks"
-              style={styles.section}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -20 }}
-            >
-              <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Deployment Pitfalls
-              </motion.h1>
-              <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Deployment is a critical phase, but it often comes with its own
-                set of challenges. Here are common deployment pitfalls and how
-                to overcome them.
+                Maintenance is crucial, but many teams struggle with it. Here
+                are common challenges and their solutions.
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {deploymentDrawbacks.map((drawback, index) => (
+                {drawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -442,8 +354,8 @@ const DeploymentPage = () => {
                       <motion.button
                         style={styles.drawbackRevealButton}
                         onClick={() =>
-                          setSelectedDeploymentDrawback(
-                            selectedDeploymentDrawback === drawback.id
+                          setSelectedDrawback(
+                            selectedDrawback === drawback.id
                               ? null
                               : drawback.id
                           )
@@ -451,12 +363,12 @@ const DeploymentPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {selectedDeploymentDrawback === drawback.id
+                        {selectedDrawback === drawback.id
                           ? "Hide Solution"
                           : "💡 Show Solution"}
                       </motion.button>
                       <AnimatePresence>
-                        {selectedDeploymentDrawback === drawback.id && (
+                        {selectedDrawback === drawback.id && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
@@ -519,10 +431,10 @@ const DeploymentPage = () => {
                 >
                   😄
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Deployment Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>Maintenance Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the server go broke after deployment?
+                    Why did the software maintenance engineer bring a broom to work?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -530,12 +442,12 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Because it lost its cache! 💸
+                    To sweep up all the legacy code! 🧹
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why do developers love blue-green deployments?
+                    How do you know your software needs maintenance?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -543,12 +455,12 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Because they never feel blue after going green! 🟢
+                    When the error logs are longer than the user manual! 📚
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    What did the deployment pipeline say to the bug?
+                    Why did the developer schedule maintenance at midnight?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -556,7 +468,7 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    You're not coming to production! 🚫
+                    Because nobody wants to see what really happens behind the scenes! 🌙
                   </motion.p>
                 </div>
                 <motion.div
@@ -566,12 +478,13 @@ const DeploymentPage = () => {
                   transition={{ delay: 0.8 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Deployment Wisdom: "Automate deployments, but never
-                    automate blame!"
+                    💡 Maintenance Wisdom: "If debugging is the process of
+                    removing bugs, then programming must be the process of
+                    putting them in."
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Good deployment practices save time, reduce errors, and keep
-                    users happy.
+                    Write tests first, code second. Prevention is better than
+                    cure!
                   </p>
                 </motion.div>
                 <div style={styles.buttonGroup}>
@@ -585,7 +498,7 @@ const DeploymentPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/maintenance")}
+                    onClick={() => navigate("/review")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -603,7 +516,7 @@ const DeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🔧 ✨
+                    Next: Review 📝 ✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -632,10 +545,11 @@ const DeploymentPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🧪 ", "✅ ", "🔍 ", "�", "�️", "⚡"][i]}
+          {["🔧", "🛠", "🔍", "🧰", "🛡️", "⚡"][i]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default DeploymentPage;
+
+export default MaintenancePage;
