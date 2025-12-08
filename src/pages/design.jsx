@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { designSteps, designTypes, drawbacks } from "./constants/design";
 import styles from "./styles";
+import StageNavigation from "./StageNavigation";
 
 const DesignPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -36,9 +37,10 @@ const DesignPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/analysis" style={styles.backLink}>
-        ← Back to Analysis
+      <Link to="/" style={styles.backLink}>
+        ← Back to Home
       </Link>
+      <StageNavigation />
 
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
@@ -249,7 +251,9 @@ const DesignPage = () => {
                     variants={itemVariants}
                     custom={index}
                   >
-                    <div style={{ ...styles.typeHeader, background: type.color }}>
+                    <div
+                      style={{ ...styles.typeHeader, background: type.color }}
+                    >
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
@@ -257,7 +261,10 @@ const DesignPage = () => {
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
                       <motion.button
-                        style={{ ...styles.revealButton, background: type.color }}
+                        style={{
+                          ...styles.revealButton,
+                          background: type.color,
+                        }}
                         onClick={() => {
                           setModalData({
                             name: type.name,
@@ -286,22 +293,32 @@ const DesignPage = () => {
                     exit={{ opacity: 0 }}
                   >
                     <motion.div
-                      style={{ ...styles.modalContainer, background: modalData?.color || '#4bb1b4ff' }}
+                      style={{
+                        ...styles.modalContainer,
+                        background: modalData?.color || "#4bb1b4ff",
+                      }}
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.8, opacity: 0 }}
                     >
                       <button
-                        style={{ ...styles.modalCloseBtn, color: modalData?.color || '#4bb1b4ff' }}
+                        style={{
+                          ...styles.modalCloseBtn,
+                          color: modalData?.color || "#4bb1b4ff",
+                        }}
                         onClick={() => setModalOpen(false)}
                         aria-label="Close"
                       >
                         ×
                       </button>
-                      <h3 style={styles.modalTitle}>{modalData?.name} – What Went Wrong?</h3>
+                      <h3 style={styles.modalTitle}>
+                        {modalData?.name} – What Went Wrong?
+                      </h3>
                       <div style={styles.modalFailure}>
                         <h5 style={styles.modalFailureTitle}>The Failure:</h5>
-                        <p style={styles.modalFailureText}>{modalData?.failure}</p>
+                        <p style={styles.modalFailureText}>
+                          {modalData?.failure}
+                        </p>
                       </div>
                       <div style={styles.modalFix}>
                         <h5 style={styles.modalFixTitle}>The Fix:</h5>
@@ -354,19 +371,31 @@ const DesignPage = () => {
                     custom={index}
                   >
                     <div style={styles.drawbackTypeHeader}>
-                      <span style={styles.drawbackTypeEmoji}>{drawback.icon}</span>
+                      <span style={styles.drawbackTypeEmoji}>
+                        {drawback.icon}
+                      </span>
                       <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
                     </div>
                     <div style={styles.drawbackTypeContent}>
                       <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
-                      <p style={styles.drawbackTypeScenario}>{drawback.problem}</p>
+                      <p style={styles.drawbackTypeScenario}>
+                        {drawback.problem}
+                      </p>
                       <motion.button
                         style={styles.drawbackRevealButton}
-                        onClick={() => setSelectedDrawback(selectedDrawback === drawback.id ? null : drawback.id)}
+                        onClick={() =>
+                          setSelectedDrawback(
+                            selectedDrawback === drawback.id
+                              ? null
+                              : drawback.id
+                          )
+                        }
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {selectedDrawback === drawback.id ? "Hide Solution" : "💡 Show Solution"}
+                        {selectedDrawback === drawback.id
+                          ? "Hide Solution"
+                          : "💡 Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -376,12 +405,18 @@ const DesignPage = () => {
                             exit={{ opacity: 0, height: 0 }}
                           >
                             <div style={styles.drawbackFailureBox}>
-                              <h5 style={styles.drawbackFailureTitle}>The Failure:</h5>
-                              <p style={styles.drawbackFailureText}>{drawback.problem}</p>
+                              <h5 style={styles.drawbackFailureTitle}>
+                                The Failure:
+                              </h5>
+                              <p style={styles.drawbackFailureText}>
+                                {drawback.problem}
+                              </p>
                             </div>
                             <div style={styles.drawbackFixBox}>
                               <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
-                              <p style={styles.drawbackFixText}>{drawback.resolution}</p>
+                              <p style={styles.drawbackFixText}>
+                                {drawback.resolution}
+                              </p>
                             </div>
                           </motion.div>
                         )}

@@ -7,7 +7,7 @@ import {
   drawbacks,
 } from "./constants/maintenance";
 import styles from "./styles";
-
+import StageNavigation from "./StageNavigation";
 const MaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [selectedStory, setSelectedStory] = useState(null);
@@ -38,9 +38,10 @@ const MaintenancePage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/deployment" style={styles.backLink}>
-        ← Back to Deployment
+      <Link to="/" style={styles.backLink}>
+        ← Back to Home
       </Link>
+      <StageNavigation />
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         <motion.button
@@ -434,7 +435,8 @@ const MaintenancePage = () => {
                 <h2 style={styles.jokeTitle}>Maintenance Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the software maintenance engineer bring a broom to work?
+                    Why did the software maintenance engineer bring a broom to
+                    work?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -468,7 +470,8 @@ const MaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Because nobody wants to see what really happens behind the scenes! 🌙
+                    Because nobody wants to see what really happens behind the
+                    scenes! 🌙
                   </motion.p>
                 </div>
                 <motion.div

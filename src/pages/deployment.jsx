@@ -7,6 +7,7 @@ import {
   drawbacks,
 } from "./constants/deployment";
 import styles from "./styles";
+import StageNavigation from "./StageNavigation";
 
 const DeploymentPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -40,9 +41,10 @@ const DeploymentPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/testing" style={styles.backLink}>
-        ← Back to Testing
+      <Link to="/" style={styles.backLink}>
+        ← Back to Home
       </Link>
+      <StageNavigation />
 
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
@@ -347,7 +349,7 @@ const DeploymentPage = () => {
                 Deployment is crucial, but many teams struggle with it. Here are
                 common challenges and their solutions.
               </motion.p>
-           <div style={styles.drawbacksGrid}>
+              <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
@@ -356,19 +358,31 @@ const DeploymentPage = () => {
                     custom={index}
                   >
                     <div style={styles.drawbackTypeHeader}>
-                      <span style={styles.drawbackTypeEmoji}>{drawback.icon}</span>
+                      <span style={styles.drawbackTypeEmoji}>
+                        {drawback.icon}
+                      </span>
                       <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
                     </div>
                     <div style={styles.drawbackTypeContent}>
                       <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
-                      <p style={styles.drawbackTypeScenario}>{drawback.problem}</p>
+                      <p style={styles.drawbackTypeScenario}>
+                        {drawback.problem}
+                      </p>
                       <motion.button
                         style={styles.drawbackRevealButton}
-                        onClick={() => setSelectedDrawback(selectedDrawback === drawback.id ? null : drawback.id)}
+                        onClick={() =>
+                          setSelectedDrawback(
+                            selectedDrawback === drawback.id
+                              ? null
+                              : drawback.id
+                          )
+                        }
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {selectedDrawback === drawback.id ? "Hide Solution" : "💡 Show Solution"}
+                        {selectedDrawback === drawback.id
+                          ? "Hide Solution"
+                          : "💡 Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -378,12 +392,18 @@ const DeploymentPage = () => {
                             exit={{ opacity: 0, height: 0 }}
                           >
                             <div style={styles.drawbackFailureBox}>
-                              <h5 style={styles.drawbackFailureTitle}>The Failure:</h5>
-                              <p style={styles.drawbackFailureText}>{drawback.problem}</p>
+                              <h5 style={styles.drawbackFailureTitle}>
+                                The Failure:
+                              </h5>
+                              <p style={styles.drawbackFailureText}>
+                                {drawback.problem}
+                              </p>
                             </div>
                             <div style={styles.drawbackFixBox}>
                               <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
-                              <p style={styles.drawbackFixText}>{drawback.resolution}</p>
+                              <p style={styles.drawbackFixText}>
+                                {drawback.resolution}
+                              </p>
                             </div>
                           </motion.div>
                         )}

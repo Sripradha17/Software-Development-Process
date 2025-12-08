@@ -445,26 +445,26 @@ const style = {
     padding: "0 1rem",
   },
   storyLine: {
-     fontSize: "clamp(1rem, 2vw, 1.2rem)",
-     lineHeight: 1.8,
-     color: "#fff", // Bright white for high contrast
-     marginBottom: "20px",
-     textAlign: "left",
-     textShadow: "0 2px 8px rgba(0,0,0,0.7)", // Add shadow for readability
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    lineHeight: 1.8,
+    color: "#fff", // Bright white for high contrast
+    marginBottom: "20px",
+    textAlign: "left",
+    textShadow: "0 2px 8px rgba(0,0,0,0.7)", // Add shadow for readability
   },
   bulletPoint: {
-     paddingLeft: "20px",
-     fontWeight: "700",
-     color: "#ffeb3b", // Bright yellow for bullets
-     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
+    paddingLeft: "20px",
+    fontWeight: "700",
+    color: "#ffeb3b", // Bright yellow for bullets
+    textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   quoteLine: {
-     fontStyle: "italic",
-     color: "#00eaff", // Bright cyan for quotes
-     borderLeft: "4px solid #ffeb3b", // Bright yellow border
-     paddingLeft: "20px",
-     fontWeight: "700",
-     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
+    fontStyle: "italic",
+    color: "#00eaff", // Bright cyan for quotes
+    borderLeft: "4px solid #ffeb3b", // Bright yellow border
+    paddingLeft: "20px",
+    fontWeight: "700",
+    textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   illustration: {
     fontSize: "clamp(40px, 6vw, 60px)",
@@ -504,6 +504,25 @@ const style = {
     flexWrap: "wrap",
     justifyContent: "center",
     maxWidth: "90%",
+  },
+  chapterControls: {
+    position: "absolute",
+    top: "10px",
+    bottom: "auto",
+    left: "50%",
+    transform: "translateX(-50%)",
+    display: "flex",
+    gap: "clamp(10px, 2vw, 20px)",
+    zIndex: 999,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    padding: "15px 25px",
+    borderRadius: "50px",
+    backdropFilter: "blur(10px)",
+    border: "2px solid rgba(255, 255, 255, 0.3)",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    maxWidth: "90%",
+    marginBottom: "20px",
   },
   navButton: {
     padding: "clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 30px)",
@@ -635,7 +654,8 @@ const style = {
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
     gap: "1.5rem",
     marginTop: "2rem",
-    background: "linear-gradient(135deg, #0c131b 0%, #1f2a38 60%, #3c4f5e 100%)",
+    background:
+      "linear-gradient(135deg, #0c131b 0%, #1f2a38 60%, #3c4f5e 100%)",
     borderRadius: "20px",
     border: "2px solid rgba(255,255,255,0.15)",
     boxShadow: "0 6px 20px rgba(68, 150, 165, 0.2)",
@@ -892,7 +912,8 @@ const style = {
   jokeContainer: {
     maxWidth: "800px",
     width: "100%",
-    background: "linear-gradient(135deg, #0c131b 0%, #1f2a38 60%, #3c4f5e 100%)",
+    background:
+      "linear-gradient(135deg, #0c131b 0%, #1f2a38 60%, #3c4f5e 100%)",
     borderRadius: "20px",
     padding: "clamp(2rem, 4vw, 3rem)",
     boxShadow: "0 10px 40px rgba(68, 150, 165, 0.2)",
@@ -1002,7 +1023,7 @@ const style = {
     boxShadow: "0 6px 25px rgba(68, 150, 165, 0.3)",
   },
   //modal section
-    // Modal styles for Planning Types
+  // Modal styles for Planning Types
   modalOverlay: {
     position: "fixed",
     top: 0,
@@ -1099,7 +1120,7 @@ const style = {
     lineHeight: 1.7,
     margin: 0,
   },
-    drawbackTypeCard: {
+  drawbackTypeCard: {
     backgroundColor: "rgb(49, 68, 89)",
     borderRadius: "20px",
     overflow: "hidden",

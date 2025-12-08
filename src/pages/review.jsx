@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { reviewSteps, reviewTypes, drawbacks } from "./constants/review";
 import styles from "./styles";
+import StageNavigation from "./StageNavigation";
 
 const ReviewPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -45,9 +46,10 @@ const ReviewPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <Link to="/maintenance" style={styles.backLink}>
-        ← Back to Maintenance
+      <Link to="/" style={styles.backLink}>
+        ← Back to Home
       </Link>
+      <StageNavigation />
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         {navItems.map((item) => (
@@ -233,7 +235,7 @@ const ReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Learn About Common Pitfalls →
+                Common Pitfalls →
               </motion.button>
               {/* Modal for What Went Wrong? */}
               <AnimatePresence>
@@ -371,7 +373,7 @@ const ReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Take a Break with Some Humor →
+                Need a Laugh? →
               </motion.button>
             </motion.div>
           )}

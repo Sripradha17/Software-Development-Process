@@ -229,7 +229,7 @@ const DevelopmentProcessStory = () => {
           />
         ))}
       </div>
-      
+
       <AnimatePresence mode="wait" custom={currentChapter}>
         <motion.div
           key={currentChapter}
@@ -243,7 +243,6 @@ const DevelopmentProcessStory = () => {
             style={styles.chapterContent}
             variants={containerVariants}
           >
-
             {/* Chapter Icon */}
             <motion.div
               style={styles.chapterIcon}
@@ -292,36 +291,111 @@ const DevelopmentProcessStory = () => {
             {/* Show "Let's Go Plan" button on the last chapter */}
             {currentChapter === chapters.length - 1 && (
               <motion.div
-                style={styles.planButtonContainer}
+                style={{ ...styles.planButtonContainer, marginTop: 48 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
               >
-                <motion.button
-                  style={styles.planButton}
-                  onClick={() => navigate("/planning")}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 15px 40px rgba(102, 126, 234, 0.4)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    boxShadow: [
-                      "0 10px 30px rgba(102, 126, 234, 0.3)",
-                      "0 10px 30px rgba(118, 75, 162, 0.4)",
-                      "0 10px 30px rgba(102, 126, 234, 0.3)",
-                    ],
-                  }}
-                  transition={{
-                    boxShadow: {
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    },
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "1.5rem",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginBottom: 24,
                   }}
                 >
-                  Let's Go Plan!
-                </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #1abc9c 0%, #16a085 100%)",
+                    }}
+                    onClick={() => navigate("/planning")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    📝 Planning
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #f39c12 0%, #e67e22 100%)",
+                    }}
+                    onClick={() => navigate("/analysis")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    📊 Analysis
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #2980b9 0%, #6dd5fa 100%)",
+                    }}
+                    onClick={() => navigate("/design")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    📐 Design
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #8e44ad 0%, #6c3483 100%)",
+                    }}
+                    onClick={() => navigate("/implementation")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    💻 Implementation
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)",
+                    }}
+                    onClick={() => navigate("/testing")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    🧪 Testing
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)",
+                    }}
+                    onClick={() => navigate("/deployment")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    🚀 Deployment
+                  </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #34495e 0%, #2c3e50 100%)",
+                    }}
+                    onClick={() => navigate("/maintenance")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    🛠 Maintenance
+                  </motion.button>
+                </div>
+                <div
+                  style={{ color: "#bde4ce", fontSize: "1.1rem", marginTop: 8 }}
+                >
+                  Explore each stage of the software development process!
+                </div>
               </motion.div>
             )}
           </motion.div>
@@ -369,9 +443,8 @@ const DevelopmentProcessStory = () => {
         >
           Next →
         </motion.button>
-
       </div>
-      
+
       {/* Background particles */}
       {[...Array(8)].map((_, i) => (
         <motion.div
