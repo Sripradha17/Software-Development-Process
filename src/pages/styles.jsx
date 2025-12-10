@@ -1,3 +1,5 @@
+import { color } from "framer-motion";
+
 /**
 * ============================================
 * CONSOLIDATED STYLES FOR SOFTWARE DEVELOPMENT PROCESS APP
@@ -1044,7 +1046,7 @@ const style = {
   },
   modalContainer: {
     borderRadius: "24px",
-    boxShadow: "0 16px 48px rgba(0,0,0,0.35)",
+    boxShadow: "0 16px 48px rgba(10, 1, 1, 0.35)",
     padding: "2.5rem 2.5rem 2rem 2.5rem",
     minWidth: "340px",
     maxWidth: "420px",
@@ -1057,6 +1059,7 @@ const style = {
     alignItems: "center",
     color: "#fff",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    background: "linear-gradient(135deg, #1f2a38 0%, #3c4f5e 100%)",
   },
   modalCloseBtn: {
     position: "absolute",
@@ -1067,13 +1070,14 @@ const style = {
     borderRadius: "50%",
     width: 10,
     height: 10,
-    fontSize: 10,
+    fontSize: 15,
     cursor: "pointer",
     boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontWeight: 700,
+    fontWeight: "bold",
+    color: "#333",
   },
   modalTitle: {
     marginBottom: "1.5rem",
@@ -1219,6 +1223,17 @@ const style = {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
     color: "#22543d",
+  },
+  // Modal below stage circles
+  modalBelowContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    width: "100%",
+    margin: "32px 0 0 0",
+    position: "relative",
+    zIndex: 100,
+    minHeight: "120px",
   },
   // Media query helpers for responsive design
   // Note: Responsive design is achieved using:

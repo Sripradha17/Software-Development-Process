@@ -102,69 +102,82 @@ const AiAugmentedSoftwareDevelopment = () => {
           variants={descriptionVariants}
         >
           <p style={styles.mainDescription}>
-            AI-augmented software development integrates artificial intelligence tools and techniques into the traditional software development lifecycle. It enhances productivity, automates repetitive tasks, and provides intelligent insights throughout each stage, from planning to maintenance.
+            AI-augmented software development integrates artificial intelligence
+            tools and techniques into the traditional software development
+            lifecycle. It enhances productivity, automates repetitive tasks, and
+            provides intelligent insights throughout each stage, from planning
+            to maintenance.
           </p>
         </motion.div>
 
- <motion.div style={styles.stagesContainer}>
+        <motion.div style={styles.stagesContainer}>
           {aiDevelopmentStages.map((stage, index) => (
             <motion.div
               key={stage.id}
               style={{
                 ...styles.stageWrapper,
-                zIndex: selectedStage === stage.id ? 100 : 10,
-                width: selectedStage === stage.id ? "280px" : "120px",
-                height: selectedStage === stage.id ? "200px" : "120px",
+                zIndex: 10,
+                width: "120px",
+                height: "120px",
               }}
               variants={stageVariants}
               custom={index}
-              onClick={() =>
-                setSelectedStage(selectedStage === stage.id ? null : stage.id)
-              }
+              onClick={() => setSelectedStage(stage)}
               layout
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <AnimatePresence mode="wait">
-                {selectedStage === stage.id ? (
-                  <motion.div
-                    key="card"
-                    style={{
-                      ...styles.stageCard,
-                      borderRadius: "12px",
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div style={styles.cardContent}>
-                      <h3 style={styles.cardTitle}>{stage.title}</h3>
-                      <p style={styles.cardDescription}>{stage.description}</p>
-                    </div>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="circle"
-                    style={{
-                      ...styles.stageCircle,
-                      backgroundColor: stage.color,
-                    }}
-                    initial={{ opacity: 1 }}
-                    animate={{
-                      opacity:
-                        selectedStage && selectedStage !== stage.id ? 0.6 : 1,
-                    }}
-                    exit={{ opacity: 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <span style={styles.circleTitle}>{stage.title}</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <motion.div
+                key="circle"
+                style={{
+                  ...styles.stageCircle,
+                  backgroundColor: stage.color,
+                }}
+                initial={{ opacity: 1 }}
+                animate={{
+                  opacity:
+                    selectedStage && selectedStage.id !== stage.id ? 0.6 : 1,
+                }}
+                exit={{ opacity: 0 }}
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <span style={styles.circleTitle}>{stage.title}</span>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Modal below the circles */}
+        <AnimatePresence>
+          {selectedStage && (
+            <motion.div
+              key="modal"
+              style={styles.modalBelowContainer}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }}
+            >
+              <motion.div
+                style={styles.modalContainer}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+              >
+                <button
+                  style={styles.modalCloseBtn}
+                  onClick={() => setSelectedStage(null)}
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+                <h3 style={styles.cardTitle}>{selectedStage.title}</h3>
+                <p style={styles.cardDescription}>
+                  {selectedStage.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.button
           style={styles.storyButton}
