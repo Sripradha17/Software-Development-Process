@@ -149,6 +149,9 @@ const style = {
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
     width: "fit-content",
+    marginLeft: "auto",
+    marginRight: "auto",
+    display: "block",
   },
   descriptionSection: {
     marginBottom: "4rem",
@@ -182,7 +185,7 @@ const style = {
     cursor: "pointer",
     transition: "all 0.3s ease-in-out",
     width: "100%",
-    maxWidth: "350px",
+    maxWidth: "420px",
   },
   stageCard: {
     display: "flex",
@@ -194,6 +197,8 @@ const style = {
     backdropFilter: "blur(10px)",
     width: "100%",
     height: "100%",
+    minHeight: "260px",
+    minWidth: "320px",
     borderRadius: "15px",
   },
   cardContent: {

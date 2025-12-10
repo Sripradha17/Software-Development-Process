@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { planningSteps, planningTypes, drawbacks } from "./constants/planning";
-import styles from "./styles";
+import {
+  implementationSteps,
+  implementationTypes,
+  drawbacks,
+} from "../constants/implementation";
+import styles from "../styles";
 import StageNavigation from "./StageNavigation";
 
-const PlanningPage = () => {
+const ImplementationPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -52,7 +56,7 @@ const PlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📋
+          🛠️
         </motion.button>
 
         <motion.button
@@ -64,7 +68,7 @@ const PlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🎯
+          🚀
         </motion.button>
 
         <motion.button
@@ -76,7 +80,7 @@ const PlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📖
+          📚
         </motion.button>
 
         <motion.button
@@ -97,7 +101,7 @@ const PlanningPage = () => {
             ...(activeSection === "joke" && styles.navItemActive),
           }}
           onClick={() => setActiveSection("joke")}
-          whileHover={{ scale: 1.05 }}
+          while3Hover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           😄
@@ -117,50 +121,46 @@ const PlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                📋 ✨
+                🛠️ ✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                {" "}
-                Planning in Software Development
+                Implementation in Software Development
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                {" "}
-                The Foundation of Every Successful Project
+                Turning Plans into Reality
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Planning?</h2>
+                <h2 style={styles.cardTitle}>What is Implementation?</h2>
 
                 <p style={styles.cardText}>
-                  Planning is the <strong>strategic process</strong>
-                  of defining what needs to be built, how it will be built, who
-                  will build it, and when it will be completed. It's the roadmap
-                  that transforms vague ideas into actionable tasks.
+                  Implementation is the <strong>hands-on process</strong> of
+                  building, coding, and integrating the planned solution. It's
+                  where ideas and designs are transformed into a working
+                  product.
                 </p>
 
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🎯 </span>
-                    <span>Sets clear objectives and success metrics</span>
+                    <span style={styles.keyPointIcon}>💻 </span>
+                    <span>Translates designs into working code</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🗺 </span>
-                    <span>
-                      Creates a shared understanding among team members
-                    </span>
+                    <span style={styles.keyPointIcon}>🔗 </span>
+                    <span>Integrates components and systems</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⏰ </span>
-                    <span>Helps estimate effort and manage expectations</span>
+                    <span style={styles.keyPointIcon}>🧪 </span>
+                    <span>Requires testing and validation</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💰 </span>
-                    <span>Prevents costly mistakes and rework</span>
+                    <span style={styles.keyPointIcon}>🤝 </span>
+                    <span>Involves collaboration and communication</span>
                   </div>
                 </div>
               </motion.div>
@@ -187,11 +187,10 @@ const PlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                6 Essential Planning Steps
+                6 Essential Implementation Steps
               </motion.h1>
               <div style={styles.stepsGrid}>
-                {planningSteps.map((step, index) => (
+                {implementationSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -212,9 +211,9 @@ const PlanningPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Planning is iterative! You'll
-                  often loop back to refine objectives as you gather more
-                  information. Think of it as a spiral, not a straight line.
+                  💡 <strong>Remember:</strong> Implementation is iterative!
+                  You'll often refactor and improve as you build. Embrace
+                  feedback and adapt as needed.
                 </p>
               </motion.div>
 
@@ -225,12 +224,12 @@ const PlanningPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Planning Types →
+                See Implementation Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* PLANNING TYPES WITH STORIES */}
+          {/* IMPLEMENTATION TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -241,12 +240,11 @@ const PlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                Planning Approaches: Tales of Success & Failure
+                Implementation Approaches: Tales of Success & Failure
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {planningTypes.map((type, index) => (
+                {implementationTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -358,8 +356,8 @@ const PlanningPage = () => {
                 Major Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the best planning has pitfalls. Here's how to overcome
-                them:
+                Even the best implementation has pitfalls. Here's how to
+                overcome them:
               </motion.p>
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
@@ -460,11 +458,11 @@ const PlanningPage = () => {
                 >
                   😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Planning Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>Implementation Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why do programmers always confuse Halloween and
-                    Christmas?
+                    Q: Why did the developer go broke after implementing a new
+                    feature?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -472,13 +470,12 @@ const PlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because Oct 31 == Dec 25! 🎃 🎄
+                    A: Because he used up all his cache! 💸
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many software developers does it take to plan a
-                    project?
+                    Q: How do programmers enjoy their implementation phase?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -486,14 +483,13 @@ const PlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. It's a hardware problem... the stakeholders keep
-                    changing their minds! 😅
+                    A: By pushing all the right buttons! 😅
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A project manager, a developer, and a tester walk into a
-                    bar...
+                    A developer, a tester, and a project manager walk into a
+                    sprint...
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -501,12 +497,11 @@ const PlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The project manager says "We need to plan this round!"
+                    The developer says "Let's implement!"
                     <br />
-                    The developer says "But we haven't defined the
-                    requirements!"
-                    <br /> The tester says "I already found 3 bugs in your
-                    planning." 🍺 🐛
+                    The tester says "Let's break it!"
+                    <br />
+                    The project manager says "Let's document it!" 📝
                   </motion.p>
                 </div>
                 <motion.div
@@ -516,13 +511,11 @@ const PlanningPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"Plans are nothing; planning is everything."</em> -
-                    Dwight D. Eisenhower
+                    💭 <em>"The best code is no code at all."</em> - Jeff Atwood
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    The value isn't in the document - it's in the thinking,
-                    discussions, and shared understanding you build while
-                    planning!
+                    Simplicity in implementation leads to maintainable and
+                    robust software. Build only what is needed!
                   </p>
                 </motion.div>
                 <div style={styles.buttonGroup}>
@@ -537,7 +530,7 @@ const PlanningPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/analysis")}
+                    onClick={() => navigate("/testing")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -556,7 +549,7 @@ const PlanningPage = () => {
                       },
                     }}
                   >
-                    Next: Analysis 🔍 ✨
+                    Next: Testing 🔍 ✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -584,10 +577,10 @@ const PlanningPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["📋 ", "🎯 ", "📝 ", "💡 ", "✨ "][i % 5]}
+          {["🛠️ ", "🚀 ", "💻 ", "🧪 ", "✨ "][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default PlanningPage;
+export default ImplementationPage;

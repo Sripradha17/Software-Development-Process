@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { reviewSteps, reviewTypes, drawbacks } from "./constants/review";
-import styles from "./styles";
-import StageNavigation from "./StageNavigation";
+import {
+  aiReviewSteps,
+  aiReviewTypes,
+  aiReviewDrawbacks,
+} from "../constants/aiReview";
+import styles from "../styles";
+import StageNavigation from "../sdlc/StageNavigation";
 
-const ReviewPage = () => {
+const AIReviewPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
-  const [selectedStory, setSelectedStory] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const navigate = useNavigate();
 
   const containerVariants = {
@@ -35,38 +38,72 @@ const ReviewPage = () => {
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
   };
 
-  // Helper for navigation items
-  const navItems = [
-    { key: "intro", icon: "📊" },
-    { key: "steps", icon: "🔄" },
-    { key: "types", icon: "📖" },
-    { key: "drawbacks", icon: "⚠" },
-    { key: "joke", icon: "😄" },
-  ];
-
   return (
     <div style={styles.pageContainer}>
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
       <StageNavigation />
+
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
-        {navItems.map((item) => (
-          <motion.button
-            key={item.key}
-            style={{
-              ...styles.navItem,
-              ...(activeSection === item.key && styles.navItemActive),
-            }}
-            onClick={() => setActiveSection(item.key)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {item.icon}
-          </motion.button>
-        ))}
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "intro" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("intro")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          📊
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "steps" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("steps")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          🔄
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "types" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("types")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          📖
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "drawbacks" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("drawbacks")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          ⚠️
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "joke" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("joke")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          😄
+        </motion.button>
       </div>
+
       <div style={styles.contentContainer}>
         <AnimatePresence mode="wait">
           {/* INTRO SECTION */}
@@ -80,43 +117,44 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                📝 ✨
+                🤖📊
               </motion.div>
+
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Review in Software Development
+                AI-Augmented Review
               </motion.h1>
+
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Learning and Continuous Improvement
+                Review, learn, and improve with artificial intelligence
               </motion.p>
+
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Review?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Review?</h2>
                 <p style={styles.cardText}>
-                  Review is the <strong>quality assurance process</strong> of
-                  verifying that software works as expected, meets requirements,
-                  and is free from defects. It involves executing code with
-                  various inputs to identify bugs, validate functionality, and
-                  ensure the product delivers value to users reliably and
-                  safely.
+                  AI-augmented review uses machine learning to analyze feedback,
+                  facilitate retrospectives, and document lessons learned. It
+                  helps teams continuously improve and avoid repeating mistakes.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🐞</span>
-                    <span>Identifies bugs before they reach users</span>
+                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span>Automates feedback analysis</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔄</span>
-                    <span>Validates functionality meets requirements</span>
+                    <span style={styles.keyPointIcon}>📊</span>
+                    <span>Tracks performance and outcomes</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Ensures performance and scalability</span>
+                    <span>Suggests process improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
-                    <span>Builds confidence in code changes</span>
+                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span>Documents lessons for future teams</span>
                   </div>
                 </div>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("steps")}
@@ -124,10 +162,11 @@ const ReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Key Steps →
+                Explore AI Review Steps →
               </motion.button>
             </motion.div>
           )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -139,10 +178,11 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Review Steps
+                6 Essential AI Review Steps
               </motion.h1>
+
               <div style={styles.stepsGrid}>
-                {reviewSteps.map((step, index) => (
+                {aiReviewSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -160,15 +200,14 @@ const ReviewPage = () => {
                   </motion.div>
                 ))}
               </div>
+
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Review is not just about finding
-                  bugs—it's about building confidence. Good review catches
-                  issues early when they're cheap to fix, validates that
-                  features work as intended, and gives you the confidence to
-                  ship with pride.
+                  💡 <strong>Tip:</strong> Use AI to analyze feedback and track
+                  improvements, but always discuss results as a team.
                 </p>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("types")}
@@ -176,11 +215,12 @@ const ReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Review Approaches →
+                See AI Review Types →
               </motion.button>
             </motion.div>
           )}
-          {/* TYPES SECTION */}
+
+          {/* REVIEW TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -191,10 +231,11 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Review Approaches: Maximizing Learning
+                AI Review Approaches: Successes & Pitfalls
               </motion.h1>
+
               <div style={styles.typesContainer}>
-                {reviewTypes.map((type, index) => (
+                {aiReviewTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -207,6 +248,7 @@ const ReviewPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -216,27 +258,23 @@ const ReviewPage = () => {
                           background: type.color,
                         }}
                         onClick={() => {
-                          setModalData(type);
+                          setModalData({
+                            name: type.name,
+                            failure: type.story.failure,
+                            fix: type.story.fix,
+                            color: type.color,
+                          });
                           setModalOpen(true);
                         }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        🔍 What Went Wrong?
+                        {"🔍 What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              <motion.button
-                style={styles.nextButton}
-                onClick={() => setActiveSection("drawbacks")}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Common Pitfalls →
-              </motion.button>
               {/* Modal for What Went Wrong? */}
               <AnimatePresence>
                 {modalOpen && (
@@ -271,21 +309,30 @@ const ReviewPage = () => {
                       <div style={styles.modalFailure}>
                         <h5 style={styles.modalFailureTitle}>The Failure:</h5>
                         <p style={styles.modalFailureText}>
-                          {modalData?.story.failure}
+                          {modalData?.failure}
                         </p>
                       </div>
                       <div style={styles.modalFix}>
                         <h5 style={styles.modalFixTitle}>The Fix:</h5>
-                        <p style={styles.modalFixText}>
-                          {modalData?.story.fix}
-                        </p>
+                        <p style={styles.modalFixText}>{modalData?.fix}</p>
                       </div>
                     </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              <motion.button
+                style={styles.nextButton}
+                onClick={() => setActiveSection("drawbacks")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Common AI Pitfalls →
+              </motion.button>
             </motion.div>
           )}
+
           {/* DRAWBACKS SECTION */}
           {activeSection === "drawbacks" && (
             <motion.div
@@ -297,14 +344,14 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Review Pitfalls
+                Major AI Review Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Review is crucial, but many teams struggle with it. Here are
-                common challenges and their solutions.
+                Even the smartest AI can stumble. Here’s how to avoid common
+                review pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
+                {aiReviewDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -373,10 +420,11 @@ const ReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Need a Laugh? →
+                Need an AI Laugh? →
               </motion.button>
             </motion.div>
           )}
+
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -400,73 +448,84 @@ const ReviewPage = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  😄
+                  😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Code Review Humor Break!</h2>
+
+                <h2 style={styles.jokeTitle}>AI Review Humor Break!</h2>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the developer love code reviews?
+                    Q: Why did the AI review never miss a lesson?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 1 }}
                   >
-                    Because it’s the only time their bugs get constructive
-                    feedback!
+                    A: Because it always documented everything! 🤖📝
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    How many reviewers does it take to change a lightbulb?
+                    Q: How does AI run a retrospective?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 2 }}
                   >
-                    None. They just suggest better ways to do it and open a
-                    ticket.
+                    A: With infinite formats and zero blame! 🔄🤖
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the code reviewer bring a ladder to work?
+                    A manager asks the AI: "Can you guarantee continuous
+                    improvement?"
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 3 }}
                   >
-                    To help raise the code quality!
+                    AI: "I can guarantee continuous documentation!" 😅🤖
                   </motion.p>
                 </div>
+
                 <motion.div
                   style={styles.wisdomBox}
-                  initial={{ scale: 0.9 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Review Wisdom: "Code review is not about finding
-                    mistakes, it's about learning and improving together."
+                    💭{" "}
+                    <em>
+                      "AI is a review partner, not a replacement for team
+                      reflection."
+                    </em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Share knowledge, ask questions, and celebrate improvements!
+                    Use AI to automate and accelerate reviews, but always keep
+                    humans in the loop!
                   </p>
                 </motion.div>
+
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
-                    onClick={() => navigate("/")}
+                    onClick={() => setActiveSection("intro")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                    🏠 Back to Start
                   </motion.button>
+
                   <motion.button
                     style={styles.nextPhaseButton}
                     onClick={() => navigate("/")}
@@ -495,7 +554,7 @@ const ReviewPage = () => {
           )}
         </AnimatePresence>
       </div>
-      {/* Background particles */}
+
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -504,24 +563,23 @@ const ReviewPage = () => {
             ...styles.particle,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            fontSize: `${Math.random() * 20 + 15}px`,
           }}
           animate={{
             y: [0, -30, 0],
-            opacity: [0, 0.5, 0],
+            opacity: [0, 0.3, 0],
           }}
           transition={{
-            duration: Math.random() * 8 + 6,
+            duration: Math.random() * 8 + 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 3,
           }}
         >
-          {["📊", "🔄", "🔍", "🐞", "🛡️", "⚡"][i]}
+          {["🤖", "📊", "🔄", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default ReviewPage;
+export default AIReviewPage;

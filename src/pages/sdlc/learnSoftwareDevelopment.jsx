@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import developmentStages from "./constants/learnSoftwareDevelopment";
-import styles from "./styles";
+import developmentStages from "../constants/learnSoftwareDevelopment";
+import styles from "../styles";
 
 const LearnSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
@@ -136,7 +136,6 @@ const LearnSoftwareDevelopment = () => {
                     key="card"
                     style={{
                       ...styles.stageCard,
-                      backgroundColor: stage.color,
                       borderRadius: "12px",
                     }}
                     initial={{ opacity: 0 }}

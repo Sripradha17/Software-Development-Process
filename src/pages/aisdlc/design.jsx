@@ -1,19 +1,16 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  maintenanceSteps,
-  maintenanceTypes,
-  drawbacks,
-} from "./constants/maintenance";
-import styles from "./styles";
-import StageNavigation from "./StageNavigation";
-const MaintenancePage = () => {
+import { aiDesignSteps, aiDesignTypes, aiDesignDrawbacks } from "../constants/aiDesign";
+import styles from "../styles";
+import StageNavigation from "../sdlc/StageNavigation";
+
+const AIDesignPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
-  const [selectedStory, setSelectedStory] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const navigate = useNavigate();
 
   const containerVariants = {
@@ -23,6 +20,7 @@ const MaintenancePage = () => {
       transition: { staggerChildren: 0.1 },
     },
   };
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -31,6 +29,7 @@ const MaintenancePage = () => {
       transition: { duration: 0.3 },
     },
   };
+
   const floatAnimation = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
@@ -42,6 +41,7 @@ const MaintenancePage = () => {
         ← Back to Home
       </Link>
       <StageNavigation />
+
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         <motion.button
@@ -53,7 +53,7 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🔧
+          🤖
         </motion.button>
         <motion.button
           style={{
@@ -64,7 +64,7 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🛠
+          🏗️
         </motion.button>
         <motion.button
           style={{
@@ -86,7 +86,7 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          ⚠️
         </motion.button>
         <motion.button
           style={{
@@ -100,6 +100,7 @@ const MaintenancePage = () => {
           😄
         </motion.button>
       </div>
+
       <div style={styles.contentContainer}>
         <AnimatePresence mode="wait">
           {/* INTRO SECTION */}
@@ -113,41 +114,42 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🔧 ✨
+                🤖✨
               </motion.div>
+
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Maintenance in Software Development
+                AI-Augmented Design
               </motion.h1>
+
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Keeping Your Software Healthy
+                Creative software design supercharged by artificial intelligence
               </motion.p>
+
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Maintenance?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Design?</h2>
                 <p style={styles.cardText}>
-                  Maintenance is the <strong>ongoing process</strong> of
-                  updating, improving, and fixing software after its initial
-                  release. It ensures the product remains reliable, secure, and
-                  valuable to users over time.
+                  AI-augmented design leverages machine learning to optimize architecture, automate database modeling, generate APIs, and create user-centric UI/UX. It helps teams design smarter, faster, and with fewer errors.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔍</span>
-                    <span>Identifies bugs before they reach users</span>
+                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span>Suggests optimal system structures and user flows</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛠</span>
-                    <span>Validates functionality meets requirements</span>
+                    <span style={styles.keyPointIcon}>📊</span>
+                    <span>Automates wireframes, diagrams, and documentation</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Ensures performance and scalability</span>
+                    <span>Identifies security risks and design flaws early</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
-                    <span>Builds confidence in code changes</span>
+                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span>Continuously improves design with user feedback</span>
                   </div>
                 </div>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("steps")}
@@ -155,10 +157,11 @@ const MaintenancePage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Key Steps →
+                Explore AI Design Steps →
               </motion.button>
             </motion.div>
           )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -170,10 +173,11 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Maintenance Steps
+                6 Essential AI Design Steps
               </motion.h1>
+
               <div style={styles.stepsGrid}>
-                {maintenanceSteps.map((step, index) => (
+                {aiDesignSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -191,14 +195,13 @@ const MaintenancePage = () => {
                   </motion.div>
                 ))}
               </div>
+
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Maintenance is not just about
-                  fixing bugs—it's about keeping your software valuable and
-                  reliable. Good maintenance prevents issues, adapts to new
-                  needs, and extends the life of your product.
+                  💡 <strong>Tip:</strong> Use AI to iterate and validate your designs with real user data and feedback.
                 </p>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("types")}
@@ -206,11 +209,12 @@ const MaintenancePage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Maintenance Approaches →
+                See AI Design Types →
               </motion.button>
             </motion.div>
           )}
-          /* MAINTENANCE TYPES WITH STORIES */
+
+          {/* DESIGN TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -221,10 +225,11 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Maintenance Strategies: Best Practices
+                AI Design Approaches: Successes & Pitfalls
               </motion.h1>
+
               <div style={styles.typesContainer}>
-                {maintenanceTypes.map((type, index) => (
+                {aiDesignTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -237,6 +242,7 @@ const MaintenancePage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -246,7 +252,12 @@ const MaintenancePage = () => {
                           background: type.color,
                         }}
                         onClick={() => {
-                          setModalData(type);
+                          setModalData({
+                            name: type.name,
+                            failure: type.story.failure,
+                            fix: type.story.fix,
+                            color: type.color,
+                          });
                           setModalOpen(true);
                         }}
                         whileHover={{ scale: 1.02 }}
@@ -258,15 +269,6 @@ const MaintenancePage = () => {
                   </motion.div>
                 ))}
               </div>
-              <motion.button
-                style={styles.nextButton}
-                onClick={() => setActiveSection("drawbacks")}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Common Pitfalls →
-              </motion.button>
               {/* Modal for What Went Wrong? */}
               <AnimatePresence>
                 {modalOpen && (
@@ -301,21 +303,30 @@ const MaintenancePage = () => {
                       <div style={styles.modalFailure}>
                         <h5 style={styles.modalFailureTitle}>The Failure:</h5>
                         <p style={styles.modalFailureText}>
-                          {modalData?.story.failure}
+                          {modalData?.failure}
                         </p>
                       </div>
                       <div style={styles.modalFix}>
                         <h5 style={styles.modalFixTitle}>The Fix:</h5>
-                        <p style={styles.modalFixText}>
-                          {modalData?.story.fix}
-                        </p>
+                        <p style={styles.modalFixText}>{modalData?.fix}</p>
                       </div>
                     </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              <motion.button
+                style={styles.nextButton}
+                onClick={() => setActiveSection("drawbacks")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Common AI Pitfalls →
+              </motion.button>
             </motion.div>
           )}
+
           {/* DRAWBACKS SECTION */}
           {activeSection === "drawbacks" && (
             <motion.div
@@ -327,14 +338,13 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Maintenance Pitfalls
+                Major AI Design Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Maintenance is crucial, but many teams struggle with it. Here
-                are common challenges and their solutions.
+                Even the smartest AI can stumble. Here’s how to avoid common design pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
+                {aiDesignDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -403,10 +413,11 @@ const MaintenancePage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Need a Laugh? →
+                Need an AI Laugh? →
               </motion.button>
             </motion.div>
           )}
+
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -430,85 +441,89 @@ const MaintenancePage = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  😄
+                  😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Maintenance Humor Break!</h2>
+
+                <h2 style={styles.jokeTitle}>AI Design Humor Break!</h2>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the software maintenance engineer bring a broom to
-                    work?
+                    Q: Why did the AI designer always win awards?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 1 }}
                   >
-                    To sweep up all the legacy code! 🧹
+                    A: Because their designs were always optimized for user delight! 🤖🎨
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    How do you know your software needs maintenance?
+                    Q: How many AI architects does it take to scale a system?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 2 }}
                   >
-                    When the error logs are longer than the user manual! 📚
+                    A: None. The AI just auto-scales everything! 🏗️🤖
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the developer schedule maintenance at midnight?
+                    A stakeholder tells an AI designer: "I want a UI that's unique but instantly familiar."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 3 }}
                   >
-                    Because nobody wants to see what really happens behind the
-                    scenes! 🌙
+                    The designer: "So... you want creative conformity? Got it! I'll just add that to my paradoxical design goals." 😅🤖
                   </motion.p>
                 </div>
+
                 <motion.div
                   style={styles.wisdomBox}
-                  initial={{ scale: 0.9 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Maintenance Wisdom: "If debugging is the process of
-                    removing bugs, then programming must be the process of
-                    putting them in."
+                    💭 <em>"AI is a design partner, not a replacement for human creativity."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Write tests first, code second. Prevention is better than
-                    cure!
+                    Use AI to enhance your design process, but always keep humans in the loop!
                   </p>
                 </motion.div>
+
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
-                    onClick={() => navigate("/")}
+                    onClick={() => setActiveSection("intro")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                    🏠 Back to Start
                   </motion.button>
+
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/review")}
+                    onClick={() => navigate("/ai-implementation")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -519,7 +534,7 @@ const MaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 📝 ✨
+                    Next: Implementation 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -527,6 +542,7 @@ const MaintenancePage = () => {
           )}
         </AnimatePresence>
       </div>
+
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -535,24 +551,23 @@ const MaintenancePage = () => {
             ...styles.particle,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            fontSize: `${Math.random() * 20 + 15}px`,
           }}
           animate={{
             y: [0, -30, 0],
-            opacity: [0, 0.5, 0],
+            opacity: [0, 0.3, 0],
           }}
           transition={{
-            duration: Math.random() * 8 + 6,
+            duration: Math.random() * 8 + 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 3,
           }}
         >
-          {["🔧", "🛠", "🔍", "🧰", "🛡️", "⚡"][i]}
+          {["🤖", "🏗️", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default MaintenancePage;
+export default AIDesignPage;

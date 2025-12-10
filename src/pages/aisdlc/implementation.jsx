@@ -1,11 +1,12 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { designSteps, designTypes, drawbacks } from "./constants/design";
-import styles from "./styles";
-import StageNavigation from "./StageNavigation";
+import { aiImplementationSteps, aiImplementationTypes, aiImplementationDrawbacks } from "../constants/aiImplementation";
+import styles from "../styles";
+import StageNavigation from "../sdlc/StageNavigation";
 
-const DesignPage = () => {
+const AIImplementationPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -31,7 +32,6 @@ const DesignPage = () => {
 
   const floatAnimation = {
     y: [0, -10, 0],
-
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
   };
 
@@ -53,7 +53,7 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🎨
+          🤖
         </motion.button>
         <motion.button
           style={{
@@ -64,7 +64,7 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🏗️
+          🚀
         </motion.button>
         <motion.button
           style={{
@@ -75,7 +75,7 @@ const DesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📖
+          📚
         </motion.button>
         <motion.button
           style={{
@@ -114,47 +114,38 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🎨✨
+                🤖✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                {" "}
-                Design in Software Development
+                AI-Augmented Implementation
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                {" "}
-                Creating the Blueprint for Your Software Solution
+                Rapid, reliable software development with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Design?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Implementation?</h2>
                 <p style={styles.cardText}>
-                  Design is the <strong>creative and technical process</strong>{" "}
-                  of architecting how your software will be structured, how
-                  components will interact, what the user interface will look
-                  like, and how data will flow. It's the bridge between{" "}
-                  <em>understanding the problem</em> (analysis) and{" "}
-                  <em>building the solution</em> (implementation).
+                  AI-augmented implementation uses machine learning to automate environment setup, assist coding, generate tests, review code, and document everything. It helps teams build faster, catch bugs early, and maintain high quality.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🏗️</span>
-                    <span>Creates a blueprint that guides development</span>
+                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span>Automates setup, coding, and testing</span>
+                  </div>
+                  <div style={styles.keyPoint}>
+                    <span style={styles.keyPointIcon}>📊</span>
+                    <span>Reviews code and suggests improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>
-                      Balances performance, scalability, and maintainability
-                    </span>
+                    <span>Integrates components and resolves conflicts</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🎯</span>
-                    <span>Aligns technical decisions with business goals</span>
-                  </div>
-                  <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💡</span>
-                    <span>Prevents costly architectural mistakes early</span>
+                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span>Keeps documentation up to date automatically</span>
                   </div>
                 </div>
               </motion.div>
@@ -166,7 +157,7 @@ const DesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Key Steps →
+                Explore AI Implementation Steps →
               </motion.button>
             </motion.div>
           )}
@@ -182,12 +173,11 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                6 Essential Design Steps
+                6 Essential AI Implementation Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {designSteps.map((step, index) => (
+                {aiImplementationSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -208,11 +198,7 @@ const DesignPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Good design is like architecture
-                  for buildings - you wouldn't start construction without
-                  blueprints. Similarly, don't start coding without a solid
-                  design that considers scalability, maintainability, and user
-                  experience.
+                  💡 <strong>Tip:</strong> Use AI to automate repetitive tasks and focus your energy on creative problem solving.
                 </p>
               </motion.div>
 
@@ -223,12 +209,12 @@ const DesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Design Types →
+                See AI Implementation Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* DESIGN TYPES WITH STORIES */}
+          {/* IMPLEMENTATION TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -239,12 +225,11 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                Design Approaches: Lessons from the Field
+                AI Implementation Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {designTypes.map((type, index) => (
+                {aiImplementationTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -257,6 +242,7 @@ const DesignPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -336,7 +322,7 @@ const DesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Common Pitfalls →
+                Common AI Pitfalls →
               </motion.button>
             </motion.div>
           )}
@@ -352,18 +338,13 @@ const DesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                {" "}
-                Major Design Pitfalls & Solutions
+                Major AI Implementation Drawbacks & Their Resolutions
               </motion.h1>
-
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                {" "}
-                Avoid these common design mistakes that plague software
-                projects:
+                Even the smartest AI can stumble. Here’s how to avoid common implementation pitfalls:
               </motion.p>
-
               <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
+                {aiImplementationDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -425,7 +406,6 @@ const DesignPage = () => {
                   </motion.div>
                 ))}
               </div>
-
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("joke")}
@@ -433,7 +413,7 @@ const DesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Need a Laugh? →
+                Need an AI Laugh? →
               </motion.button>
             </motion.div>
           )}
@@ -464,11 +444,11 @@ const DesignPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>Design Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Implementation Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why do architects always carry a pencil and eraser?
+                    Q: Why did the AI developer never worry about bugs?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -476,15 +456,13 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because every design is perfect... until stakeholders see
-                    it! ✏️🗑️
+                    A: Because the AI squashed them before they appeared! 🤖🐛
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: What's the difference between a well-designed system and
-                    a poorly designed one?
+                    Q: How many AI coders does it take to refactor a legacy system?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -492,13 +470,13 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: About 6 months and 3 complete rewrites! 🏗️😅
+                    A: None. The AI just rewrites it from scratch! 🛠️🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A UX designer walks into a bar...
+                    A stakeholder tells an AI developer: "I want code that's perfect and always changing."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -506,10 +484,7 @@ const DesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    ...and immediately redesigns it because the door should have
-                    been more intuitive, the menu needed better information
-                    architecture, and don't even get them started on the poor
-                    accessibility of the bar stools! 🍺🎨
+                    The developer: "So... you want perpetual improvement? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
                   </motion.p>
                 </div>
 
@@ -520,17 +495,10 @@ const DesignPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭{" "}
-                    <em>
-                      "Design is not just what it looks like and feels like.
-                      Design is how it works."
-                    </em>{" "}
-                    - Steve Jobs
+                    💭 <em>"AI is a coding partner, not a replacement for human ingenuity."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Great design isn't just about aesthetics - it's about
-                    creating systems that are scalable, maintainable, and
-                    actually solve real problems elegantly!
+                    Use AI to accelerate development, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -547,15 +515,15 @@ const DesignPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/implementation")}
+                    onClick={() => navigate("/ai-testing")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
-                        "0 10px 30px rgba(255, 234, 167, 0.4)",
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -566,7 +534,7 @@ const DesignPage = () => {
                       },
                     }}
                   >
-                    Next: Implementation 💻✨
+                    Next: Testing 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -595,11 +563,11 @@ const DesignPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🎨", "🏗️", "📐", "💡", "✨"][i % 5]}
+          {["🤖", "🚀", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default DesignPage;
+export default AIImplementationPage;

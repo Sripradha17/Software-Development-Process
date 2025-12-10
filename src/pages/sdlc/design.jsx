@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { analysisSteps, analysisTypes, drawbacks } from "./constants/analysis";
-import styles from "./styles";
+import { designSteps, designTypes, drawbacks } from "../constants/design";
+import styles from "../styles";
 import StageNavigation from "./StageNavigation";
-const AnalysisPage = () => {
+
+const DesignPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -30,6 +31,7 @@ const AnalysisPage = () => {
 
   const floatAnimation = {
     y: [0, -10, 0],
+
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
   };
 
@@ -51,7 +53,7 @@ const AnalysisPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🔍
+          🎨
         </motion.button>
         <motion.button
           style={{
@@ -62,7 +64,7 @@ const AnalysisPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          🏗️
         </motion.button>
         <motion.button
           style={{
@@ -112,46 +114,47 @@ const AnalysisPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🔍✨
+                🎨✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
                 {" "}
-                Analysis in Software Development
+                Design in Software Development
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
                 {" "}
-                Understanding the Problem Before Building the Solution
+                Creating the Blueprint for Your Software Solution
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Analysis?</h2>
+                <h2 style={styles.cardTitle}>What is Design?</h2>
                 <p style={styles.cardText}>
-                  Analysis is the <strong>investigative process</strong> of
-                  deeply understanding the problem domain, user needs, business
-                  context, and technical constraints. It's about asking the
-                  right questions to ensure you're building the{" "}
-                  <em>right thing</em>, not just building things right.
+                  Design is the <strong>creative and technical process</strong>{" "}
+                  of architecting how your software will be structured, how
+                  components will interact, what the user interface will look
+                  like, and how data will flow. It's the bridge between{" "}
+                  <em>understanding the problem</em> (analysis) and{" "}
+                  <em>building the solution</em> (implementation).
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🎯</span>
-                    <span>Uncovers hidden requirements and assumptions</span>
-                  </div>
-                  <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💡</span>
-                    <span>Identifies root causes, not just symptoms</span>
-                  </div>
-                  <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔗</span>
-                    <span>
-                      Bridges communication between business and tech teams
-                    </span>
+                    <span style={styles.keyPointIcon}>🏗️</span>
+                    <span>Creates a blueprint that guides development</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Prevents building solutions nobody needs</span>
+                    <span>
+                      Balances performance, scalability, and maintainability
+                    </span>
+                  </div>
+                  <div style={styles.keyPoint}>
+                    <span style={styles.keyPointIcon}>🎯</span>
+                    <span>Aligns technical decisions with business goals</span>
+                  </div>
+                  <div style={styles.keyPoint}>
+                    <span style={styles.keyPointIcon}>💡</span>
+                    <span>Prevents costly architectural mistakes early</span>
                   </div>
                 </div>
               </motion.div>
@@ -180,11 +183,11 @@ const AnalysisPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                6 Essential Analysis Steps
+                6 Essential Design Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {analysisSteps.map((step, index) => (
+                {designSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -205,10 +208,11 @@ const AnalysisPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Analysis is like detective work
-                  - you're gathering clues, interviewing witnesses
-                  (stakeholders), and piecing together the full picture before
-                  making your case (solution).
+                  💡 <strong>Remember:</strong> Good design is like architecture
+                  for buildings - you wouldn't start construction without
+                  blueprints. Similarly, don't start coding without a solid
+                  design that considers scalability, maintainability, and user
+                  experience.
                 </p>
               </motion.div>
 
@@ -219,12 +223,12 @@ const AnalysisPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Analysis Types →
+                See Design Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* ANALYSIS TYPES WITH STORIES */}
+          {/* DESIGN TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -236,11 +240,11 @@ const AnalysisPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                Analysis Approaches: Learning from Mistakes
+                Design Approaches: Lessons from the Field
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {analysisTypes.map((type, index) => (
+                {designTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -253,7 +257,6 @@ const AnalysisPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
-
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -349,12 +352,16 @@ const AnalysisPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major Drawbacks & Their Resolutions
+                {" "}
+                Major Design Pitfalls & Solutions
               </motion.h1>
+
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the best analysis has pitfalls. Here's how to overcome
-                them:
+                {" "}
+                Avoid these common design mistakes that plague software
+                projects:
               </motion.p>
+
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
                   <motion.div
@@ -418,6 +425,7 @@ const AnalysisPage = () => {
                   </motion.div>
                 ))}
               </div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("joke")}
@@ -456,11 +464,11 @@ const AnalysisPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>Analysis Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>Design Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the business analyst bring a ladder to work?
+                    Q: Why do architects always carry a pencil and eraser?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -468,14 +476,15 @@ const AnalysisPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: To reach the high-level requirements! 🪜📋
+                    A: Because every design is perfect... until stakeholders see
+                    it! ✏️🗑️
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many requirements analysts does it take to change a
-                    light bulb?
+                    Q: What's the difference between a well-designed system and
+                    a poorly designed one?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -483,17 +492,13 @@ const AnalysisPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: First, we need to analyze the current lighting situation,
-                    interview stakeholders about their illumination needs,
-                    create a feasibility study for bulb replacement, and then...
-                    wait, what was the question? 💡🤔
+                    A: About 6 months and 3 complete rewrites! 🏗️😅
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A user tells an analyst: "I want it exactly like our
-                    competitor's product, but completely different."
+                    A UX designer walks into a bar...
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -501,9 +506,10 @@ const AnalysisPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The analyst: "So... you want a unique copy? Got it! Let me
-                    just add that to my collection of impossible requirements."
-                    😅📝
+                    ...and immediately redesigns it because the door should have
+                    been more intuitive, the menu needed better information
+                    architecture, and don't even get them started on the poor
+                    accessibility of the bar stools! 🍺🎨
                   </motion.p>
                 </div>
 
@@ -516,14 +522,15 @@ const AnalysisPage = () => {
                   <p style={styles.wisdomText}>
                     💭{" "}
                     <em>
-                      "If I had an hour to solve a problem, I'd spend 55 minutes
-                      analyzing it and 5 minutes solving it."
+                      "Design is not just what it looks like and feels like.
+                      Design is how it works."
                     </em>{" "}
-                    - Albert Einstein
+                    - Steve Jobs
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Thorough analysis isn't slowing you down - it's speeding you
-                    up by ensuring you solve the right problem the first time!
+                    Great design isn't just about aesthetics - it's about
+                    creating systems that are scalable, maintainable, and
+                    actually solve real problems elegantly!
                   </p>
                 </motion.div>
 
@@ -540,15 +547,15 @@ const AnalysisPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/design")}
+                    onClick={() => navigate("/implementation")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
-                        "0 10px 30px rgba(150, 206, 180, 0.4)",
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(150, 206, 180, 0.3)",
+                        "0 10px 30px rgba(255, 234, 167, 0.4)",
+                        "0 10px 30px rgba(150, 206, 180, 0.3)",
                       ],
                     }}
                     transition={{
@@ -559,7 +566,7 @@ const AnalysisPage = () => {
                       },
                     }}
                   >
-                    Next: Design 🎨✨
+                    Next: Implementation 💻✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -588,11 +595,11 @@ const AnalysisPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🔍", "📊", "📝", "💡", "✨"][i % 5]}
+          {["🎨", "🏗️", "📐", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AnalysisPage;
+export default DesignPage;
