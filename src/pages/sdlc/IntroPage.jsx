@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styles from "./styles";
+import styles from "../styles";
 import { useNavigate } from "react-router-dom";
 
 const IntroPage = () => {

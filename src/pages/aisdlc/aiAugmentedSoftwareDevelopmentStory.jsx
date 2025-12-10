@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import chapters from "./constants/story";
-import styles from "./styles";
+import chapters from "../constants/aiAugmentedSoftwareDevelopmentStory";
+import styles from "../styles";
 
-const DevelopmentProcessStory = () => {
+const AiAugmentedDevelopmentStory = () => {
   const [currentChapter, setCurrentChapter] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
@@ -111,13 +111,10 @@ const DevelopmentProcessStory = () => {
   if (showIntro) {
     return (
       <div style={styles.storyContainer}>
-        {" "}
-        <Link to="/learn-software-development" style={styles.backLink}>
-          {" "}
-          ← Back{" "}
-        </Link>{" "}
+        <Link to="/ai-augmented-development" style={styles.backLink}>
+          ← Back
+        </Link>
         <AnimatePresence>
-          {" "}
           <motion.div
             style={styles.introWrapper}
             variants={introVariants}
@@ -125,24 +122,17 @@ const DevelopmentProcessStory = () => {
             animate="visible"
             exit="exit"
           >
-            {" "}
             <motion.div style={styles.introContent} animate={floatingAnimation}>
-              {" "}
-              <motion.div style={styles.introIcon}> ☕ </motion.div>
-              {""}
+              <motion.div style={styles.introIcon}>🤖</motion.div>
               <motion.h1 style={styles.introTitle}>
-                {" "}
-                Sarah's Coffee Shop App{" "}
-              </motion.h1>{" "}
+                AI-Augmented Coffee Shop App
+              </motion.h1>
               <motion.p style={styles.introSubtitle}>
-                {" "}
-                A Story About the Development Process{" "}
-              </motion.p>{" "}
+                A Story About AI in Software Development
+              </motion.p>
               <motion.p style={styles.introDescription}>
-                {" "}
-                Join us on a journey as we follow Sarah and Alex through the
-                complete software development process, from vision to reality.{" "}
-              </motion.p>{" "}
+                Join Sarah, Alex, and Maya as they transform a coffee shop app with the power of AI.
+              </motion.p>
               <motion.button
                 style={styles.startButton}
                 onClick={() => setShowIntro(false)}
@@ -153,11 +143,10 @@ const DevelopmentProcessStory = () => {
                 whileTap={{ scale: 0.95 }}
                 animate={pulseAnimation}
               >
-                {" "}
-                Begin the Story{" "}
-              </motion.button>{" "}
-            </motion.div>{" "}
-            {/* Floating coffee beans */}{" "}
+                Begin the Story
+              </motion.button>
+            </motion.div>
+            {/* Floating AI icons */}
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
@@ -178,12 +167,11 @@ const DevelopmentProcessStory = () => {
                   delay: i * 0.5,
                 }}
               >
-                {" "}
-                ☕{" "}
+                🤖
               </motion.div>
-            ))}{" "}
-          </motion.div>{" "}
-        </AnimatePresence>{" "}
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     );
   }
@@ -195,7 +183,6 @@ const DevelopmentProcessStory = () => {
       <Link to="/learn-software-development" style={styles.backLink}>
         ← Back
       </Link>
-
       {/* Progress bar */}
       <div style={styles.progressContainer}>
         <motion.div
@@ -207,7 +194,6 @@ const DevelopmentProcessStory = () => {
           transition={{ duration: 0.5 }}
         />
       </div>
-
       {/* Chapter navigation dots */}
       <div style={styles.dotsContainer}>
         {chapters.map((ch, index) => (
@@ -229,7 +215,6 @@ const DevelopmentProcessStory = () => {
           />
         ))}
       </div>
-
       <AnimatePresence mode="wait" custom={currentChapter}>
         <motion.div
           key={currentChapter}
@@ -250,16 +235,13 @@ const DevelopmentProcessStory = () => {
             >
               {chapter.icon}
             </motion.div>
-
             {/* Chapter Title */}
             <motion.h2 style={styles.chapterTitle} variants={titleVariants}>
               {chapter.title}
             </motion.h2>
-
             <motion.h3 style={styles.chapterSubtitle} variants={titleVariants}>
               {chapter.subtitle}
             </motion.h3>
-
             {/* Story Content */}
             <div style={styles.storyContent}>
               {chapter.story.map((line, index) => (
@@ -279,7 +261,6 @@ const DevelopmentProcessStory = () => {
                 </motion.p>
               ))}
             </div>
-
             {/* Illustration */}
             <motion.div
               style={styles.illustration}
@@ -287,7 +268,6 @@ const DevelopmentProcessStory = () => {
             >
               {chapter.illustration}
             </motion.div>
-
             {/* Show "Let's Go Plan" button on the last chapter */}
             {currentChapter === chapters.length - 1 && (
               <motion.div
@@ -312,7 +292,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #1abc9c 0%, #16a085 100%)",
                     }}
-                    onClick={() => navigate("/planning")}
+                    onClick={() => navigate("/ai-planning")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -324,7 +304,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #f39c12 0%, #e67e22 100%)",
                     }}
-                    onClick={() => navigate("/analysis")}
+                    onClick={() => navigate("/ai-analysis")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -336,7 +316,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #2980b9 0%, #6dd5fa 100%)",
                     }}
-                    onClick={() => navigate("/design")}
+                    onClick={() => navigate("/ai-design")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -348,7 +328,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #8e44ad 0%, #6c3483 100%)",
                     }}
-                    onClick={() => navigate("/implementation")}
+                    onClick={() => navigate("/ai-implementation")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -360,7 +340,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)",
                     }}
-                    onClick={() => navigate("/testing")}
+                    onClick={() => navigate("/ai-testing")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -372,7 +352,7 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)",
                     }}
-                    onClick={() => navigate("/deployment")}
+                    onClick={() => navigate("/ai-deployment")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
@@ -384,24 +364,35 @@ const DevelopmentProcessStory = () => {
                       background:
                         "linear-gradient(135deg, #34495e 0%, #2c3e50 100%)",
                     }}
-                    onClick={() => navigate("/maintenance")}
+                    onClick={() => navigate("/ai-maintenance")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
                     🛠 Maintenance
                   </motion.button>
+                  <motion.button
+                    style={{
+                      ...styles.planButton,
+                      background:
+                        "linear-gradient(135deg, #bde4ce 0%, #16a085 100%)",
+                    }}
+                    onClick={() => navigate("/ai-review")}
+                    whileHover={{ scale: 1.07 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    🔍 Review
+                  </motion.button>
                 </div>
                 <div
                   style={{ color: "#bde4ce", fontSize: "1.1rem", marginTop: 8 }}
                 >
-                  Explore each stage of the software development process!
+                  Explore each stage of the AI-augmented software development process!
                 </div>
               </motion.div>
             )}
           </motion.div>
         </motion.div>
       </AnimatePresence>
-
       {/* Navigation Controls */}
       <div style={styles.controls}>
         <motion.button
@@ -416,7 +407,6 @@ const DevelopmentProcessStory = () => {
         >
           ← Previous
         </motion.button>
-
         <motion.button
           style={{
             ...styles.playButton,
@@ -428,7 +418,6 @@ const DevelopmentProcessStory = () => {
         >
           {isAutoPlay ? "⏸ Pause" : "▶ Auto Play"}
         </motion.button>
-
         <motion.button
           style={{
             ...styles.navButton,
@@ -444,7 +433,6 @@ const DevelopmentProcessStory = () => {
           Next →
         </motion.button>
       </div>
-
       {/* Background particles */}
       {[...Array(8)].map((_, i) => (
         <motion.div
@@ -466,10 +454,10 @@ const DevelopmentProcessStory = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["☕", "📱 ", "💻 ", "🚀 ", "✨ "][Math.floor(Math.random() * 5)]}
+          {["🤖", "📱 ", "💻 ", "🚀 ", "✨ "][Math.floor(Math.random() * 5)]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default DevelopmentProcessStory;
+export default AiAugmentedDevelopmentStory;

@@ -1,15 +1,12 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  implementationSteps,
-  implementationTypes,
-  drawbacks,
-} from "./constants/implementation";
-import styles from "./styles";
-import StageNavigation from "./StageNavigation";
+import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../constants/aiMaintenance";
+import styles from "../styles";
+import StageNavigation from "../sdlc/StageNavigation";
 
-const ImplementationPage = () => {
+const AIMaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -58,7 +55,6 @@ const ImplementationPage = () => {
         >
           🛠️
         </motion.button>
-
         <motion.button
           style={{
             ...styles.navItem,
@@ -68,9 +64,8 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          🧰
         </motion.button>
-
         <motion.button
           style={{
             ...styles.navItem,
@@ -80,9 +75,8 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📚
+          📖
         </motion.button>
-
         <motion.button
           style={{
             ...styles.navItem,
@@ -92,16 +86,15 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          ⚠️
         </motion.button>
-
         <motion.button
           style={{
             ...styles.navItem,
             ...(activeSection === "joke" && styles.navItemActive),
           }}
           onClick={() => setActiveSection("joke")}
-          while3Hover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           😄
@@ -121,46 +114,38 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🛠️ ✨
+                🤖🛠️
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Implementation in Software Development
+                AI-Augmented Maintenance
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Turning Plans into Reality
+                Maintain, optimize, and secure your software with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Implementation?</h2>
-
+                <h2 style={styles.cardTitle}>What is AI-Augmented Maintenance?</h2>
                 <p style={styles.cardText}>
-                  Implementation is the <strong>hands-on process</strong> of
-                  building, coding, and integrating the planned solution. It's
-                  where ideas and designs are transformed into a working
-                  product.
+                  AI-augmented maintenance uses machine learning to monitor systems, detect bugs, optimize performance, and manage technical debt. It helps teams keep software running smoothly, securely, and efficiently.
                 </p>
-
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💻 </span>
-                    <span>Translates designs into working code</span>
+                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span>Automates bug detection and fixes</span>
                   </div>
-
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔗 </span>
-                    <span>Integrates components and systems</span>
+                    <span style={styles.keyPointIcon}>📊</span>
+                    <span>Monitors health and predicts issues</span>
                   </div>
-
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧪 </span>
-                    <span>Requires testing and validation</span>
+                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span>Optimizes performance proactively</span>
                   </div>
-
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤝 </span>
-                    <span>Involves collaboration and communication</span>
+                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span>Manages technical debt and security</span>
                   </div>
                 </div>
               </motion.div>
@@ -172,10 +157,11 @@ const ImplementationPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Key Steps →
+                Explore AI Maintenance Steps →
               </motion.button>
             </motion.div>
           )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -187,10 +173,11 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Implementation Steps
+                6 Essential AI Maintenance Steps
               </motion.h1>
+
               <div style={styles.stepsGrid}>
-                {implementationSteps.map((step, index) => (
+                {aiMaintenanceSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -211,9 +198,7 @@ const ImplementationPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Implementation is iterative!
-                  You'll often refactor and improve as you build. Embrace
-                  feedback and adapt as needed.
+                  💡 <strong>Tip:</strong> Use AI to automate routine maintenance, but always review critical changes manually.
                 </p>
               </motion.div>
 
@@ -224,12 +209,12 @@ const ImplementationPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Implementation Types →
+                See AI Maintenance Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* IMPLEMENTATION TYPES WITH STORIES */}
+          {/* MAINTENANCE TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -240,11 +225,11 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Implementation Approaches: Tales of Success & Failure
+                AI Maintenance Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {implementationTypes.map((type, index) => (
+                {aiMaintenanceTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -257,6 +242,7 @@ const ImplementationPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -336,13 +322,12 @@ const ImplementationPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Common Pitfalls →
+                Common AI Pitfalls →
               </motion.button>
             </motion.div>
           )}
 
           {/* DRAWBACKS SECTION */}
-
           {activeSection === "drawbacks" && (
             <motion.div
               key="drawbacks"
@@ -353,14 +338,13 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major Drawbacks & Their Resolutions
+                Major AI Maintenance Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the best implementation has pitfalls. Here's how to
-                overcome them:
+                Even the smartest AI can stumble. Here’s how to avoid common maintenance pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
+                {aiMaintenanceDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -429,10 +413,11 @@ const ImplementationPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Need a Laugh? →
+                Need an AI Laugh? →
               </motion.button>
             </motion.div>
           )}
+
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -458,11 +443,12 @@ const ImplementationPage = () => {
                 >
                   😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Implementation Humor Break!</h2>
+
+                <h2 style={styles.jokeTitle}>AI Maintenance Humor Break!</h2>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the developer go broke after implementing a new
-                    feature?
+                    Q: Why did the AI maintenance bot never panic?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -470,12 +456,13 @@ const ImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because he used up all his cache! 💸
+                    A: Because it always had a patch ready! 🤖🩹
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How do programmers enjoy their implementation phase?
+                    Q: How does AI fix bugs?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -483,13 +470,13 @@ const ImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: By pushing all the right buttons! 😅
+                    A: With predictive debugging and infinite optimism! 🐞🤖
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A developer, a tester, and a project manager walk into a
-                    sprint...
+                    A manager asks the AI: "Can you guarantee zero bugs?"
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -497,13 +484,10 @@ const ImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The developer says "Let's implement!"
-                    <br />
-                    The tester says "Let's break it!"
-                    <br />
-                    The project manager says "Let's document it!" 📝
+                    AI: "I can guarantee zero panic!" 😅🤖
                   </motion.p>
                 </div>
+
                 <motion.div
                   style={styles.wisdomBox}
                   initial={{ opacity: 0, y: 20 }}
@@ -511,13 +495,13 @@ const ImplementationPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"The best code is no code at all."</em> - Jeff Atwood
+                    💭 <em>"AI is a maintenance partner, not a replacement for human insight."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Simplicity in implementation leads to maintainable and
-                    robust software. Build only what is needed!
+                    Use AI to automate and accelerate maintenance, but always keep humans in the loop!
                   </p>
                 </motion.div>
+
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
@@ -528,9 +512,10 @@ const ImplementationPage = () => {
                   >
                     🏠 Back to Start
                   </motion.button>
+
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/testing")}
+                    onClick={() => navigate("/ai-review")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -549,7 +534,7 @@ const ImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🔍 ✨
+                    Next: Review 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -557,6 +542,7 @@ const ImplementationPage = () => {
           )}
         </AnimatePresence>
       </div>
+
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -577,10 +563,11 @@ const ImplementationPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🛠️ ", "🚀 ", "💻 ", "🧪 ", "✨ "][i % 5]}
+          {["🤖", "🛠️", "🧰", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default ImplementationPage;
+
+export default AIMaintenancePage;

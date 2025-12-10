@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  deploymentSteps,
-  deploymentTypes,
-  drawbacks,
-} from "./constants/deployment";
-import styles from "./styles";
+import { analysisSteps, analysisTypes, drawbacks } from "../constants/analysis";
+import styles from "../styles";
 import StageNavigation from "./StageNavigation";
-
-const DeploymentPage = () => {
+const AnalysisPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
-  const [selectedStory, setSelectedStory] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [selectedDrawback, setSelectedDrawback] = useState(null);
   const navigate = useNavigate();
 
   const containerVariants = {
@@ -57,7 +51,7 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          🔍
         </motion.button>
         <motion.button
           style={{
@@ -68,7 +62,7 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📦
+          📊
         </motion.button>
         <motion.button
           style={{
@@ -90,7 +84,7 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          ⚠️
         </motion.button>
         <motion.button
           style={{
@@ -118,43 +112,50 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🚀 ✨
+                🔍✨
               </motion.div>
+
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Deployment in Software Development
+                {" "}
+                Analysis in Software Development
               </motion.h1>
+
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Releasing Your Software to the World
+                {" "}
+                Understanding the Problem Before Building the Solution
               </motion.p>
+
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Deployment?</h2>
+                <h2 style={styles.cardTitle}>What is Analysis?</h2>
                 <p style={styles.cardText}>
-                  Deployment is the{" "}
-                  <strong>
-                    process of releasing, installing, and configuring software
-                  </strong>{" "}
-                  so it is available for users. It includes everything from
-                  packaging and delivery to monitoring and rollback.
+                  Analysis is the <strong>investigative process</strong> of
+                  deeply understanding the problem domain, user needs, business
+                  context, and technical constraints. It's about asking the
+                  right questions to ensure you're building the{" "}
+                  <em>right thing</em>, not just building things right.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🚚</span>
-                    <span>Delivers software to users or production</span>
+                    <span style={styles.keyPointIcon}>🎯</span>
+                    <span>Uncovers hidden requirements and assumptions</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔄</span>
-                    <span>Handles updates, rollbacks, and migrations</span>
+                    <span style={styles.keyPointIcon}>💡</span>
+                    <span>Identifies root causes, not just symptoms</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📈</span>
-                    <span>Monitors health and performance</span>
+                    <span style={styles.keyPointIcon}>🔗</span>
+                    <span>
+                      Bridges communication between business and tech teams
+                    </span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
-                    <span>Ensures security and compliance</span>
+                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span>Prevents building solutions nobody needs</span>
                   </div>
                 </div>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("steps")}
@@ -166,6 +167,7 @@ const DeploymentPage = () => {
               </motion.button>
             </motion.div>
           )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div
@@ -177,10 +179,12 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Deployment Steps
+                {" "}
+                6 Essential Analysis Steps
               </motion.h1>
+
               <div style={styles.stepsGrid}>
-                {deploymentSteps.map((step, index) => (
+                {analysisSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -198,15 +202,16 @@ const DeploymentPage = () => {
                   </motion.div>
                 ))}
               </div>
+
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Successful deployment is more
-                  than just pushing code—it's about planning, monitoring, and
-                  ensuring a smooth transition for users. Good deployment
-                  minimizes downtime, enables quick rollback, and keeps your
-                  team and customers confident in every release.
+                  💡 <strong>Remember:</strong> Analysis is like detective work
+                  - you're gathering clues, interviewing witnesses
+                  (stakeholders), and piecing together the full picture before
+                  making your case (solution).
                 </p>
               </motion.div>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("types")}
@@ -214,11 +219,12 @@ const DeploymentPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Deployment Approaches →
+                See Analysis Types →
               </motion.button>
             </motion.div>
           )}
-          {/* DEPLOYMENT TYPES WITH STORIES */}
+
+          {/* ANALYSIS TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -229,10 +235,12 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Deployment Strategies: Real-World Lessons
+                {" "}
+                Analysis Approaches: Learning from Mistakes
               </motion.h1>
+
               <div style={styles.typesContainer}>
-                {deploymentTypes.map((type, index) => (
+                {analysisTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -245,6 +253,7 @@ const DeploymentPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -254,18 +263,13 @@ const DeploymentPage = () => {
                           background: type.color,
                         }}
                         onClick={() => {
-                          setSelectedStory(
-                            selectedStory === type.id ? null : type.id
-                          );
                           setModalData({
                             name: type.name,
                             failure: type.story.failure,
                             fix: type.story.fix,
                             color: type.color,
                           });
-                          setModalOpen(
-                            selectedStory === type.id ? false : true
-                          );
+                          setModalOpen(true);
                         }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -321,6 +325,7 @@ const DeploymentPage = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("drawbacks")}
@@ -332,6 +337,7 @@ const DeploymentPage = () => {
               </motion.button>
             </motion.div>
           )}
+
           {/* DRAWBACKS SECTION */}
           {activeSection === "drawbacks" && (
             <motion.div
@@ -343,11 +349,11 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Deployment Pitfalls
+                Major Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Deployment is crucial, but many teams struggle with it. Here are
-                common challenges and their solutions.
+                Even the best analysis has pitfalls. Here's how to overcome
+                them:
               </motion.p>
               <div style={styles.drawbacksGrid}>
                 {drawbacks.map((drawback, index) => (
@@ -423,97 +429,7 @@ const DeploymentPage = () => {
               </motion.button>
             </motion.div>
           )}
-          {activeSection === "deploymentDrawbacks" && (
-            <motion.div
-              key="deploymentDrawbacks"
-              style={styles.section}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, y: -20 }}
-            >
-              <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Deployment Pitfalls
-              </motion.h1>
-              <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Deployment is a critical phase, but it often comes with its own
-                set of challenges. Here are common deployment pitfalls and how
-                to overcome them.
-              </motion.p>
-              <div style={styles.drawbacksGrid}>
-                {deploymentDrawbacks.map((drawback, index) => (
-                  <motion.div
-                    key={drawback.id}
-                    style={styles.drawbackTypeCard}
-                    variants={itemVariants}
-                    custom={index}
-                  >
-                    <div style={styles.drawbackTypeHeader}>
-                      <span style={styles.drawbackTypeEmoji}>
-                        {drawback.icon}
-                      </span>
-                      <h3 style={styles.drawbackTypeName}>{drawback.title}</h3>
-                    </div>
-                    <div style={styles.drawbackTypeContent}>
-                      <h4 style={styles.drawbackTypeTitle}>The Problem</h4>
-                      <p style={styles.drawbackTypeScenario}>
-                        {drawback.problem}
-                      </p>
-                      <motion.button
-                        style={styles.drawbackRevealButton}
-                        onClick={() =>
-                          setSelectedDeploymentDrawback(
-                            selectedDeploymentDrawback === drawback.id
-                              ? null
-                              : drawback.id
-                          )
-                        }
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {selectedDeploymentDrawback === drawback.id
-                          ? "Hide Solution"
-                          : "💡 Show Solution"}
-                      </motion.button>
-                      <AnimatePresence>
-                        {selectedDeploymentDrawback === drawback.id && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                          >
-                            <div style={styles.drawbackFailureBox}>
-                              <h5 style={styles.drawbackFailureTitle}>
-                                The Failure:
-                              </h5>
-                              <p style={styles.drawbackFailureText}>
-                                {drawback.problem}
-                              </p>
-                            </div>
-                            <div style={styles.drawbackFixBox}>
-                              <h5 style={styles.drawbackFixTitle}>The Fix:</h5>
-                              <p style={styles.drawbackFixText}>
-                                {drawback.resolution}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <motion.button
-                style={styles.nextButton}
-                onClick={() => setActiveSection("joke")}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Need a Laugh? →
-              </motion.button>
-            </motion.div>
-          )}
+
           {/* JOKE SECTION */}
           {activeSection === "joke" && (
             <motion.div
@@ -537,82 +453,102 @@ const DeploymentPage = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  😄
+                  😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Deployment Humor Break!</h2>
+
+                <h2 style={styles.jokeTitle}>Analysis Humor Break!</h2>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the server go broke after deployment?
+                    Q: Why did the business analyst bring a ladder to work?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 1 }}
                   >
-                    Because it lost its cache! 💸
+                    A: To reach the high-level requirements! 🪜📋
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why do developers love blue-green deployments?
+                    Q: How many requirements analysts does it take to change a
+                    light bulb?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 2 }}
                   >
-                    Because they never feel blue after going green! 🟢
+                    A: First, we need to analyze the current lighting situation,
+                    interview stakeholders about their illumination needs,
+                    create a feasibility study for bulb replacement, and then...
+                    wait, what was the question? 💡🤔
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    What did the deployment pipeline say to the bug?
+                    A user tells an analyst: "I want it exactly like our
+                    competitor's product, but completely different."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 3 }}
                   >
-                    You're not coming to production! 🚫
+                    The analyst: "So... you want a unique copy? Got it! Let me
+                    just add that to my collection of impossible requirements."
+                    😅📝
                   </motion.p>
                 </div>
+
                 <motion.div
                   style={styles.wisdomBox}
-                  initial={{ scale: 0.9 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Deployment Wisdom: "Automate deployments, but never
-                    automate blame!"
+                    💭{" "}
+                    <em>
+                      "If I had an hour to solve a problem, I'd spend 55 minutes
+                      analyzing it and 5 minutes solving it."
+                    </em>{" "}
+                    - Albert Einstein
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Good deployment practices save time, reduce errors, and keep
-                    users happy.
+                    Thorough analysis isn't slowing you down - it's speeding you
+                    up by ensuring you solve the right problem the first time!
                   </p>
                 </motion.div>
+
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
-                    onClick={() => navigate("/")}
+                    onClick={() => setActiveSection("intro")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                    🏠 Back to Start
                   </motion.button>
+
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/maintenance")}
+                    onClick={() => navigate("/design")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(150, 206, 180, 0.4)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
                       ],
                     }}
                     transition={{
@@ -623,7 +559,7 @@ const DeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🔧 ✨
+                    Next: Design 🎨✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -631,6 +567,7 @@ const DeploymentPage = () => {
           )}
         </AnimatePresence>
       </div>
+
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -639,23 +576,23 @@ const DeploymentPage = () => {
             ...styles.particle,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            fontSize: `${Math.random() * 20 + 15}px`,
           }}
           animate={{
             y: [0, -30, 0],
-            opacity: [0, 0.5, 0],
+            opacity: [0, 0.3, 0],
           }}
           transition={{
-            duration: Math.random() * 8 + 6,
+            duration: Math.random() * 8 + 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 3,
           }}
         >
-          {["🧪 ", "✅ ", "🔍 ", "�", "�️", "⚡"][i]}
+          {["🔍", "📊", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default DeploymentPage;
+
+export default AnalysisPage;

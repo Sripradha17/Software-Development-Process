@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./styles";
+import styles from "../styles";
 
 const stageLinks = [
   { path: "/planning", label: "Planning" },

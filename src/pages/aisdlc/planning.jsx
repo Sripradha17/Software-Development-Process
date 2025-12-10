@@ -1,11 +1,12 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { testingSteps, testingTypes, drawbacks } from "./constants/testing";
-import styles from "./styles";
-import StageNavigation from "./StageNavigation";
+import { aiPlanningSteps, aiPlanningTypes, aiPlanningDrawbacks } from "../constants/aiPlanning";
+import styles from "../styles";
+import StageNavigation from "../sdlc/StageNavigation";
 
-const TestingPage = () => {
+const AIPlanningPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -52,7 +53,7 @@ const TestingPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🧪
+          🤖
         </motion.button>
         <motion.button
           style={{
@@ -63,7 +64,7 @@ const TestingPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ✅
+          🎯
         </motion.button>
         <motion.button
           style={{
@@ -85,7 +86,7 @@ const TestingPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          ⚠️
         </motion.button>
         <motion.button
           style={{
@@ -113,45 +114,38 @@ const TestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🧪 ✨
+                🤖✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                Testing in Software Development
+                AI-Augmented Planning
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Ensuring Quality and Reliability
+                Smarter project planning with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Testing?</h2>
-
+                <h2 style={styles.cardTitle}>What is AI-Augmented Planning?</h2>
                 <p style={styles.cardText}>
-                  Testing is the <strong>quality assurance process</strong> of
-                  verifying that software works as expected, meets requirements,
-                  and is free from defects. It involves executing code with
-                  various inputs to identify bugs, validate functionality, and
-                  ensure the product delivers value to users reliably and
-                  safely.
+                  AI-augmented planning uses machine learning and automation to discover objectives, mine requirements, predict resources, and forecast risks. It helps teams plan faster, adapt to change, and make data-driven decisions.
                 </p>
-
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🐞</span>
-                    <span>Identifies bugs before they reach users</span>
+                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span>Discovers hidden objectives and requirements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>✅</span>
-                    <span>Validates functionality meets requirements</span>
+                    <span style={styles.keyPointIcon}>📊</span>
+                    <span>Predicts resources and timelines with analytics</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Ensures performance and scalability</span>
+                    <span>Forecasts risks and suggests mitigations</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
-                    <span>Builds confidence in code changes</span>
+                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span>Automates documentation and keeps plans up to date</span>
                   </div>
                 </div>
               </motion.div>
@@ -163,7 +157,7 @@ const TestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore Key Steps →
+                Explore AI Planning Steps →
               </motion.button>
             </motion.div>
           )}
@@ -179,10 +173,11 @@ const TestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Testing Steps
+                6 Essential AI Planning Steps
               </motion.h1>
+
               <div style={styles.stepsGrid}>
-                {testingSteps.map((step, index) => (
+                {aiPlanningSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -203,11 +198,7 @@ const TestingPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Testing is not just about
-                  finding bugs—it's about building confidence. Good testing
-                  catches issues early when they're cheap to fix, validates that
-                  features work as intended, and gives you the confidence to
-                  ship with pride.
+                  💡 <strong>Tip:</strong> Use AI to iterate and refine your plans as new data arrives. Planning is a living process!
                 </p>
               </motion.div>
 
@@ -218,12 +209,12 @@ const TestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See Testing Approaches →
+                See AI Planning Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* TESTING TYPES WITH STORIES */}
+          {/* PLANNING TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -234,11 +225,11 @@ const TestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Testing Approaches: Critical Lessons
+                AI Planning Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {testingTypes.map((type, index) => (
+                {aiPlanningTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -251,6 +242,7 @@ const TestingPage = () => {
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
+
                     <div style={styles.typeContent}>
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
@@ -330,7 +322,7 @@ const TestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Common Pitfalls →
+                Common AI Pitfalls →
               </motion.button>
             </motion.div>
           )}
@@ -346,14 +338,13 @@ const TestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Common Testing Pitfalls
+                Major AI Planning Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Testing is crucial, but many teams struggle with it. Here are
-                common challenges and their solutions.
+                Even the smartest AI can stumble. Here’s how to avoid common planning pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {drawbacks.map((drawback, index) => (
+                {aiPlanningDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -422,7 +413,7 @@ const TestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Need a Laugh? →
+                Need an AI Laugh? →
               </motion.button>
             </motion.div>
           )}
@@ -450,87 +441,89 @@ const TestingPage = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  😄
+                  😂
                 </motion.div>
-                <h2 style={styles.jokeTitle}>Testing Humor Break!</h2>
+
+                <h2 style={styles.jokeTitle}>AI Planning Humor Break!</h2>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    QA Engineer walks into a bar. Orders a beer. Orders 0 beers.
-                    Orders 99999999999 beers. Orders a lizard. Orders -1 beers.
-                    Orders a ueicbksjdhd...
+                    Q: Why did the AI project manager never panic?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 1 }}
                   >
-                    First real customer walks in and asks where the bathroom is.
-                    The bar bursts into flames! 🔥
+                    A: Because they always had a backup plan generated by AI! 🤖📋
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Why did the developer quit their job at the circus?
+                    Q: How many AI planners does it take to change a deadline?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 2 }}
                   >
-                    Too many test cases to juggle! 🤹
+                    A: None. The AI just reschedules everything automatically! 📅🤖
                   </motion.p>
                 </div>
+
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    "99 little bugs in the code, 99 little bugs. Take one down,
-                    patch it around..."
+                    A stakeholder tells an AI planner: "I want a plan that's flexible but never changes."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 3 }}
                   >
-                    "127 little bugs in the code!" 🐞
+                    The planner: "So... you want quantum planning? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
                   </motion.p>
                 </div>
+
                 <motion.div
                   style={styles.wisdomBox}
-                  initial={{ scale: 0.9 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.8 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Testing Wisdom: "If debugging is the process of removing
-                    bugs, then programming must be the process of putting them
-                    in."
+                    💭 <em>"AI is a planning partner, not a replacement for human strategy."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Write tests first, code second. Prevention is better than
-                    cure!
+                    Use AI to enhance your planning, but always keep humans in the loop!
                   </p>
                 </motion.div>
+
                 <div style={styles.buttonGroup}>
                   <motion.button
                     style={styles.homeButton}
-                    onClick={() => navigate("/")}
+                    onClick={() => setActiveSection("intro")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                    🏠 Back to Start
                   </motion.button>
+
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/deployment")}
+                    onClick={() => navigate("/ai-analysis")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -541,7 +534,7 @@ const TestingPage = () => {
                       },
                     }}
                   >
-                    Next: Deployment 🚀 ✨
+                    Next: Analysis 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -549,6 +542,7 @@ const TestingPage = () => {
           )}
         </AnimatePresence>
       </div>
+
       {/* Background particles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -557,23 +551,23 @@ const TestingPage = () => {
             ...styles.particle,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            fontSize: `${Math.random() * 20 + 15}px`,
           }}
           animate={{
             y: [0, -30, 0],
-            opacity: [0, 0.5, 0],
+            opacity: [0, 0.3, 0],
           }}
           transition={{
-            duration: Math.random() * 8 + 6,
+            duration: Math.random() * 8 + 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 3,
           }}
         >
-          {["🧪 ", "✅ ", "🔍 ", "🐞", "🛡️", "⚡"][i]}
+          {["🤖", "🎯", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
-export default TestingPage;
+
+export default AIPlanningPage;
