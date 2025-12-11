@@ -1,9 +1,11 @@
-import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import aiDevelopmentStages from "../constants/aiAugmentedSoftwareDevelopment";
-import styles from "../styles";
 
+import React, { useState } from "react";
+import styles from "../styles";
+import Menu from "../../components/Menu";
+import aiMenuItems from "../constants/aiMenuItems";
 const AiAugmentedSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
   const navigate = useNavigate();
@@ -79,6 +81,9 @@ const AiAugmentedSoftwareDevelopment = () => {
     />
   ));
 
+  // AI SDLC menu items
+  const menuItems = aiMenuItems;
+
   return (
     <motion.div
       style={{ ...styles.softwareDevIntro, ...styles.responsiveContainer }}
@@ -86,17 +91,17 @@ const AiAugmentedSoftwareDevelopment = () => {
       initial="hidden"
       animate="visible"
     >
+      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+        <Menu items={menuItems} title="Menu" />
+      </div>
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
-
       {backgroundParticles}
-
       <div style={styles.contentWrapper}>
         <motion.h1 style={styles.mainTitle} variants={titleVariants}>
           AI Augmented Software Development
         </motion.h1>
-
         <motion.div
           style={styles.descriptionSection}
           variants={descriptionVariants}
@@ -109,7 +114,6 @@ const AiAugmentedSoftwareDevelopment = () => {
             to maintenance.
           </p>
         </motion.div>
-
         <motion.div style={styles.stagesContainer}>
           {aiDevelopmentStages.map((stage, index) => (
             <motion.div
@@ -146,7 +150,6 @@ const AiAugmentedSoftwareDevelopment = () => {
             </motion.div>
           ))}
         </motion.div>
-
         {/* Modal below the circles */}
         <AnimatePresence>
           {selectedStage && (
@@ -178,7 +181,6 @@ const AiAugmentedSoftwareDevelopment = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
         <motion.button
           style={styles.storyButton}
           variants={buttonVariants}

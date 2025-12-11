@@ -1,9 +1,11 @@
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../constants/sdlcMenuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { planningSteps, planningTypes, drawbacks } from "../constants/planning";
 import styles from "../styles";
-import StageNavigation from "./StageNavigation";
+ 
 
 const PlanningPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -36,10 +38,13 @@ const PlanningPage = () => {
 
   return (
     <div style={styles.pageContainer}>
+      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+        <Menu items={sdlcMenuItems} title="Menu" />
+      </div>
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
-      <StageNavigation />
+       
 
       {/* Floating navigation */}
       <div style={styles.floatingNav}>

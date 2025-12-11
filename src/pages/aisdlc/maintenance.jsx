@@ -1,10 +1,12 @@
+import Menu from "../../components/Menu";
+import aiMenuItems from "../constants/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../constants/aiMaintenance";
 import styles from "../styles";
-import StageNavigation from "../sdlc/StageNavigation";
+ 
 
 const AIMaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -37,10 +39,13 @@ const AIMaintenancePage = () => {
 
   return (
     <div style={styles.pageContainer}>
+      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+        <Menu items={aiMenuItems} title="Menu" />
+      </div>
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
-      <StageNavigation />
+       
 
       {/* Floating navigation */}
       <div style={styles.floatingNav}>

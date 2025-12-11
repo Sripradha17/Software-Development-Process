@@ -21,15 +21,16 @@ import AITestingPage from "./pages/aisdlc/testing";
 import AIDeploymentPage from "./pages/aisdlc/deployment";
 import AIMaintenancePage from "./pages/aisdlc/maintenance";
 import AIReviewPage from "./pages/aisdlc/review";
+import Menu from "./components/Menu";
+import styles from "./pages/styles";
+
 function App() {
+  // Main menu items for all pages
   return (
     <Router>
       <Routes>
         <Route path="/" element={<IntroPage />} />
-        <Route
-          path="/learn-software-development"
-          element={<LearnSoftwareDev />}
-        />
+        <Route path="/learn-software-development" element={<LearnSoftwareDev />} />
         <Route path="/story" element={<DevelopmentProcessStory />} />
         <Route path="/ai-augmented-development" element={<AiAugmentedSoftwareDevelopment />} />
         <Route path="/ai-augmented-story" element={<AiAugmentedDevelopmentStory />} />
@@ -41,15 +42,14 @@ function App() {
         <Route path="/deployment" element={<DeploymentPage />} />
         <Route path="/maintenance" element={<MaintenancePage />} />
         <Route path="/review" element={<ReviewPage />} />
-
         <Route path="/ai-planning" element={<AIPlanningPage />} />
         <Route path="/ai-analysis" element={<AnalysisWithAIPage />} />
         <Route path="/ai-design" element={<AIDesignPage />} />
         <Route path="/ai-implementation" element={<AIImplementationPage />} />
-            <Route path="/ai-testing" element={<AITestingPage />} />
-            <Route path="/ai-deployment" element={<AIDeploymentPage />} />
-            <Route path="/ai-maintenance" element={<AIMaintenancePage />} />
-            <Route path="/ai-review" element={<AIReviewPage />} />
+        <Route path="/ai-testing" element={<AITestingPage />} />
+        <Route path="/ai-deployment" element={<AIDeploymentPage />} />
+        <Route path="/ai-maintenance" element={<AIMaintenancePage />} />
+        <Route path="/ai-review" element={<AIReviewPage />} />
       </Routes>
     </Router>
   );

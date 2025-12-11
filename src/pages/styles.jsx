@@ -1,4 +1,4 @@
-import { color } from "framer-motion";
+
 
 /**
 * ============================================
@@ -35,6 +35,60 @@ breakpoints
 * ============================================
 */
 const style = {
+    // =============================
+  // MENU COMPONENT STYLES
+  // =============================
+  menuContainer: {
+    position: "relative",
+    display: "inline-block",
+    margin: "1.5rem 0 1.5rem 0",
+    zIndex: 1200,
+  },
+  menuButton: {
+    background: "linear-gradient(90deg, #1ABC9C 0%, #16A085 100%)",
+    color: "#fff",
+    border: "none",
+    borderRadius: "30px",
+    padding: "0.8rem 2.2rem",
+    fontSize: "1.1rem",
+    fontWeight: 700,
+    cursor: "pointer",
+    boxShadow: "0 4px 16px rgba(26, 188, 156, 0.15)",
+    transition: "background 0.3s, box-shadow 0.3s",
+    outline: "none",
+    marginBottom: "0.5rem",
+    letterSpacing: "0.5px",
+  },
+  menuDropdown: {
+    position: "absolute",
+    top: "110%",
+    left: 0,
+    minWidth: "220px",
+    background: "rgba(255,255,255,0.98)",
+    borderRadius: "18px",
+    boxShadow: "0 8px 32px rgba(26, 188, 156, 0.18)",
+    padding: "0.5rem 0",
+    border: "1.5px solid #1ABC9C",
+    zIndex: 1201,
+    animation: "fadeInMenu 0.25s",
+  },
+  menuItem: {
+    color: "#16A085",
+    fontWeight: 600,
+    fontSize: "1.05rem",
+    padding: "0.85rem 1.5rem",
+    border: "none",
+    borderRadius: "12px",
+    background: "none",
+    cursor: "pointer",
+    transition: "background 0.2s, color 0.2s",
+    margin: 0,
+  },
+  menuItemHover: {
+    background: "linear-gradient(90deg, #1ABC9C 0%, #16A085 100%)",
+    color: "#fff",
+    textDecoration: "none",
+  },
   // ============================================
   // GLOBAL & SHARED STYLES
   // ============================================
@@ -569,7 +623,7 @@ const style = {
   floatingNav: {
     position: "fixed",
     top: "50%",
-    right: "clamp(10px, 2vw, 20px)",
+    left: "clamp(10px, 2vw, 20px)",
     transform: "translateY(-50%)",
     display: "flex",
     flexDirection: "column",

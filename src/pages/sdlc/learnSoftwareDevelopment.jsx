@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import developmentStages from "../constants/learnSoftwareDevelopment";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "../styles";
+import developmentStages from "../constants/learnSoftwareDevelopment";
+import Menu from "../../components/Menu";
 
 const LearnSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
@@ -80,6 +82,19 @@ const LearnSoftwareDevelopment = () => {
     />
   ));
 
+  // SDLC menu items
+  const menuItems = [
+    { label: "Intro", path: "/learn-software-development" },
+    { label: "Planning", path: "/planning" },
+    { label: "Analysis", path: "/analysis" },
+    { label: "Design", path: "/design" },
+    { label: "Implementation", path: "/implementation" },
+    { label: "Testing", path: "/testing" },
+    { label: "Deployment", path: "/deployment" },
+    { label: "Review", path: "/review" },
+    { label: "Maintenance", path: "/maintenance" },
+    { label: "Story", path: "/story" },
+  ];
   return (
     <motion.div
       style={{ ...styles.softwareDevIntro, ...styles.responsiveContainer }}
@@ -87,12 +102,13 @@ const LearnSoftwareDevelopment = () => {
       initial="hidden"
       animate="visible"
     >
+      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+        <Menu items={menuItems} title="Menu" />
+      </div>
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>
-
       {backgroundParticles}
-
       <div style={styles.contentWrapper}>
         <motion.h1 style={styles.mainTitle} variants={titleVariants}>
           Intro to Software Development
