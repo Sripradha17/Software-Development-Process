@@ -100,7 +100,7 @@ const aiAnalysisTypes = [
   },
 ];
 
-const aiDrawbacks = [
+const aiAnalysisDrawbacks = [
   {
     id: 1,
     title: "AI Overfitting",
@@ -150,4 +150,4 @@ const aiDrawbacks = [
   },
 ];
 
-export { aiAnalysisSteps, aiAnalysisTypes, aiDrawbacks };
+export { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks };

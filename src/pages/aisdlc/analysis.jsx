@@ -1,10 +1,12 @@
-import Menu from "../../components/Menu";
+ import Menu from "../components/Menu";
 import aiMenuItems from "../constants/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiAnalysisSteps, aiAnalysisTypes, aiDrawbacks } from "../constants/aiAnalysis";
+import { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks } from "../constants/aiAnalysis";
+import { aiAnalysisQuiz } from "../constants/aiAnalysisQuiz";
+import Quiz from "../components/Quiz";
 import styles from "../styles";
  
 
@@ -103,6 +105,18 @@ const AnalysisWithAIPage = () => {
           whileTap={{ scale: 0.95 }}
         >
           😄
+        </motion.button>
+
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "quiz" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("quiz")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          🧠
         </motion.button>
       </div>
 
@@ -517,6 +531,16 @@ const AnalysisWithAIPage = () => {
                   >
                     🏠 Back to Start
                   </motion.button>
+                  
+                  <motion.button
+                    style={styles.actionButton}
+                    onClick={() => setActiveSection("quiz")}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Test Knowledge 🧠
+                  </motion.button>
 
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -540,6 +564,73 @@ const AnalysisWithAIPage = () => {
                     }}
                   >
                     Next: Design 🎨✨
+                  </motion.button>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* QUIZ SECTION */}
+          {activeSection === "quiz" && (
+            <motion.div
+              key="quiz"
+              style={styles.section}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <motion.div style={styles.cardContainer} variants={itemVariants}>
+                <motion.div
+                  style={{
+                    fontSize: "clamp(4rem, 8vw, 8rem)",
+                    textAlign: "center",
+                    marginBottom: "2rem",
+                  }}
+                  animate={{
+                    y: [0, -10, 0],
+                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  }}
+                >
+                  🧠
+                </motion.div>
+                <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
+                <p style={styles.sectionSubtitle}>
+                  Let's see how well you understand AI-Augmented Analysis concepts.
+                </p>
+                
+                <Quiz questions={aiAnalysisQuiz} />
+                
+                <div style={styles.buttonGroup}>
+                  <motion.button
+                    style={styles.homeButton}
+                    onClick={() => setActiveSection("intro")}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    🏠 Back to Start
+                  </motion.button>
+                  <motion.button
+                    style={styles.nextPhaseButton}
+                    onClick={() => navigate("/ai-design")}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{
+                      boxShadow: [
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(150, 206, 180, 0.4)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                      ],
+                    }}
+                    transition={{
+                      boxShadow: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  >
+                    Next: Design 🤖✨
                   </motion.button>
                 </div>
               </motion.div>

@@ -38,6 +38,81 @@ const style = {
     // =============================
   // MENU COMPONENT STYLES
   // =============================
+  // =============================
+  // QUIZ COMPONENT STYLES
+  // =============================
+  quizContainer: {
+    margin: '2rem 0',
+    padding: '1.5rem',
+    background: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: '15px',
+    boxShadow: '0 8px 32px rgba(26, 188, 156, 0.1)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(26, 188, 156, 0.2)',
+  },
+  quizQuestionBlock: {
+    marginBottom: '2rem',
+  },
+  quizQuestion: {
+    fontWeight: '600',
+    fontSize: '1.15rem',
+    marginBottom: '0.75rem',
+    color: '#1ABC9C',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+  },
+  quizOptions: {
+    listStyle: 'none',
+    padding: 0,
+    marginBottom: '0.5rem',
+  },
+  quizOptionBtn: {
+    display: 'block',
+    width: '100%',
+    padding: '0.5rem 1rem',
+    marginBottom: '0.5rem',
+    background: 'rgba(26, 188, 156, 0.1)',
+    border: '1px solid rgba(26, 188, 156, 0.3)',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '1rem',
+    color: '#16A085',
+    fontWeight: '500',
+    transition: 'all 0.3s ease',
+    backdropFilter: 'blur(5px)',
+  },
+  quizOptionBtnSelected: {
+    background: 'rgba(26, 188, 156, 0.3)',
+    borderColor: '#1ABC9C',
+    color: '#fff',
+    boxShadow: '0 4px 15px rgba(26, 188, 156, 0.2)',
+  },
+  quizFeedback: {
+    marginTop: '0.5rem',
+    fontWeight: '500',
+    fontSize: '1rem',
+    padding: '0.75rem 1rem',
+    borderRadius: '8px',
+    backdropFilter: 'blur(10px)',
+  },
+  quizFeedbackCorrect: {
+    background: 'rgba(40, 167, 69, 0.2)',
+    color: '#28a745',
+    border: '1px solid rgba(40, 167, 69, 0.4)',
+    textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+  },
+  quizFeedbackIncorrect: {
+    background: 'rgba(220, 53, 69, 0.2)',
+    color: '#dc3545',
+    border: '1px solid rgba(220, 53, 69, 0.4)',
+    textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
+  },
+  quizExplanation: {
+    marginTop: '0.5rem',
+    fontSize: '0.95rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontWeight: '400',
+    lineHeight: 1.4,
+  },
   menuContainer: {
     position: "relative",
     display: "inline-block",

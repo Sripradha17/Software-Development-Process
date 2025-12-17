@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "../styles";
 import developmentStages from "../constants/learnSoftwareDevelopment";
-import Menu from "../../components/Menu";
+import Menu from "../components/Menu";
 
 const LearnSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);

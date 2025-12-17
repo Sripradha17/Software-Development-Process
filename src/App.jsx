@@ -21,8 +21,7 @@ import AITestingPage from "./pages/aisdlc/testing";
 import AIDeploymentPage from "./pages/aisdlc/deployment";
 import AIMaintenancePage from "./pages/aisdlc/maintenance";
 import AIReviewPage from "./pages/aisdlc/review";
-import Menu from "./components/Menu";
-import styles from "./pages/styles";
+
 
 function App() {
   // Main menu items for all pages

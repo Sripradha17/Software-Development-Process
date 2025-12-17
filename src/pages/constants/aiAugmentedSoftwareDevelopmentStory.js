@@ -79,20 +79,7 @@ const chapters = [
   },
   {
     id: 6,
-    title: "Chapter 7: Maintenance with AI",
-    subtitle: "Proactive Game Updates",
-    icon: "🛠🤖",
-    story: [
-      "AI predicted maintenance needs and automated updates for the sanctuary game.",
-      "Leo and Priya monitored performance and added new animals and quests based on AI recommendations.",
-      "• Issue detection\n• Feature enhancement\n• Continuous improvement",
-      "Omar's game kept getting smarter, delighting players every day.",
-    ],
-    illustration: "🛠🦓🤖",
-  },
-  {
-    id: 7,
-    title: "Chapter 8: Review with AI",
+    title: "Chapter 7: Review with AI",
     subtitle: "AI-Enhanced Reflection",
     icon: "🔍🤖",
     story: [
@@ -102,6 +89,19 @@ const chapters = [
       "The team planned future expansions, ready for the next AI-powered adventure.",
     ],
     illustration: "🔍🌟🤖",
+  },
+  {
+    id: 7,
+    title: "Chapter 8: Maintenance with AI",
+    subtitle: "Proactive Game Updates",
+    icon: "🛠🤖",
+    story: [
+      "AI predicted maintenance needs and automated updates for the sanctuary game.",
+      "Leo and Priya monitored performance and added new animals and quests based on AI recommendations.",
+      "• Issue detection\n• Feature enhancement\n• Continuous improvement",
+      "Omar's game kept getting smarter, delighting players every day.",
+    ],
+    illustration: "🛠🦓🤖",
   },
   {
     id: 8,
