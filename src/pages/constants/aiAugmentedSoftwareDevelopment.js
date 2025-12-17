@@ -37,16 +37,16 @@ const aiDevelopmentStages = [
       "Streamline deployment with AI-driven monitoring, anomaly detection, automated rollback strategies, and user training support. AI assists in documentation and post-deployment analytics.",
   },
   {
-    id: "maintenance",
-    title: "Proactive Maintenance",
-    description:
-      "Use AI to predict maintenance needs, automate updates, monitor performance, and provide continuous improvement recommendations. AI helps in issue detection and feature enhancement.",
-  },
-  {
     id: "review",
     title: "AI-Enhanced Review",
     description:
       "Evaluate project outcomes with AI-driven feedback analysis, retrospectives, and documentation of lessons learned. AI helps gather insights and improve future processes.",
+  },
+  {
+    id: "maintenance",
+    title: "Proactive Maintenance",
+    description:
+      "Use AI to predict maintenance needs, automate updates, monitor performance, and provide continuous improvement recommendations. AI helps in issue detection and feature enhancement.",
   },
 ];
 

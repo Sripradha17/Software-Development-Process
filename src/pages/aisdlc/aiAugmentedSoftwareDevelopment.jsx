@@ -4,7 +4,7 @@ import aiDevelopmentStages from "../constants/aiAugmentedSoftwareDevelopment";
 
 import React, { useState } from "react";
 import styles from "../styles";
-import Menu from "../../components/Menu";
+import Menu from "../components/Menu";
 import aiMenuItems from "../constants/aiMenuItems";
 const AiAugmentedSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
