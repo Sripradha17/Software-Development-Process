@@ -1,16 +1,16 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiDeploymentSteps, aiDeploymentTypes, aiDeploymentDrawbacks } from "../constants/aiDeployment";
-import { aiDeploymentQuiz } from "../constants/aiDeploymentQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiPlanningSteps, aiPlanningTypes, aiPlanningDrawbacks } from "../../constants/ai-sdlc/aiPlanning";
+import { aiPlanningQuiz } from "../../constants/quiz/aiPlanningQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AIDeploymentPage = () => {
+const AIPlanningPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -60,7 +60,7 @@ const AIDeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          🤖
         </motion.button>
         <motion.button
           style={{
@@ -71,7 +71,7 @@ const AIDeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📦
+          🎯
         </motion.button>
         <motion.button
           style={{
@@ -133,38 +133,38 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖🚀
+                🤖✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Deployment
+                AI-Augmented Planning
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Deploy smarter and safer with artificial intelligence
+                Smarter project planning with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Deployment?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Planning?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented deployment uses machine learning to automate release planning, environment setup, data migration, and monitoring. It helps teams deploy faster, reduce downtime, and catch issues before users do.
+                  AI-augmented planning uses machine learning and automation to discover objectives, mine requirements, predict resources, and forecast risks. It helps teams plan faster, adapt to change, and make data-driven decisions.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Automates deployment and rollback</span>
+                    <span>Discovers hidden objectives and requirements</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Monitors system health in real time</span>
+                    <span>Predicts resources and timelines with analytics</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Predicts and prevents failures</span>
+                    <span>Forecasts risks and suggests mitigations</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Optimizes user training and adoption</span>
+                    <span>Automates documentation and keeps plans up to date</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +176,7 @@ const AIDeploymentPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Deployment Steps →
+                Explore AI Planning Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +192,11 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Deployment Steps
+                6 Essential AI Planning Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiDeploymentSteps.map((step, index) => (
+                {aiPlanningSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +217,7 @@ const AIDeploymentPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate deployment and monitor for issues, but always keep humans in the loop for critical releases.
+                  💡 <strong>Tip:</strong> Use AI to iterate and refine your plans as new data arrives. Planning is a living process!
                 </p>
               </motion.div>
 
@@ -228,12 +228,12 @@ const AIDeploymentPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Deployment Types →
+                See AI Planning Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* DEPLOYMENT TYPES WITH STORIES */}
+          {/* PLANNING TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +244,11 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Deployment Approaches: Successes & Pitfalls
+                AI Planning Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiDeploymentTypes.map((type, index) => (
+                {aiPlanningTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +357,13 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Deployment Drawbacks & Their Resolutions
+                Major AI Planning Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common deployment pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common planning pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiDeploymentDrawbacks.map((drawback, index) => (
+                {aiPlanningDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +463,11 @@ const AIDeploymentPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Deployment Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Planning Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI deployment never panic?
+                    Q: Why did the AI project manager never panic?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +475,13 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always had a rollback plan! 🤖🔄
+                    A: Because they always had a backup plan generated by AI! 🤖📋
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How does AI deploy code?
+                    Q: How many AI planners does it take to change a deadline?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +489,13 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With zero downtime and infinite optimism! 🚀🤖
+                    A: None. The AI just reschedules everything automatically! 📅🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A manager asks the AI: "Can you guarantee a perfect deployment?"
+                    A stakeholder tells an AI planner: "I want a plan that's flexible but never changes."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +503,7 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee a perfect rollback!" 😅🤖
+                    The planner: "So... you want quantum planning? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +514,10 @@ const AIDeploymentPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a deployment partner, not a replacement for human judgment."</em>
+                    💭 <em>"AI is a planning partner, not a replacement for human strategy."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to automate and accelerate deployment, but always keep humans in the loop!
+                    Use AI to enhance your planning, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -544,7 +544,7 @@ const AIDeploymentPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-review")}
+                    onClick={() => navigate("/ai-analysis")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -563,7 +563,7 @@ const AIDeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🤖✨
+                    Next: Analysis 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +596,10 @@ const AIDeploymentPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Deployment concepts.
+                  Let's see how well you understand AI-Augmented Planning concepts.
                 </p>
                 
-                <Quiz questions={aiDeploymentQuiz} />
+                <Quiz questions={aiPlanningQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -612,14 +612,14 @@ const AIDeploymentPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-review")}
+                    onClick={() => navigate("/ai-analysis")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -630,7 +630,7 @@ const AIDeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🤖✨
+                    Next: Analysis 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -659,11 +659,11 @@ const AIDeploymentPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🚀", "📦", "💡", "✨"][i % 5]}
+          {["🤖", "🎯", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AIDeploymentPage;
+export default AIPlanningPage;

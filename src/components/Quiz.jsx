@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles';
+import styles from '../styles/index.js';
 
 const Quiz = ({ questions }) => {
   const [selected, setSelected] = useState({});

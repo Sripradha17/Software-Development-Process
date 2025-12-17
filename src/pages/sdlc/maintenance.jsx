@@ -1,5 +1,5 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import {
   maintenanceSteps,
   maintenanceTypes,
   drawbacks,
-} from "../constants/maintenance";
-import { maintenanceQuiz } from "../constants/maintenanceQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+} from "../../constants/sdlc/maintenance";
+import { maintenanceQuiz } from "../../constants/quiz/maintenanceQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 const MaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
@@ -530,14 +530,14 @@ const MaintenancePage = () => {
                   
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/review")}
+                    onClick={() => navigate("/simulation/sdlc")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 6px 25px rgba(26, 188, 156, 0.3)",
+                        "0 6px 25px rgba(22, 160, 133, 0.5)",
+                        "0 6px 25px rgba(26, 188, 156, 0.3)",
                       ],
                     }}
                     transition={{
@@ -548,7 +548,7 @@ const MaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 📝 ✨
+                    🎯 Try Simulations
                   </motion.button>
                 </div>
               </motion.div>
@@ -597,14 +597,14 @@ const MaintenancePage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/review")}
+                    onClick={() => navigate("/simulation/sdlc")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 6px 25px rgba(26, 188, 156, 0.3)",
+                        "0 6px 25px rgba(22, 160, 133, 0.5)",
+                        "0 6px 25px rgba(26, 188, 156, 0.3)",
                       ],
                     }}
                     transition={{
@@ -615,7 +615,7 @@ const MaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 📝 ✨
+                    🎯 Try Simulations
                   </motion.button>
                 </div>
               </motion.div>

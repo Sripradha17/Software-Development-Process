@@ -1,12 +1,12 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { reviewSteps, reviewTypes, drawbacks } from "../constants/review";
-import { reviewQuiz } from "../constants/reviewQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { reviewSteps, reviewTypes, drawbacks } from "../../constants/sdlc/review";
+import { reviewQuiz } from "../../constants/quiz/reviewQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const ReviewPage = () => {
@@ -487,7 +487,7 @@ const ReviewPage = () => {
                   
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/maintenance")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -505,7 +505,7 @@ const ReviewPage = () => {
                       },
                     }}
                   >
-                    Complete! 🎉
+                    🛠 Next: Maintenance
                   </motion.button>
                 </div>
               </motion.div>
@@ -543,37 +543,57 @@ const ReviewPage = () => {
                 
                 <Quiz questions={reviewQuiz} />
                 
-                <div style={styles.buttonGroup}>
-                  <motion.button
-                    style={styles.homeButton}
-                    onClick={() => navigate("/")}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                <div style={styles.completionSection}>
+                  <motion.div
+                    style={styles.congratsMessage}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
-                    🏠 Home
-                  </motion.button>
-                  <motion.button
-                    style={styles.nextPhaseButton}
-                    onClick={() => navigate("/")}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{
-                      boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                      ],
-                    }}
-                    transition={{
-                      boxShadow: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
-                  >
-                    Complete! 🎉
-                  </motion.button>
+                    <h3 style={styles.congratsTitle}>🎉 Congratulations!</h3>
+                    <p style={styles.congratsText}>
+                      You've completed all stages of the Software Development Process!
+                      Now put your knowledge to the test with interactive project simulations.
+                    </p>
+                  </motion.div>
+                  
+                  <div style={styles.buttonGroup}>
+                    <motion.button
+                      style={styles.homeButton}
+                      onClick={() => navigate("/")}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      🏠 Home
+                    </motion.button>
+                    <motion.button
+                      style={styles.simulationButton}
+                      onClick={() => navigate("/simulation/sdlc")}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      animate={{
+                        boxShadow: [
+                          "0 6px 25px rgba(26, 188, 156, 0.3)",
+                          "0 6px 25px rgba(22, 160, 133, 0.5)",
+                          "0 6px 25px rgba(26, 188, 156, 0.3)",
+                        ],
+                      }}
+                      transition={{
+                        boxShadow: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      }}
+                    >
+                      <motion.span
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        ⚙️ Try Traditional SDLC Simulations
+                      </motion.span>
+                    </motion.button>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>

@@ -1,5 +1,5 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import {
   deploymentSteps,
   deploymentTypes,
   drawbacks,
-} from "../constants/deployment";
-import { deploymentQuiz } from "../constants/deploymentQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+} from "../../constants/sdlc/deployment";
+import { deploymentQuiz } from "../../constants/quiz/deploymentQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const DeploymentPage = () => {

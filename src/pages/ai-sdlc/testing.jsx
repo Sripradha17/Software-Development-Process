@@ -1,19 +1,16 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  aiReviewSteps,
-  aiReviewTypes,
-  aiReviewDrawbacks,
-} from "../constants/aiReview";
-import { aiReviewQuiz } from "../constants/aiReviewQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiTestingSteps, aiTestingTypes, aiTestingDrawbacks } from "../../constants/ai-sdlc/aiTesting";
+import { aiTestingQuiz } from "../../constants/quiz/aiTestingQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AIReviewPage = () => {
+const AITestingPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -63,7 +60,7 @@ const AIReviewPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          🤖
         </motion.button>
         <motion.button
           style={{
@@ -74,7 +71,7 @@ const AIReviewPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🔄
+          ✅
         </motion.button>
         <motion.button
           style={{
@@ -136,40 +133,38 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖📊
+                🤖✨
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Review
+                AI-Augmented Testing
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Review, learn, and improve with artificial intelligence
+                Smarter, faster software testing with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Review?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Testing?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented review uses machine learning to analyze feedback,
-                  facilitate retrospectives, and document lessons learned. It
-                  helps teams continuously improve and avoid repeating mistakes.
+                  AI-augmented testing uses machine learning to automate test planning, generate and run tests, simulate user behavior, and optimize performance. It helps teams catch bugs early, improve coverage, and release with confidence.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Automates feedback analysis</span>
+                    <span>Automates test case generation and execution</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Tracks performance and outcomes</span>
+                    <span>Simulates real user behavior and traffic</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Suggests process improvements</span>
+                    <span>Detects bottlenecks and optimizes performance</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Documents lessons for future teams</span>
+                    <span>Improves coverage and reduces manual effort</span>
                   </div>
                 </div>
               </motion.div>
@@ -181,7 +176,7 @@ const AIReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Review Steps →
+                Explore AI Testing Steps →
               </motion.button>
             </motion.div>
           )}
@@ -197,11 +192,11 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Review Steps
+                6 Essential AI Testing Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiReviewSteps.map((step, index) => (
+                {aiTestingSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -222,8 +217,7 @@ const AIReviewPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to analyze feedback and track
-                  improvements, but always discuss results as a team.
+                  💡 <strong>Tip:</strong> Use AI to automate repetitive tests and focus human effort on exploratory and usability testing.
                 </p>
               </motion.div>
 
@@ -234,12 +228,12 @@ const AIReviewPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Review Types →
+                See AI Testing Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* REVIEW TYPES WITH STORIES */}
+          {/* TESTING TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -250,11 +244,11 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Review Approaches: Successes & Pitfalls
+                AI Testing Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiReviewTypes.map((type, index) => (
+                {aiTestingTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -363,14 +357,13 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Review Drawbacks & Their Resolutions
+                Major AI Testing Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common
-                review pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common testing pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiReviewDrawbacks.map((drawback, index) => (
+                {aiTestingDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -470,11 +463,11 @@ const AIReviewPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Review Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Testing Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI review never miss a lesson?
+                    Q: Why did the AI tester never miss a bug?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -482,13 +475,13 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always documented everything! 🤖📝
+                    A: Because the AI found them before anyone else! 🤖🐞
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How does AI run a retrospective?
+                    Q: How many AI testers does it take to break a system?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -496,14 +489,13 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With infinite formats and zero blame! 🔄🤖
+                    A: None. The AI just simulates 100,000 users at once! 🧪🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A manager asks the AI: "Can you guarantee continuous
-                    improvement?"
+                    A stakeholder tells an AI tester: "I want tests that are exhaustive but never slow."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -511,7 +503,7 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee continuous documentation!" 😅🤖
+                    The tester: "So... you want infinite speed? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
                   </motion.p>
                 </div>
 
@@ -522,15 +514,10 @@ const AIReviewPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭{" "}
-                    <em>
-                      "AI is a review partner, not a replacement for team
-                      reflection."
-                    </em>
+                    💭 <em>"AI is a testing partner, not a replacement for human intuition."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to automate and accelerate reviews, but always keep
-                    humans in the loop!
+                    Use AI to automate and accelerate testing, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -557,14 +544,15 @@ const AIReviewPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-maintenance")}
+                    onClick={() => navigate("/ai-deployment")}
+                    variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -575,7 +563,7 @@ const AIReviewPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🛠
+                    Next: Deployment 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -608,10 +596,10 @@ const AIReviewPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Review concepts.
+                  Let's see how well you understand AI-Augmented Testing concepts.
                 </p>
                 
-                <Quiz questions={aiReviewQuiz} />
+                <Quiz questions={aiTestingQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -624,7 +612,7 @@ const AIReviewPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-maintenance")}
+                    onClick={() => navigate("/ai-deployment")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -642,7 +630,7 @@ const AIReviewPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🛠
+                    Next: Deployment 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -671,11 +659,11 @@ const AIReviewPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "📊", "🔄", "💡", "✨"][i % 5]}
+          {["🤖", "✅", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AIReviewPage;
+export default AITestingPage;

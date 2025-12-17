@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import chapters from "../constants/aiAugmentedSoftwareDevelopmentStory";
-import styles from "../styles";
+import chapters from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopmentStory";
+import styles from "../../styles/index.js";
 
 const AiAugmentedDevelopmentStory = () => {
   const [currentChapter, setCurrentChapter] = useState(0);

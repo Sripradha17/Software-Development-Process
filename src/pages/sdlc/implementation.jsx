@@ -1,5 +1,5 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,10 +7,10 @@ import {
   implementationSteps,
   implementationTypes,
   drawbacks,
-} from "../constants/implementation";
-import { implementationQuiz } from "../constants/implementationQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+} from "../../constants/sdlc/implementation";
+import { implementationQuiz } from "../../constants/quiz/implementationQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const ImplementationPage = () => {

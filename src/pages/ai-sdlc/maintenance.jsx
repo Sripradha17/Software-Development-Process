@@ -1,16 +1,16 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks } from "../constants/aiAnalysis";
-import { aiAnalysisQuiz } from "../constants/aiAnalysisQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../../constants/ai-sdlc/aiMaintenance";
+import { aiMaintenanceQuiz } from "../../constants/quiz/aiMaintenanceQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AnalysisWithAIPage = () => {
+const AIMaintenancePage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -60,7 +60,7 @@ const AnalysisWithAIPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🤖
+          🛠️
         </motion.button>
         <motion.button
           style={{
@@ -71,7 +71,7 @@ const AnalysisWithAIPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          🧰
         </motion.button>
         <motion.button
           style={{
@@ -133,38 +133,38 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖✨
+                🤖🛠️
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Analysis
+                AI-Augmented Maintenance
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Supercharging software analysis with artificial intelligence
+                Maintain, optimize, and secure your software with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Analysis?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Maintenance?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented analysis leverages machine learning and automation to uncover hidden patterns, automate requirements gathering, and provide data-driven insights. It helps teams ask better questions, spot risks early, and make smarter decisions—faster.
+                  AI-augmented maintenance uses machine learning to monitor systems, detect bugs, optimize performance, and manage technical debt. It helps teams keep software running smoothly, securely, and efficiently.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Automates tedious data analysis and requirements extraction</span>
+                    <span>Automates bug detection and fixes</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Finds patterns and risks humans might miss</span>
+                    <span>Monitors health and predicts issues</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Accelerates stakeholder alignment with smart insights</span>
+                    <span>Optimizes performance proactively</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Supports unbiased, data-driven decisions</span>
+                    <span>Manages technical debt and security</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +176,7 @@ const AnalysisWithAIPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Steps →
+                Explore AI Maintenance Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +192,11 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Analysis Steps
+                6 Essential AI Maintenance Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiAnalysisSteps.map((step, index) => (
+                {aiMaintenanceSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +217,7 @@ const AnalysisWithAIPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Let AI do the heavy lifting—focus your human expertise on creative problem solving and stakeholder engagement.
+                  💡 <strong>Tip:</strong> Use AI to automate routine maintenance, but always review critical changes manually.
                 </p>
               </motion.div>
 
@@ -228,12 +228,12 @@ const AnalysisWithAIPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Analysis Types →
+                See AI Maintenance Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* ANALYSIS TYPES WITH STORIES */}
+          {/* MAINTENANCE TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +244,11 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Analysis Approaches: Learning from Data
+                AI Maintenance Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiAnalysisTypes.map((type, index) => (
+                {aiMaintenanceTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +357,13 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Drawbacks & Their Resolutions
+                Major AI Maintenance Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common maintenance pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiDrawbacks.map((drawback, index) => (
+                {aiMaintenanceDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +463,11 @@ const AnalysisWithAIPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Analysis Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Maintenance Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI analyst get promoted?
+                    Q: Why did the AI maintenance bot never panic?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +475,13 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because they always had the best data-driven insights! 📊🤖
+                    A: Because it always had a patch ready! 🤖🩹
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many AI engineers does it take to change a light bulb?
+                    Q: How does AI fix bugs?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +489,13 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. They just train a model to predict when it will fail and automate the replacement! 💡🤖
+                    A: With predictive debugging and infinite optimism! 🐞🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A user tells an AI analyst: "I want it smarter than our competitor's AI, but less creepy."
+                    A manager asks the AI: "Can you guarantee zero bugs?"
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +503,7 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The analyst: "So... you want explainable intelligence? Got it! Let me just add that to my backlog of ethical requirements." 😅🤖
+                    AI: "I can guarantee zero panic!" 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +514,10 @@ const AnalysisWithAIPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is not a replacement for human analysis—it's a superpower for it."</em>
+                    💭 <em>"AI is a maintenance partner, not a replacement for human insight."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to amplify your strengths, not replace your judgment!
+                    Use AI to automate and accelerate maintenance, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -544,15 +544,15 @@ const AnalysisWithAIPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-design")}
+                    onClick={() => navigate("/ai-review")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
-                        "0 10px 30px rgba(150, 206, 180, 0.4)",
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -563,7 +563,7 @@ const AnalysisWithAIPage = () => {
                       },
                     }}
                   >
-                    Next: Design 🎨✨
+                    Next: Review 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +596,10 @@ const AnalysisWithAIPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Analysis concepts.
+                  Let's see how well you understand AI-Augmented Maintenance concepts.
                 </p>
                 
-                <Quiz questions={aiAnalysisQuiz} />
+                <Quiz questions={aiMaintenanceQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -610,28 +610,59 @@ const AnalysisWithAIPage = () => {
                   >
                     🏠 Back to Start
                   </motion.button>
-                  <motion.button
-                    style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-design")}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    animate={{
-                      boxShadow: [
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
-                        "0 10px 30px rgba(150, 206, 180, 0.4)",
-                        "0 10px 30px rgba(69, 183, 209, 0.3)",
-                      ],
-                    }}
-                    transition={{
-                      boxShadow: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      },
-                    }}
+                </div>
+                
+                <div style={styles.completionSection}>
+                  <motion.div
+                    style={styles.congratsMessage}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
-                    Next: Design 🤖✨
-                  </motion.button>
+                    <h3 style={styles.congratsTitle}>🎉 Congratulations!</h3>
+                    <p style={styles.congratsText}>
+                      You've completed all stages of the AI-Augmented Software Development Process!
+                      Now put your knowledge to the test with interactive AI-enhanced project simulations.
+                    </p>
+                  </motion.div>
+                  
+                  <div style={styles.buttonGroup}>
+                    <motion.button
+                      style={styles.homeButton}
+                      onClick={() => navigate("/")}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      🏠 Home
+                    </motion.button>
+                    <motion.button
+                      style={styles.simulationButton}
+                      onClick={() => navigate("/simulation/ai-sdlc")}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      animate={{
+                        boxShadow: [
+                          "0 6px 25px rgba(26, 188, 156, 0.3)",
+                          "0 6px 25px rgba(22, 160, 133, 0.5)",
+                          "0 6px 25px rgba(26, 188, 156, 0.3)",
+                        ],
+                      }}
+                      transition={{
+                        boxShadow: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      }}
+                    >
+                      <motion.span
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        🤖 Try AI-Enhanced Simulations
+                      </motion.span>
+                    </motion.button>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -659,11 +690,11 @@ const AnalysisWithAIPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "📊", "📝", "💡", "✨"][i % 5]}
+          {["🤖", "🛠️", "🧰", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AnalysisWithAIPage;
+export default AIMaintenancePage;

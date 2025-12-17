@@ -1,12 +1,12 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { testingSteps, testingTypes, drawbacks } from "../constants/testing";
-import { testingQuiz } from "../constants/testingQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { testingSteps, testingTypes, drawbacks } from "../../constants/sdlc/testing";
+import { testingQuiz } from "../../constants/quiz/testingQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const TestingPage = () => {

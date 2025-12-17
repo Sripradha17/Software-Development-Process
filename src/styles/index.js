@@ -931,8 +931,8 @@ const style = {
     marginTop: "auto",
   },
   failureBox: {
-    backgroundColor: "#fff5f5",
-    border: "2px solid #feb2b2",
+    backgroundColor: "#2c3e50",
+    border: "2px solid #e74c3c",
     borderRadius: "10px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
     marginTop: "1rem",
@@ -940,17 +940,17 @@ const style = {
   failureTitle: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontWeight: "700",
-    color: "#c53030",
+    color: "#f1959b",
     marginBottom: "0.5rem",
   },
   failureText: {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
-    color: "#742a2a",
+    color: "#f8d7da",
   },
   fixBox: {
-    backgroundColor: "#f0fff4",
-    border: "2px solid #9ae6b4",
+    backgroundColor: "#1e3a32",
+    border: "2px solid #2ecc71",
     borderRadius: "10px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
     marginTop: "1rem",
@@ -958,13 +958,13 @@ const style = {
   fixTitle: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontWeight: "700",
-    color: "#22543d",
+    color: "#a3e9a4",
     marginBottom: "0.5rem",
   },
   fixText: {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
-    color: "#22543d",
+    color: "#d4edda",
   },
   // Drawbacks section
   drawbackIntro: {
@@ -1020,7 +1020,7 @@ const style = {
     textAlign: "center",
   },
   resolutionBox: {
-    background: "linear-gradient(90deg, #f0fff4 0%, #e0f7fa 100%)",
+    background: "linear-gradient(90deg, #1e3a32 0%, #2c3e50 100%)",
     border: "2px solid #1ABC9C",
     borderRadius: "10px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
@@ -1093,24 +1093,24 @@ const style = {
     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   wisdomBox: {
-    backgroundColor: "#e8f5e9",
+    backgroundColor: "#1e3a32",
     borderRadius: "15px",
     padding: "clamp(1.5rem, 3vw, 2rem)",
     marginTop: "2rem",
     marginBottom: "2rem",
-    border: "2px solid #81c784",
+    border: "2px solid #2ecc71",
   },
   wisdomText: {
     fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
     fontWeight: "700",
-    color: "#1b5e20",
+    color: "#a3e9a4",
     marginBottom: "1rem",
     textAlign: "center",
   },
   wisdomExplanation: {
     fontSize: "clamp(0.95rem, 1.6vw, 1.05rem)",
     lineHeight: 1.7,
-    color: "#2e7d32",
+    color: "#d4edda",
     textAlign: "center",
   },
   // Button styles
@@ -1140,7 +1140,7 @@ const style = {
     fontWeight: "600",
     border: "2px solid #4bb1b4ff",
     borderRadius: "30px",
-    background: "white",
+    background: "linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%)",
     color: "#4bb1b4ff",
     cursor: "pointer",
     transition: "all 0.3s ease",
@@ -1158,6 +1158,654 @@ const style = {
     transition: "all 0.3s ease",
     boxShadow: "0 6px 25px rgba(68, 150, 165, 0.3)",
   },
+  simulationButton: {
+    padding: "clamp(12px, 2vw, 15px) clamp(30px, 4vw, 40px)",
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    fontWeight: "600",
+    border: "none",
+    borderRadius: "30px",
+    background: "linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 6px 25px rgba(26, 188, 156, 0.3)",
+  },
+  completionSection: {
+    textAlign: "center",
+    marginTop: "2rem",
+  },
+  congratsMessage: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "15px",
+    padding: "1.5rem",
+    marginBottom: "1.5rem",
+    boxShadow: "0 8px 32px rgba(26, 188, 156, 0.1)",
+    border: "1px solid rgba(26, 188, 156, 0.2)",
+  },
+  congratsTitle: {
+    color: "#1ABC9C",
+    fontSize: "clamp(1.3rem, 2.5vw, 1.8rem)",
+    fontWeight: "700",
+    marginBottom: "1rem",
+    textShadow: "0 2px 4px rgba(26, 188, 156, 0.2)",
+  },
+  congratsText: {
+    color: "rgba(255, 255, 255, 0.9)",
+    fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+    lineHeight: "1.6",
+    margin: 0,
+  },
+  
+  // =============================
+  // SIMULATION COMPONENT STYLES
+  // =============================
+  
+  // SimulationHub styles
+  simulationHubContainer: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)",
+    padding: "2rem",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    position: "relative",
+    overflow: "hidden"
+  },
+  simulationHubTitle: {
+    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+    fontWeight: "800",
+    color: "#1ABC9C",
+    textAlign: "center",
+    marginBottom: "1rem",
+    textShadow: "0 4px 20px rgba(26, 188, 156, 0.3)"
+  },
+  simulationHubSubtitle: {
+    fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
+    color: "rgba(255,255,255,0.9)",
+    textAlign: "center",
+    marginBottom: "3rem",
+    maxWidth: "800px",
+    margin: "0 auto 3rem auto",
+    lineHeight: "1.6"
+  },
+  simulationTypeSelector: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "1.5rem",
+    marginBottom: "3rem",
+    flexWrap: "wrap"
+  },
+  simulationTypeButton: {
+    padding: "1rem 2rem",
+    fontSize: "1.1rem",
+    fontWeight: "600",
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderColor: "rgba(26, 188, 156, 0.3)",
+    borderRadius: "25px",
+    background: "rgba(26, 188, 156, 0.1)",
+    color: "#1ABC9C",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    backdropFilter: "blur(10px)"
+  },
+  simulationTypeButtonActive: {
+    background: "rgba(26, 188, 156, 0.25)",
+    borderColor: "#1ABC9C",
+    color: "white",
+    transform: "scale(1.05)"
+  },
+  simulationGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+    gap: "2rem",
+    maxWidth: "1400px",
+    margin: "0 auto",
+    padding: "0 1rem"
+  },
+  simulationCard: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "15px",
+    padding: "1.5rem",
+    boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
+    border: "2px solid rgba(255,255,255,0.05)",
+    backdropFilter: "blur(10px)",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    minHeight: "320px"
+  },
+  simulationCardIcon: {
+    fontSize: "3rem",
+    marginBottom: "1rem",
+    textAlign: "center",
+    display: "block",
+    lineHeight: "1"
+  },
+  simulationCardTitle: {
+    fontSize: "1.3rem",
+    fontWeight: "700",
+    color: "white",
+    marginBottom: "0.8rem",
+    textAlign: "center"
+  },
+  simulationCardDescription: {
+    fontSize: "0.95rem",
+    color: "rgba(255, 255, 255, 0.8)",
+    lineHeight: "1.5",
+    textAlign: "center",
+    marginBottom: "1.5rem"
+  },
+  simulationStartButton: {
+    width: "100%",
+    padding: "0.75rem",
+    fontSize: "1rem",
+    fontWeight: "600",
+    border: "none",
+    borderRadius: "8px",
+    background: "linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)",
+    color: "white",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 15px rgba(26, 188, 156, 0.3)",
+    marginTop: "auto"
+  },
+  
+  // SimulationEngine styles
+  simulationEngineContainer: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)",
+    padding: "1.5rem",
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+  },
+  simulationEngineHeader: {
+    textAlign: "center",
+    marginBottom: "2rem"
+  },
+  simulationEngineTitle: {
+    fontSize: "clamp(2rem, 4vw, 3rem)",
+    fontWeight: "800",
+    color: "#1ABC9C",
+    marginBottom: "0.5rem",
+    textShadow: "0 4px 20px rgba(26, 188, 156, 0.3)"
+  },
+  simulationEnginePhase: {
+    fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+    color: "#16A085",
+    fontWeight: "600"
+  },
+  simulationEngineContent: {
+    display: "grid",
+    gridTemplateColumns: "2fr 1fr",
+    gap: "2rem",
+    maxWidth: "1400px",
+    margin: "0 auto"
+  },
+  
+  // DecisionChoice styles
+  decisionChoiceContainer: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "15px",
+    padding: "1.5rem",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+    backdropFilter: "blur(10px)"
+  },
+  decisionChoiceScenario: {
+    fontSize: "1.1rem",
+    color: "#2c3e50",
+    lineHeight: "1.6",
+    marginBottom: "2rem",
+    padding: "1rem",
+    background: "rgba(26, 188, 156, 0.1)",
+    borderRadius: "10px",
+    borderLeft: "4px solid #1ABC9C"
+  },
+  decisionChoiceGrid: {
+    display: "grid",
+    gap: "1rem"
+  },
+  decisionChoiceCard: {
+    border: "2px solid rgba(26, 188, 156, 0.2)",
+    borderRadius: "12px",
+    padding: "1.5rem",
+    background: "rgb(49, 68, 89)",
+    cursor: "pointer",
+    transition: "all 0.3s ease"
+  },
+  decisionChoiceCardSelected: {
+    borderColor: "#1ABC9C",
+    background: "rgba(26, 188, 156, 0.15)",
+    transform: "scale(1.02)",
+    boxShadow: "0 4px 15px rgba(26, 188, 156, 0.2)"
+  },
+  decisionChoiceTitle: {
+    fontSize: "1.1rem",
+    fontWeight: "700",
+    color: "white",
+    marginBottom: "0.8rem"
+  },
+  decisionChoiceDescription: {
+    fontSize: "0.95rem",
+    color: "rgba(255, 255, 255, 0.8)",
+    lineHeight: "1.5",
+    marginBottom: "1rem"
+  },
+  decisionChoiceImpact: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.5rem"
+  },
+  decisionChoiceImpactTag: {
+    padding: "0.25rem 0.5rem",
+    fontSize: "0.8rem",
+    borderRadius: "15px",
+    fontWeight: "600"
+  },
+  
+  // Additional DecisionChoice component styles
+  decisionsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '1.5rem',
+    marginTop: '1.5rem'
+  },
+  decisionCard: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: '12px',
+    padding: '1.5rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    border: '2px solid rgba(26, 188, 156, 0.3)',
+    position: 'relative',
+    backdropFilter: 'blur(10px)'
+  },
+  decisionHeader: {
+    marginBottom: '1rem'
+  },
+  decisionTitle: {
+    color: '#1ABC9C',
+    marginBottom: '0.5rem',
+    fontSize: '1.1rem',
+    fontWeight: '600'
+  },
+  decisionDescription: {
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 1.6,
+    marginBottom: '1rem'
+  },
+  impactPreview: {
+    background: 'rgba(26, 188, 156, 0.1)',
+    borderRadius: '8px',
+    padding: '1rem',
+    marginTop: '1rem',
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  impactTitle: {
+    fontSize: '0.9rem',
+    color: '#16A085',
+    marginBottom: '0.5rem',
+    fontWeight: '600'
+  },
+  impactList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.25rem'
+  },
+  impactItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    fontSize: '0.85rem'
+  },
+  impactIcon: {
+    fontSize: '1rem'
+  },
+  impactText: {
+    flex: 1,
+    color: 'rgba(255, 255, 255, 0.8)'
+  },
+  impactChange: {
+    fontWeight: '600',
+    fontSize: '0.9rem'
+  },
+  consequencesContainer: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: '12px',
+    padding: '2rem',
+    margin: '1rem 0',
+    border: '1px solid rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(15px)'
+  },
+  selectedDecision: {
+    marginBottom: '2rem'
+  },
+  selectedTitle: {
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    textAlign: 'center',
+    fontWeight: '600'
+  },
+  selectedCard: {
+    background: 'linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)',
+    color: 'white',
+    padding: '1.5rem',
+    borderRadius: '8px',
+    textAlign: 'center',
+    boxShadow: '0 4px 15px rgba(26, 188, 156, 0.3)'
+  },
+  outcomeSection: {
+    marginBottom: '2rem'
+  },
+  outcomeTitle: {
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    fontWeight: '600'
+  },
+  outcomeText: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    padding: '1.5rem',
+    borderRadius: '8px',
+    color: '#e9ecef',
+    lineHeight: 1.6,
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  metricsChanges: {
+    marginBottom: '2rem'
+  },
+  metricsTitle: {
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    fontWeight: '600'
+  },
+  metricsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '1rem'
+  },
+  metricChange: {
+    display: 'flex',
+    alignItems: 'center',
+    background: 'rgba(26, 188, 156, 0.1)',
+    padding: '1rem',
+    borderRadius: '8px',
+    position: 'relative',
+    overflow: 'hidden',
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  metricIcon: {
+    fontSize: '1.5rem',
+    marginRight: '1rem'
+  },
+  metricDetails: {
+    flex: 1
+  },
+  metricName: {
+    display: 'block',
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.7)'
+  },
+  metricValue: {
+    display: 'block',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    color: '#e9ecef'
+  },
+  metricBar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: '4px',
+    borderRadius: '0 4px 4px 0'
+  },
+  actionButtons: {
+    display: 'flex',
+    gap: '1rem',
+    justifyContent: 'center',
+    marginTop: '2rem'
+  },
+  backButton: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease'
+  },
+  confirmButton: {
+    background: 'linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    fontWeight: '600',
+    boxShadow: '0 4px 15px rgba(26, 188, 156, 0.3)'
+  },
+  
+  // OutcomeTracker styles  
+  outcomeTrackerContainer: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "15px",
+    padding: "1.5rem",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+    backdropFilter: "blur(10px)"
+  },
+  outcomeTrackerTitle: {
+    fontSize: "1.3rem",
+    fontWeight: "700",
+    color: "#2c3e50",
+    marginBottom: "1.5rem",
+    textAlign: "center"
+  },
+  outcomeTrackerMetrics: {
+    display: "grid",
+    gap: "1rem"
+  },
+  outcomeTrackerMetric: {
+    background: "rgba(255,255,255,0.8)",
+    borderRadius: "8px",
+    padding: "1rem",
+    border: "1px solid rgba(26, 188, 156, 0.2)"
+  },
+  outcomeTrackerMetricLabel: {
+    fontSize: "0.9rem",
+    fontWeight: "600",
+    color: "#2c3e50",
+    marginBottom: "0.5rem"
+  },
+  outcomeTrackerMetricBar: {
+    width: "100%",
+    height: "8px",
+    background: "rgba(0,0,0,0.1)",
+    borderRadius: "4px",
+    overflow: "hidden"
+  },
+  outcomeTrackerMetricFill: {
+    height: "100%",
+    background: "linear-gradient(90deg, #1ABC9C 0%, #16A085 100%)",
+    borderRadius: "4px",
+    transition: "width 0.5s ease",
+    boxShadow: "0 2px 8px rgba(26, 188, 156, 0.3)"
+  },
+  outcomeTrackerMetricValue: {
+    fontSize: "0.8rem",
+    color: "#5a6c7d",
+    marginTop: "0.25rem"
+  },
+  
+  // SimulationResults styles
+  simulationResultsContainer: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)",
+    padding: "2rem",
+    fontFamily: "'Segoe UI', Tasha, Geneva, Verdana, sans-serif"
+  },
+  simulationResultsHeader: {
+    textAlign: "center",
+    marginBottom: "2rem"
+  },
+  simulationResultsTitle: {
+    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+    fontWeight: "800",
+    color: "#1ABC9C",
+    marginBottom: "1rem",
+    textShadow: "0 4px 20px rgba(26, 188, 156, 0.3)"
+  },
+  simulationResultsScore: {
+    fontSize: "clamp(1.5rem, 3vw, 2rem)",
+    color: "#16A085",
+    fontWeight: "600"
+  },
+  simulationResultsContent: {
+    maxWidth: "1200px",
+    margin: "0 auto"
+  },
+  simulationResultsSummary: {
+    background: "rgba(255, 255, 255, 0.95)",
+    borderRadius: "15px",
+    padding: "1.5rem",
+    marginBottom: "2rem",
+    boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+    backdropFilter: "blur(10px)"
+  },
+  simulationResultsSummaryTitle: {
+    fontSize: "1.5rem",
+    fontWeight: "700",
+    color: "#2c3e50",
+    marginBottom: "1rem",
+    textAlign: "center"
+  },
+  simulationResultsMetricsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    gap: "1rem",
+    marginBottom: "2rem"
+  },
+  simulationResultsMetricCard: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "10px",
+    padding: "1rem",
+    textAlign: "center",
+    border: "2px solid rgba(255,255,255,0.05)"
+  },
+  simulationResultsMetricTitle: {
+    fontSize: "0.9rem",
+    fontWeight: "600",
+    color: "rgba(255, 255, 255, 0.9)",
+    marginBottom: "0.5rem"
+  },
+  simulationResultsMetricValue: {
+    fontSize: "1.3rem",
+    fontWeight: "700",
+    marginBottom: "0.25rem"
+  },
+  simulationResultsActions: {
+    display: "flex",
+    gap: "1rem",
+    justifyContent: "center",
+    flexWrap: "wrap"
+  },
+  
+  // Phase intro styles for simulation engine
+  phaseIntroContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "400px",
+    padding: "2rem"
+  },
+  phaseIntroContent: {
+    background: "rgb(49, 68, 89)",
+    borderRadius: "12px",
+    padding: "2rem",
+    maxWidth: "500px",
+    textAlign: "center",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+    border: "2px solid rgba(255,255,255,0.05)",
+    backdropFilter: "blur(15px)"
+  },
+  phaseTitle: {
+    color: "#1ABC9C",
+    marginBottom: "1rem",
+    fontSize: "1.5rem",
+    fontWeight: "600"
+  },
+  phaseScenario: {
+    fontSize: "1.1rem",
+    lineHeight: 1.6,
+    color: "rgba(255, 255, 255, 0.9)",
+    marginBottom: "2rem"
+  },
+  currentStatus: {
+    background: "rgba(26, 188, 156, 0.1)",
+    padding: "1.5rem",
+    borderRadius: "8px",
+    marginBottom: "2rem",
+    border: "1px solid rgba(26, 188, 156, 0.2)"
+  },
+  statusImage: {
+    fontSize: "3rem",
+    marginBottom: "1rem"
+  },
+  proceedButton: {
+    background: "linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)",
+    color: "white",
+    border: "none",
+    padding: "0.75rem 1.5rem",
+    borderRadius: "8px",
+    fontSize: "1rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 15px rgba(26, 188, 156, 0.3)"
+  },
+  loadingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "400px",
+    color: "#1ABC9C"
+  },
+  
+  // AI-specific simulation styles
+  aiIndicator: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.25rem",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "white",
+    padding: "0.2rem 0.5rem",
+    borderRadius: "12px",
+    fontSize: "0.7rem",
+    fontWeight: "600",
+    marginLeft: "0.5rem",
+    boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)",
+    verticalAlign: "middle"
+  },
+  aiEnhancedCard: {
+    position: "relative"
+  },
+  aiEnhancedBadge: {
+    position: "absolute",
+    top: "1rem",
+    right: "1rem",
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    color: "white",
+    padding: "0.3rem 0.6rem",
+    borderRadius: "12px",
+    fontSize: "0.75rem",
+    fontWeight: "600",
+    zIndex: 2,
+    boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)"
+  },
+  
   //modal section
   // Modal styles for Planning Types
   modalOverlay: {
@@ -1194,7 +1842,7 @@ const style = {
     position: "absolute",
     top: 18,
     right: 22,
-    background: "#fff",
+    background: "#ecf0f1",
     border: "none",
     borderRadius: "50%",
     width: 10,
@@ -1219,10 +1867,10 @@ const style = {
     marginBottom: "1.5rem",
     width: "100%",
     textAlign: "left",
-    background: "#fff5f5",
+    background: "#2c3e50",
     borderRadius: "12px",
     padding: "1.1rem 1rem 0.7rem 1rem",
-    color: "#c53030",
+    color: "#f1959b",
     boxShadow: "0 2px 8px rgba(255, 192, 203, 0.08)",
   },
   modalFailureTitle: {
@@ -1240,10 +1888,10 @@ const style = {
   modalFix: {
     width: "100%",
     textAlign: "left",
-    background: "#f0fff4",
+    background: "#1e3a32",
     borderRadius: "12px",
     padding: "1.1rem 1rem 0.7rem 1rem",
-    color: "#22543d",
+    color: "#a3e9a4",
     boxShadow: "0 2px 8px rgba(173, 255, 47, 0.08)",
   },
   modalFixTitle: {
@@ -1318,8 +1966,8 @@ const style = {
     background: "#4bb1b4ff",
   },
   drawbackFailureBox: {
-    backgroundColor: "#fff5f5",
-    border: "2px solid #feb2b2",
+    backgroundColor: "#2c3e50",
+    border: "2px solid #e74c3c",
     borderRadius: "10px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
     marginTop: "1rem",
@@ -1327,17 +1975,17 @@ const style = {
   drawbackFailureTitle: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontWeight: "700",
-    color: "#c53030",
+    color: "#f1959b",
     marginBottom: "0.5rem",
   },
   drawbackFailureText: {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
-    color: "#742a2a",
+    color: "#f8d7da",
   },
   drawbackFixBox: {
-    backgroundColor: "#f0fff4",
-    border: "2px solid #9ae6b4",
+    backgroundColor: "#1e3a32",
+    border: "2px solid #2ecc71",
     borderRadius: "10px",
     padding: "clamp(1rem, 2vw, 1.5rem)",
     marginTop: "1rem",
@@ -1345,13 +1993,13 @@ const style = {
   drawbackFixTitle: {
     fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
     fontWeight: "700",
-    color: "#22543d",
+    color: "#a3e9a4",
     marginBottom: "0.5rem",
   },
   drawbackFixText: {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
-    color: "#22543d",
+    color: "#d4edda",
   },
   // Modal below stage circles
   modalBelowContainer: {
