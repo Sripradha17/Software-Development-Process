@@ -1,12 +1,12 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { designSteps, designTypes, drawbacks } from "../constants/design";
-import { designQuiz } from "../constants/designQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { designSteps, designTypes, drawbacks } from "../../constants/sdlc/design";
+import { designQuiz } from "../../constants/quiz/designQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const DesignPage = () => {

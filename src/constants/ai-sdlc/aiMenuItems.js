@@ -10,6 +10,7 @@ const aiMenuItems = [
   { label: "Review", path: "/ai-review" },
   { label: "Maintenance", path: "/ai-maintenance" },
   { label: "Story", path: "/ai-augmented-story" },
+  { label: "Simulation", path: "/simulation/ai-sdlc" },
 ];
 
 export default aiMenuItems;

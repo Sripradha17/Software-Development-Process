@@ -1,16 +1,16 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiTestingSteps, aiTestingTypes, aiTestingDrawbacks } from "../constants/aiTesting";
-import { aiTestingQuiz } from "../constants/aiTestingQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks } from "../../constants/ai-sdlc/aiAnalysis";
+import { aiAnalysisQuiz } from "../../constants/quiz/aiAnalysisQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AITestingPage = () => {
+const AnalysisWithAIPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -71,7 +71,7 @@ const AITestingPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ✅
+          📊
         </motion.button>
         <motion.button
           style={{
@@ -137,34 +137,34 @@ const AITestingPage = () => {
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Testing
+                AI-Augmented Analysis
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Smarter, faster software testing with artificial intelligence
+                Supercharging software analysis with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Testing?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Analysis?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented testing uses machine learning to automate test planning, generate and run tests, simulate user behavior, and optimize performance. It helps teams catch bugs early, improve coverage, and release with confidence.
+                  AI-augmented analysis leverages machine learning and automation to uncover hidden patterns, automate requirements gathering, and provide data-driven insights. It helps teams ask better questions, spot risks early, and make smarter decisions—faster.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Automates test case generation and execution</span>
+                    <span>Automates tedious data analysis and requirements extraction</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Simulates real user behavior and traffic</span>
+                    <span>Finds patterns and risks humans might miss</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Detects bottlenecks and optimizes performance</span>
+                    <span>Accelerates stakeholder alignment with smart insights</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Improves coverage and reduces manual effort</span>
+                    <span>Supports unbiased, data-driven decisions</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +176,7 @@ const AITestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Testing Steps →
+                Explore AI Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +192,11 @@ const AITestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Testing Steps
+                6 Essential AI Analysis Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiTestingSteps.map((step, index) => (
+                {aiAnalysisSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +217,7 @@ const AITestingPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate repetitive tests and focus human effort on exploratory and usability testing.
+                  💡 <strong>Tip:</strong> Let AI do the heavy lifting—focus your human expertise on creative problem solving and stakeholder engagement.
                 </p>
               </motion.div>
 
@@ -228,12 +228,12 @@ const AITestingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Testing Types →
+                See AI Analysis Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* TESTING TYPES WITH STORIES */}
+          {/* ANALYSIS TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +244,11 @@ const AITestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Testing Approaches: Successes & Pitfalls
+                AI Analysis Approaches: Learning from Data
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiTestingTypes.map((type, index) => (
+                {aiAnalysisTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +357,13 @@ const AITestingPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Testing Drawbacks & Their Resolutions
+                Major AI Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common testing pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiTestingDrawbacks.map((drawback, index) => (
+                {aiDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +463,11 @@ const AITestingPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Testing Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Analysis Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI tester never miss a bug?
+                    Q: Why did the AI analyst get promoted?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +475,13 @@ const AITestingPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because the AI found them before anyone else! 🤖🐞
+                    A: Because they always had the best data-driven insights! 📊🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many AI testers does it take to break a system?
+                    Q: How many AI engineers does it take to change a light bulb?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +489,13 @@ const AITestingPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. The AI just simulates 100,000 users at once! 🧪🤖
+                    A: None. They just train a model to predict when it will fail and automate the replacement! 💡🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A stakeholder tells an AI tester: "I want tests that are exhaustive but never slow."
+                    A user tells an AI analyst: "I want it smarter than our competitor's AI, but less creepy."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +503,7 @@ const AITestingPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The tester: "So... you want infinite speed? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
+                    The analyst: "So... you want explainable intelligence? Got it! Let me just add that to my backlog of ethical requirements." 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +514,10 @@ const AITestingPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a testing partner, not a replacement for human intuition."</em>
+                    💭 <em>"AI is not a replacement for human analysis—it's a superpower for it."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to automate and accelerate testing, but always keep humans in the loop!
+                    Use AI to amplify your strengths, not replace your judgment!
                   </p>
                 </motion.div>
 
@@ -544,15 +544,15 @@ const AITestingPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-deployment")}
+                    onClick={() => navigate("/ai-design")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
-                        "0 10px 30px rgba(69, 183, 209, 0.4)",
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(150, 206, 180, 0.4)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
                       ],
                     }}
                     transition={{
@@ -563,7 +563,7 @@ const AITestingPage = () => {
                       },
                     }}
                   >
-                    Next: Deployment 🤖✨
+                    Next: Design 🎨✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +596,10 @@ const AITestingPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Testing concepts.
+                  Let's see how well you understand AI-Augmented Analysis concepts.
                 </p>
                 
-                <Quiz questions={aiTestingQuiz} />
+                <Quiz questions={aiAnalysisQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -612,14 +612,14 @@ const AITestingPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-deployment")}
+                    onClick={() => navigate("/ai-design")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
-                        "0 6px 25px rgba(118, 75, 162, 0.5)",
-                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
+                        "0 10px 30px rgba(150, 206, 180, 0.4)",
+                        "0 10px 30px rgba(69, 183, 209, 0.3)",
                       ],
                     }}
                     transition={{
@@ -630,7 +630,7 @@ const AITestingPage = () => {
                       },
                     }}
                   >
-                    Next: Deployment 🤖✨
+                    Next: Design 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -659,11 +659,11 @@ const AITestingPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "✅", "📝", "💡", "✨"][i % 5]}
+          {["🤖", "📊", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AITestingPage;
+export default AnalysisWithAIPage;

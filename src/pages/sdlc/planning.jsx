@@ -1,12 +1,12 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { planningSteps, planningTypes, drawbacks } from "../constants/planning";
-import { planningQuiz } from "../constants/planningQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { planningSteps, planningTypes, drawbacks } from "../../constants/sdlc/planning";
+import { planningQuiz } from "../../constants/quiz/planningQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
 const PlanningPage = () => {

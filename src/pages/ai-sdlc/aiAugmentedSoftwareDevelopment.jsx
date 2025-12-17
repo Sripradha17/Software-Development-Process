@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import aiDevelopmentStages from "../constants/aiAugmentedSoftwareDevelopment";
+import aiDevelopmentStages from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopment";
 
 import React, { useState } from "react";
-import styles from "../styles";
-import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+import styles from "../../styles/index.js";
+import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 const AiAugmentedSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles.jsx';
+import styles from '../styles/index.js';
 
 const Menu = ({ items, title }) => {
   const [open, setOpen] = useState(false);

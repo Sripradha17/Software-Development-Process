@@ -1,16 +1,16 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../constants/aiMaintenance";
-import { aiMaintenanceQuiz } from "../constants/aiMaintenanceQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiDeploymentSteps, aiDeploymentTypes, aiDeploymentDrawbacks } from "../../constants/ai-sdlc/aiDeployment";
+import { aiDeploymentQuiz } from "../../constants/quiz/aiDeploymentQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AIMaintenancePage = () => {
+const AIDeploymentPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -60,7 +60,7 @@ const AIMaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🛠️
+          🚀
         </motion.button>
         <motion.button
           style={{
@@ -71,7 +71,7 @@ const AIMaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🧰
+          📦
         </motion.button>
         <motion.button
           style={{
@@ -133,38 +133,38 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖🛠️
+                🤖🚀
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Maintenance
+                AI-Augmented Deployment
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Maintain, optimize, and secure your software with artificial intelligence
+                Deploy smarter and safer with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Maintenance?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Deployment?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented maintenance uses machine learning to monitor systems, detect bugs, optimize performance, and manage technical debt. It helps teams keep software running smoothly, securely, and efficiently.
+                  AI-augmented deployment uses machine learning to automate release planning, environment setup, data migration, and monitoring. It helps teams deploy faster, reduce downtime, and catch issues before users do.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Automates bug detection and fixes</span>
+                    <span>Automates deployment and rollback</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Monitors health and predicts issues</span>
+                    <span>Monitors system health in real time</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Optimizes performance proactively</span>
+                    <span>Predicts and prevents failures</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Manages technical debt and security</span>
+                    <span>Optimizes user training and adoption</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +176,7 @@ const AIMaintenancePage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Maintenance Steps →
+                Explore AI Deployment Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +192,11 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Maintenance Steps
+                6 Essential AI Deployment Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiMaintenanceSteps.map((step, index) => (
+                {aiDeploymentSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +217,7 @@ const AIMaintenancePage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate routine maintenance, but always review critical changes manually.
+                  💡 <strong>Tip:</strong> Use AI to automate deployment and monitor for issues, but always keep humans in the loop for critical releases.
                 </p>
               </motion.div>
 
@@ -228,12 +228,12 @@ const AIMaintenancePage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Maintenance Types →
+                See AI Deployment Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* MAINTENANCE TYPES WITH STORIES */}
+          {/* DEPLOYMENT TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +244,11 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Maintenance Approaches: Successes & Pitfalls
+                AI Deployment Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiMaintenanceTypes.map((type, index) => (
+                {aiDeploymentTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +357,13 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Maintenance Drawbacks & Their Resolutions
+                Major AI Deployment Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common maintenance pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common deployment pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiMaintenanceDrawbacks.map((drawback, index) => (
+                {aiDeploymentDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +463,11 @@ const AIMaintenancePage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Maintenance Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Deployment Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI maintenance bot never panic?
+                    Q: Why did the AI deployment never panic?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +475,13 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always had a patch ready! 🤖🩹
+                    A: Because it always had a rollback plan! 🤖🔄
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How does AI fix bugs?
+                    Q: How does AI deploy code?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +489,13 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With predictive debugging and infinite optimism! 🐞🤖
+                    A: With zero downtime and infinite optimism! 🚀🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A manager asks the AI: "Can you guarantee zero bugs?"
+                    A manager asks the AI: "Can you guarantee a perfect deployment?"
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +503,7 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee zero panic!" 😅🤖
+                    AI: "I can guarantee a perfect rollback!" 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +514,10 @@ const AIMaintenancePage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a maintenance partner, not a replacement for human insight."</em>
+                    💭 <em>"AI is a deployment partner, not a replacement for human judgment."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to automate and accelerate maintenance, but always keep humans in the loop!
+                    Use AI to automate and accelerate deployment, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -563,7 +563,7 @@ const AIMaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 🤖✨
+                    Next: Maintenance 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +596,10 @@ const AIMaintenancePage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Maintenance concepts.
+                  Let's see how well you understand AI-Augmented Deployment concepts.
                 </p>
                 
-                <Quiz questions={aiMaintenanceQuiz} />
+                <Quiz questions={aiDeploymentQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -612,7 +612,7 @@ const AIMaintenancePage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-augmented-development")}
+                    onClick={() => navigate("/ai-review")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -630,7 +630,7 @@ const AIMaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 🤖✨
+                    Next: Maintenance 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -659,11 +659,11 @@ const AIMaintenancePage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🛠️", "🧰", "💡", "✨"][i % 5]}
+          {["🤖", "🚀", "📦", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AIMaintenancePage;
+export default AIDeploymentPage;

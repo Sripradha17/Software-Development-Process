@@ -1,16 +1,14 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiDesignSteps, aiDesignTypes, aiDesignDrawbacks } from "../constants/aiDesign";
-import { aiDesignQuiz } from "../constants/aiDesignQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { aiImplementationSteps, aiImplementationTypes, aiImplementationDrawbacks } from "../../constants/ai-sdlc/aiImplementation";
+import styles from "../../styles/index.js";
  
 
-const AIDesignPage = () => {
+const AIImplementationPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -71,7 +69,7 @@ const AIDesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🏗️
+          🚀
         </motion.button>
         <motion.button
           style={{
@@ -82,7 +80,7 @@ const AIDesignPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📖
+          📚
         </motion.button>
         <motion.button
           style={{
@@ -137,34 +135,34 @@ const AIDesignPage = () => {
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Design
+                AI-Augmented Implementation
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Creative software design supercharged by artificial intelligence
+                Rapid, reliable software development with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Design?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Implementation?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented design leverages machine learning to optimize architecture, automate database modeling, generate APIs, and create user-centric UI/UX. It helps teams design smarter, faster, and with fewer errors.
+                  AI-augmented implementation uses machine learning to automate environment setup, assist coding, generate tests, review code, and document everything. It helps teams build faster, catch bugs early, and maintain high quality.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Suggests optimal system structures and user flows</span>
+                    <span>Automates setup, coding, and testing</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Automates wireframes, diagrams, and documentation</span>
+                    <span>Reviews code and suggests improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Identifies security risks and design flaws early</span>
+                    <span>Integrates components and resolves conflicts</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Continuously improves design with user feedback</span>
+                    <span>Keeps documentation up to date automatically</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +174,7 @@ const AIDesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Design Steps →
+                Explore AI Implementation Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +190,11 @@ const AIDesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Design Steps
+                6 Essential AI Implementation Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiDesignSteps.map((step, index) => (
+                {aiImplementationSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +215,7 @@ const AIDesignPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to iterate and validate your designs with real user data and feedback.
+                  💡 <strong>Tip:</strong> Use AI to automate repetitive tasks and focus your energy on creative problem solving.
                 </p>
               </motion.div>
 
@@ -228,12 +226,12 @@ const AIDesignPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Design Types →
+                See AI Implementation Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* DESIGN TYPES WITH STORIES */}
+          {/* IMPLEMENTATION TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +242,11 @@ const AIDesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Design Approaches: Successes & Pitfalls
+                AI Implementation Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiDesignTypes.map((type, index) => (
+                {aiImplementationTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +355,13 @@ const AIDesignPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Design Drawbacks & Their Resolutions
+                Major AI Implementation Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common design pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common implementation pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiDesignDrawbacks.map((drawback, index) => (
+                {aiImplementationDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +461,11 @@ const AIDesignPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Design Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Implementation Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI designer always win awards?
+                    Q: Why did the AI developer never worry about bugs?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +473,13 @@ const AIDesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because their designs were always optimized for user delight! 🤖🎨
+                    A: Because the AI squashed them before they appeared! 🤖🐛
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many AI architects does it take to scale a system?
+                    Q: How many AI coders does it take to refactor a legacy system?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +487,13 @@ const AIDesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. The AI just auto-scales everything! 🏗️🤖
+                    A: None. The AI just rewrites it from scratch! 🛠️🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A stakeholder tells an AI designer: "I want a UI that's unique but instantly familiar."
+                    A stakeholder tells an AI developer: "I want code that's perfect and always changing."
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +501,7 @@ const AIDesignPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The designer: "So... you want creative conformity? Got it! I'll just add that to my paradoxical design goals." 😅🤖
+                    The developer: "So... you want perpetual improvement? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +512,10 @@ const AIDesignPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a design partner, not a replacement for human creativity."</em>
+                    💭 <em>"AI is a coding partner, not a replacement for human ingenuity."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to enhance your design process, but always keep humans in the loop!
+                    Use AI to accelerate development, but always keep humans in the loop!
                   </p>
                 </motion.div>
 
@@ -544,7 +542,7 @@ const AIDesignPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-implementation")}
+                    onClick={() => navigate("/ai-testing")}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -563,7 +561,7 @@ const AIDesignPage = () => {
                       },
                     }}
                   >
-                    Next: Implementation 🤖✨
+                    Next: Testing 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +594,10 @@ const AIDesignPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Design concepts.
+                  Let's see how well you understand AI-Augmented Implementation concepts.
                 </p>
                 
-                <Quiz questions={aiDesignQuiz} />
+                <Quiz questions={aiImplementationQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -612,14 +610,14 @@ const AIDesignPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-implementation")}
+                    onClick={() => navigate("/ai-testing")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
-                        "0 10px 30px rgba(255, 234, 167, 0.4)",
-                        "0 10px 30px rgba(150, 206, 180, 0.3)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
                       ],
                     }}
                     transition={{
@@ -630,7 +628,74 @@ const AIDesignPage = () => {
                       },
                     }}
                   >
-                    Next: Implementation 🤖✨
+                    Next: Testing 🤖✨
+                  </motion.button>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* QUIZ SECTION */}
+          {activeSection === "quiz" && (
+            <motion.div
+              key="quiz"
+              style={styles.section}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              <motion.div style={styles.cardContainer} variants={itemVariants}>
+                <motion.div
+                  style={{
+                    fontSize: "clamp(4rem, 8vw, 8rem)",
+                    textAlign: "center",
+                    marginBottom: "2rem",
+                  }}
+                  animate={{
+                    y: [0, -10, 0],
+                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  }}
+                >
+                  🧠
+                </motion.div>
+                <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
+                <p style={styles.sectionSubtitle}>
+                  Let's see how well you understand AI-Augmented Implementation concepts.
+                </p>
+                
+                <Quiz questions={aiImplementationQuiz} />
+                
+                <div style={styles.buttonGroup}>
+                  <motion.button
+                    style={styles.homeButton}
+                    onClick={() => setActiveSection("intro")}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    🏠 Back to Start
+                  </motion.button>
+                  <motion.button
+                    style={styles.nextPhaseButton}
+                    onClick={() => navigate("/ai-testing")}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{
+                      boxShadow: [
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 10px 30px rgba(69, 183, 209, 0.4)",
+                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                      ],
+                    }}
+                    transition={{
+                      boxShadow: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
+                    }}
+                  >
+                    Next: Testing 🤖✨
                   </motion.button>
                 </div>
               </motion.div>
@@ -659,11 +724,11 @@ const AIDesignPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🏗️", "📝", "💡", "✨"][i % 5]}
+          {["🤖", "🚀", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AIDesignPage;
+export default AIImplementationPage;

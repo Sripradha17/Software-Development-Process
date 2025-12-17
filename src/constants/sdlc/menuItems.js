@@ -10,6 +10,7 @@ const sdlcMenuItems = [
   { label: "Review", path: "/review" },
   { label: "Maintenance", path: "/maintenance" },
   { label: "Story", path: "/story" },
+  { label: "Simulation", path: "/simulation/sdlc" },
 ];
 
 export default sdlcMenuItems;

@@ -1,12 +1,12 @@
-import Menu from "../components/Menu";
-import sdlcMenuItems from "../constants/sdlcMenuItems";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { analysisSteps, analysisTypes, drawbacks } from "../constants/analysis";
-import { analysisQuiz } from "../constants/analysisQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import { analysisSteps, analysisTypes, drawbacks } from "../../constants/sdlc/analysis";
+import { analysisQuiz } from "../../constants/quiz/analysisQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 const AnalysisPage = () => {
   const [activeSection, setActiveSection] = useState("intro");

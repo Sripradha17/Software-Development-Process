@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import IntroPage from "./pages/sdlc/IntroPage";
 import LearnSoftwareDev from "./pages/sdlc/learnSoftwareDevelopment";
-import AiAugmentedSoftwareDevelopment from "./pages/aisdlc/aiAugmentedSoftwareDevelopment";
-import AiAugmentedDevelopmentStory from "./pages/aisdlc/aiAugmentedSoftwareDevelopmentStory";
+import AiAugmentedSoftwareDevelopment from "./pages/ai-sdlc/aiAugmentedSoftwareDevelopment";
+import AiAugmentedDevelopmentStory from "./pages/ai-sdlc/aiAugmentedSoftwareDevelopmentStory";
 import DevelopmentProcessStory from "./pages/sdlc/story";
 import PlanningPage from "./pages/sdlc/planning";
 import AnalysisPage from "./pages/sdlc/analysis";
@@ -13,14 +13,18 @@ import DeploymentPage from  "./pages/sdlc/deployment";
 import MaintenancePage from "./pages/sdlc/maintenance";
 import ReviewPage from "./pages/sdlc/review";
 
-import AIPlanningPage from "./pages/aisdlc/planning";
-import AnalysisWithAIPage from "./pages/aisdlc/analysis";
-import AIDesignPage from "./pages/aisdlc/design";
-import AIImplementationPage from "./pages/aisdlc/implementation";
-import AITestingPage from "./pages/aisdlc/testing";
-import AIDeploymentPage from "./pages/aisdlc/deployment";
-import AIMaintenancePage from "./pages/aisdlc/maintenance";
-import AIReviewPage from "./pages/aisdlc/review";
+import AIPlanningPage from "./pages/ai-sdlc/planning";
+import AnalysisWithAIPage from "./pages/ai-sdlc/analysis";
+import AIDesignPage from "./pages/ai-sdlc/design";
+import AIImplementationPage from "./pages/ai-sdlc/implementation";
+import AITestingPage from "./pages/ai-sdlc/testing";
+import AIDeploymentPage from "./pages/ai-sdlc/deployment";
+import AIMaintenancePage from "./pages/ai-sdlc/maintenance";
+import AIReviewPage from "./pages/ai-sdlc/review";
+
+// Simulation components
+import SimulationHub from "./components/SimulationHub";
+import SimulationEngine from "./components/SimulationEngine";
 
 
 function App() {
@@ -49,6 +53,11 @@ function App() {
         <Route path="/ai-deployment" element={<AIDeploymentPage />} />
         <Route path="/ai-maintenance" element={<AIMaintenancePage />} />
         <Route path="/ai-review" element={<AIReviewPage />} />
+        
+        {/* Simulation routes */}
+        <Route path="/simulation" element={<SimulationHub />} />
+        <Route path="/simulation/:type" element={<SimulationHub />} />
+        <Route path="/simulation/:type/:scenarioId" element={<SimulationEngine />} />
       </Routes>
     </Router>
   );

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import chapters from "../constants/story";
-import styles from "../styles";
+import chapters from "../../constants/sdlc/story";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
+import styles from "../../styles/index.js";
 
 const DevelopmentProcessStory = () => {
   const [currentChapter, setCurrentChapter] = useState(0);
@@ -192,6 +194,9 @@ const DevelopmentProcessStory = () => {
 
   return (
     <div style={{ ...styles.storyContainer, background: chapter.gradient }}>
+      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 1200 }}>
+        <Menu items={sdlcMenuItems} title="Menu" />
+      </div>
       <Link to="/learn-software-development" style={styles.backLink}>
         ← Back
       </Link>

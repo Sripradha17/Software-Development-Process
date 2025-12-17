@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "../styles";
-import developmentStages from "../constants/learnSoftwareDevelopment";
-import Menu from "../components/Menu";
+import styles from "../../styles/index.js";
+import developmentStages from "../../constants/sdlc/learnSoftwareDevelopment";
+import Menu from "../../components/Menu";
+import sdlcMenuItems from "../../constants/sdlc/menuItems";
 
 const LearnSoftwareDevelopment = () => {
   const [selectedStage, setSelectedStage] = useState(null);
@@ -82,19 +83,8 @@ const LearnSoftwareDevelopment = () => {
     />
   ));
 
-  // SDLC menu items
-  const menuItems = [
-    { label: "Intro", path: "/learn-software-development" },
-    { label: "Planning", path: "/planning" },
-    { label: "Analysis", path: "/analysis" },
-    { label: "Design", path: "/design" },
-    { label: "Implementation", path: "/implementation" },
-    { label: "Testing", path: "/testing" },
-    { label: "Deployment", path: "/deployment" },
-    { label: "Review", path: "/review" },
-    { label: "Maintenance", path: "/maintenance" },
-    { label: "Story", path: "/story" },
-  ];
+  // Use shared SDLC menu items that include simulation
+  const menuItems = sdlcMenuItems;
   return (
     <motion.div
       style={{ ...styles.softwareDevIntro, ...styles.responsiveContainer }}

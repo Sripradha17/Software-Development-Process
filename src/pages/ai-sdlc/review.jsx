@@ -1,16 +1,19 @@
- import Menu from "../components/Menu";
-import aiMenuItems from "../constants/aiMenuItems";
-
+ import Menu from "../../components/Menu";
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { aiPlanningSteps, aiPlanningTypes, aiPlanningDrawbacks } from "../constants/aiPlanning";
-import { aiPlanningQuiz } from "../constants/aiPlanningQuiz";
-import Quiz from "../components/Quiz";
-import styles from "../styles";
+import {
+  aiReviewSteps,
+  aiReviewTypes,
+  aiReviewDrawbacks,
+} from "../../constants/ai-sdlc/aiReview";
+import { aiReviewQuiz } from "../../constants/quiz/aiReviewQuiz";
+import Quiz from "../../components/Quiz";
+import styles from "../../styles/index.js";
  
 
-const AIPlanningPage = () => {
+const AIReviewPage = () => {
   const [activeSection, setActiveSection] = useState("intro");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -60,7 +63,7 @@ const AIPlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🤖
+          📊
         </motion.button>
         <motion.button
           style={{
@@ -71,7 +74,7 @@ const AIPlanningPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🎯
+          🔄
         </motion.button>
         <motion.button
           style={{
@@ -133,38 +136,40 @@ const AIPlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖✨
+                🤖📊
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Planning
+                AI-Augmented Review
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
-                Smarter project planning with artificial intelligence
+                Review, learn, and improve with artificial intelligence
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is AI-Augmented Planning?</h2>
+                <h2 style={styles.cardTitle}>What is AI-Augmented Review?</h2>
                 <p style={styles.cardText}>
-                  AI-augmented planning uses machine learning and automation to discover objectives, mine requirements, predict resources, and forecast risks. It helps teams plan faster, adapt to change, and make data-driven decisions.
+                  AI-augmented review uses machine learning to analyze feedback,
+                  facilitate retrospectives, and document lessons learned. It
+                  helps teams continuously improve and avoid repeating mistakes.
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🤖</span>
-                    <span>Discovers hidden objectives and requirements</span>
+                    <span>Automates feedback analysis</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>📊</span>
-                    <span>Predicts resources and timelines with analytics</span>
+                    <span>Tracks performance and outcomes</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>⚡</span>
-                    <span>Forecasts risks and suggests mitigations</span>
+                    <span>Suggests process improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
                     <span style={styles.keyPointIcon}>🧠</span>
-                    <span>Automates documentation and keeps plans up to date</span>
+                    <span>Documents lessons for future teams</span>
                   </div>
                 </div>
               </motion.div>
@@ -176,7 +181,7 @@ const AIPlanningPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Explore AI Planning Steps →
+                Explore AI Review Steps →
               </motion.button>
             </motion.div>
           )}
@@ -192,11 +197,11 @@ const AIPlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential AI Planning Steps
+                6 Essential AI Review Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
-                {aiPlanningSteps.map((step, index) => (
+                {aiReviewSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
                     style={{
@@ -217,7 +222,8 @@ const AIPlanningPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to iterate and refine your plans as new data arrives. Planning is a living process!
+                  💡 <strong>Tip:</strong> Use AI to analyze feedback and track
+                  improvements, but always discuss results as a team.
                 </p>
               </motion.div>
 
@@ -228,12 +234,12 @@ const AIPlanningPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                See AI Planning Types →
+                See AI Review Types →
               </motion.button>
             </motion.div>
           )}
 
-          {/* PLANNING TYPES WITH STORIES */}
+          {/* REVIEW TYPES WITH STORIES */}
           {activeSection === "types" && (
             <motion.div
               key="types"
@@ -244,11 +250,11 @@ const AIPlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                AI Planning Approaches: Successes & Pitfalls
+                AI Review Approaches: Successes & Pitfalls
               </motion.h1>
 
               <div style={styles.typesContainer}>
-                {aiPlanningTypes.map((type, index) => (
+                {aiReviewTypes.map((type, index) => (
                   <motion.div
                     key={type.id}
                     style={styles.typeCard}
@@ -357,13 +363,14 @@ const AIPlanningPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major AI Planning Drawbacks & Their Resolutions
+                Major AI Review Drawbacks & Their Resolutions
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
-                Even the smartest AI can stumble. Here’s how to avoid common planning pitfalls:
+                Even the smartest AI can stumble. Here’s how to avoid common
+                review pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiPlanningDrawbacks.map((drawback, index) => (
+                {aiReviewDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}
@@ -463,11 +470,11 @@ const AIPlanningPage = () => {
                   😂
                 </motion.div>
 
-                <h2 style={styles.jokeTitle}>AI Planning Humor Break!</h2>
+                <h2 style={styles.jokeTitle}>AI Review Humor Break!</h2>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: Why did the AI project manager never panic?
+                    Q: Why did the AI review never miss a lesson?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -475,13 +482,13 @@ const AIPlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because they always had a backup plan generated by AI! 🤖📋
+                    A: Because it always documented everything! 🤖📝
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    Q: How many AI planners does it take to change a deadline?
+                    Q: How does AI run a retrospective?
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -489,13 +496,14 @@ const AIPlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. The AI just reschedules everything automatically! 📅🤖
+                    A: With infinite formats and zero blame! 🔄🤖
                   </motion.p>
                 </div>
 
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
-                    A stakeholder tells an AI planner: "I want a plan that's flexible but never changes."
+                    A manager asks the AI: "Can you guarantee continuous
+                    improvement?"
                   </p>
                   <motion.p
                     style={styles.jokePunchline}
@@ -503,7 +511,7 @@ const AIPlanningPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The planner: "So... you want quantum planning? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
+                    AI: "I can guarantee continuous documentation!" 😅🤖
                   </motion.p>
                 </div>
 
@@ -514,10 +522,15 @@ const AIPlanningPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a planning partner, not a replacement for human strategy."</em>
+                    💭{" "}
+                    <em>
+                      "AI is a review partner, not a replacement for team
+                      reflection."
+                    </em>
                   </p>
                   <p style={styles.wisdomExplanation}>
-                    Use AI to enhance your planning, but always keep humans in the loop!
+                    Use AI to automate and accelerate reviews, but always keep
+                    humans in the loop!
                   </p>
                 </motion.div>
 
@@ -544,15 +557,14 @@ const AIPlanningPage = () => {
 
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-analysis")}
-                    variants={itemVariants}
+                    onClick={() => navigate("/ai-maintenance")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
-                        "0 10px 30px rgba(69, 183, 209, 0.4)",
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 6px 25px rgba(118, 75, 162, 0.5)",
+                        "0 6px 25px rgba(102, 126, 234, 0.3)",
                       ],
                     }}
                     transition={{
@@ -563,7 +575,7 @@ const AIPlanningPage = () => {
                       },
                     }}
                   >
-                    Next: Analysis 🤖✨
+                    Next: Maintenance 🛠
                   </motion.button>
                 </div>
               </motion.div>
@@ -596,10 +608,10 @@ const AIPlanningPage = () => {
                 </motion.div>
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
-                  Let's see how well you understand AI-Augmented Planning concepts.
+                  Let's see how well you understand AI-Augmented Review concepts.
                 </p>
                 
-                <Quiz questions={aiPlanningQuiz} />
+                <Quiz questions={aiReviewQuiz} />
                 
                 <div style={styles.buttonGroup}>
                   <motion.button
@@ -612,14 +624,14 @@ const AIPlanningPage = () => {
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
-                    onClick={() => navigate("/ai-analysis")}
+                    onClick={() => navigate("/ai-maintenance")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
                       boxShadow: [
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
-                        "0 10px 30px rgba(69, 183, 209, 0.4)",
-                        "0 10px 30px rgba(78, 205, 196, 0.3)",
+                        "0 6px 25px rgba(102, 126, 234, 0.3)",
+                        "0 6px 25px rgba(118, 75, 162, 0.5)",
+                        "0 6px 25px rgba(102, 126, 234, 0.3)",
                       ],
                     }}
                     transition={{
@@ -630,7 +642,7 @@ const AIPlanningPage = () => {
                       },
                     }}
                   >
-                    Next: Analysis 🤖✨
+                    Next: Maintenance 🛠
                   </motion.button>
                 </div>
               </motion.div>
@@ -659,11 +671,11 @@ const AIPlanningPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🎯", "📝", "💡", "✨"][i % 5]}
+          {["🤖", "📊", "🔄", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>
   );
 };
 
-export default AIPlanningPage;
+export default AIReviewPage;
