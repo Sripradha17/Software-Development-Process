@@ -87,12 +87,12 @@ const LearnSoftwareDevelopment = () => {
   const menuItems = sdlcMenuItems;
   return (
     <motion.div
-      style={{ ...styles.softwareDevIntro, ...styles.responsiveContainer }}
+      style={{...styles.softwareDevIntro, ...styles.responsiveContainer}}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+      <div style={styles.absoluteTopRight}>
         <Menu items={menuItems} title="Menu" />
       </div>
       <Link to="/" style={styles.backLink}>

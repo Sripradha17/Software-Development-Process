@@ -11,6 +11,7 @@ const sdlcMenuItems = [
   { label: "Maintenance", path: "/maintenance" },
   { label: "Story", path: "/story" },
   { label: "Simulation", path: "/simulation/sdlc" },
+  { label: "Drag & Drop Quiz", path: "/drag-drop-quiz/sdlc" },
 ];
 
 export default sdlcMenuItems;

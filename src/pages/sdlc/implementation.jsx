@@ -44,7 +44,7 @@ const ImplementationPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+      <div style={styles.absoluteTopRight}>
         <Menu items={sdlcMenuItems} title="Menu" />
       </div>
       <Link to="/" style={styles.backLink}>
@@ -271,7 +271,7 @@ const ImplementationPage = () => {
                     custom={index}
                   >
                     <div
-                      style={{ ...styles.typeHeader, background: type.color }}
+                      style={styles.typeHeaderWithBg(type.color)}
                     >
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
