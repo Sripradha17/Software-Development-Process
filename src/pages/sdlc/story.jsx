@@ -113,11 +113,12 @@ const DevelopmentProcessStory = () => {
   if (showIntro) {
     return (
       <div style={styles.storyContainer}>
-        {" "}
+        <div style={styles.absoluteTopRightHighZ}>
+          <Menu items={sdlcMenuItems} title="Menu" />
+        </div>
         <Link to="/learn-software-development" style={styles.backLink}>
-          {" "}
-          ← Back{" "}
-        </Link>{" "}
+          ← Back
+        </Link>
         <AnimatePresence>
           {" "}
           <motion.div
@@ -129,22 +130,17 @@ const DevelopmentProcessStory = () => {
           >
             {" "}
             <motion.div style={styles.introContent} animate={floatingAnimation}>
-              {" "}
-              <motion.div style={styles.introIcon}> ☕ </motion.div>
-              {""}
+              <motion.div style={styles.introIcon}>☕</motion.div>
               <motion.h1 style={styles.introTitle}>
-                {" "}
-                Sarah's Coffee Shop App{" "}
-              </motion.h1>{" "}
+                Sarah's Coffee Shop App
+              </motion.h1>
               <motion.p style={styles.introSubtitle}>
-                {" "}
-                A Story About the Development Process{" "}
-              </motion.p>{" "}
+                A Story About the Development Process
+              </motion.p>
               <motion.p style={styles.introDescription}>
-                {" "}
                 Join us on a journey as we follow Sarah and Alex through the
-                complete software development process, from vision to reality.{" "}
-              </motion.p>{" "}
+                complete software development process, from vision to reality.
+              </motion.p>
               <motion.button
                 style={styles.startButton}
                 onClick={() => setShowIntro(false)}
@@ -155,11 +151,10 @@ const DevelopmentProcessStory = () => {
                 whileTap={{ scale: 0.95 }}
                 animate={pulseAnimation}
               >
-                {" "}
-                Begin the Story{" "}
-              </motion.button>{" "}
+                Begin the Story
+              </motion.button>
             </motion.div>{" "}
-            {/* Floating coffee beans */}{" "}
+            {/* Floating coffee beans */}
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
@@ -180,12 +175,11 @@ const DevelopmentProcessStory = () => {
                   delay: i * 0.5,
                 }}
               >
-                {" "}
-                ☕{" "}
+                ☕
               </motion.div>
-            ))}{" "}
-          </motion.div>{" "}
-        </AnimatePresence>{" "}
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     );
   }
@@ -193,8 +187,8 @@ const DevelopmentProcessStory = () => {
   const chapter = chapters[currentChapter];
 
   return (
-    <div style={{ ...styles.storyContainer, background: chapter.gradient }}>
-      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 1200 }}>
+    <div style={styles.storyContainerWithBg(chapter.gradient)}>
+      <div style={styles.absoluteTopRightHighZ}>
         <Menu items={sdlcMenuItems} title="Menu" />
       </div>
       <Link to="/learn-software-development" style={styles.backLink}>
@@ -204,7 +198,7 @@ const DevelopmentProcessStory = () => {
       {/* Progress bar */}
       <div style={styles.progressContainer}>
         <motion.div
-          style={{ ...styles.progressBar, background: chapter.color }}
+          style={styles.progressBarWithBg(chapter.color)}
           initial={{ width: 0 }}
           animate={{
             width: `${((currentChapter + 1) / chapters.length) * 100}%`,
@@ -270,11 +264,11 @@ const DevelopmentProcessStory = () => {
               {chapter.story.map((line, index) => (
                 <motion.p
                   key={index}
-                  style={{
-                    ...styles.storyLine,
-                    ...(line.startsWith("•") ? styles.bulletPoint : {}),
-                    ...(line.startsWith('"') ? styles.quoteLine : {}),
-                  }}
+                  style={
+                    line.startsWith("•") ? styles.storyLineBullet :
+                    line.startsWith('"') ? styles.storyLineQuote :
+                    styles.storyLine
+                  }
                   custom={index}
                   variants={storyLineVariants}
                   initial="hidden"
@@ -296,27 +290,14 @@ const DevelopmentProcessStory = () => {
             {/* Show "Let's Go Plan" button on the last chapter */}
             {currentChapter === chapters.length - 1 && (
               <motion.div
-                style={{ ...styles.planButtonContainer, marginTop: 48 }}
+                style={styles.planButtonContainerWithMargin}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "1.5rem",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginBottom: 24,
-                  }}
-                >
+                <div style={styles.buttonFlexContainer}>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #1abc9c 0%, #16a085 100%)",
-                    }}
+                    style={styles.planButtonTeal}
                     onClick={() => navigate("/planning")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -336,11 +317,7 @@ const DevelopmentProcessStory = () => {
                     📊 Analysis
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #2980b9 0%, #6dd5fa 100%)",
-                    }}
+                    style={styles.planButtonBlue}
                     onClick={() => navigate("/design")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -348,11 +325,7 @@ const DevelopmentProcessStory = () => {
                     📐 Design
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #8e44ad 0%, #6c3483 100%)",
-                    }}
+                    style={styles.planButtonPurple}
                     onClick={() => navigate("/implementation")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -360,11 +333,7 @@ const DevelopmentProcessStory = () => {
                     💻 Implementation
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)",
-                    }}
+                    style={styles.planButtonGreen}
                     onClick={() => navigate("/testing")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -372,11 +341,7 @@ const DevelopmentProcessStory = () => {
                     🧪 Testing
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)",
-                    }}
+                    style={styles.planButtonRed}
                     onClick={() => navigate("/deployment")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -384,11 +349,7 @@ const DevelopmentProcessStory = () => {
                     🚀 Deployment
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #34495e 0%, #2c3e50 100%)",
-                    }}
+                    style={styles.planButtonDark}
                     onClick={() => navigate("/maintenance")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -396,11 +357,7 @@ const DevelopmentProcessStory = () => {
                     🛠 Maintenance
                   </motion.button>
                   <motion.button
-                    style={{
-                      ...styles.planButton,
-                      background:
-                        "linear-gradient(135deg, #34495e 0%, #2c3e50 100%)",
-                    }}
+                    style={styles.planButtonDark}
                     onClick={() => navigate("/review")}
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
@@ -408,9 +365,7 @@ const DevelopmentProcessStory = () => {
                     📋 Review
                   </motion.button>
                 </div>
-                <div
-                  style={{ color: "#bde4ce", fontSize: "1.1rem", marginTop: 8 }}
-                >
+                <div style={styles.storySubtitle}>
                   Explore each stage of the software development process!
                 </div>
               </motion.div>

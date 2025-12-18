@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SimulationResults = ({ 
   scenario, 
@@ -9,6 +10,12 @@ const SimulationResults = ({
   onRestart, 
   onReturnToHub 
 }) => {
+  const navigate = useNavigate();
+  const { type } = useParams();
+
+  const handleQuizNavigation = () => {
+    navigate(`/drag-drop-quiz/${type}`);
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -194,6 +201,14 @@ const SimulationResults = ({
             whileTap={{ scale: 0.95 }}
           >
             🎯 Choose Different Scenario
+          </motion.button>
+          <motion.button
+            style={resultsStyles.quizButton}
+            onClick={handleQuizNavigation}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            🧩 Test Your Knowledge - Drag & Drop Quiz
           </motion.button>
         </motion.div>
 
@@ -414,6 +429,18 @@ const resultsStyles = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(75, 177, 180, 0.3)'
+  },
+  quizButton: {
+    background: 'linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(155, 89, 182, 0.3)'
   },
   achievementBadge: {
     background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',

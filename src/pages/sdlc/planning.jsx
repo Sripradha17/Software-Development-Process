@@ -40,7 +40,7 @@ const PlanningPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+      <div style={styles.absoluteTopRight}>
         <Menu items={sdlcMenuItems} title="Menu" />
       </div>
       <Link to="/" style={styles.backLink}>
@@ -51,10 +51,9 @@ const PlanningPage = () => {
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "intro" && styles.navItemActive),
-          }}
+          style={activeSection === "intro" ? 
+            {...styles.navItem, ...styles.navItemIntro} : 
+            styles.navItem}
           onClick={() => setActiveSection("intro")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -63,10 +62,9 @@ const PlanningPage = () => {
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "steps" && styles.navItemActive),
-          }}
+          style={activeSection === "steps" ? 
+            {...styles.navItem, ...styles.navItemSteps} : 
+            styles.navItem}
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -75,10 +73,9 @@ const PlanningPage = () => {
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "types" && styles.navItemActive),
-          }}
+          style={activeSection === "types" ? 
+            {...styles.navItem, ...styles.navItemTypes} : 
+            styles.navItem}
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -87,10 +84,9 @@ const PlanningPage = () => {
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "drawbacks" && styles.navItemActive),
-          }}
+          style={activeSection === "drawbacks" ? 
+            {...styles.navItem, ...styles.navItemDrawbacks} : 
+            styles.navItem}
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -99,10 +95,9 @@ const PlanningPage = () => {
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "joke" && styles.navItemActive),
-          }}
+          style={activeSection === "joke" ? 
+            {...styles.navItem, ...styles.navItemJoke} : 
+            styles.navItem}
           onClick={() => setActiveSection("joke")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -111,12 +106,10 @@ const PlanningPage = () => {
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "quiz" && styles.navItemActive),
-          }}
-          onClick={() => setActiveSection("quiz")}
-          whileHover={{ scale: 1.05 }}
+          style={activeSection === "simulation" ? 
+            {...styles.navItem, ...styles.navItemSimulation} : 
+            styles.navItem}
+          onClick={() => setActiveSection("simulation")}
           whileTap={{ scale: 0.95 }}
         >
           🧠
@@ -273,7 +266,7 @@ const PlanningPage = () => {
                     custom={index}
                   >
                     <div
-                      style={{ ...styles.typeHeader, background: type.color }}
+                      style={styles.typeHeaderWithBg(type.color)}
                     >
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>

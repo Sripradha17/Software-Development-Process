@@ -40,7 +40,7 @@ const TestingPage = () => {
 
   return (
     <div style={styles.pageContainer}>
-      <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
+      <div style={styles.absoluteTopRight}>
         <Menu items={sdlcMenuItems} title="Menu" />
       </div>
       <Link to="/" style={styles.backLink}>
@@ -51,10 +51,9 @@ const TestingPage = () => {
       {/* Floating navigation */}
       <div style={styles.floatingNav}>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "intro" && styles.navItemActive),
-          }}
+          style={activeSection === "intro" ? 
+            {...styles.navItem, ...styles.navItemIntro} : 
+            styles.navItem}
           onClick={() => setActiveSection("intro")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -62,10 +61,9 @@ const TestingPage = () => {
           🧪
         </motion.button>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "steps" && styles.navItemActive),
-          }}
+          style={activeSection === "steps" ? 
+            {...styles.navItem, ...styles.navItemSteps} : 
+            styles.navItem}
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -73,10 +71,9 @@ const TestingPage = () => {
           ✅
         </motion.button>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "types" && styles.navItemActive),
-          }}
+          style={activeSection === "types" ? 
+            {...styles.navItem, ...styles.navItemTypes} : 
+            styles.navItem}
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -84,10 +81,9 @@ const TestingPage = () => {
           📖
         </motion.button>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "drawbacks" && styles.navItemActive),
-          }}
+          style={activeSection === "drawbacks" ? 
+            {...styles.navItem, ...styles.navItemDrawbacks} : 
+            styles.navItem}
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -95,27 +91,25 @@ const TestingPage = () => {
           ⚠
         </motion.button>
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "joke" && styles.navItemActive),
-          }}
+          style={activeSection === "joke" ? 
+            {...styles.navItem, ...styles.navItemJoke} : 
+            styles.navItem}
           onClick={() => setActiveSection("joke")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          😂
         </motion.button>
 
         <motion.button
-          style={{
-            ...styles.navItem,
-            ...(activeSection === "quiz" && styles.navItemActive),
-          }}
-          onClick={() => setActiveSection("quiz")}
+          style={activeSection === "simulation" ? 
+            {...styles.navItem, ...styles.navItemSimulation} : 
+            styles.navItem}
+          onClick={() => setActiveSection("simulation")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🧠
+          🎯
         </motion.button>
       </div>
 
@@ -204,10 +198,7 @@ const TestingPage = () => {
                 {testingSteps.map((step, index) => (
                   <motion.div
                     key={step.id}
-                    style={{
-                      ...styles.stepCard,
-                      borderLeft: `5px solid ${step.color}`,
-                    }}
+                    style={styles.stepCardWithBorder(step.color)}
                     variants={itemVariants}
                     whileHover={{ scale: 1.03, y: -5 }}
                     custom={index}
@@ -264,9 +255,7 @@ const TestingPage = () => {
                     variants={itemVariants}
                     custom={index}
                   >
-                    <div
-                      style={{ ...styles.typeHeader, background: type.color }}
-                    >
+                    <div style={styles.typeHeaderWithBg(type.color)}>
                       <span style={styles.typeEmoji}>{type.emoji}</span>
                       <h3 style={styles.typeName}>{type.name}</h3>
                     </div>
@@ -274,10 +263,7 @@ const TestingPage = () => {
                       <h4 style={styles.storyTitle}>{type.story.title}</h4>
                       <p style={styles.storyScenario}>{type.story.scenario}</p>
                       <motion.button
-                        style={{
-                          ...styles.revealButton,
-                          background: type.color,
-                        }}
+                        style={styles.revealButtonWithBg(type.color)}
                         onClick={() => {
                           setModalData({
                             name: type.name,

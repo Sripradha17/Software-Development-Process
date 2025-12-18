@@ -11,6 +11,7 @@ const aiMenuItems = [
   { label: "Maintenance", path: "/ai-maintenance" },
   { label: "Story", path: "/ai-augmented-story" },
   { label: "Simulation", path: "/simulation/ai-sdlc" },
+  { label: "Drag & Drop Quiz", path: "/drag-drop-quiz/ai-sdlc" },
 ];
 
 export default aiMenuItems;

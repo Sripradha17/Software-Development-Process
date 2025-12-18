@@ -19,10 +19,9 @@ const Quiz = ({ questions }) => {
             {q.options.map((opt, optIdx) => (
               <li key={optIdx}>
                 <button
-                  style={{
-                    ...styles.quizOptionBtn,
-                    ...(selected[qIdx] === optIdx ? styles.quizOptionBtnSelected : {}),
-                  }}
+                  style={selected[qIdx] === optIdx ? 
+                    {...styles.quizOptionBtn, ...styles.quizOptionBtnSelected} : 
+                    styles.quizOptionBtn}
                   onClick={() => handleSelect(qIdx, optIdx)}
                   disabled={showFeedback[qIdx]}
                 >
@@ -32,13 +31,9 @@ const Quiz = ({ questions }) => {
             ))}
           </ul>
           {showFeedback[qIdx] && (
-            <div style={{
-              ...styles.quizFeedback,
-              ...(q.options[selected[qIdx]].correct 
-                ? styles.quizFeedbackCorrect 
-                : styles.quizFeedbackIncorrect
-              ),
-            }}>
+            <div style={q.options[selected[qIdx]].correct 
+              ? {...styles.quizFeedback, ...styles.quizFeedbackCorrect}
+              : {...styles.quizFeedback, ...styles.quizFeedbackIncorrect}}>
               {q.options[selected[qIdx]].correct ? '✅ Correct!' : '❌ Incorrect.'}
               <div style={styles.quizExplanation}>{q.options[selected[qIdx]].explanation}</div>
             </div>

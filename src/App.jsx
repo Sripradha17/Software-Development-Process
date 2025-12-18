@@ -26,6 +26,9 @@ import AIReviewPage from "./pages/ai-sdlc/review";
 import SimulationHub from "./components/SimulationHub";
 import SimulationEngine from "./components/SimulationEngine";
 
+// Quiz component
+import DragDropQuiz from "./components/DragDropQuiz";
+
 
 function App() {
   // Main menu items for all pages
@@ -58,6 +61,9 @@ function App() {
         <Route path="/simulation" element={<SimulationHub />} />
         <Route path="/simulation/:type" element={<SimulationHub />} />
         <Route path="/simulation/:type/:scenarioId" element={<SimulationEngine />} />
+        
+        {/* Drag & Drop Quiz routes */}
+        <Route path="/drag-drop-quiz/:type" element={<DragDropQuiz />} />
       </Routes>
     </Router>
   );
