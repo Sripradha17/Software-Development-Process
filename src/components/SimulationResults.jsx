@@ -16,6 +16,10 @@ const SimulationResults = ({
   const handleQuizNavigation = () => {
     navigate(`/drag-drop-quiz/${type}`);
   };
+
+  const handleCaseStudyNavigation = () => {
+    navigate(`/case-studies/${type}`);
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -209,6 +213,14 @@ const SimulationResults = ({
             whileTap={{ scale: 0.95 }}
           >
             🧩 Test Your Knowledge - Drag & Drop Quiz
+          </motion.button>
+          <motion.button
+            style={resultsStyles.caseStudyButton}
+            onClick={handleCaseStudyNavigation}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            📚 Explore Real-World Case Studies
           </motion.button>
         </motion.div>
 
@@ -441,6 +453,18 @@ const resultsStyles = {
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(155, 89, 182, 0.3)'
+  },
+  caseStudyButton: {
+    background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(230, 126, 34, 0.3)'
   },
   achievementBadge: {
     background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
