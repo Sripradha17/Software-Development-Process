@@ -10,6 +10,7 @@ import {
 } from "../../constants/sdlc/maintenance";
 import { maintenanceQuiz } from "../../constants/quiz/maintenanceQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 const MaintenancePage = () => {
@@ -61,6 +62,17 @@ const MaintenancePage = () => {
           whileTap={{ scale: 0.95 }}
         >
           🔧
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "visualization" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("visualization")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          📊
         </motion.button>
         <motion.button
           style={{
@@ -169,6 +181,30 @@ const MaintenancePage = () => {
               </motion.div>
               <motion.button
                 style={styles.nextButton}
+                onClick={() => setActiveSection("visualization")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Process Visualization →
+              </motion.button>
+            </motion.div>
+          )}
+
+          {/* VISUALIZATION SECTION */}
+          {activeSection === "visualization" && (
+            <motion.div
+              key="visualization"
+              style={styles.section}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <ProcessVisualization stage="maintenance" isAI={false} />
+              
+              <motion.button
+                style={styles.nextButton}
                 onClick={() => setActiveSection("steps")}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
@@ -178,6 +214,7 @@ const MaintenancePage = () => {
               </motion.button>
             </motion.div>
           )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div

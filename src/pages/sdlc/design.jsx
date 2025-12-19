@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { designSteps, designTypes, drawbacks } from "../../constants/sdlc/design";
 import { designQuiz } from "../../constants/quiz/designQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 
@@ -61,6 +62,17 @@ const DesignPage = () => {
           whileTap={{ scale: 0.95 }}
         >
           🎨
+        </motion.button>
+        <motion.button
+          style={{
+            ...styles.navItem,
+            ...(activeSection === "visualization" && styles.navItemActive),
+          }}
+          onClick={() => setActiveSection("visualization")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          📊
         </motion.button>
         <motion.button
           style={{
@@ -178,6 +190,30 @@ const DesignPage = () => {
                 </div>
               </motion.div>
 
+              <motion.button
+                style={styles.nextButton}
+                onClick={() => setActiveSection("visualization")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Process Visualization →
+              </motion.button>
+            </motion.div>
+          )}
+
+          {/* VISUALIZATION SECTION */}
+          {activeSection === "visualization" && (
+            <motion.div
+              key="visualization"
+              style={styles.section}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <ProcessVisualization stage="design" isAI={false} />
+              
               <motion.button
                 style={styles.nextButton}
                 onClick={() => setActiveSection("steps")}
