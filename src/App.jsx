@@ -29,6 +29,10 @@ import SimulationEngine from "./components/SimulationEngine";
 // Quiz component
 import DragDropQuiz from "./components/DragDropQuiz";
 
+// Case Study components
+import CaseStudyList from "./components/CaseStudyList";
+import CaseStudy from "./components/CaseStudy";
+
 
 function App() {
   // Main menu items for all pages
@@ -64,6 +68,10 @@ function App() {
         
         {/* Drag & Drop Quiz routes */}
         <Route path="/drag-drop-quiz/:type" element={<DragDropQuiz />} />
+        
+        {/* Case Study routes */}
+        <Route path="/case-studies/:type" element={<CaseStudyList />} />
+        <Route path="/case-study/:type/:caseId" element={<CaseStudy />} />
       </Routes>
     </Router>
   );

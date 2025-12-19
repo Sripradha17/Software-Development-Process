@@ -116,28 +116,30 @@ const style = {
   menuContainer: {
     position: "relative",
     display: "inline-block",
-    margin: "1.5rem 0 1.5rem 0",
+    margin: "0",
     zIndex: 1200,
   },
   menuButton: {
     background: "linear-gradient(90deg, #1ABC9C 0%, #16A085 100%)",
     color: "#fff",
-    border: "none",
+    border: "2px solid transparent",
     borderRadius: "30px",
-    padding: "0.8rem 2.2rem",
-    fontSize: "1.1rem",
-    fontWeight: 700,
+    padding: "8px 24px",
+    fontSize: "1rem",
+    fontWeight: "600",
     cursor: "pointer",
-    boxShadow: "0 4px 16px rgba(26, 188, 156, 0.15)",
-    transition: "background 0.3s, box-shadow 0.3s",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s ease",
     outline: "none",
-    marginBottom: "0.5rem",
+    marginBottom: "0",
     letterSpacing: "0.5px",
+    minWidth: "auto",
+    height: "auto",
   },
   menuDropdown: {
     position: "absolute",
     top: "110%",
-    left: 0,
+    right: 0,
     minWidth: "220px",
     background: "rgba(255,255,255,0.98)",
     borderRadius: "18px",
@@ -192,8 +194,8 @@ const style = {
   // Back link styling - consistent across all pages
   backLink: {
     position: "absolute",
-    top: "20px",
-    left: "20px",
+    top: "25px",
+    left: "25px",
     padding: "8px 24px",
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     color: "#0E7B71",
@@ -2378,9 +2380,18 @@ const style = {
   
   floatingNav: {
     position: 'fixed',
-    top: '20px',
-    right: '20px',
-    zIndex: 1000
+    top: '50%',
+    left: 'clamp(10px, 2vw, 20px)',
+    transform: 'translateY(-50%)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'clamp(10px, 1.5vw, 15px)',
+    zIndex: 1000,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    padding: 'clamp(10px, 1.5vw, 15px) clamp(8px, 1.2vw, 10px)',
+    borderRadius: '50px',
+    backdropFilter: 'blur(10px)',
+    border: '2px solid rgba(255, 255, 255, 0.2)',
   },
 
   floatingNavToggle: {
@@ -3085,8 +3096,8 @@ const style = {
   // Common absolute positioning styles
   absoluteTopRight: {
     position: "absolute",
-    top: 20,
-    right: 30,
+    top: 25,
+    right: 25,
     zIndex: 100,
   },
   
@@ -3927,6 +3938,501 @@ const style = {
     borderLeft: '4px solid rgba(255, 255, 255, 0.5)',
   },
 
+  // =============================
+  // CASE STUDY STYLES
+  // =============================
+
+  // Case Study List Styles
+  caseStudyListContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    minHeight: '80vh',
+    padding: '2rem',
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+
+  caseStudyListHeader: {
+    textAlign: 'center',
+    marginBottom: '3rem',
+    maxWidth: '800px',
+  },
+
+  caseStudyListTitle: {
+    fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+  },
+
+  caseStudyListSubtitle: {
+    fontSize: 'clamp(1.1rem, 2.5vw, 1.3rem)',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.6',
+  },
+
+  caseStudyGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+    gap: '2rem',
+    width: '100%',
+    marginBottom: '3rem',
+  },
+
+  caseStudyCard: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(20px)',
+    border: '1px solid rgba(26, 188, 156, 0.3)',
+    borderRadius: '20px',
+    padding: '2rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+  },
+
+  caseStudyCardHover: {
+    boxShadow: '0 20px 40px rgba(26, 188, 156, 0.2)',
+  },
+
+  caseStudyCardHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: '1rem',
+  },
+
+  caseStudyCardTitle: {
+    fontSize: 'clamp(1.3rem, 3vw, 1.6rem)',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '0.5rem',
+    flex: 1,
+    marginRight: '1rem',
+  },
+
+  caseStudyBadge: {
+    background: 'linear-gradient(135deg, #1ABC9C, #16A085)',
+    color: 'white',
+    padding: '0.3rem 0.8rem',
+    borderRadius: '15px',
+    fontSize: '0.85rem',
+    fontWeight: 'bold',
+    whiteSpace: 'nowrap',
+  },
+
+  caseStudyCardDescription: {
+    fontSize: 'clamp(1rem, 2vw, 1.1rem)',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.5',
+    marginBottom: '1.5rem',
+  },
+
+  caseStudyScenario: {
+    marginBottom: '1.5rem',
+  },
+
+  scenarioTitle: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '0.5rem',
+  },
+
+  scenarioText: {
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: '1.4',
+    fontStyle: 'italic',
+  },
+
+  caseStudyStages: {
+    marginBottom: '2rem',
+  },
+
+  stagesTitle: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '0.5rem',
+  },
+
+  stagesList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '0.3rem',
+  },
+
+  stageTag: {
+    fontSize: '0.85rem',
+    color: 'rgba(255, 255, 255, 0.8)',
+  },
+
+  caseStudyFooter: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  startCaseStudyButton: {
+    background: 'linear-gradient(135deg, #3498DB, #2980B9)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '25px',
+    padding: '0.8rem 1.5rem',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(52, 152, 219, 0.3)',
+  },
+
+  difficultyIndicator: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
+
+  difficultyLabel: {
+    fontSize: '0.8rem',
+    color: 'rgba(255, 255, 255, 0.7)',
+    marginBottom: '0.2rem',
+  },
+
+  difficultyStars: {
+    fontSize: '0.9rem',
+    color: '#F39C12',
+  },
+
+  caseStudyListFooter: {
+    textAlign: 'center',
+  },
+
+  backToLearningButton: {
+    background: 'linear-gradient(135deg, #1ABC9C, #16A085)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '25px',
+    padding: '1rem 2rem',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(26, 188, 156, 0.3)',
+  },
+
+  // Individual Case Study Styles
+  caseStudyContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    minHeight: '80vh',
+    padding: '2rem',
+    maxWidth: '1000px',
+    margin: '80px auto 0 auto',
+  },
+
+  caseStudyHeader: {
+    width: '100%',
+    textAlign: 'center',
+    marginBottom: '2rem',
+  },
+
+  caseStudyProgress: {
+    marginBottom: '2rem',
+  },
+
+  caseStudyInfo: {
+    marginBottom: '1rem',
+  },
+
+  caseStudyMainTitle: {
+    fontSize: 'clamp(2rem, 5vw, 3rem)',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+  },
+
+  caseStudyDescription: {
+    fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.6',
+  },
+
+  stageContainer: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(20px)',
+    border: '1px solid rgba(26, 188, 156, 0.3)',
+    borderRadius: '20px',
+    padding: '2.5rem',
+    width: '100%',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+  },
+
+  stageContent: {
+    marginBottom: '2rem',
+  },
+
+  stageTitle: {
+    fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    marginBottom: '2rem',
+    textAlign: 'center',
+  },
+
+  contextSection: {
+    marginBottom: '2rem',
+  },
+
+  situationSection: {
+    marginBottom: '2rem',
+  },
+
+  questionSection: {
+    marginBottom: '2rem',
+  },
+
+  sectionTitle: {
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    color: '#3498DB',
+    marginBottom: '1rem',
+    borderBottom: '2px solid rgba(52, 152, 219, 0.3)',
+    paddingBottom: '0.5rem',
+  },
+
+  contextText: {
+    fontSize: '1rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.6',
+    padding: '1rem',
+    background: 'rgba(52, 152, 219, 0.1)',
+    borderRadius: '10px',
+    borderLeft: '4px solid #3498DB',
+  },
+
+  situationText: {
+    fontSize: '1rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.6',
+    padding: '1rem',
+    background: 'rgba(241, 196, 15, 0.1)',
+    borderRadius: '10px',
+    borderLeft: '4px solid #F1C40F',
+  },
+
+  questionText: {
+    fontSize: '1.1rem',
+    color: 'rgba(255, 255, 255, 0.95)',
+    fontWeight: '600',
+    lineHeight: '1.6',
+    marginBottom: '1.5rem',
+    padding: '1rem',
+    background: 'rgba(26, 188, 156, 0.1)',
+    borderRadius: '10px',
+    borderLeft: '4px solid #1ABC9C',
+  },
+
+  optionsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+  },
+
+  optionItem: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '1rem 1.5rem',
+    background: 'rgba(255, 255, 255, 0.05)',
+    border: '2px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '15px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    position: 'relative',
+  },
+
+  selectedOption: {
+    background: 'rgba(52, 152, 219, 0.2)',
+    border: '2px solid #3498DB',
+    boxShadow: '0 0 20px rgba(52, 152, 219, 0.3)',
+  },
+
+  correctOption: {
+    background: 'rgba(39, 174, 96, 0.2)',
+    border: '2px solid #27AE60',
+    boxShadow: '0 0 20px rgba(39, 174, 96, 0.3)',
+  },
+
+  incorrectOption: {
+    background: 'rgba(231, 76, 60, 0.2)',
+    border: '2px solid #E74C3C',
+    boxShadow: '0 0 20px rgba(231, 76, 60, 0.3)',
+  },
+
+  optionLabel: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    color: '#1ABC9C',
+    minWidth: '30px',
+    marginRight: '1rem',
+  },
+
+  optionText: {
+    fontSize: '1rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.4',
+    flex: 1,
+  },
+
+  correctIcon: {
+    fontSize: '1.2rem',
+    color: '#27AE60',
+    fontWeight: 'bold',
+  },
+
+  incorrectIcon: {
+    fontSize: '1.2rem',
+    color: '#E74C3C',
+    fontWeight: 'bold',
+  },
+
+  explanationSection: {
+    marginTop: '2rem',
+    padding: '1.5rem',
+    background: 'rgba(155, 89, 182, 0.1)',
+    borderRadius: '15px',
+    borderLeft: '4px solid #9B59B6',
+  },
+
+  explanationText: {
+    fontSize: '1rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: '1.6',
+    marginBottom: '1.5rem',
+  },
+
+  bestPracticesSection: {
+    marginTop: '1rem',
+  },
+
+  bestPracticesTitle: {
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    color: '#9B59B6',
+    marginBottom: '1rem',
+  },
+
+  bestPracticesList: {
+    listStyle: 'none',
+    padding: '0',
+    margin: '0',
+  },
+
+  bestPracticeItem: {
+    fontSize: '0.95rem',
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: '1.5',
+    marginBottom: '0.5rem',
+    paddingLeft: '0.5rem',
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'flex-start',
+  },
+
+  stageActions: {
+    textAlign: 'center',
+  },
+
+  submitButton: {
+    background: 'linear-gradient(135deg, #3498DB, #2980B9)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '25px',
+    padding: '1rem 2rem',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(52, 152, 219, 0.3)',
+  },
+
+  nextButton: {
+    background: 'linear-gradient(135deg, #27AE60, #229954)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '25px',
+    padding: '1rem 2rem',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(39, 174, 96, 0.3)',
+  },
+
+  // Case Study Results Styles
+  caseStudyResultsContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '80vh',
+    padding: '2rem',
+  },
+
+  caseStudyTitle: {
+    fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginBottom: '1rem',
+  },
+
+  // Responsive Design for Case Studies
+  '@media (max-width: 768px)': {
+    caseStudyGrid: {
+      gridTemplateColumns: '1fr',
+    },
+
+    caseStudyCard: {
+      padding: '1.5rem',
+    },
+
+    caseStudyCardHeader: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+
+    caseStudyCardTitle: {
+      marginRight: '0',
+      marginBottom: '0.5rem',
+    },
+
+    stageContainer: {
+      padding: '1.5rem',
+    },
+
+    optionItem: {
+      padding: '0.8rem 1rem',
+    },
+
+    optionLabel: {
+      minWidth: '25px',
+      marginRight: '0.8rem',
+    },
+
+    caseStudyFooter: {
+      flexDirection: 'column',
+      gap: '1rem',
+      alignItems: 'stretch',
+    },
+
+    difficultyIndicator: {
+      alignItems: 'center',
+    },
+  }
 };
 
 // Add CSS keyframes as a string to be used in components
