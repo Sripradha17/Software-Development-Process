@@ -10,6 +10,7 @@ import {
 } from "../../constants/ai-sdlc/aiReview";
 import { aiReviewQuiz } from "../../constants/quiz/aiReviewQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 

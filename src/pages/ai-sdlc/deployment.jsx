@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { aiDeploymentSteps, aiDeploymentTypes, aiDeploymentDrawbacks } from "../../constants/ai-sdlc/aiDeployment";
 import { aiDeploymentQuiz } from "../../constants/quiz/aiDeploymentQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 

@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { reviewSteps, reviewTypes, drawbacks } from "../../constants/sdlc/review";
 import { reviewQuiz } from "../../constants/quiz/reviewQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 
@@ -42,6 +43,7 @@ const ReviewPage = () => {
   // Helper for navigation items
   const navItems = [
     { key: "intro", icon: "📊" },
+    { key: "visualization", icon: "📊" },
     { key: "steps", icon: "🔄" },
     { key: "types", icon: "📖" },
     { key: "drawbacks", icon: "⚠" },
@@ -136,6 +138,31 @@ const ReviewPage = () => {
               </motion.button>
             </motion.div>
           )}
+
+          {/* VISUALIZATION SECTION */}
+          {activeSection === "visualization" && (
+            <motion.div
+              key="visualization"
+              style={styles.section}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <ProcessVisualization stage="review" isAI={false} />
+              
+              <motion.button
+                style={styles.nextButton}
+                onClick={() => setActiveSection("steps")}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Explore Key Steps →
+              </motion.button>
+            </motion.div>
+          )}
+
           {/* STEPS SECTION */}
           {activeSection === "steps" && (
             <motion.div

@@ -12,14 +12,13 @@
 * - Planning Page
 * - Analysis Page
 * - Design Page
+* - All Global Styles (previously in index.css and App.css)
 *
 * RESPONSIVE DESIGN APPROACH:
 * - Uses CSS clamp() for fluid, responsive typography and spacing
-* - Flexbox and Grid layouts with auto-fit/auto-fill for responsive
-containers
+* - Flexbox and Grid layouts with auto-fit/auto-fill for responsive containers
 * - Viewport units (vw, vh) and percentages for flexible sizing
-* - Global font-size adjustments in index.css for different
-breakpoints
+* - Global font-size adjustments for different breakpoints
 *
 * SCREEN SIZE BREAKPOINTS:
 * - Small (Mobile): < 480px
@@ -35,7 +34,593 @@ breakpoints
 * ============================================
 */
 const style = {
+  // =============================
+  // GLOBAL STYLES (from index.css)
+  // =============================
+  globalRoot: {
+    fontFamily: 'system-ui, Avenir, Helvetica, Arial, sans-serif',
+    lineHeight: 1.5,
+    fontWeight: 400,
+    colorScheme: 'light dark',
+    color: 'rgba(255, 255, 255, 0.87)',
+    background: 'linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e)',
+    fontSynthesis: 'none',
+    textRendering: 'optimizeLegibility',
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+  },
+  
+  globalBody: {
+    margin: 0,
+    padding: 0,
+    minWidth: '320px',
+    minHeight: '100vh',
+    width: '100%',
+    overflowX: 'hidden',
+  },
+  
+  globalLink: {
+    fontWeight: 500,
+    color: '#646cff',
+    textDecoration: 'inherit',
+  },
+  
+  globalLinkHover: {
+    color: '#535bf2',
+  },
+  
+  globalButton: {
+    borderRadius: '8px',
+    border: '1px solid transparent',
+    padding: '0.6em 1.2em',
+    fontSize: '1em',
+    fontWeight: 500,
+    fontFamily: 'inherit',
+    backgroundColor: '#1a1a1a',
+    cursor: 'pointer',
+    transition: 'border-color 0.25s',
+  },
+  
+  globalButtonHover: {
+    borderColor: '#646cff',
+  },
+  
+  globalButtonFocus: {
+    outline: '4px auto -webkit-focus-ring-color',
+  },
+  
+  // =============================
+  // APP COMPONENT STYLES (from App.css)
+  // =============================
+  appRoot: {
+    width: '100%',
+    maxWidth: '100vw',
+    margin: '0 auto',
+    padding: 0,
+    textAlign: 'center',
+    overflowX: 'hidden',
+  },
+  
+  appLogo: {
+    height: '6em',
+    padding: '1.5em',
+    willChange: 'filter',
+    transition: 'filter 300ms',
+  },
+  
+  appLogoHover: {
+    filter: 'drop-shadow(0 0 2em #646cffaa)',
+  },
+  
+  appLogoReactHover: {
+    filter: 'drop-shadow(0 0 2em #61dafbaa)',
+  },
+  
+  appCard: {
+    padding: '2em',
+  },
+  
+  readTheDocs: {
+    color: '#888',
+  },
+  
+  // =============================
+  // DRAG AND DROP ACTIVITY STYLES
+  // =============================
+  dragDropActivity: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+  },
+  
+  dragItem: {
+    userSelect: 'none',
+    WebkitUserSelect: 'none',
+    MozUserSelect: 'none',
+    msUserSelect: 'none',
+  },
+  
+  dragItemActive: {
+    cursor: 'grabbing',
+  },
+  
+  // =============================
+  // ENHANCED BUTTON STYLES
+  // =============================
+  btn: {
+    fontFamily: 'inherit',
+    fontWeight: 500,
+    transition: 'all 0.3s ease',
+    border: 'none',
+    outline: 'none',
+  },
+  
+  btnFocus: {
+    boxShadow: '0 0 0 3px rgba(0, 123, 255, 0.25)',
+  },
+  
+  btnHover: {
+    transform: 'translateY(-1px)',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+  },
+  
+  btnActive: {
+    transform: 'translateY(0)',
+  },
+  
+  // =============================
+  // ANIMATION CLASSES
+  // =============================
+  activitiesCompletion: {
+    animation: 'slideInUp 0.6s ease-out',
+  },
+  
+  scoreCircle: {
+    animation: 'bounceIn 1s ease-out 0.3s both',
+  },
+  
+  performanceFeedback: {
+    animation: 'slideInUp 0.6s ease-out 0.6s both',
+  },
+  
+  actionButtons: {
+    animation: 'slideInUp 0.6s ease-out 0.9s both',
+  },
     // =============================
+  // SIMULATION RESULTS STYLES (COMPLETE)
+  // =============================
+  simulationResultsContainer: {
+    minHeight: '100vh',
+    padding: '2rem',
+    background: 'linear-gradient(135deg, #0c131b 0%, #1f2a38 50%, #3c4f5e 100%)'
+  },
+  
+  simulationResultsContent: {
+    maxWidth: '900px',
+    margin: '0 auto'
+  },
+  
+  simulationOutcomeHeader: {
+    background: 'rgba(44, 62, 80, 0.95)',
+    borderRadius: '12px',
+    padding: '2.5rem',
+    textAlign: 'center',
+    marginBottom: '2rem',
+    border: '3px solid',
+    boxShadow: '0 8px 32px rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(15px)'
+  },
+  
+  simulationOutcomeTitle: {
+    marginBottom: '1rem'
+  },
+  
+  simulationOutcomeScore: {
+    fontSize: '1.2rem',
+    color: '#bdc3c7',
+    marginTop: '0.5rem'
+  },
+  
+  simulationOutcomeDescription: {
+    fontSize: '1.1rem',
+    color: '#ecf0f1',
+    lineHeight: 1.6
+  },
+  
+  simulationSummarySection: {
+    marginBottom: '2rem'
+  },
+  
+  simulationSectionTitle: {
+    color: '#1ABC9C',
+    marginBottom: '1.5rem',
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'
+  },
+  
+  simulationSummaryGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '1rem'
+  },
+  
+  simulationSummaryCard: {
+    background: 'rgba(44, 62, 80, 0.95)',
+    borderRadius: '12px',
+    padding: '1.25rem',
+    boxShadow: '0 8px 32px rgba(26, 188, 156, 0.1)',
+    border: '1px solid rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(10px)'
+  },
+  
+  simulationMetricsDisplay: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.5rem'
+  },
+  
+  simulationMetricRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    padding: '0.5rem 0'
+  },
+  
+  simulationMetricIcon: {
+    fontSize: '1.2rem',
+    width: '1.5rem'
+  },
+  
+  simulationMetricName: {
+    flex: 1,
+    color: '#bdc3c7'
+  },
+  
+  simulationMetricValue: {
+    fontWeight: '600',
+    color: '#16A085'
+  },
+  
+  simulationVarianceDisplay: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem'
+  },
+  
+  simulationVarianceItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0.5rem 0'
+  },
+  
+  simulationJourneySection: {
+    marginBottom: '2rem'
+  },
+  
+  simulationTimelineContainer: {
+    background: 'rgba(44, 62, 80, 0.95)',
+    borderRadius: '12px',
+    padding: '1.5rem',
+    boxShadow: '0 8px 32px rgba(26, 188, 156, 0.1)',
+    border: '1px solid rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(10px)'
+  },
+  
+  simulationTimelineItem: {
+    display: 'flex',
+    marginBottom: '2rem',
+    position: 'relative'
+  },
+  
+  simulationTimelineMarker: {
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)',
+    color: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: '600',
+    marginRight: '1.5rem',
+    flexShrink: 0
+  },
+  
+  simulationTimelineContent: {
+    flex: 1
+  },
+  
+  simulationTimelineTitle: {
+    color: '#16A085',
+    marginBottom: '0.5rem',
+    fontWeight: '600'
+  },
+  
+  simulationTimelineDecision: {
+    color: '#ecf0f1',
+    marginBottom: '0.5rem'
+  },
+  
+  simulationTimelineOutcome: {
+    color: '#bdc3c7',
+    fontStyle: 'italic',
+    lineHeight: 1.5
+  },
+  
+  simulationLessonsSection: {
+    marginBottom: '2rem'
+  },
+  
+  simulationLessonsList: {
+    background: 'rgba(44, 62, 80, 0.95)',
+    borderRadius: '12px',
+    padding: '1.5rem',
+    boxShadow: '0 8px 32px rgba(26, 188, 156, 0.1)',
+    border: '1px solid rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(10px)'
+  },
+  
+  simulationLessonItem: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '1rem',
+    marginBottom: '1rem',
+    padding: '1rem',
+    background: 'rgba(26, 188, 156, 0.1)',
+    borderRadius: '8px',
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  
+  simulationLessonBullet: {
+    fontSize: '1.2rem',
+    flexShrink: 0
+  },
+  
+  simulationLessonText: {
+    color: '#ecf0f1',
+    lineHeight: 1.5
+  },
+  
+  simulationActionSection: {
+    display: 'flex',
+    gap: '1rem',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginBottom: '2rem'
+  },
+  
+  simulationRestartButton: {
+    background: 'linear-gradient(135deg, #1ABC9C 0%, #16A085 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(26, 188, 156, 0.3)'
+  },
+  
+  simulationHubButton: {
+    background: 'linear-gradient(135deg, #4bb1b4ff 0%, #325fa1ff 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(75, 177, 180, 0.3)'
+  },
+  
+  simulationQuizButton: {
+    background: 'linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(155, 89, 182, 0.3)'
+  },
+  
+  simulationCaseStudyButton: {
+    background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+    color: 'white',
+    border: 'none',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '8px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(230, 126, 34, 0.3)'
+  },
+  
+  simulationAchievementBadge: {
+    background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+    borderRadius: '12px',
+    padding: '1.5rem',
+    textAlign: 'center',
+    border: '3px solid #f39c12',
+    boxShadow: '0 10px 30px rgba(243, 156, 18, 0.3)'
+  },
+  
+  simulationBadgeContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem'
+  },
+  
+  simulationBadgeIcon: {
+    fontSize: '3rem'
+  },
+  
+  simulationBadgeText: {
+    color: '#795548',
+    fontWeight: '600'
+  },
+  
+  simulationBadgeSubtext: {
+    fontSize: '0.9rem',
+    opacity: 0.8,
+    marginTop: '0.25rem'
+  },
+  
+  // =============================
+  // OUTCOME TRACKER STYLES
+  // =============================
+  trackerContainer: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: '12px',
+    padding: '1rem',
+    marginTop: '1rem',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  
+  trackerProgressHeader: {
+    marginBottom: '1.5rem'
+  },
+  
+  trackerPhaseProgress: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem'
+  },
+  
+  trackerProgressLabel: {
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontWeight: '500'
+  },
+  
+  trackerProgressBar: {
+    flex: 1,
+    height: '8px',
+    background: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: '4px',
+    overflow: 'hidden'
+  },
+  
+  trackerProgressFill: {
+    height: '100%',
+    background: 'linear-gradient(90deg, #1ABC9C 0%, #16A085 100%)',
+    borderRadius: '4px',
+    transition: 'width 0.8s ease'
+  },
+  
+  trackerProgressText: {
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: '500',
+    minWidth: 'fit-content'
+  },
+  
+  trackerMetricsContainer: {
+    marginBottom: '1rem'
+  },
+  
+  trackerMetricsTitle: {
+    fontSize: '1.1rem',
+    color: '#1ABC9C',
+    marginBottom: '1rem',
+    fontWeight: '600'
+  },
+  
+  trackerMetricsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+    gap: '0.75rem'
+  },
+  
+  trackerMetricCard: {
+    background: 'rgba(26, 188, 156, 0.1)',
+    borderRadius: '8px',
+    padding: '0.75rem',
+    transition: 'all 0.2s ease',
+    border: '1px solid rgba(26, 188, 156, 0.2)'
+  },
+  
+  trackerMetricHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    marginBottom: '0.5rem',
+    flexWrap: 'wrap'
+  },
+  
+  trackerMetricIcon: {
+    fontSize: '1.2rem'
+  },
+  
+  trackerMetricLabel: {
+    fontSize: '0.85rem',
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: '500',
+    flex: 1
+  },
+  
+  trackerChangeIndicator: {
+    fontSize: '0.75rem',
+    fontWeight: '600',
+    padding: '0.2rem 0.4rem',
+    background: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: '4px'
+  },
+  
+  trackerMetricValue: {
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    marginBottom: '0.5rem'
+  },
+  
+  trackerMetricBarContainer: {
+    marginTop: '0.5rem'
+  },
+  
+  trackerMetricBar: {
+    height: '4px',
+    background: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: '2px',
+    overflow: 'hidden'
+  },
+  
+  trackerMetricBarFill: {
+    height: '100%',
+    borderRadius: '2px',
+    transition: 'width 0.6s ease'
+  },
+  
+  trackerSummaryContainer: {
+    borderTop: '1px solid #dee2e6',
+    paddingTop: '1rem',
+    marginTop: '1rem'
+  },
+  
+  trackerOverallHealth: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem'
+  },
+  
+  trackerHealthLabel: {
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontWeight: '500'
+  },
+  
+  trackerHealthIndicator: {
+    fontSize: '1rem'
+  },
+
+  // =============================
   // MENU COMPONENT STYLES
   // =============================
   // =============================
@@ -423,11 +1008,15 @@ const style = {
     position: "relative",
     overflow: "hidden",
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     padding: "20px",
     transition: "background 0.5s ease",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    margin: "0 auto",
+    width: "100%",
+    maxWidth: "100vw",
   },
   introWrapper: {
     position: "relative",
@@ -435,9 +1024,13 @@ const style = {
     width: "100%",
     maxWidth: "900px",
     textAlign: "center",
-    marginTop: "5rem",
+    margin: "0 auto",
     gap: "20px",
     padding: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   introContent: {
     backgroundColor: "rgb(49, 68, 89)",
@@ -581,6 +1174,13 @@ const style = {
   storyContent: {
     marginBottom: "40px",
     padding: "0 1rem",
+    width: "100%",
+    maxWidth: "900px",
+    margin: "0 auto 40px auto",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
   },
   storyLine: {
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
@@ -705,15 +1305,16 @@ const style = {
     display: "flex",
     flexDirection: "column",
     gap: "clamp(10px, 1.5vw, 15px)",
-    zIndex: 1000,
+    zIndex: 1001,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     padding: "clamp(10px, 1.5vw, 15px) clamp(8px, 1.2vw, 10px)",
     borderRadius: "50px",
     backdropFilter: "blur(10px)",
     border: "2px solid rgba(255, 255, 255, 0.2)",
+    pointerEvents: "auto",
   },
   navItem: {
-    background: "rgba(255, 255, 255, 0.8)",
+    background: "rgba(255, 255, 255, 0.9)",
     border: "none",
     borderRadius: "50%",
     width: "clamp(35px, 4vw, 50px)",
@@ -725,12 +1326,17 @@ const style = {
     justifyContent: "center",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    pointerEvents: "auto",
+    position: "relative",
+    zIndex: 1002,
   },
   navItemActive: {
     background: "linear-gradient(135deg, #4496a5ff 0%, #2dac6cff 100%)",
     color: "white",
     transform: "scale(1.1)",
     boxShadow: "0 6px 20px rgba(68, 150, 165, 0.4)",
+    zIndex: 1003,
+    pointerEvents: "auto",
   },
   // Content container
   contentContainer: {
@@ -815,11 +1421,14 @@ const style = {
   // Steps section
   stepsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "clamp(1.5rem, 3vw, 2rem)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))",
+    gap: "clamp(1rem, 3vw, 2rem)",
     width: "100%",
     maxWidth: "1200px",
     marginBottom: "3rem",
+    padding: "0",
+    alignItems: "stretch",
+    justifyItems: "center",
   },
   stepCard: {
     backgroundColor: "rgb(49, 68, 89)",
@@ -828,6 +1437,11 @@ const style = {
     boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
     transition: "all 0.3s ease",
     cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    position: "relative",
+    overflow: "hidden",
   },
   stepNumber: {
     fontSize: "clamp(1.5rem, 3vw, 2rem)",
@@ -849,6 +1463,8 @@ const style = {
     fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
     lineHeight: 1.6,
     color: "#4aa07cff",
+    flex: 1,
+    marginTop: "auto",
   },
   stepFlow: {
     backgroundColor: "rgba(75, 177, 180, 0.1)",
@@ -2348,14 +2964,6 @@ const style = {
     background
   }),
 
-  // Story container styles
-  storyContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    padding: '15px',
-    borderRadius: '8px',
-    marginTop: '15px'
-  },
-
   // Testing types grid styles
   testingTypesGrid: {
     display: 'grid',
@@ -3788,12 +4396,16 @@ const style = {
     position: 'relative',
     overflow: 'hidden',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '20px',
     transition: 'background 0.5s ease',
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     background: bgGradient,
+    margin: '0 auto',
+    width: '100%',
+    maxWidth: '100vw',
   }),
 
   // Progress bar with dynamic background  
@@ -4432,11 +5044,433 @@ const style = {
     difficultyIndicator: {
       alignItems: 'center',
     },
+  },
+
+  // =============================
+  // PROCESS VISUALIZATION STYLES
+  // =============================
+
+  visualizationSection: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    backdropFilter: 'blur(15px)',
+    border: '2px solid rgba(26, 188, 156, 0.2)',
+    borderRadius: '20px',
+    padding: 'clamp(1.5rem, 3vw, 3rem)',
+    margin: '3rem 0',
+    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.1)',
+  },
+
+  visualizationHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '2rem',
+    flexWrap: 'wrap',
+    gap: '1rem',
+  },
+
+  visualizationTitle: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+  },
+
+  visualizationTitleText: {
+    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+    fontWeight: '700',
+    color: '#fff',
+    margin: 0,
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+  },
+
+  visualizationControls: {
+    display: 'flex',
+    gap: '0.5rem',
+    flexWrap: 'wrap',
+  },
+
+  controlButton: {
+    padding: '0.5rem 1rem',
+    borderRadius: '20px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    backdropFilter: 'blur(10px)',
+  },
+
+  animationButton: {
+    padding: '0.5rem 1rem',
+    borderRadius: '20px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    backdropFilter: 'blur(10px)',
+  },
+
+  visualizationContainer: {
+    width: '100%',
+    minHeight: '400px',
+  },
+
+  processFlow: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: 'clamp(0.5rem, 1vw, 1rem)',
+    position: 'relative',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+
+  processStep: {
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '2px solid rgba(255, 255, 255, 0.3)',
+    borderRadius: '12px',
+    padding: 'clamp(0.75rem, 1.5vw, 1rem)',
+    cursor: 'pointer',
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+    backdropFilter: 'blur(10px)',
+    position: 'relative',
+    overflow: 'hidden',
+    minHeight: '220px',
+    flex: '1',
+    maxWidth: 'calc(25% - 0.75rem)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+  },
+
+  processStepIcon: {
+    marginBottom: '0.75rem',
+    padding: '0.75rem',
+    borderRadius: '50%',
+    background: 'rgba(26, 188, 156, 0.2)',
+    backdropFilter: 'blur(5px)',
+    border: '2px solid rgba(26, 188, 156, 0.4)',
+    transition: 'all 0.3s ease',
+  },
+
+  stepContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+
+  processStepTitle: {
+    fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+  },
+
+  processStepDescription: {
+    fontSize: 'clamp(0.9rem, 1.5vw, 1rem)',
+    lineHeight: 1.5,
+    marginBottom: '1rem',
+    opacity: 0.9,
+  },
+
+  aiFeature: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    padding: '0.5rem 1rem',
+    background: 'rgba(103, 126, 234, 0.2)',
+    borderRadius: '20px',
+    fontSize: '0.85rem',
+    fontWeight: '600',
+    marginBottom: '1rem',
+    border: '1px solid rgba(103, 126, 234, 0.3)',
+    color: '#667eea',
+  },
+
+  subSteps: {
+    marginTop: '1rem',
+    width: '100%',
+  },
+
+  subStep: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    padding: '0.3rem 0',
+    fontSize: '0.85rem',
+    color: 'rgba(255, 255, 255, 0.9)',
+  },
+
+  subStepBullet: {
+    color: '#1ABC9C',
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+  },
+
+  flowArrow: {
+    position: 'absolute',
+    right: '-0.75rem',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    fontSize: '1.8rem',
+    color: 'rgba(26, 188, 156, 0.6)',
+    fontWeight: 'bold',
+    pointerEvents: 'none',
+    zIndex: 10,
+  },
+
+  // Timeline View Styles
+  timelineContainer: {
+    position: 'relative',
+    padding: '4rem 2rem',
+    minHeight: '200px',
+    width: '100%',
+    background: 'rgba(0, 0, 0, 0.2)',
+    borderRadius: '20px',
+    margin: '2rem 0',
+    overflow: 'visible',
+  },
+
+  timelineLine: {
+    position: 'absolute',
+    top: '50%',
+    left: '20%',
+    right: '20%',
+    height: '4px',
+    background: 'linear-gradient(90deg, #1ABC9C, #16A085)',
+    borderRadius: '2px',
+    transform: 'translateY(-50%)',
+    boxShadow: '0 2px 8px rgba(26, 188, 156, 0.3)',
+  },
+
+  timelineItem: {
+    position: 'absolute',
+    top: '50%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    cursor: 'pointer',
+    transform: 'translateX(-50%) translateY(-25px)',
+    zIndex: 2,
+  },
+
+  timelineMarker: {
+    width: '50px',
+    height: '50px',
+    borderRadius: '50%',
+    border: '3px solid rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: '1rem',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+  },
+
+  timelineLabel: {
+    background: 'rgba(0, 0, 0, 0.8)',
+    backdropFilter: 'blur(10px)',
+    padding: '0.5rem 1rem',
+    borderRadius: '15px',
+    fontSize: '0.85rem',
+    fontWeight: '600',
+    color: '#fff',
+    whiteSpace: 'nowrap',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    textAlign: 'center',
+    minWidth: '100px',
+    maxWidth: '140px',
+  },
+
+  // Network View Styles (for future implementation)
+  networkContainer: {
+    position: 'relative',
+    width: '100%',
+    height: '400px',
+    background: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: '15px',
+    overflow: 'hidden',
+  },
+
+  networkNode: {
+    position: 'absolute',
+    width: '80px',
+    height: '80px',
+    borderRadius: '50%',
+    background: 'rgba(26, 188, 156, 0.8)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    border: '3px solid rgba(255, 255, 255, 0.3)',
+    backdropFilter: 'blur(10px)',
+  },
+
+  networkConnection: {
+    position: 'absolute',
+    height: '2px',
+    background: 'rgba(26, 188, 156, 0.5)',
+    transformOrigin: 'left center',
+    pointerEvents: 'none',
+  },
+
+  // Responsive Design
+  '@media (max-width: 768px)': {
+    visualizationHeader: {
+      flexDirection: 'column',
+      textAlign: 'center',
+    },
+
+    visualizationControls: {
+      justifyContent: 'center',
+    },
+
+    processFlow: {
+      flexDirection: 'column',
+      overflowX: 'visible',
+    },
+
+    flowArrow: {
+      display: 'none',
+    },
+
+    timelineContainer: {
+      padding: '3rem 1rem',
+    },
+
+    timelineItem: {
+      position: 'static',
+      transform: 'none',
+      marginBottom: '2rem',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: '1rem',
+    },
+
+    timelineLine: {
+      display: 'none',
+    },
+
+    timelineMarker: {
+      marginBottom: '0',
+      width: '40px',
+      height: '40px',
+    },
+
+    timelineLabel: {
+      minWidth: 'auto',
+      whiteSpace: 'normal',
+    }
   }
 };
 
+// Responsive styles for steps sections
+const responsiveStyles = `
+@media (max-width: 768px) {
+  .steps-container {
+    padding: 0 0.5rem;
+  }
+  
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .step-card {
+    padding: 1rem !important;
+    margin-bottom: 0.5rem;
+    min-height: auto !important;
+  }
+  
+  .step-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .step-description {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .step-number {
+    font-size: 1.3rem !important;
+  }
+  
+  .step-icon {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-grid {
+    gap: 0.75rem !important;
+  }
+  
+  .step-card {
+    padding: 0.75rem !important;
+  }
+  
+  .step-title {
+    font-size: 1rem !important;
+  }
+}
+`;
+
 // Add CSS keyframes as a string to be used in components
 export const cssAnimations = `
+${responsiveStyles}
+
+/* Global keyframes from App.css */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80% {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 @keyframes dropSuccess {
   0% {
     transform: scale(0.8) rotateZ(-5deg);
@@ -4469,6 +5503,83 @@ export const cssAnimations = `
     background-position: 200% 0;
   }
 }
+
+/* Global media queries from index.css */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+  
+  #root {
+    padding: 0;
+  }
+  
+  .drag-drop-activity {
+    padding: 10px;
+  }
+  
+  .matching-container {
+    gap: 15px !important;
+  }
+  
+  .activity-info {
+    gap: 15px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    padding: 0;
+  }
+  
+  #root {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  #root {
+    padding: 0;
+  }
+  
+  .drag-item {
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #ecf0f1;
+    background-color: #0c131b;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #2c3e50;
+  }
+}
 `;
 
 export default style;
+
+// =============================\n// UTILITY FUNCTIONS AND HELPERS\n// =============================\n\n// Function to get outcome color based on success rate\nexport const getOutcomeColor = (success) => {\n  if (success >= 80) return '#2ecc71'; // Green for high success\n  if (success >= 60) return '#f39c12'; // Orange for moderate success\n  return '#e74c3c'; // Red for low success\n};\n\n// Function to create step card with dynamic border\nexport const createStepCardWithBorder = (borderColor) => ({\n  ...style.stepCard,\n  borderLeft: `5px solid ${borderColor}`,\n});\n\n// Function to create type header with dynamic background\nexport const createTypeHeader = (backgroundColor) => ({\n  ...style.typeHeader,\n  background: backgroundColor,\n});\n\n// Function to create reveal button with dynamic background\nexport const createRevealButton = (backgroundColor) => ({\n  ...style.revealButton,\n  background: backgroundColor,\n});\n\n// Function to create modal container with dynamic background\nexport const createModalContainer = (backgroundColor) => ({\n  ...style.modalContainer,\n  background: backgroundColor || '#4bb1b4ff',\n});\n\n// Function to apply global styles to document\nexport const applyGlobalStyles = () => {\n  if (typeof document !== 'undefined') {\n    // Apply global styles to document elements\n    Object.assign(document.documentElement.style, {\n      fontFamily: style.globalRoot.fontFamily,\n      lineHeight: style.globalRoot.lineHeight,\n      fontWeight: style.globalRoot.fontWeight,\n      colorScheme: style.globalRoot.colorScheme,\n      color: style.globalRoot.color,\n      background: style.globalRoot.background,\n    });\n    \n    Object.assign(document.body.style, style.globalBody);\n  }\n};\n\n// Export cssAnimations for use in components that need to inject CSS\nexport { cssAnimations };

@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../../constants/ai-sdlc/aiMaintenance";
 import { aiMaintenanceQuiz } from "../../constants/quiz/aiMaintenanceQuiz";
 import Quiz from "../../components/Quiz";
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
 import styles from "../../styles/index.js";
  
 
