@@ -5,6 +5,8 @@
   padding: 0;
   text-align: center;
   overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 .logo {
   height: 6em;
@@ -13,10 +15,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--accent-primary));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--accent-secondary));
 }
 @keyframes logo-spin {
   from {
@@ -33,9 +35,13 @@
 }
 .card {
   padding: 2em;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow-dark);
 }
 .read-the-docs {
-  color: #888;
+  color: var(--text-muted);
 }
 /* Drag and Drop Activity Styles */
 .drag-drop-activity {
@@ -60,17 +66,24 @@
   font-family: inherit;
   font-weight: 500;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
   outline: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
 }
 
 .btn:focus {
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.25);
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--shadow-dark);
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
 }
 
 .btn:active {
