@@ -2,13 +2,28 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(135deg, #0c131b, #1f2a38, #3c4f5e);
+  color-scheme: dark;
+  color: #e2e8f0;
+  background: linear-gradient(135deg, #0f1419, #1a202c, #2d3748);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Dark Theme Color Variables */
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a202c;
+  --bg-tertiary: #2d3748;
+  --bg-card: #374151;
+  --bg-hover: #4a5568;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+  --accent-primary: #38b2ac;
+  --accent-secondary: #319795;
+  --accent-tertiary: #2c7a7b;
+  --border-color: #4a5568;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -58,23 +73,28 @@ p {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-color);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s ease;
 }
 
 button:hover {
-  border-color: #646cff;
+  background-color: var(--bg-hover);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
 }
 
 img {
@@ -106,13 +126,13 @@ img {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #ecf0f1;
-    background-color: #0c131b;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary), var(--bg-tertiary));
   }
   a:hover {
-    color: #747bff;
+    color: var(--accent-primary);
   }
   button {
-    background-color: #2c3e50;
+    background-color: var(--bg-card);
   }
 }
