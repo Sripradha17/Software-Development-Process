@@ -12,7 +12,7 @@ const Quiz = ({ questions }) => {
 
   return (
     <div style={styles.quizContainer}>
-      {questions.map((q, qIdx) => (
+      {Array.isArray(questions) ? questions.map((q, qIdx) => (
         <div key={qIdx} style={styles.quizQuestionBlock}>
           <div style={styles.quizQuestion}>{q.question}</div>
           <ul style={styles.quizOptions}>
@@ -39,7 +39,9 @@ const Quiz = ({ questions }) => {
             </div>
           )}
         </div>
-      ))}
+      )) : (
+        <div style={styles.quizQuestion}>No quiz questions available.</div>
+      )}
     </div>
   );
 };

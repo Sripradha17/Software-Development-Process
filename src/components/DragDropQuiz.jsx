@@ -114,7 +114,7 @@ const DragDropQuiz = () => {
 
   // Initialize ordered items for ordering questions
   useEffect(() => {
-    if (currentQuestion?.type === 'order') {
+    if (currentQuestion?.type === 'order' && currentQuestion?.items) {
       setOrderedItems(currentQuestion.items.map(item => item.id));
     }
   }, [currentQuestionIndex, currentQuestion]);
@@ -460,7 +460,7 @@ const DragDropQuiz = () => {
                 <div style={styles.matchingContainer}>
                   <div style={styles.draggableItems}>
                     <h3 style={styles.sectionTitle}>Drag these items:</h3>
-                    {currentQuestion.items.map((item) => (
+                    {currentQuestion?.items?.map((item) => (
                       <DraggableItem
                         key={item.id}
                         id={item.id}
@@ -482,7 +482,7 @@ const DragDropQuiz = () => {
 
                   <div style={styles.dropTargets}>
                     <h3 style={styles.sectionTitle}>Drop them here:</h3>
-                    {currentQuestion.targets.map((target) => (
+                    {currentQuestion?.targets?.map((target) => (
                       <DroppableTarget
                         key={target.id}
                         id={target.id}
@@ -517,8 +517,9 @@ const DragDropQuiz = () => {
                 <div style={styles.orderingContainer}>
                   <h3 style={styles.sectionTitle}>Drag to reorder these items:</h3>
                   <SortableContext items={orderedItems} strategy={verticalListSortingStrategy}>
-                    {orderedItems.map((itemId, index) => {
-                      const item = currentQuestion.items.find(i => i.id === itemId);
+                    {orderedItems?.map((itemId, index) => {
+                      const item = currentQuestion?.items?.find(i => i.id === itemId);
+                      if (!item) return null;
                       return (
                         <SortableItem key={itemId} id={itemId}>
                           <div style={styles.orderItem}>

@@ -82,6 +82,7 @@ const AIImplementationPage = () => {
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Steps"
         >
           🚀
         </motion.button>
@@ -93,6 +94,7 @@ const AIImplementationPage = () => {
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Types"
         >
           📚
         </motion.button>
@@ -104,6 +106,7 @@ const AIImplementationPage = () => {
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Drawbacks"
         >
           ⚠️
         </motion.button>
@@ -127,6 +130,7 @@ const AIImplementationPage = () => {
           onClick={() => setActiveSection("quiz")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Quiz"
         >
           🧠
         </motion.button>
@@ -149,7 +153,7 @@ const AIImplementationPage = () => {
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Implementation
+                Implementation Phase with AI
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
