@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/index.js';
 
 const Menu = ({ items, title }) => {
@@ -14,8 +15,8 @@ const Menu = ({ items, title }) => {
         <ul style={{ ...styles.menuDropdown, listStyle: 'none', margin: 0, padding: 0 }}>
           {items.map((item, idx) => (
             <li key={item.label} style={{ margin: 0, padding: 0 }}>
-              <a
-                href={item.path}
+              <Link
+                to={item.path}
                 style={{
                   ...styles.menuItem,
                   ...(hovered === idx ? styles.menuItemHover : {}),
@@ -25,9 +26,10 @@ const Menu = ({ items, title }) => {
                 }}
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
+                onClick={() => setOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

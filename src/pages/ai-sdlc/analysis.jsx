@@ -82,6 +82,7 @@ const AnalysisWithAIPage = () => {
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Steps"
         >
           🔍
         </motion.button>
@@ -93,6 +94,7 @@ const AnalysisWithAIPage = () => {
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Types"
         >
           📖
         </motion.button>
@@ -104,6 +106,7 @@ const AnalysisWithAIPage = () => {
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Drawbacks"
         >
           ⚠️
         </motion.button>
@@ -127,6 +130,7 @@ const AnalysisWithAIPage = () => {
           onClick={() => setActiveSection("quiz")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Quiz"
         >
           🧠
         </motion.button>
@@ -149,7 +153,7 @@ const AnalysisWithAIPage = () => {
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Analysis
+                Analysis Phase with AI
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
@@ -299,8 +303,8 @@ const AnalysisWithAIPage = () => {
                     </div>
 
                     <div style={styles.typeContent}>
-                      <h4 style={styles.storyTitle}>{type.story.title}</h4>
-                      <p style={styles.storyScenario}>{type.story.scenario}</p>
+                      <h4 style={styles.storyTitle}>{type.story?.title}</h4>
+                      <p style={styles.storyScenario}>{type.story?.scenario}</p>
                       <motion.button
                         style={{
                           ...styles.revealButton,
@@ -309,8 +313,8 @@ const AnalysisWithAIPage = () => {
                         onClick={() => {
                           setModalData({
                             name: type.name,
-                            failure: type.story.failure,
-                            fix: type.story.fix,
+                            failure: type.story?.failure,
+                            fix: type.story?.fix,
                             color: type.color,
                           });
                           setModalOpen(true);
@@ -399,7 +403,7 @@ const AnalysisWithAIPage = () => {
                 Even the smartest AI can stumble. Here’s how to avoid common pitfalls:
               </motion.p>
               <div style={styles.drawbacksGrid}>
-                {aiDrawbacks.map((drawback, index) => (
+                {aiAnalysisDrawbacks.map((drawback, index) => (
                   <motion.div
                     key={drawback.id}
                     style={styles.drawbackTypeCard}

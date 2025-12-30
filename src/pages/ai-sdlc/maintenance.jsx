@@ -71,6 +71,7 @@ const AIMaintenancePage = () => {
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Steps"
         >
           🧰
         </motion.button>
@@ -82,6 +83,7 @@ const AIMaintenancePage = () => {
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Types"
         >
           📖
         </motion.button>
@@ -93,6 +95,7 @@ const AIMaintenancePage = () => {
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Drawbacks"
         >
           ⚠️
         </motion.button>
@@ -116,6 +119,7 @@ const AIMaintenancePage = () => {
           onClick={() => setActiveSection("quiz")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Quiz"
         >
           🧠
         </motion.button>
@@ -138,7 +142,7 @@ const AIMaintenancePage = () => {
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
-                AI-Augmented Maintenance
+                Maintenance Phase with AI
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>

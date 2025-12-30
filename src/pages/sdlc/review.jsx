@@ -42,13 +42,13 @@ const ReviewPage = () => {
 
   // Helper for navigation items
   const navItems = [
-    { key: "intro", icon: "📊" },
-    { key: "visualization", icon: "📊" },
-    { key: "steps", icon: "🔄" },
-    { key: "types", icon: "📖" },
-    { key: "drawbacks", icon: "⚠" },
-    { key: "joke", icon: "😄" },
-    { key: "quiz", icon: "🧠" },
+    { key: "intro", icon: "📊", label: "Intro" },
+    { key: "visualization", icon: "📊", label: "Visualization" },
+    { key: "steps", icon: "🔄", label: "Steps" },
+    { key: "types", icon: "📖", label: "Types" },
+    { key: "drawbacks", icon: "⚠", label: "Drawbacks" },
+    { key: "joke", icon: "😄", label: "Joke" },
+    { key: "quiz", icon: "🧠", label: "Quiz" },
   ];
 
   return (
@@ -72,6 +72,7 @@ const ReviewPage = () => {
             onClick={() => setActiveSection(item.key)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label={item.label}
           >
             {item.icon}
           </motion.button>
@@ -174,7 +175,7 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                6 Essential Review Steps
+                Code Review
               </motion.h1>
               <div style={styles.stepsGrid}>
                 {reviewSteps.map((step, index) => (
@@ -563,7 +564,7 @@ const ReviewPage = () => {
                 >
                   🧠
                 </motion.div>
-                <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
+                <h2 style={styles.sectionTitle}>Test Your Knowledge</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Review phase concepts.
                 </p>

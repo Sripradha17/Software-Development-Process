@@ -82,6 +82,7 @@ const DesignPage = () => {
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Steps"
         >
           🏗️
         </motion.button>
@@ -93,6 +94,7 @@ const DesignPage = () => {
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Types"
         >
           📖
         </motion.button>
@@ -104,6 +106,7 @@ const DesignPage = () => {
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Drawbacks"
         >
           ⚠️
         </motion.button>
@@ -127,6 +130,7 @@ const DesignPage = () => {
           onClick={() => setActiveSection("quiz")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Quiz"
         >
           🧠
         </motion.button>
@@ -238,7 +242,7 @@ const DesignPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                6 Essential Design Steps
+                Design Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
@@ -295,7 +299,7 @@ const DesignPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                Design Approaches: Lessons from the Field
+                Types of Design
               </motion.h1>
 
               <div style={styles.typesContainer}>
@@ -408,7 +412,7 @@ const DesignPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                Major Design Pitfalls & Solutions
+                Potential Challenges
               </motion.h1>
 
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
@@ -662,7 +666,7 @@ const DesignPage = () => {
                 >
                   🧠
                 </motion.div>
-                <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
+                <h2 style={styles.sectionTitle}>Test Your Knowledge</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Design phase concepts.
                 </p>

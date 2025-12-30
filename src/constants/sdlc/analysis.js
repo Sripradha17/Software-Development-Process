@@ -11,8 +11,7 @@ const analysisSteps = [
     id: 2,
     title: "Requirements Gathering",
     icon: "📝",
-    description:
-      "Collect functional and non-functional requirements through interviews and surveys",
+    description: "Collect and document system requirements",
     color: "#4ECDC4",
   },
   {

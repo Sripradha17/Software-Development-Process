@@ -80,6 +80,7 @@ const AnalysisPage = () => {
           onClick={() => setActiveSection("steps")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Steps"
         >
           📊
         </motion.button>
@@ -91,6 +92,7 @@ const AnalysisPage = () => {
           onClick={() => setActiveSection("types")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Types"
         >
           📖
         </motion.button>
@@ -102,6 +104,7 @@ const AnalysisPage = () => {
           onClick={() => setActiveSection("drawbacks")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Drawbacks"
         >
           ⚠️
         </motion.button>
@@ -125,6 +128,7 @@ const AnalysisPage = () => {
           onClick={() => setActiveSection("quiz")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          aria-label="Quiz"
         >
           🧠
         </motion.button>
@@ -148,7 +152,7 @@ const AnalysisPage = () => {
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
                 {" "}
-                Analysis in Software Development
+                Analysis Phase
               </motion.h1>
 
               <motion.p style={styles.subtitle} variants={itemVariants}>
@@ -157,12 +161,11 @@ const AnalysisPage = () => {
               </motion.p>
 
               <motion.div style={styles.introCard} variants={itemVariants}>
-                <h2 style={styles.cardTitle}>What is Analysis?</h2>
+                <h2 style={styles.cardTitle}>What is Analysis Phase?</h2>
                 <p style={styles.cardText}>
-                  Analysis is the <strong>investigative process</strong> of
-                  deeply understanding the problem domain, user needs, business
-                  context, and technical constraints. It's about asking the
-                  right questions to ensure you're building the{" "}
+                  The Analysis phase is the foundation of successful software development, where we 
+                  deeply understand the problem domain, user needs, business context, and technical 
+                  constraints. It's about asking the right questions to ensure you're building the{" "}
                   <em>right thing</em>, not just building things right.
                 </p>
                 <div style={styles.keyPoints}>
@@ -235,7 +238,7 @@ const AnalysisPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                6 Essential Analysis Steps
+                Analysis Steps
               </motion.h1>
 
               <div style={styles.stepsGrid}>
@@ -291,7 +294,7 @@ const AnalysisPage = () => {
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
                 {" "}
-                Analysis Approaches: Learning from Mistakes
+                Types of Analysis
               </motion.h1>
 
               <div style={styles.typesContainer}>
@@ -310,8 +313,8 @@ const AnalysisPage = () => {
                     </div>
 
                     <div style={styles.typeContent}>
-                      <h4 style={styles.storyTitle}>{type.story.title}</h4>
-                      <p style={styles.storyScenario}>{type.story.scenario}</p>
+                      <h4 style={styles.storyTitle}>{type.story?.title}</h4>
+                      <p style={styles.storyScenario}>{type.story?.scenario}</p>
                       <motion.button
                         style={{
                           ...styles.revealButton,
@@ -320,8 +323,8 @@ const AnalysisPage = () => {
                         onClick={() => {
                           setModalData({
                             name: type.name,
-                            failure: type.story.failure,
-                            fix: type.story.fix,
+                            failure: type.story?.failure,
+                            fix: type.story?.fix,
                             color: type.color,
                           });
                           setModalOpen(true);
@@ -404,7 +407,7 @@ const AnalysisPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.h1 style={styles.sectionTitle} variants={itemVariants}>
-                Major Drawbacks & Their Resolutions
+                Potential Challenges
               </motion.h1>
               <motion.p style={styles.drawbackIntro} variants={itemVariants}>
                 Even the best analysis has pitfalls. Here's how to overcome
@@ -655,7 +658,7 @@ const AnalysisPage = () => {
                 >
                   🧠
                 </motion.div>
-                <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
+                <h2 style={styles.sectionTitle}>Test Your Knowledge</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Analysis phase concepts.
                 </p>
