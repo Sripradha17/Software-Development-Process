@@ -10,6 +10,10 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: 5173,
+    strictPort: true, // Exit if port is in use instead of trying another
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.js'],

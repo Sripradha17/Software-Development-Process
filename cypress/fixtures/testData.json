@@ -1,0 +1,95 @@
+{
+  "pages": {
+    "sdlc": [
+      {
+        "name": "analysis",
+        "title": "Analysis Phase",
+        "url": "/analysis"
+      },
+      {
+        "name": "design", 
+        "title": "Design in Software Development",
+        "url": "/design"
+      },
+      {
+        "name": "planning",
+        "title": "Planning in Software Development", 
+        "url": "/planning"
+      },
+      {
+        "name": "implementation",
+        "title": "Implementation in Software Development",
+        "url": "/implementation"
+      },
+      {
+        "name": "testing",
+        "title": "Testing in Software Development",
+        "url": "/testing"
+      },
+      {
+        "name": "deployment",
+        "title": "Deployment in Software Development",
+        "url": "/deployment"
+      },
+      {
+        "name": "maintenance",
+        "title": "Maintenance in Software Development",
+        "url": "/maintenance"
+      },
+      {
+        "name": "review",
+        "title": "Review in Software Development",
+        "url": "/review"
+      }
+    ],
+    "aiSdlc": [
+      {
+        "name": "analysis",
+        "title": "Analysis Phase with AI",
+        "url": "/ai-analysis"
+      },
+      {
+        "name": "design",
+        "title": "AI-Augmented Design",
+        "url": "/ai-design"
+      },
+      {
+        "name": "planning",
+        "title": "Planning Phase with AI",
+        "url": "/ai-planning"
+      },
+      {
+        "name": "implementation",
+        "title": "Implementation Phase with AI",
+        "url": "/ai-implementation"
+      },
+      {
+        "name": "testing",
+        "title": "Testing Phase with AI",
+        "url": "/ai-testing"
+      },
+      {
+        "name": "deployment",
+        "title": "Deployment Phase with AI",
+        "url": "/ai-deployment"
+      },
+      {
+        "name": "maintenance",
+        "title": "Maintenance Phase with AI",
+        "url": "/ai-maintenance"
+      },
+      {
+        "name": "review",
+        "title": "Review Phase with AI",
+        "url": "/ai-review"
+      }
+    ]
+  },
+  "testData": {
+    "quizAnswers": {
+      "correct": 0,
+      "incorrect": 1
+    },
+    "sectionButtons": ["Steps", "Types", "Drawbacks", "Quiz"]
+  }
+}
