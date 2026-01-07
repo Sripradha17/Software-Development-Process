@@ -1,11 +1,39 @@
+/**
+ * AI-Enhanced Analysis Phase Configuration
+ * 
+ * Educational content for teaching AI-augmented requirements analysis
+ * and system investigation methodologies. This demonstrates how artificial
+ * intelligence transforms traditional analysis activities through automation,
+ * intelligent insights, and predictive capabilities.
+ * 
+ * AI Analysis Enhancements:
+ * - Automated stakeholder identification using NLP and network analysis
+ * - Intelligent requirements extraction from unstructured text and documents
+ * - AI-powered current state analysis with automated system scanning
+ * - Predictive gap analysis using machine learning models
+ * - Smart feasibility assessment with historical data and simulations
+ * - Automated requirement prioritization using multi-factor analysis
+ * 
+ * Learning Objectives:
+ * - Understand how AI accelerates and improves analysis accuracy
+ * - Learn practical applications of NLP in requirements gathering
+ * - Explore predictive analytics for feasibility and risk assessment
+ * - See how AI reduces manual effort while increasing insight quality
+ * - Compare AI-enhanced vs traditional analysis methodologies
+ * 
+ * Each step demonstrates specific AI tools and techniques that modern
+ * development teams use to enhance traditional analysis processes.
+ */
+
+// AI-enhanced analysis process steps with intelligent automation
 const aiAnalysisSteps = [
   {
     id: 1,
-    title: "AI Stakeholder Mapping",
-    icon: "🤖👥",
+    title: "AI Stakeholder Mapping",                        // Automated stakeholder discovery using AI
+    icon: "🤖👥",                                           // Combined AI and people icons
     description:
-      "Use AI to identify hidden stakeholders and analyze their influence using NLP on emails, chats, and documents.",
-    color: "#FF6B6B",
+      "Use AI to identify hidden stakeholders and analyze their influence using NLP on emails, chats, and documents.", // Natural Language Processing for stakeholder analysis
+    color: "#FF6B6B",                                      // Red emphasizes foundational importance
   },
   {
     id: 2,

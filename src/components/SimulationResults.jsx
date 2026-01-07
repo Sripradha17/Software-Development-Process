@@ -1,53 +1,118 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useNavigate, useParams } from "react-router-dom";
+/**
+ * Simulation Results Component
+ * 
+ * Comprehensive results display for completed simulations showing:
+ * - Overall simulation performance with color-coded scoring
+ * - Detailed breakdown of all decisions made during simulation
+ * - Final project context metrics (budget, timeline, quality, etc.)
+ * - Performance analysis with strengths and areas for improvement
+ * - Navigation options to continue learning (restart, quiz, case studies)
+ * - Visual charts and graphs showing metric progression
+ * - Personalized recommendations based on simulation outcome
+ * 
+ * This component serves as both a conclusion to the simulation experience
+ * and a bridge to further learning opportunities, helping students understand
+ * their performance and guiding them toward additional educational content.
+ * 
+ * @param {Object} props - Component props
+ * @param {Object} props.scenario - Simulation scenario configuration
+ * @param {Object} props.finalOutcome - Calculated final outcome with score and analysis
+ * @param {Array} props.decisionHistory - Complete history of user decisions
+ * @param {Object} props.gameContext - Final simulation context with all metrics
+ * @param {Function} props.onRestart - Callback to restart the same simulation
+ * @param {Function} props.onReturnToHub - Callback to return to simulation selection
+ */
 
+// React core imports for component functionality
+import React from "react";                         // Core React library
+
+// Animation library for smooth visual transitions
+import { motion } from "framer-motion";             // Animation components for enhanced UX
+
+// React Router imports for navigation
+import { useNavigate, useParams } from "react-router-dom"; // Navigation hooks for routing
+
+/**
+ * SimulationResults Component
+ * 
+ * Displays comprehensive simulation completion results with analysis
+ * and navigation options for continued learning.
+ */
 const SimulationResults = ({ 
-  scenario, 
-  finalOutcome, 
-  decisionHistory, 
-  gameContext, 
-  onRestart, 
-  onReturnToHub 
+  scenario,          // Simulation scenario configuration and metadata
+  finalOutcome,      // Calculated final outcome with score and detailed analysis
+  decisionHistory,   // Complete record of all decisions made during simulation
+  gameContext,       // Final simulation context with all metric values
+  onRestart,         // Function to restart the current simulation
+  onReturnToHub      // Function to return to simulation hub
 }) => {
-  const navigate = useNavigate();
-  const { type } = useParams();
+  // Navigation setup for routing to related educational content
+  const navigate = useNavigate();                   // Hook for programmatic navigation
+  const { type } = useParams();                     // Get simulation type from URL parameters
 
+  /**
+   * Navigate to drag-and-drop quiz for the current simulation type
+   * Provides additional assessment opportunity related to simulation topic
+   */
   const handleQuizNavigation = () => {
     navigate(`/drag-drop-quiz/${type}`);
   };
 
+  /**
+   * Navigate to case studies for the current simulation type
+   * Allows exploration of real-world examples related to simulation content
+   */
   const handleCaseStudyNavigation = () => {
     navigate(`/case-studies/${type}`);
   };
+  
+  // Animation configuration for results display
+  // These variants create a smooth, engaging presentation of results
+  
+  // Main container animation with staggered children for sequential appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                          // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      opacity: 1,                                     // Final visible state
+      transition: { staggerChildren: 0.1 }            // Stagger child element animations
     }
   };
 
+  // Individual result section animation with slide-up effect
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 30 },                   // Start invisible and below final position
+    visible: { opacity: 1, y: 0 }                    // End visible at normal position
   };
 
+  /**
+   * Determines outcome color based on performance score
+   * Provides visual feedback through color coding
+   * 
+   * @param {number} score - Performance score (0-100)
+   * @returns {string} CSS color code for the score range
+   */
   const getOutcomeColor = (score) => {
-    if (score >= 85) return '#2ecc71';
-    if (score >= 70) return '#f39c12';
-    if (score >= 50) return '#e67e22';
-    return '#e74c3c';
+    if (score >= 85) return '#2ecc71';                // Excellent: Green (85-100)
+    if (score >= 70) return '#f39c12';                // Good: Orange (70-84)
+    if (score >= 50) return '#e67e22';                // Fair: Dark Orange (50-69)
+    return '#e74c3c';                                  // Poor: Red (0-49)
   };
 
+  /**
+   * Gets appropriate emoji icon for different metrics
+   * Provides visual context for metric types
+   * 
+   * @param {string} metric - Metric type identifier
+   * @returns {string} Emoji icon for the metric
+   */
   const getMetricIcon = (metric) => {
     const icons = {
-      budget: '💰',
-      timeline: '⏰',
-      userSatisfaction: '😊',
-      security: '🔒',
-      performance: '⚡',
-      reputation: '⭐'
+      budget: '💰',           // Financial/cost metrics
+      timeline: '⏰',         // Time-related metrics
+      userSatisfaction: '😊', // User experience metrics
+      security: '🔒',         // Security and safety metrics
+      performance: '⚡',      // System performance metrics
+      reputation: '⭐'        // Reputation and quality metrics
     };
     return icons[metric] || '📊';
   };

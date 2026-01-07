@@ -1,3 +1,44 @@
+/**
+ * AI-Enhanced SDLC Case Study Collection
+ * 
+ * Real-world case studies that demonstrate the application of AI-augmented
+ * Software Development Life Cycle methodologies in modern scenarios.
+ * These case studies showcase how artificial intelligence transforms
+ * traditional development processes and decision-making.
+ * 
+ * AI-Enhanced Case Study Features:
+ * - Modern business scenarios leveraging AI capabilities
+ * - Phase-by-phase progression with AI integration points
+ * - Decision points that demonstrate AI benefits and applications
+ * - Multiple choice questions explaining AI tool usage
+ * - AI-powered best practices and intelligent recommendations
+ * - Comparison with traditional approaches to show AI advantages
+ * 
+ * Educational Objectives:
+ * - Apply AI-enhanced SDLC knowledge to contemporary situations
+ * - Understand how AI transforms each phase of development
+ * - Learn practical applications of AI tools and techniques
+ * - Practice AI-assisted decision-making and problem-solving
+ * - Build experience with modern, intelligent development workflows
+ * 
+ * AI Integration Examples:
+ * - Intelligent requirements analysis using NLP and machine learning
+ * - AI-powered architecture suggestions and optimization
+ * - Automated code generation and intelligent programming assistance
+ * - AI-driven testing with predictive quality analysis
+ * - Smart deployment with automated monitoring and optimization
+ * 
+ * Each case study demonstrates how AI enhances traditional SDLC phases,
+ * making development more efficient, intelligent, and data-driven while
+ * maintaining the importance of human oversight and creativity.
+ */
+
+/**
+ * AI-Enhanced SDLC Case Study Data
+ * 
+ * Comprehensive collection of modern case studies demonstrating
+ * AI-augmented software development methodologies and intelligent workflows.
+ */
 // AI-Enhanced SDLC Case Studies Data
 export const aiSdlcCaseStudies = [
   {

@@ -1,3 +1,40 @@
+/**
+ * AI-Augmented Software Development Story Configuration
+ * 
+ * Narrative-based learning content that teaches AI-enhanced software development
+ * through an engaging story about developing a virtual wildlife sanctuary game.
+ * This story demonstrates how AI transforms each phase of development.
+ * 
+ * Story Features:
+ * - Virtual Wildlife Sanctuary Game Development: Engaging gaming context
+ * - Character-driven narrative with Leo, Priya, and Omar as developers
+ * - Chapter-based progression through AI-enhanced SDLC phases
+ * - Practical AI applications shown through game development scenarios
+ * - Visual storytelling with emojis and illustrations
+ * 
+ * AI Integration Examples:
+ * - AI-driven project planning with predictive analytics
+ * - Automated analysis using machine learning for user research
+ * - AI-assisted design with pattern recognition and optimization
+ * - Intelligent coding assistance and automated testing
+ * - AI-powered deployment and monitoring systems
+ * 
+ * Educational Benefits:
+ * - Makes AI concepts accessible through relatable gaming scenario
+ * - Shows practical applications of AI tools in modern development
+ * - Demonstrates collaboration between humans and AI systems
+ * - Provides context for understanding AI's role in development workflow
+ * 
+ * This story serves as an engaging introduction to AI-enhanced development
+ * before students explore technical details in individual AI-SDLC phase pages.
+ */
+
+/**
+ * AI-Enhanced Development Story Chapters
+ * 
+ * Sequential narrative chapters that guide students through AI-augmented
+ * software development, from AI-assisted planning to intelligent maintenance.
+ */
 const chapters = [
   {
     id: 0,

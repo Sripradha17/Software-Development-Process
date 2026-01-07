@@ -1,3 +1,41 @@
+/**
+ * AI-Enhanced Planning Phase Configuration
+ * 
+ * Educational content showcasing how artificial intelligence transforms
+ * project planning through predictive analytics, intelligent resource
+ * allocation, and data-driven decision making.
+ * 
+ * AI Planning Capabilities:
+ * - Predictive timeline estimation using historical project data
+ * - Intelligent resource allocation based on team skills and availability
+ * - AI-powered risk assessment and mitigation planning
+ * - Smart milestone planning with dependency optimization
+ * - Automated team composition recommendations
+ * - Intelligent budget forecasting with scenario analysis
+ * 
+ * Educational Philosophy:
+ * - Demonstrates how AI enhances traditional planning methodologies
+ * - Shows data-driven approaches to project management
+ * - Teaches predictive planning versus reactive adjustments
+ * - Illustrates the balance between AI insights and human judgment
+ * 
+ * Key Learning Points:
+ * - AI provides data-driven insights for better planning decisions
+ * - Machine learning improves estimation accuracy over time
+ * - Predictive analytics help identify and mitigate risks early
+ * - AI-assisted planning reduces project failure rates
+ * 
+ * This phase shows students how AI is transforming project management
+ * from experience-based guessing to data-driven, predictive planning
+ * that improves project success rates and team efficiency.
+ */
+
+/**
+ * AI-Enhanced Planning Process Steps
+ * 
+ * Systematic approach to leveraging artificial intelligence throughout
+ * the project planning phase, from scope definition to resource allocation.
+ */
 const aiPlanningSteps = [
   {
     id: 1,

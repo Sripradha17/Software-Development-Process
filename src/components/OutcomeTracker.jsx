@@ -1,42 +1,102 @@
-import React from "react";
-import { motion } from "framer-motion";
+/**
+ * Outcome Tracker Component
+ * 
+ * Real-time visualization component that displays project metrics and their changes
+ * throughout simulation phases. Provides visual feedback on decision impacts with:
+ * - Color-coded progress indicators (green/yellow/red based on performance)
+ * - Dynamic metric calculations comparing current vs. initial values
+ * - Support for both traditional SDLC and AI-enhanced metrics
+ * - Animated progress bars with smooth transitions
+ * - Phase progression indicator
+ * - Contextual icons and formatting for different metric types
+ * 
+ * Helps users understand the immediate and cumulative effects of their decisions
+ * on project success factors like budget, timeline, quality, and satisfaction.
+ * 
+ * @param {Object} props - Component props
+ * @param {Object} props.context - Current project context with metric values
+ * @param {Object} props.initialContext - Initial project context for comparison
+ * @param {string} props.currentPhase - Name of the current simulation phase
+ * @param {number} props.totalPhases - Total number of phases in the simulation
+ */
 
+// React core imports
+import React from "react";                    // Core React for component functionality
+
+// Animation library for smooth visual transitions
+import { motion } from "framer-motion";        // Animation components for enhanced UX
+
+/**
+ * OutcomeTracker Component
+ * 
+ * Displays real-time project metrics with visual indicators and progress tracking.
+ * Adapts display based on whether simulation includes AI-enhanced features.
+ */
 const OutcomeTracker = ({ context, initialContext, currentPhase, totalPhases }) => {
-  // Base metrics for all simulations
+  // Base metrics configuration for all simulation types
+  // Each metric includes display properties and formatting information
   const baseMetrics = [
-    { key: 'budget', label: 'Budget', icon: '💰', color: '#1ABC9C', unit: '$' },
-    { key: 'timeline', label: 'Timeline', icon: '⏰', color: '#16A085', unit: 'months' },
-    { key: 'userSatisfaction', label: 'User Satisfaction', icon: '😊', color: '#4bb1b4ff' },
-    { key: 'security', label: 'Security', icon: '🔒', color: '#325fa1ff' },
-    { key: 'performance', label: 'Performance', icon: '⚡', color: '#2dac6cff' },
-    { key: 'reputation', label: 'Reputation', icon: '⭐', color: '#4496a5ff' }
+    { key: 'budget', label: 'Budget', icon: '💰', color: '#1ABC9C', unit: '$' },           // Financial tracking with dollar formatting
+    { key: 'timeline', label: 'Timeline', icon: '⏰', color: '#16A085', unit: 'months' },        // Time tracking with month formatting
+    { key: 'userSatisfaction', label: 'User Satisfaction', icon: '😊', color: '#4bb1b4ff' }, // User happiness metric (percentage)
+    { key: 'security', label: 'Security', icon: '🔒', color: '#325fa1ff' },                 // Security posture metric (percentage)
+    { key: 'performance', label: 'Performance', icon: '⚡', color: '#2dac6cff' },              // System performance metric (percentage)
+    { key: 'reputation', label: 'Reputation', icon: '⭐', color: '#4496a5ff' }                   // Project/team reputation metric (percentage)
   ];
   
-  // Add AI efficiency metric if it exists in the context
+  // Conditionally add AI efficiency metric for AI-enhanced simulations
+  // This metric only appears when the simulation includes AI-augmented features
   const metrics = context.aiEfficiency !== undefined 
-    ? [...baseMetrics, { key: 'aiEfficiency', label: 'AI Efficiency', icon: '🤖', color: '#667eea' }]
+    ? [...baseMetrics, { key: 'aiEfficiency', label: 'AI Efficiency', icon: '🤖', color: '#667eea' }] // AI utilization effectiveness
     : baseMetrics;
   
-  // Determine if this is an AI-enhanced simulation
+  // Determine simulation type for conditional rendering and behavior
   const isAIEnhanced = context.aiEfficiency !== undefined;
 
+  /**
+   * Formats metric values for display based on metric type
+   * 
+   * @param {Object} metric - Metric configuration object
+   * @param {number} value - Current metric value
+   * @param {number} initialValue - Initial metric value (for comparison)
+   * @returns {string} Formatted display string with appropriate units
+   */
   const getMetricDisplay = (metric, value, initialValue) => {
     if (metric.key === 'budget') {
+      // Format budget with currency symbol and thousands separators
       return `${metric.unit}${value.toLocaleString()}`;
     } else if (metric.key === 'timeline') {
+      // Format timeline with numeric value and time unit
       return `${value} ${metric.unit}`;
     } else {
+      // Format percentage-based metrics (satisfaction, security, performance, etc.)
       return `${value}%`;
     }
   };
 
+  /**
+   * Determines progress indicator color based on metric performance
+   * 
+   * Uses different logic for different metric types:
+   * - Budget/Timeline: Lower values are better (green for under/on target)
+   * - Other metrics: Higher values are better (green for high performance)
+   * 
+   * @param {number} value - Current metric value
+   * @param {number} initialValue - Initial metric value for comparison
+   * @param {string} metricKey - Metric identifier for type-specific logic
+   * @returns {string} CSS color code for progress indicator
+   */
   const getProgressColor = (value, initialValue, metricKey) => {
     if (metricKey === 'budget' || metricKey === 'timeline') {
-      // For budget and timeline, less is better
-      return value <= initialValue ? '#2ecc71' : value <= initialValue * 1.2 ? '#f39c12' : '#e74c3c';
+      // For budget and timeline, lower values indicate better performance
+      return value <= initialValue ? '#2ecc71' :           // Green: on or under target
+             value <= initialValue * 1.2 ? '#f39c12' :    // Yellow: 20% over target
+             '#e74c3c';                                    // Red: more than 20% over target
     } else {
-      // For other metrics, more is better
-      return value >= 80 ? '#2ecc71' : value >= 60 ? '#f39c12' : '#e74c3c';
+      // For quality metrics, higher values indicate better performance
+      return value >= 80 ? '#2ecc71' :                     // Green: excellent performance (80%+)
+             value >= 60 ? '#f39c12' :                     // Yellow: acceptable performance (60-79%)
+             '#e74c3c';                                     // Red: poor performance (<60%)
     }
   };
 

@@ -1,3 +1,28 @@
+/**
+ * Traditional SDLC Design Phase Test Suite
+ * 
+ * Comprehensive testing for the classical system design educational page.
+ * Validates that traditional design concepts are properly presented and
+ * interactive learning elements function correctly for foundational education.
+ * 
+ * Test Coverage:
+ * - Component rendering with traditional design methodology content
+ * - Interactive navigation and educational interface functionality
+ * - Quiz component integration and assessment capabilities
+ * - Educational content accessibility and proper presentation
+ * - Traditional design workflow demonstrations and examples
+ * 
+ * Traditional Design Concepts Tested:
+ * - System architecture planning and documentation
+ * - Database design with entity relationships and normalization
+ * - User interface design and user experience planning
+ * - API design and integration planning strategies
+ * - Security architecture and performance considerations
+ * 
+ * This test suite ensures students receive reliable foundational education
+ * about classical design methodologies that prepare them for advanced topics.
+ */
+
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

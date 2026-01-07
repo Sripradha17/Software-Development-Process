@@ -1,3 +1,43 @@
+/**
+ * Traditional SDLC Testing Phase Configuration
+ * 
+ * Educational content for teaching classical software testing methodologies
+ * and quality assurance practices. This provides foundational knowledge about
+ * systematic approaches to ensuring software quality and reliability.
+ * 
+ * Core Testing Activities:
+ * - Test planning and strategy development
+ * - Test case design and documentation
+ * - Manual testing execution and defect tracking
+ * - Integration testing and system testing
+ * - User acceptance testing coordination
+ * - Performance and security testing basics
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental testing skills and quality mindset
+ * - Emphasizes systematic approach to quality assurance
+ * - Teaches different types of testing and their purposes
+ * - Provides foundation for understanding modern testing evolution
+ * 
+ * Testing Methodologies Covered:
+ * - Black box and white box testing techniques
+ * - Functional and non-functional testing approaches
+ * - Manual testing processes and documentation
+ * - Defect lifecycle and bug tracking
+ * - Test reporting and quality metrics
+ * 
+ * Learning Outcomes:
+ * Students will understand traditional testing methodologies that form
+ * the foundation for modern quality assurance and serve as the basis
+ * for AI-augmented testing approaches taught in the AI-SDLC section.
+ */
+
+/**
+ * Traditional Testing Process Steps
+ * 
+ * Sequential activities that form the foundation of software testing
+ * in classical development methodologies.
+ */
 const testingSteps = [
   {
     id: 1,

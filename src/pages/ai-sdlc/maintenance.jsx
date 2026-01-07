@@ -1,9 +1,50 @@
- import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+ /**
+ * AI-Enhanced Maintenance Phase Educational Page
+ * 
+ * Comprehensive learning module that demonstrates how artificial intelligence
+ * revolutionizes software maintenance through predictive analytics, automated
+ * optimization, and intelligent issue resolution.
+ * 
+ * AI Maintenance Concepts Covered:
+ * - Predictive maintenance using advanced system health analytics
+ * - Automated performance optimization and intelligent tuning
+ * - AI-powered bug triage and intelligent priority assignment
+ * - Smart user feedback analysis and automated feature prioritization
+ * - Intelligent dependency management and proactive vulnerability detection
+ * - Automated documentation updates based on real-time code changes
+ * 
+ * Interactive Learning Components:
+ * - Tabbed interface for exploring different AI maintenance aspects
+ * - Animated demonstrations of predictive maintenance workflows
+ * - Interactive quiz to validate AI maintenance methodology understanding
+ * - Process visualization showing intelligent maintenance pipeline
+ * - Real-world examples of AI operations tools and automation platforms
+ * 
+ * Educational Philosophy:
+ * - Shows how AI transforms reactive maintenance to proactive optimization
+ * - Demonstrates intelligent system health monitoring and self-healing capabilities
+ * - Teaches AI-assisted decision making for maintenance prioritization
+ * - Illustrates evolution from manual maintenance to predictive system care
+ * 
+ * Key Learning Concepts:
+ * - AI enables systems to self-monitor, self-optimize, and self-heal
+ * - Machine learning identifies patterns that predict system failures
+ * - Intelligent automation reduces maintenance overhead and improves reliability
+ * - AI-powered analytics provide actionable insights for continuous improvement
+ * 
+ * This page shows students how AI changes maintenance from costly, time-consuming
+ * reactive work to efficient, predictive system optimization that enhances
+ * user experience while reducing operational costs.
+ */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+// Essential component and navigation imports
+import Menu from "../../components/Menu";                      // Navigation component for AI-SDLC phase management
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";  // AI-enhanced navigation structure
+
+// React functionality and routing imports
+import React, { useState } from "react";                        // React with state hooks for interactive functionality
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions and effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between AI-enhanced phases
 import { aiMaintenanceSteps, aiMaintenanceTypes, aiMaintenanceDrawbacks } from "../../constants/ai-sdlc/aiMaintenance";
 import { aiMaintenanceQuiz } from "../../constants/quiz/aiMaintenanceQuiz";
 import Quiz from "../../components/Quiz";

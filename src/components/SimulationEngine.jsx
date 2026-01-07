@@ -1,114 +1,189 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { getAllSimulationScenarios, getCalculationFunction, SIMULATION_TYPES } from "../constants/simulation/simulationConstants";
-import DecisionChoice from "./DecisionChoice";
-import OutcomeTracker from "./OutcomeTracker";
-import SimulationResults from "./SimulationResults";
-import Menu from "./Menu";
-import sdlcMenuItems from "../constants/sdlc/menuItems";
-import aiMenuItems from "../constants/ai-sdlc/aiMenuItems";
-import styles from "../styles/index.js";
+/**
+ * Interactive Simulation Engine Component
+ * 
+ * A comprehensive simulation system that guides users through software development scenarios.
+ * Features include:
+ * - Multi-phase decision-making scenarios
+ * - Real-time context tracking (budget, timeline, quality metrics)
+ * - Animated transitions between phases
+ * - Dynamic outcome calculation based on decisions
+ * - Comprehensive decision history tracking
+ * - Restart and navigation functionality
+ * 
+ * The simulation engine supports both traditional SDLC and AI-augmented workflows,
+ * providing immersive learning experiences with realistic project challenges.
+ */
 
+// React core imports for component functionality
+import React, { useState, useEffect } from "react";         // Core React hooks for state and lifecycle management
+
+// Animation library for smooth transitions and visual feedback
+import { motion, AnimatePresence } from "framer-motion";    // Advanced animation components and utilities
+
+// React Router imports for navigation and URL parameter handling
+import { Link, useParams, useNavigate } from "react-router-dom"; // Navigation components and hooks
+
+// Simulation configuration and business logic imports
+import { 
+  getAllSimulationScenarios,    // Fetches all available simulation scenarios
+  getCalculationFunction,       // Gets outcome calculation function for scenario type
+  SIMULATION_TYPES             // Constants defining available simulation types
+} from "../constants/simulation/simulationConstants";
+
+// Interactive component imports for simulation functionality
+import DecisionChoice from "./DecisionChoice";           // Renders individual decision options with consequences
+import OutcomeTracker from "./OutcomeTracker";           // Displays real-time context metrics (budget, timeline, etc.)
+import SimulationResults from "./SimulationResults";     // Shows final simulation outcomes and analysis
+import Menu from "./Menu";                               // Navigation menu component
+
+// Menu configuration imports
+import sdlcMenuItems from "../constants/sdlc/menuItems";         // Traditional SDLC navigation items
+import aiMenuItems from "../constants/ai-sdlc/aiMenuItems";       // AI-augmented SDLC navigation items
+
+// Styling configuration
+import styles from "../styles/index.js";                          // Centralized styling system
+
+/**
+ * Main Simulation Engine Component
+ * 
+ * Orchestrates the entire simulation experience from scenario loading to final results.
+ * Manages complex state including phase progression, decision tracking, and outcome calculation.
+ */
 const SimulationEngine = () => {
-  const { type, scenarioId } = useParams();
-  const navigate = useNavigate();
+  // Extract URL parameters for scenario identification
+  const { type, scenarioId } = useParams();    // Get simulation type and specific scenario ID from URL
+  const navigate = useNavigate();               // Navigation hook for programmatic routing
   
-  // Find the current scenario from all scenarios
-  const allScenarios = getAllSimulationScenarios();
-  const scenario = allScenarios.find(s => s.id === scenarioId);
-  const calculationFunction = getCalculationFunction(scenario?.type);
+  // Load and validate current scenario data
+  const allScenarios = getAllSimulationScenarios();                    // Fetch all available scenarios
+  const scenario = allScenarios.find(s => s.id === scenarioId);        // Find current scenario by ID
+  const calculationFunction = getCalculationFunction(scenario?.type);   // Get appropriate outcome calculator
   
-  // Simulation state
-  const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
-  const [gameContext, setGameContext] = useState(scenario?.initialContext || {});
-  const [decisionHistory, setDecisionHistory] = useState([]);
-  const [isComplete, setIsComplete] = useState(false);
-  const [finalOutcome, setFinalOutcome] = useState(null);
-  const [showPhaseIntro, setShowPhaseIntro] = useState(true);
+  // Core simulation state management
+  const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);        // Current phase in the simulation (0-based index)
+  const [gameContext, setGameContext] = useState(scenario?.initialContext || {}); // Dynamic metrics (budget, timeline, quality, etc.)
+  const [decisionHistory, setDecisionHistory] = useState([]);           // Complete record of user decisions and their impacts
+  const [isComplete, setIsComplete] = useState(false);                  // Flag indicating simulation completion
+  const [finalOutcome, setFinalOutcome] = useState(null);               // Final calculated results and analysis
+  const [showPhaseIntro, setShowPhaseIntro] = useState(true);           // Controls display of phase introduction content
 
-  // Animation variants
+  // Animation configuration for smooth transitions and visual feedback
+  // These variants define how elements appear, animate, and disappear
+  
+  // Container animation for staggered child element animations
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                           // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      opacity: 1,                                      // Final visible state
+      transition: { staggerChildren: 0.1 }            // Stagger child animations by 0.1s
     }
   };
 
+  // Individual item animation for fade-in with slide up effect
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 20 },                    // Start invisible and 20px below
+    visible: { opacity: 1, y: 0 }                     // End visible at normal position
   };
 
+  // Slide transition for phase changes (horizontal sliding effect)
   const slideVariants = {
-    enter: { x: 300, opacity: 0 },
-    center: { x: 0, opacity: 1 },
-    exit: { x: -300, opacity: 0 }
+    enter: { x: 300, opacity: 0 },                    // Enter from right side, invisible
+    center: { x: 0, opacity: 1 },                     // Center position, fully visible
+    exit: { x: -300, opacity: 0 }                     // Exit to left side, invisible
   };
 
+  /**
+   * Effect hook for scenario initialization and validation
+   * 
+   * Handles:
+   * - Scenario existence validation
+   * - State reset when scenario changes
+   * - Navigation to scenario selection if scenario not found
+   */
   useEffect(() => {
+    // Redirect to simulation hub if scenario doesn't exist
     if (!scenario) {
       navigate('/simulation');
       return;
     }
     
-    // Reset simulation state when scenario changes
-    setCurrentPhaseIndex(0);
-    setGameContext(scenario.initialContext);
-    setDecisionHistory([]);
-    setIsComplete(false);
-    setFinalOutcome(null);
-    setShowPhaseIntro(true);
-  }, [scenarioId, scenario, navigate]);
+    // Reset all simulation state when scenario changes (ensures clean start)
+    setCurrentPhaseIndex(0);                          // Start at first phase
+    setGameContext(scenario.initialContext);          // Reset metrics to initial values
+    setDecisionHistory([]);                           // Clear previous decision history
+    setIsComplete(false);                             // Mark as not completed
+    setFinalOutcome(null);                            // Clear any previous final outcome
+    setShowPhaseIntro(true);                          // Show phase introduction for new scenario
+  }, [scenarioId, scenario, navigate]);               // Re-run effect when these dependencies change
 
+  /**
+   * Handles user decision selection and applies consequences
+   * 
+   * This is the core simulation logic that:
+   * 1. Updates game context based on decision consequences
+   * 2. Records decision in history for final analysis
+   * 3. Progresses to next phase or completes simulation
+   * 
+   * @param {Object} decision - Selected decision object with consequences
+   */
   const handleDecision = (decision) => {
     const currentPhase = scenario.phases[currentPhaseIndex];
     
-    // Apply consequences to game context
+    // Apply decision consequences to game context (budget, timeline, quality metrics)
     const newContext = { ...gameContext };
     Object.keys(decision.consequences).forEach(key => {
+      // Skip special consequence keys and only update numeric context values
       if (key !== 'nextPhase' && key !== 'outcome' && newContext.hasOwnProperty(key)) {
+        // Clamp values between 0 and 100 to maintain valid ranges
         newContext[key] = Math.max(0, Math.min(100, newContext[key] + decision.consequences[key]));
       }
     });
 
-    // Update decision history
+    // Create comprehensive decision record for history tracking
     const newDecision = {
-      phaseId: currentPhase.id,
-      phaseTitle: currentPhase.title,
-      decisionId: decision.id,
-      decisionTitle: decision.title,
-      consequences: decision.consequences,
-      outcome: decision.consequences.outcome
+      phaseId: currentPhase.id,                        // Identify which phase this decision was made in
+      phaseTitle: currentPhase.title,                  // Human-readable phase name
+      decisionId: decision.id,                         // Unique decision identifier
+      decisionTitle: decision.title,                   // Human-readable decision description
+      consequences: decision.consequences,             // Full consequence data for analysis
+      outcome: decision.consequences.outcome           // Immediate outcome description
     };
 
+    // Update state with new context and decision history
     const newHistory = [...decisionHistory, newDecision];
     
-    setGameContext(newContext);
-    setDecisionHistory(newHistory);
+    setGameContext(newContext);                        // Apply context changes
+    setDecisionHistory(newHistory);                    // Record decision
 
-    // Move to next phase or complete simulation
+    // Determine next step: continue to next phase or complete simulation
     if (currentPhaseIndex < scenario.phases.length - 1) {
+      // Move to next phase
       setCurrentPhaseIndex(currentPhaseIndex + 1);
-      setShowPhaseIntro(true);
+      setShowPhaseIntro(true);                         // Show introduction for new phase
     } else {
-      // Simulation complete
+      // All phases completed - calculate final outcome
       const outcome = calculationFunction(newContext, decisionHistory);
-      setFinalOutcome(outcome);
-      setIsComplete(true);
+      setFinalOutcome(outcome);                        // Store calculated results
+      setIsComplete(true);                             // Mark simulation as complete
     }
   };
 
+  /**
+   * Resets the simulation to initial state
+   * Allows users to retry the scenario with different decisions
+   */
   const restartSimulation = () => {
-    setCurrentPhaseIndex(0);
-    setGameContext(scenario.initialContext);
-    setDecisionHistory([]);
-    setIsComplete(false);
-    setFinalOutcome(null);
-    setShowPhaseIntro(true);
+    setCurrentPhaseIndex(0);                          // Return to first phase
+    setGameContext(scenario.initialContext);          // Reset all metrics
+    setDecisionHistory([]);                           // Clear decision history
+    setIsComplete(false);                             // Mark as not completed
+    setFinalOutcome(null);                            // Clear final outcome
+    setShowPhaseIntro(true);                          // Show first phase intro
   };
 
+  /**
+   * Navigates back to the main simulation selection hub
+   */
   const goToScenarioSelect = () => {
     navigate('/simulation');
   };

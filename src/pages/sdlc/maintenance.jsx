@@ -1,8 +1,48 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+/**
+ * Traditional SDLC Maintenance Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical software maintenance
+ * methodologies and post-deployment support practices. This interactive page
+ * guides students through systematic approaches to keeping software systems
+ * running and evolving effectively over time.
+ * 
+ * Maintenance Concepts Covered:
+ * - Bug tracking and systematic resolution processes
+ * - Performance monitoring and system optimization techniques
+ * - User support and help desk operations management
+ * - System updates and security patch management
+ * - Documentation updates and knowledge management systems
+ * - Change request evaluation and implementation workflows
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different maintenance aspects
+ * - Animated step-by-step breakdown of maintenance activities
+ * - Interactive quiz to validate maintenance methodology understanding
+ * - Process visualization showing maintenance workflow integration
+ * - Real-world maintenance scenarios and best practice examples
+ * 
+ * Educational Approach:
+ * - Builds fundamental maintenance skills and long-term thinking
+ * - Emphasizes proactive system care and comprehensive user support
+ * - Teaches systematic approach to software evolution and improvement
+ * - Provides foundation for understanding modern maintenance practices
+ * 
+ * Maintenance Types Covered:
+ * - Corrective maintenance (bug fixes and error correction)
+ * - Adaptive maintenance (environmental changes and updates)
+ * - Perfective maintenance (performance and feature improvements)
+ * - Preventive maintenance (proactive system care and optimization)
+ * 
+ * This foundation prepares students for modern DevOps practices,
+ * site reliability engineering, and AI-augmented maintenance approaches.
+ */
+
+// Core imports for page functionality and navigation
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phase transitions
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC menu configuration
+import React, { useState } from "react";                        // React with state management for interactive components
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions and effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between phases and sections
 import {
   maintenanceSteps,
   maintenanceTypes,

@@ -1,47 +1,112 @@
- import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+/**
+ * AI-Enhanced Analysis Phase Educational Page
+ * 
+ * This comprehensive learning module teaches students how artificial intelligence
+ * transforms the requirements analysis phase through intelligent automation,
+ * predictive analytics, and advanced data processing capabilities.
+ * 
+ * Educational Components:
+ * - Interactive tabbed interface for exploring AI analysis concepts
+ * - Detailed explanations of AI-powered stakeholder discovery
+ * - Demonstrations of automated requirements extraction using NLP
+ * - Examples of intelligent current state analysis and gap identification
+ * - Assessment through interactive quizzes and process visualization
+ * 
+ * AI Analysis Capabilities Covered:
+ * 🤖 Automated stakeholder mapping using NLP and data mining
+ * 📊 Intelligent requirements extraction from unstructured data
+ * 🔍 AI-powered current state analysis with system scanning
+ * 📈 Predictive gap analysis with risk assessment algorithms
+ * 🎯 Machine learning-based feasibility predictions
+ * ⚡ Smart prioritization using multi-factor optimization
+ * 
+ * Learning Flow:
+ * 1. Introduction to AI-enhanced analysis concepts
+ * 2. Step-by-step exploration of AI analysis methodologies
+ * 3. Interactive assessment to validate understanding
+ * 4. Process visualization showing AI workflow integration
+ * 
+ * This page demonstrates how AI revolutionizes traditional analysis approaches,
+ * making them more efficient, comprehensive, and data-driven.
+ */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks } from "../../constants/ai-sdlc/aiAnalysis";
-import { aiAnalysisQuiz } from "../../constants/quiz/aiAnalysisQuiz";
-import Quiz from "../../components/Quiz";
-import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
-import styles from "../../styles/index.js";
+// === COMPONENT IMPORTS ===
+// Navigation and menu system for AI-SDLC phases
+import Menu from "../../components/Menu";                      // Dynamic navigation component
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";  // AI-enhanced navigation configuration
+
+// === REACT IMPORTS ===
+// Core React functionality for component state and lifecycle
+import React, { useState } from "react";                        // React with hooks for state management
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between phases
+
+// === DATA IMPORTS ===
+// Educational content and configuration for AI analysis
+import { aiAnalysisSteps, aiAnalysisTypes, aiAnalysisDrawbacks } from "../../constants/ai-sdlc/aiAnalysis"; // AI analysis methodology data
+import { aiAnalysisQuiz } from "../../constants/quiz/aiAnalysisQuiz"; // Assessment questions for AI analysis understanding
+
+// === INTERACTIVE COMPONENT IMPORTS ===
+// Components for educational interaction and visualization
+import Quiz from "../../components/Quiz";                      // Interactive assessment component
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization"; // Workflow visualization
+import styles from "../../styles/index.js";                   // Comprehensive styling system
  
-
+/**
+ * AI-Enhanced Analysis Page Component
+ * 
+ * Main functional component that renders the AI analysis educational experience.
+ * Manages state for different learning sections and interactive elements.
+ */
 const AnalysisWithAIPage = () => {
-  const [activeSection, setActiveSection] = useState("intro");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
-  const navigate = useNavigate();
+  // === STATE MANAGEMENT ===
+  // Controls which section of the learning content is currently active
+  const [activeSection, setActiveSection] = useState("intro");     // Current active tab: 'intro', 'steps', 'quiz'
+  
+  // Modal state for detailed explanations and examples
+  const [modalOpen, setModalOpen] = useState(false);              // Controls modal visibility
+  const [modalData, setModalData] = useState(null);               // Data to display in modal
+  
+  // Interactive element state for enhanced learning
+  const [selectedDrawback, setSelectedDrawback] = useState(null);  // Currently selected AI analysis challenge
+  
+  // Navigation hook for programmatic routing
+  const navigate = useNavigate();                                  // React Router navigation function
 
+  // === ANIMATION CONFIGURATIONS ===
+  // Framer Motion animation variants for smooth page transitions and element reveals
+  
+  // Container animation: Controls overall page fade-in with staggered child elements
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                       // Initial state: invisible
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      opacity: 1,                                              // Final state: fully visible
+      transition: { staggerChildren: 0.1 },                    // Children animate with 0.1s delay between each
     },
   };
 
+  // Individual item animation: Controls how each educational element appears
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },                            // Start 20px below and invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.3 },
+      y: 0,                                                    // Move to original position
+      opacity: 1,                                              // Fade in completely
+      transition: { duration: 0.3 },                          // Animation takes 0.3 seconds
     },
   };
 
+  // Floating animation: Creates subtle hover effect for interactive elements
   const floatAnimation = {
-    y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+    y: [0, -10, 0],                                             // Moves up 10px and back down
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }, // Continuous smooth floating
   };
 
+  // === COMPONENT RENDER ===
+  // Main JSX structure with educational content and interactive elements
   return (
-    <div style={styles.pageContainer}>
+    <div style={styles.pageContainer}>                         {/* Main page container with full styling */}
+      {/* === NAVIGATION MENU === */}
+      {/* Fixed position menu for easy navigation between AI-SDLC phases */}
       <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
         <Menu items={aiMenuItems} title="Menu" />
       </div>

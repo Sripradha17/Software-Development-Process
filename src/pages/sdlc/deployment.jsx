@@ -1,8 +1,48 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+/**
+ * Traditional SDLC Deployment Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical software deployment
+ * methodologies and production release practices. This interactive page guides
+ * students through systematic approaches to moving software from development to production.
+ * 
+ * Deployment Concepts Covered:
+ * - Production environment setup and configuration management
+ * - Release planning and coordination strategies with stakeholders
+ * - Manual deployment processes and comprehensive checklists
+ * - Go-live procedures and effective stakeholder communication
+ * - Post-deployment monitoring and validation techniques
+ * - Rollback procedures and comprehensive contingency planning
+ * 
+ * Interactive Learning Components:
+ * - Tabbed interface for exploring different deployment aspects
+ * - Animated step-by-step breakdown of deployment activities
+ * - Interactive quiz to test deployment methodology understanding
+ * - Process visualization showing deployment workflow integration
+ * - Real-world deployment scenarios and best practice examples
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental deployment skills and operational awareness
+ * - Emphasizes careful planning and comprehensive risk management
+ * - Teaches systematic approach to production releases and operations
+ * - Provides foundation for understanding modern DevOps evolution
+ * 
+ * Key Deployment Concepts:
+ * - Environment management and promotion strategies
+ * - Change management and approval processes
+ * - Production readiness criteria and validation procedures
+ * - Monitoring and observability in production environments
+ * - Incident response and rollback procedures
+ * 
+ * This foundation prepares students for modern DevOps practices and
+ * AI-augmented deployment approaches taught in the AI-SDLC section.
+ */
+
+// Essential imports for component functionality
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phase management
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC navigation structure
+import React, { useState } from "react";                        // React with state hooks for interactive functionality
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for transitions and interactive effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation and phase linking
 import {
   deploymentSteps,
   deploymentTypes,

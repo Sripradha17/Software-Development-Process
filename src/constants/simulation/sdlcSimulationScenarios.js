@@ -1,3 +1,42 @@
+/**
+ * Traditional SDLC Simulation Scenarios Configuration
+ * 
+ * Interactive simulation scenarios that allow students to experience realistic
+ * software development projects using traditional SDLC methodologies. These
+ * simulations provide hands-on learning through decision-making and consequences.
+ * 
+ * Simulation Features:
+ * - Realistic business scenarios with authentic project constraints
+ * - Phase-by-phase decision points following traditional SDLC flow
+ * - Resource management including budget, timeline, and team dynamics
+ * - Performance metrics tracking (quality, security, user satisfaction)
+ * - Consequence-based learning where decisions affect project outcomes
+ * - Multiple project types representing different industry domains
+ * 
+ * Educational Objectives:
+ * - Experience real-world project management challenges
+ * - Practice systematic decision-making within SDLC framework
+ * - Understand trade-offs between time, cost, quality, and scope
+ * - Learn from consequences of different development approaches
+ * - Build practical experience in project leadership and planning
+ * 
+ * Scenario Categories:
+ * - Financial applications with security and compliance focus
+ * - Healthcare systems with reliability and regulatory requirements
+ * - E-commerce platforms with scalability and performance needs
+ * - Educational tools with accessibility and usability priorities
+ * - Enterprise systems with integration and maintenance considerations
+ * 
+ * Each simulation provides a safe environment for students to experiment
+ * with different approaches and learn from both successes and failures.
+ */
+
+/**
+ * Traditional SDLC Simulation Scenario Data
+ * 
+ * Comprehensive collection of interactive scenarios demonstrating
+ * classical software development methodologies and project management.
+ */
 // SDLC Simulation Scenarios
 // Traditional software development process simulations
 

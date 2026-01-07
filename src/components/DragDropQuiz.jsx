@@ -1,52 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+/**
+ * Interactive Drag & Drop Quiz Component
+ * 
+ * An engaging quiz interface that allows users to practice ordering SDLC phases
+ * through drag-and-drop interactions. Features include:
+ * - Visual drag-and-drop interface with smooth animations
+ * - Real-time feedback on ordering accuracy
+ * - Support for both traditional and AI-augmented SDLC workflows
+ * - Keyboard accessibility for drag operations
+ * - Progress tracking and scoring system
+ * - Detailed explanations for correct phase ordering
+ * 
+ * Uses @dnd-kit library for accessible, performant drag-and-drop functionality.
+ */
+
+// React core imports for component functionality
+import React, { useState, useEffect } from 'react';      // Core React hooks for state and lifecycle management
+
+// Animation library for smooth visual transitions
+import { motion, AnimatePresence } from 'framer-motion'; // Advanced animation components for UI feedback
+
+// React Router imports for navigation and URL parameters
+import { Link, useParams, useNavigate } from 'react-router-dom'; // Navigation components and hooks
+
+// Drag and Drop Kit imports for accessible drag-and-drop functionality
 import {
-  DndContext,
-  DragOverlay,
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
+  DndContext,           // Main drag-and-drop context provider
+  DragOverlay,          // Overlay component for dragged items
+  closestCenter,        // Collision detection algorithm
+  KeyboardSensor,       // Keyboard interaction support
+  PointerSensor,        // Mouse/touch interaction support
+  useSensor,            // Hook for sensor configuration
+  useSensors,           // Hook for multiple sensor management
 } from '@dnd-kit/core';
+
 import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  verticalListSortingStrategy,
+  arrayMove,                    // Utility for reordering arrays after drag
+  SortableContext,             // Context for sortable list functionality
+  sortableKeyboardCoordinates, // Keyboard navigation coordinates
+  verticalListSortingStrategy, // Strategy for vertical list sorting
 } from '@dnd-kit/sortable';
+
 import {
-  restrictToVerticalAxis,
-  restrictToWindowEdges,
+  restrictToVerticalAxis,      // Modifier to restrict dragging to vertical movement
+  restrictToWindowEdges,       // Modifier to keep dragged items within window bounds
 } from '@dnd-kit/modifiers';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
-import { sdlcDragDropQuiz, aiSdlcDragDropQuiz, quizConfig } from '../constants/quiz/dragDropQuizData';
-import Menu from './Menu';
-import sdlcMenuItems from '../constants/sdlc/menuItems';
-import aiMenuItems from '../constants/ai-sdlc/aiMenuItems';
-import styles from '../styles/index';
+import { useSortable } from '@dnd-kit/sortable';  // Hook for individual sortable items
+import { CSS } from '@dnd-kit/utilities';          // CSS transform utilities
 
-// Sortable Item Component for ordering tasks
+// Quiz data and configuration imports
+import { 
+  sdlcDragDropQuiz,     // Traditional SDLC phase ordering quiz data
+  aiSdlcDragDropQuiz,   // AI-augmented SDLC phase ordering quiz data
+  quizConfig            // Quiz configuration and scoring rules
+} from '../constants/quiz/dragDropQuizData';
+
+// UI component imports
+import Menu from './Menu';                                    // Navigation menu component
+import sdlcMenuItems from '../constants/sdlc/menuItems';     // Traditional SDLC navigation items
+import aiMenuItems from '../constants/ai-sdlc/aiMenuItems';  // AI-augmented SDLC navigation items
+import styles from '../styles/index';                        // Centralized styling system
+
+/**
+ * Sortable Item Component
+ * 
+ * Individual draggable/sortable item within the quiz interface.
+ * Handles drag state, visual feedback, and accessibility.
+ * 
+ * @param {Object} props - Component props
+ * @param {string} props.id - Unique identifier for the sortable item
+ * @param {ReactNode} props.children - Content to render inside the sortable item
+ */
 const SortableItem = ({ id, children }) => {
+  // Extract drag-and-drop functionality from useSortable hook
   const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
+    attributes,    // ARIA attributes for accessibility
+    listeners,     // Event handlers for drag interactions
+    setNodeRef,    // Ref setter for the draggable element
+    transform,     // Current transform values during drag
+    transition,    // CSS transition values for smooth movement
+    isDragging,    // Boolean indicating if item is currently being dragged
   } = useSortable({ id });
 
+  // Dynamic styling based on drag state
   const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.5 : 1,
+    transform: CSS.Transform.toString(transform),  // Apply drag transform
+    transition,                                    // Apply smooth transitions
+    opacity: isDragging ? 0.5 : 1,               // Reduce opacity while dragging for visual feedback
   };
 
   return (
+    // Render draggable item with all necessary props and event handlers
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       {children}
     </div>

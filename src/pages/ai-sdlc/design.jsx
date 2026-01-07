@@ -1,22 +1,77 @@
- import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+/**
+ * AI-Enhanced Design Phase Educational Page
+ * 
+ * This advanced learning module demonstrates how artificial intelligence revolutionizes
+ * system design through intelligent automation, optimization algorithms, and pattern
+ * recognition capabilities that enhance traditional design methodologies.
+ * 
+ * Educational Components:
+ * - Interactive design methodology exploration with AI examples
+ * - Detailed demonstrations of AI-powered architecture suggestions
+ * - Examples of automated database optimization and API design
+ * - Smart UI/UX prototyping with accessibility enhancement
+ * - Comprehensive assessment through quizzes and process visualization
+ * 
+ * AI Design Capabilities Demonstrated:
+ * 🏧 AI-driven architecture suggestions based on performance patterns
+ * 📊 Automated database schema optimization using usage analytics
+ * 🔌 AI-powered API design with auto-documentation generation
+ * 🎨 Smart UI/UX prototyping with accessibility optimization
+ * 🔒 Predictive security analysis during design phase
+ * ⚡ Automated design validation and optimization recommendations
+ * 
+ * Learning Progression:
+ * 1. Introduction to AI-enhanced design concepts and benefits
+ * 2. Interactive exploration of AI design tools and methodologies
+ * 3. Hands-on assessment to validate design understanding
+ * 4. Visual workflow showing AI integration in design process
+ * 
+ * This page showcases how AI transforms design from manual, experience-based
+ * decisions to data-driven, optimized solutions while preserving human creativity.
+ */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { aiDesignSteps, aiDesignTypes, aiDesignDrawbacks } from "../../constants/ai-sdlc/aiDesign";
-import { aiDesignQuiz } from "../../constants/quiz/aiDesignQuiz";
-import Quiz from "../../components/Quiz";
-import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
-import styles from "../../styles/index.js";
+// === COMPONENT IMPORTS ===
+// Navigation and menu system for seamless AI-SDLC phase transitions
+import Menu from "../../components/Menu";                      // Dynamic navigation component with AI focus
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";  // AI-enhanced navigation structure
+
+// === REACT ECOSYSTEM IMPORTS ===
+// Core React functionality for modern component development
+import React, { useState } from "react";                        // React hooks for state management
+import { motion, AnimatePresence } from "framer-motion";        // Advanced animation library for smooth UX
+import { Link, useNavigate } from "react-router-dom";          // React Router for seamless navigation
+
+// === EDUCATIONAL DATA IMPORTS ===
+// AI design methodology content and configuration
+import { aiDesignSteps, aiDesignTypes, aiDesignDrawbacks } from "../../constants/ai-sdlc/aiDesign"; // AI design process data
+import { aiDesignQuiz } from "../../constants/quiz/aiDesignQuiz"; // Assessment questions for AI design concepts
+
+// === INTERACTIVE LEARNING COMPONENTS ===
+// Specialized components for enhanced educational experience
+import Quiz from "../../components/Quiz";                      // Interactive assessment engine
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization"; // Design workflow visualization
+import styles from "../../styles/index.js";                   // Comprehensive design system
  
-
+/**
+ * AI Design Page Component
+ * 
+ * Advanced functional component that orchestrates the AI design learning experience
+ * with interactive elements, animations, and comprehensive educational content.
+ */
 const AIDesignPage = () => {
-  const [activeSection, setActiveSection] = useState("intro");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
-  const navigate = useNavigate();
+  // === STATE MANAGEMENT FOR INTERACTIVE LEARNING ===
+  // Educational section control for tabbed learning experience
+  const [activeSection, setActiveSection] = useState("intro");     // Active tab: 'intro', 'steps', 'quiz', 'visualization'
+  
+  // Modal system for detailed explanations and examples
+  const [modalOpen, setModalOpen] = useState(false);              // Modal visibility state
+  const [modalData, setModalData] = useState(null);               // Content to display in modal
+  
+  // Interactive learning elements for enhanced engagement
+  const [selectedDrawback, setSelectedDrawback] = useState(null);  // Currently selected AI design challenge
+  
+  // Navigation system for seamless educational flow
+  const navigate = useNavigate();                                  // Programmatic navigation function
 
   const containerVariants = {
     hidden: { opacity: 0 },

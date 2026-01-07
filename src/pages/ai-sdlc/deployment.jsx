@@ -1,9 +1,49 @@
- import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+ /**
+ * AI-Enhanced Deployment Phase Educational Page
+ * 
+ * Comprehensive learning module that demonstrates how artificial intelligence
+ * transforms software deployment through intelligent automation, predictive
+ * monitoring, and smart infrastructure management.
+ * 
+ * AI Deployment Concepts Covered:
+ * - Intelligent deployment orchestration with automated risk assessment
+ * - AI-powered infrastructure provisioning and dynamic scaling
+ * - Predictive monitoring with anomaly detection and alerting
+ * - Automated rollback decisions based on real-time performance metrics
+ * - Smart load balancing and intelligent resource optimization
+ * - AI-driven security monitoring and proactive threat detection
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different AI deployment aspects
+ * - Animated demonstrations of intelligent deployment workflows
+ * - Interactive quiz to test AI deployment methodology understanding
+ * - Process visualization showing AI-enhanced deployment pipeline
+ * - Real-world examples of DevOps AI tools and automation platforms
+ * 
+ * Educational Approach:
+ * - Demonstrates modern DevOps practices enhanced with AI capabilities
+ * - Shows how AI makes deployments safer, more reliable, and self-healing
+ * - Teaches intelligent infrastructure management and automation concepts
+ * - Illustrates evolution from manual deployment to self-managing systems
+ * 
+ * Key Learning Points:
+ * - AI enables proactive rather than reactive deployment management
+ * - Machine learning optimizes resource usage and performance automatically
+ * - Intelligent monitoring prevents issues before they impact users
+ * - AI-driven automation reduces human error and deployment risks
+ * 
+ * This page shows students how AI transforms operations and deployment,
+ * making systems more resilient, efficient, and self-managing.
+ */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+// Core component and navigation imports
+import Menu from "../../components/Menu";                      // Navigation component for AI-SDLC phases
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";  // AI-enhanced navigation configuration
+
+// React and routing functionality
+import React, { useState } from "react";                        // React with state management for interactive tabs
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between AI phases
 import { aiDeploymentSteps, aiDeploymentTypes, aiDeploymentDrawbacks } from "../../constants/ai-sdlc/aiDeployment";
 import { aiDeploymentQuiz } from "../../constants/quiz/aiDeploymentQuiz";
 import Quiz from "../../components/Quiz";

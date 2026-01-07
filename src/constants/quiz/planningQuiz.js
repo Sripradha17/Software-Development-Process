@@ -1,3 +1,63 @@
+/**
+ * Planning Phase Quiz Configuration
+ * 
+ * Educational quiz questions focused on the planning phase of the Software Development Life Cycle.
+ * This quiz tests students' understanding of:
+ * - Planning phase objectives and importance
+ * - Key planning activities and deliverables
+ * - Common planning methodologies and best practices
+ * - Planning pitfalls and how to avoid them
+ * 
+ * Quiz Structure:
+ * Each question contains:
+ * - question: The question text presented to the student
+ * - options: Array of possible answers, each containing:
+ *   - text: The answer option text
+ *   - correct: Boolean indicating if this is the correct answer
+ *   - explanation: Educational explanation provided after answer selection
+ * 
+ * The explanations serve as learning reinforcement, helping students understand
+ * not just what the correct answer is, but why it's correct and why other options are wrong.
+ */
+
+/**
+ * Traditional SDLC Planning Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical project planning concepts and methodologies in software
+ * development. This quiz reinforces learning from the planning phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Project scope definition and requirements analysis
+ * - Resource planning and team composition
+ * - Timeline estimation and milestone planning
+ * - Risk assessment and mitigation strategies
+ * - Budget planning and cost estimation
+ * - Communication and stakeholder management
+ * 
+ * Educational Design:
+ * - Multiple choice questions covering planning fundamentals
+ * - Correct answers reinforce project management principles
+ * - Wrong answer explanations clarify planning misconceptions
+ * - Real-world project scenarios and decision-making
+ * - Integration of technical and business planning aspects
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of planning phase fundamentals
+ * - Test knowledge of project management best practices
+ * - Assess ability to make informed planning decisions
+ * - Prepare students for subsequent development phases
+ * 
+ * This quiz ensures students have mastered traditional planning methodologies
+ * before progressing to AI-enhanced planning approaches and actual development.
+ */
+
+/**
+ * Planning Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional project planning concepts,
+ * methodologies, and best practices in software development.
+ */
 export const planningQuiz = [
   {
     question: "What is the primary purpose of the Planning phase in SDLC?",

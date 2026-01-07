@@ -1,21 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "../../styles/index.js";
-import { useNavigate } from "react-router-dom";
+/**
+ * Introduction Page Component
+ * 
+ * The main landing page of the Software Development Process educational platform.
+ * Serves as the entry point to introduce users to the application's features and capabilities.
+ * 
+ * Key Features:
+ * - Animated feature showcase with rotating highlights
+ * - Platform statistics and benefits overview
+ * - Call-to-action buttons for different learning paths
+ * - Responsive design with smooth animations
+ * - Auto-rotating feature carousel for engaging presentation
+ * 
+ * This page sets the tone for the entire learning experience and guides users
+ * toward their preferred learning path (traditional SDLC or AI-augmented development).
+ */
 
+// React core imports for component functionality
+import React, { useState, useEffect } from "react";      // Core React hooks for state and lifecycle management
+
+// Animation library for dynamic visual effects
+import { motion, AnimatePresence } from "framer-motion"; // Advanced animation components for engaging UX
+
+// Styling and navigation imports
+import styles from "../../styles/index.js";              // Centralized styling system
+import { useNavigate } from "react-router-dom";          // Navigation hook for programmatic routing
+
+/**
+ * IntroPage Component
+ * 
+ * Main landing page that introduces the platform and its features.
+ * Manages feature rotation and provides navigation to different sections.
+ */
 const IntroPage = () => {
-  const navigate = useNavigate();
-  const [currentFeature, setCurrentFeature] = useState(0);
+  const navigate = useNavigate();                          // Navigation hook for programmatic routing
   
+  // State for managing the rotating feature showcase
+  const [currentFeature, setCurrentFeature] = useState(0); // Index of currently displayed feature
+  
+  // Platform features configuration for the rotating showcase
+  // Each feature highlights a key aspect of the learning platform
+  // Features rotate automatically every 3 seconds to showcase different capabilities
   const features = [
     {
-      icon: "🚀",
-      title: "Interactive Learning",
-      description: "Engage with hands-on activities and simulations"
+      icon: "🚀",                                          // Rocket icon for excitement and progress
+      title: "Interactive Learning",                        // Hands-on engagement focus
+      description: "Engage with hands-on activities and simulations" // Emphasizes practical learning approach
     },
     {
-      icon: "🤖",
-      title: "AI-Enhanced Process",
+      icon: "🤖",                                          // Robot icon for AI features
+      title: "AI-Enhanced Process",                         // Modern AI integration
+      description: "Learn modern AI-augmented development workflows" // Focus on cutting-edge practices
+    },
+    {
+      icon: "📊",                                          // Chart icon for real-world application
+      title: "Real-World Projects",                         // Industry relevance
+      description: "Practice with industry-standard case studies" // Practical application focus
+    },
+    {
+      icon: "🎯",                                          // Target icon for achievement
+      title: "Skill Assessment",                           // Progress tracking
+      description: "Track your progress with comprehensive quizzes" // Learning measurement focus
+    }
+  ];
+
+  // Platform statistics for credibility and motivation
+  // These numbers showcase the comprehensive nature of the educational content
+  const stats = [
+    { number: "7", label: "SDLC Phases", icon: "📋" },          // Complete lifecycle coverage
+    { number: "50+", label: "Interactive Activities", icon: "⚡" }, // Extensive hands-on content
+    { number: "20+", label: "Case Studies", icon: "📚" },        // Real-world examples
+    { number: "100%", label: "Hands-on Learning", icon: "🎯" }   // Practical learning approach
+  ];
       description: "Learn modern AI-augmented development workflows"
     },
     {
@@ -30,24 +85,37 @@ const IntroPage = () => {
     }
   ];
 
+  // Platform statistics for credibility and engagement
+  // These numbers highlight the comprehensive nature of the platform
   const stats = [
-    { number: "7", label: "SDLC Phases", icon: "📋" },
-    { number: "50+", label: "Interactive Activities", icon: "⚡" },
-    { number: "20+", label: "Case Studies", icon: "📚" },
-    { number: "100%", label: "Hands-on Learning", icon: "🎯" }
+    { number: "7", label: "SDLC Phases", icon: "📋" },           // Complete SDLC coverage
+    { number: "50+", label: "Interactive Activities", icon: "⚡" }, // Hands-on learning opportunities
+    { number: "20+", label: "Case Studies", icon: "📚" },         // Real-world scenarios
+    { number: "100%", label: "Hands-on Learning", icon: "🎯" }    // Learning methodology emphasis
   ];
 
+  /**
+   * Effect hook for automatic feature rotation
+   * 
+   * Creates an auto-rotating carousel of platform features to maintain user engagement.
+   * Features rotate every 3 seconds to showcase different aspects of the platform.
+   */
   useEffect(() => {
+    // Set up interval for automatic feature rotation
     const interval = setInterval(() => {
-      setCurrentFeature((prev) => (prev + 1) % features.length);
-    }, 3000);
+      setCurrentFeature((prev) => (prev + 1) % features.length); // Cycle through features array
+    }, 3000); // Rotate every 3 seconds for optimal viewing time
+    
+    // Cleanup interval on component unmount to prevent memory leaks
     return () => clearInterval(interval);
-  }, []);
+  }, []); // Empty dependency array - effect runs only on mount/unmount
 
+  // Animation configuration for smooth visual transitions
+  // These variants define how page elements appear and animate
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                     // Initial invisible state
     visible: {
-      opacity: 1,
+      opacity: 1,                                                // Final visible state
       transition: {
         staggerChildren: 0.2,
         delayChildren: 0.1

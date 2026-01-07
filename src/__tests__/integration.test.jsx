@@ -1,33 +1,69 @@
-import { describe, it, expect, vi, beforeEach, beforeAll, afterEach, afterAll } from 'vitest';
-import { screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { renderWithRouter } from '../test/testUtils';
+/**
+ * Integration Test Suite for Software Development Process Platform
+ * 
+ * Comprehensive integration testing that validates the interaction between
+ * multiple components, pages, and features across the educational platform.
+ * 
+ * Testing Scope:
+ * - Cross-component interactions and data flow
+ * - Navigation between different SDLC phases and AI-enhanced pages
+ * - Quiz functionality with user interactions
+ * - Menu navigation and routing behavior
+ * - Case study progression and state management
+ * - Responsive behavior and accessibility features
+ * 
+ * Testing Strategy:
+ * - End-to-end user workflows to ensure complete functionality
+ * - Component integration to verify proper data passing
+ * - User event simulation for realistic interaction testing
+ * - Error handling and edge case validation
+ * - Cross-browser compatibility through standard web APIs
+ * 
+ * Coverage Areas:
+ * 1. Traditional SDLC Pages: Complete workflow testing
+ * 2. AI-Augmented SDLC Pages: Enhanced feature validation
+ * 3. Interactive Components: Quiz, menu, and case study integration
+ * 4. Navigation Systems: Router and menu functionality
+ * 5. State Management: Data persistence across components
+ * 
+ * This test suite ensures the educational platform provides a seamless,
+ * reliable learning experience across all features and user interactions.
+ */
 
-// Import all page components for integration testing
-import IntroPage from '../pages/sdlc/IntroPage';
-import AnalysisPage from '../pages/sdlc/analysis';
-import DesignPage from '../pages/sdlc/design';
-import PlanningPage from '../pages/sdlc/planning';
-import ImplementationPage from '../pages/sdlc/implementation';
-import TestingPage from '../pages/sdlc/testing';
-import DeploymentPage from '../pages/sdlc/deployment';
-import MaintenancePage from '../pages/sdlc/maintenance';
-import ReviewPage from '../pages/sdlc/review';
+// Testing framework and utilities
+import { describe, it, expect, vi, beforeEach, beforeAll, afterEach, afterAll } from 'vitest'; // Core testing framework
+import { screen, fireEvent, waitFor, cleanup } from '@testing-library/react'; // DOM testing utilities
+import userEvent from '@testing-library/user-event';                          // Enhanced user interaction simulation
+import { renderWithRouter } from '../test/testUtils';                         // Custom router testing utility
 
-// AI SDLC Pages
-import AIAnalysisPage from '../pages/ai-sdlc/analysis';
-import AIDesignPage from '../pages/ai-sdlc/design';
-import AIPlanningPage from '../pages/ai-sdlc/planning';
-import AIImplementationPage from '../pages/ai-sdlc/implementation';
-import AITestingPage from '../pages/ai-sdlc/testing';
-import AIDeploymentPage from '../pages/ai-sdlc/deployment';
-import AIMaintenancePage from '../pages/ai-sdlc/maintenance';
-import AIReviewPage from '../pages/ai-sdlc/review';
+// Traditional SDLC Page Components for Integration Testing
+// These components represent the core educational content for classical software development
+import IntroPage from '../pages/sdlc/IntroPage';                   // Landing page and platform introduction
+import AnalysisPage from '../pages/sdlc/analysis';                 // Requirements analysis phase education
+import DesignPage from '../pages/sdlc/design';                     // System design phase content
+import PlanningPage from '../pages/sdlc/planning';                 // Project planning phase materials
+import ImplementationPage from '../pages/sdlc/implementation';     // Coding and development phase
+import TestingPage from '../pages/sdlc/testing';                   // Quality assurance and testing phase
+import DeploymentPage from '../pages/sdlc/deployment';             // Production deployment phase
+import MaintenancePage from '../pages/sdlc/maintenance';           // Post-deployment maintenance phase
+import ReviewPage from '../pages/sdlc/review';                     // Project review and retrospective
 
-// Components
-import Quiz from '../components/Quiz';
-import Menu from '../components/Menu';
-import CaseStudy from '../components/CaseStudy';
+// AI-Enhanced SDLC Page Components for Modern Development Testing
+// These components showcase how AI transforms traditional development processes
+import AIAnalysisPage from '../pages/ai-sdlc/analysis';            // AI-enhanced requirements analysis
+import AIDesignPage from '../pages/ai-sdlc/design';               // AI-powered design assistance
+import AIPlanningPage from '../pages/ai-sdlc/planning';           // AI-assisted project planning
+import AIImplementationPage from '../pages/ai-sdlc/implementation'; // AI-augmented coding and development
+import AITestingPage from '../pages/ai-sdlc/testing';             // AI-driven testing strategies
+import AIDeploymentPage from '../pages/ai-sdlc/deployment';       // AI-optimized deployment processes
+import AIMaintenancePage from '../pages/ai-sdlc/maintenance';     // AI-supported maintenance and monitoring
+import AIReviewPage from '../pages/ai-sdlc/review';               // AI-enhanced analytics and review
+
+// Interactive Learning Components for Integration Testing
+// These components provide hands-on learning experiences and assessments
+import Quiz from '../components/Quiz';                             // Interactive quiz component with feedback
+import Menu from '../components/Menu';                             // Navigation menu with routing
+import CaseStudy from '../components/CaseStudy';                   // Real-world case study scenarios
 import DragDropQuiz from '../components/DragDropQuiz';
 
 describe('Application Integration Tests', () => {

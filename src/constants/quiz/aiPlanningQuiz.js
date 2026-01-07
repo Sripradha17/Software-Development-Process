@@ -1,3 +1,41 @@
+/**
+ * AI-Enhanced Planning Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of AI-augmented project planning concepts and intelligent methodologies.
+ * This quiz reinforces learning from the AI-enhanced planning phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Predictive timeline estimation using historical data
+ * - AI-powered resource allocation and team optimization
+ * - Intelligent risk assessment and automated mitigation planning
+ * - Machine learning-based project success prediction
+ * - Smart milestone planning with dependency optimization
+ * - Automated budget forecasting and scenario analysis
+ * 
+ * Educational Design:
+ * - Multiple choice questions with AI planning scenarios
+ * - Correct answers explain AI planning benefits and applications
+ * - Wrong answer explanations clarify AI planning limitations
+ * - Real-world AI project management tool examples
+ * - Integration of traditional planning with AI enhancements
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of AI applications in project planning
+ * - Test knowledge of intelligent planning tools and techniques
+ * - Assess ability to leverage AI for better planning decisions
+ * - Evaluate understanding of data-driven planning approaches
+ * 
+ * This quiz builds on traditional planning knowledge to assess student
+ * readiness for modern, AI-augmented project management practices.
+ */
+
+/**
+ * AI-Enhanced Planning Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering AI applications in project planning,
+ * predictive analytics, and intelligent project management.
+ */
 export const aiPlanningQuiz = [
   {
     question: "What is the main advantage of AI-augmented planning in software development?",

@@ -1,8 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import chapters from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopmentStory";
-import styles from "../../styles/index.js";
+/**
+ * AI-Augmented Software Development Story Page
+ * 
+ * Interactive narrative experience that teaches AI-enhanced software development
+ * through an engaging story about developing a virtual wildlife sanctuary game.
+ * This story-based learning approach makes complex AI concepts accessible and memorable.
+ * 
+ * Story Features:
+ * - Character-driven narrative with Leo, Priya, and Omar as AI-savvy developers
+ * - Chapter-based progression through AI-enhanced SDLC phases
+ * - Auto-play functionality for guided story experience
+ * - Interactive navigation with visual progress indicators
+ * - Practical AI applications demonstrated through game development scenarios
+ * 
+ * Educational Objectives:
+ * - Make AI development concepts accessible through relatable gaming context
+ * - Show practical applications of AI tools in modern software development
+ * - Demonstrate effective collaboration between humans and AI systems
+ * - Provide engaging context for understanding AI's transformative role
+ * 
+ * Interactive Components:
+ * - Chapter navigation with smooth transitions and animations
+ * - Auto-play mode for continuous story flow
+ * - Visual indicators showing story progress and current chapter
+ * - Integration with broader AI-SDLC learning path
+ * 
+ * This narrative serves as an engaging introduction to AI-enhanced development
+ * concepts before students explore detailed technical content in phase-specific pages.
+ */
+
+// React imports for component functionality and state management
+import React, { useState, useEffect } from "react";              // React with hooks for interactive story navigation
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth chapter transitions
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation to other learning sections
+
+// Story content and styling imports
+import chapters from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopmentStory"; // AI development story chapters
+import styles from "../../styles/index.js";                   // Comprehensive styling system
 
 const AiAugmentedDevelopmentStory = () => {
   const [currentChapter, setCurrentChapter] = useState(0);

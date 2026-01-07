@@ -1,33 +1,63 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { renderWithRouter } from '../../../test/testUtils';
-import MaintenancePage from '../maintenance';
+/**
+ * Maintenance Phase Test Suite
+ * 
+ * Comprehensive testing framework for the traditional SDLC Maintenance phase
+ * educational page. Validates component functionality, user interactions,
+ * and educational content delivery for post-deployment maintenance learning.
+ * 
+ * Testing Coverage:
+ * - Component rendering and content accessibility
+ * - Interactive maintenance process exploration
+ * - User navigation through maintenance activities
+ * - Assessment and quiz functionality
+ * - Error handling and graceful degradation
+ * - Educational content accuracy and presentation
+ * 
+ * Maintenance Learning Objectives Tested:
+ * - Understanding of ongoing software support processes
+ * - Knowledge of bug fixing and update procedures
+ * - Comprehension of performance monitoring techniques
+ * - Awareness of security maintenance requirements
+ * - Skills in version control and release management
+ * 
+ * This test suite ensures the maintenance phase education provides
+ * students with practical knowledge for real-world software support
+ * and long-term system management responsibilities.
+ */
 
-// Mock the constants
+// Testing framework imports for comprehensive component validation
+import { describe, it, expect, vi, beforeEach } from 'vitest';         // Core testing framework with mocking capabilities
+import { screen, fireEvent, waitFor } from '@testing-library/react';  // DOM testing utilities and async interaction handling
+import userEvent from '@testing-library/user-event';                  // Advanced user interaction simulation
+import { renderWithRouter } from '../../../test/testUtils';            // Custom render function with routing context
+import MaintenancePage from '../maintenance';                         // Maintenance phase educational component
+
+// === MOCK CONFIGURATION FOR MAINTENANCE PHASE TESTING ===
+// Mock the maintenance constants to provide predictable test data
+// This ensures test reliability and isolates component behavior validation
 vi.mock('../../../constants/sdlc/maintenance', () => ({
-  maintenanceSteps: [
+  maintenanceSteps: [                                        // Mock maintenance process activities
     {
-      step: "1",
-      title: "Bug Fixes",
-      description: "Fix issues found in production",
-      details: "Address reported bugs and issues",
-      importance: "High",
-      output: "Updated Software"
+      step: "1",                                              // Sequential step identifier
+      title: "Bug Fixes",                                     // Maintenance activity name
+      description: "Fix issues found in production",          // Activity description
+      details: "Address reported bugs and issues",            // Detailed explanation
+      importance: "High",                                     // Priority classification
+      output: "Updated Software"                              // Expected deliverable
     }
   ],
-  maintenanceTypes: [
+  maintenanceTypes: [                                        // Mock maintenance methodologies
     {
-      type: "Corrective Maintenance",
-      description: "Fixing bugs and issues",
-      when: "As needed"
+      type: "Corrective Maintenance",                         // Maintenance approach name
+      description: "Fixing bugs and issues",                  // Methodology description
+      when: "As needed"                                       // Usage timing context
     }
   ],
-  drawbacks: [
+  drawbacks: [                                              // Mock common maintenance challenges
     {
-      title: "Technical Debt",
-      description: "Accumulated shortcuts affecting maintenance",
-      impact: "High",
+      title: "Technical Debt",                               // Issue identification
+      description: "Accumulated shortcuts affecting maintenance", // Problem description
+      impact: "High",                                        // Severity assessment
       mitigation: "Regular code cleanup"
     }
   ]

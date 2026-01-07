@@ -1,50 +1,113 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { analysisSteps, analysisTypes, drawbacks } from "../../constants/sdlc/analysis";
-import { analysisQuiz } from "../../constants/quiz/analysisQuiz";
-import Quiz from "../../components/Quiz";
-import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
-import styles from "../../styles/index.js";
+/**
+ * Traditional SDLC Analysis Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical requirements analysis
+ * methodologies in software development. This interactive page guides students
+ * through systematic approaches to understanding and documenting requirements.
+ * 
+ * Learning Content Covered:
+ * - Stakeholder identification and engagement strategies
+ * - Requirements gathering techniques and best practices
+ * - Current state analysis and documentation methods
+ * - Gap analysis frameworks and methodologies
+ * - Feasibility assessment across multiple dimensions
+ * - Requirements prioritization using established frameworks
+ * 
+ * Interactive Components:
+ * - Tabbed interface for different learning sections (intro, steps, quiz)
+ * - Animated step-by-step breakdown of analysis activities
+ * - Interactive quiz to test understanding of analysis concepts
+ * - Process visualization showing analysis workflow
+ * - Modal dialogs for detailed explanations of key concepts
+ * 
+ * Educational Flow:
+ * 1. Introduction section with analysis overview and importance
+ * 2. Detailed steps section with interactive exploration
+ * 3. Assessment section with quiz to validate learning
+ * 4. Process visualization to understand workflow integration
+ * 
+ * This foundation prepares students for AI-enhanced analysis approaches
+ * taught in the corresponding AI-SDLC section.
+ */
+
+// Component imports for page functionality
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phases
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC navigation configuration
+import React, { useState } from "react";                        // React with state management for interactivity
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions and modal effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation and linking
+
+// Data imports for educational content
+import { analysisSteps, analysisTypes, drawbacks } from "../../constants/sdlc/analysis"; // Analysis phase configuration and content
+import { analysisQuiz } from "../../constants/quiz/analysisQuiz"; // Quiz questions for assessment
+
+// Component imports for interactive features
+import Quiz from "../../components/Quiz";                      // Interactive assessment component
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization"; // Workflow visualization component
+import styles from "../../styles/index.js";                   // Styling configuration and theme
  
+/**
+ * Traditional Analysis Page Component
+ * 
+ * Main functional component that renders the traditional analysis educational experience.
+ * Orchestrates interactive learning through tabbed content, modals, and animations.
+ */
 const AnalysisPage = () => {
-  const [activeSection, setActiveSection] = useState("intro");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
-  const navigate = useNavigate();
+  // === STATE MANAGEMENT FOR EDUCATIONAL INTERFACE ===
+  // Controls different sections of the learning experience
+  const [activeSection, setActiveSection] = useState("intro");     // Current active tab: 'intro', 'steps', 'quiz'
+  
+  // Modal system for detailed explanations and in-depth content
+  const [modalOpen, setModalOpen] = useState(false);              // Controls modal visibility for detailed views
+  const [modalData, setModalData] = useState(null);               // Stores data to display in modal dialogs
+  
+  // Interactive elements for enhanced learning engagement
+  const [selectedDrawback, setSelectedDrawback] = useState(null);  // Currently selected analysis challenge or pitfall
+  
+  // Navigation system for educational flow management
+  const navigate = useNavigate();                                  // React Router navigation for phase transitions
 
+  // === ANIMATION CONFIGURATIONS FOR SMOOTH UX ===
+  // Framer Motion variants for professional page transitions
+  
+  // Container animation: Controls overall page reveal with staggered elements
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                       // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      opacity: 1,                                              // Final fully visible state
+      transition: { staggerChildren: 0.1 },                    // Children appear 0.1s apart for smooth flow
     },
   };
 
+  // Individual item animation: Controls how each educational element appears
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },                            // Start 20px below and transparent
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.3 },
+      y: 0,                                                    // Move to natural position
+      opacity: 1,                                              // Fade in to full opacity
+      transition: { duration: 0.3 },                          // Smooth 0.3s transition
     },
   };
 
+  // Floating animation: Creates engaging hover effects for interactive elements
   const floatAnimation = {
-    y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+    y: [0, -10, 0],                                             // Gentle up-down floating motion
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }, // Continuous smooth floating
   };
 
+  // === MAIN COMPONENT RENDER ===
+  // JSX structure with educational content and interactive learning elements
   return (
-    <div style={styles.pageContainer}>
+    <div style={styles.pageContainer}>                         {/* Main page container with full styling */}
+      {/* === NAVIGATION MENU SECTION === */}
+      {/* Fixed-position menu for easy navigation between SDLC phases */}
       <div style={{ position: "absolute", top: 20, right: 30, zIndex: 100 }}>
-        <Menu items={sdlcMenuItems} title="Menu" />
+        <Menu items={sdlcMenuItems} title="Menu" />              {/* Traditional SDLC navigation menu */}
       </div>
+      {/* === BACK TO HOME NAVIGATION === */}
+      {/* Quick access link to return to main platform homepage */}
       <Link to="/" style={styles.backLink}>
-        ← Back to Home
+        ← Back to Home                                           {/* Simple text link with arrow indicator */}
       </Link>
        
 

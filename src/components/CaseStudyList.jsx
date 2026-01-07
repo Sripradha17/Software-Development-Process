@@ -1,53 +1,92 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import Menu from './Menu';
-import sdlcMenuItems from '../constants/sdlc/menuItems';
-import aiMenuItems from '../constants/ai-sdlc/aiMenuItems';
-import { sdlcCaseStudies } from '../constants/caseStudy/sdlcCaseStudies';
-import { aiSdlcCaseStudies } from '../constants/caseStudy/aiSdlcCaseStudies';
-import styles from '../styles/index';
+/**
+ * Case Study List Component
+ * 
+ * Displays a curated collection of real-world software development case studies
+ * organized by SDLC type (traditional vs AI-augmented). Features include:
+ * - Grid layout of case study cards with previews
+ * - Difficulty level indicators and time estimates
+ * - Technology stack tags and project type categorization
+ * - Smooth animations for enhanced user experience
+ * - Type-based filtering between traditional and AI-enhanced case studies
+ * 
+ * Case studies provide practical learning experiences by presenting actual
+ * industry scenarios with challenges, decisions, and outcomes that students
+ * can learn from and apply to their own projects.
+ */
 
+// React core imports for component functionality
+import React from 'react';                        // Core React library
+
+// Animation library for smooth visual transitions
+import { motion } from 'framer-motion';           // Animation components for enhanced UX
+
+// React Router imports for navigation and URL parameters
+import { Link, useParams, useNavigate } from 'react-router-dom'; // Navigation and parameter handling
+
+// UI component and configuration imports
+import Menu from './Menu';                               // Navigation menu component
+import sdlcMenuItems from '../constants/sdlc/menuItems'; // Traditional SDLC navigation items
+import aiMenuItems from '../constants/ai-sdlc/aiMenuItems'; // AI-augmented navigation items
+
+// Case study data imports
+import { sdlcCaseStudies } from '../constants/caseStudy/sdlcCaseStudies';       // Traditional case study collection
+import { aiSdlcCaseStudies } from '../constants/caseStudy/aiSdlcCaseStudies';   // AI-enhanced case study collection
+
+// Styling configuration
+import styles from '../styles/index';                   // Centralized styling system
+
+/**
+ * CaseStudyList Component
+ * 
+ * Renders a filtered collection of case studies based on the selected type.
+ * Provides navigation to individual case study experiences.
+ */
 const CaseStudyList = () => {
-  const { type } = useParams(); // 'sdlc' or 'ai-sdlc'
-  const navigate = useNavigate();
+  // Extract case study type from URL parameters
+  const { type } = useParams();           // Get 'sdlc' or 'ai-sdlc' from URL
+  const navigate = useNavigate();         // Navigation hook for programmatic routing
   
-  // Select case study data based on type
-  const caseStudies = type === 'ai-sdlc' ? aiSdlcCaseStudies : sdlcCaseStudies;
-  const menuItems = type === 'ai-sdlc' ? aiMenuItems : sdlcMenuItems;
-  const title = type === 'ai-sdlc' ? 'AI-Enhanced SDLC Case Studies' : 'SDLC Case Studies';
+  // Select appropriate data sources based on case study type
+  const caseStudies = type === 'ai-sdlc' ? aiSdlcCaseStudies : sdlcCaseStudies; // Case study data array
+  const menuItems = type === 'ai-sdlc' ? aiMenuItems : sdlcMenuItems;           // Navigation menu items
+  const title = type === 'ai-sdlc' ? 'AI-Enhanced SDLC Case Studies' : 'SDLC Case Studies'; // Page title
 
-  // Animation variants
+  // Animation configuration for smooth visual transitions
+  // These variants define how case study cards appear and animate
+  
+  // Main container animation with staggered children for sequential appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                          // Initial invisible state
     visible: {
-      opacity: 1,
+      opacity: 1,                                     // Final visible state
       transition: {
-        duration: 0.3,
-        staggerChildren: 0.15
+        duration: 0.3,                                // Total animation duration
+        staggerChildren: 0.15                        // Delay between child card animations
       }
     }
   };
 
+  // Individual case study card animation with slide-up effect
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 20 },                   // Start invisible and below final position
     visible: {
-      opacity: 1,
-      y: 0,
+      opacity: 1,                                     // End visible
+      y: 0,                                           // End at normal position
       transition: { 
-        duration: 0.5,
-        ease: "easeOut"
+        duration: 0.5,                                // Animation duration
+        ease: "easeOut"                               // Smooth easing curve
       }
     }
   };
 
+  // Card hover and interaction animation with scale effect
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.95 },             // Start slightly smaller and invisible
     visible: {
-      opacity: 1,
-      scale: 1,
+      opacity: 1,                                     // End visible
+      scale: 1,                                       // End at normal size
       transition: { 
-        duration: 0.4,
+        duration: 0.4,                                // Animation duration
         ease: "easeOut"
       }
     }

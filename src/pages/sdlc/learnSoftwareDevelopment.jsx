@@ -1,53 +1,96 @@
+/**
+ * Traditional Software Development Learning Hub
+ * 
+ * Central learning hub for traditional Software Development Life Cycle (SDLC) education.
+ * This page provides comprehensive access to all traditional SDLC phases and
+ * related learning materials.
+ * 
+ * Key Features:
+ * - Interactive stage overview with detailed phase descriptions
+ * - Visual stage progression showing the traditional SDLC workflow
+ * - Navigation to individual phase pages with comprehensive content
+ * - Animated stage cards with hover effects and engagement features
+ * - Educational content emphasizing fundamental software development principles
+ * - Integration with quizzes, simulations, and case studies
+ * 
+ * The page serves as the foundation for students learning classical
+ * software development methodologies before progressing to advanced
+ * or AI-augmented approaches.
+ */
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate, Link } from "react-router-dom";
-import styles from "../../styles/index.js";
-import developmentStages from "../../constants/sdlc/learnSoftwareDevelopment";
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
+// React core imports for component functionality
+import React, { useState, useEffect } from "react";        // Core React hooks for state and lifecycle management
 
+// Animation library for smooth visual transitions
+import { motion, AnimatePresence } from "framer-motion";   // Advanced animation components for enhanced UX
+
+// React Router imports for navigation and routing
+import { useNavigate, Link } from "react-router-dom";      // Navigation components and programmatic routing
+
+// Styling and configuration imports
+import styles from "../../styles/index.js";               // Centralized styling system
+import developmentStages from "../../constants/sdlc/learnSoftwareDevelopment"; // Traditional SDLC stage definitions
+
+// UI component imports
+import Menu from "../../components/Menu";                  // Navigation menu component
+import sdlcMenuItems from "../../constants/sdlc/menuItems"; // Traditional SDLC navigation items
+
+/**
+ * LearnSoftwareDevelopment Component
+ * 
+ * Main hub page for traditional SDLC learning experiences.
+ * Provides overview and navigation to classic development phases.
+ */
 const LearnSoftwareDevelopment = () => {
-  const [selectedStage, setSelectedStage] = useState(null);
-  const navigate = useNavigate();
+  // State management for interactive stage selection and presentation
+  const [selectedStage, setSelectedStage] = useState(null); // Currently selected/highlighted stage
+  const navigate = useNavigate();                           // Navigation hook for programmatic routing
 
+  // Animation configuration for engaging visual presentation
+  // These variants create professional, smooth transitions that enhance the educational experience
+  
+  // Main container animation with staggered children for organized content appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                  // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { duration: 0.8, staggerChildren: 0.2 },
+      opacity: 1,                                             // Final visible state
+      transition: { duration: 0.8, staggerChildren: 0.2 },   // Smooth entrance with staggered children animation
     },
   };
 
+  // Page title animation with slide-down effect for strong visual impact
   const titleVariants = {
-    hidden: { y: -50, opacity: 0 },
+    hidden: { y: -50, opacity: 0 },                          // Start above viewport, invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      y: 0,                                                   // End at normal position
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.8, ease: "easeOut" },        // Smooth easing for professional presentation
     },
   };
 
+  // Description text animation with slide-up effect for content revelation
   const descriptionVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },                           // Start below viewport, invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, delay: 0.3 },
+      y: 0,                                                   // End at normal position
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.6, delay: 0.3 },             // Delayed entrance for sequential presentation
     },
   };
 
+  // Stage card animation with scale effect for interactive engagement
   const stageVariants = {
-    hidden: { scale: 0, opacity: 0 },
+    hidden: { scale: 0, opacity: 0 },                        // Start small and invisible
     visible: {
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      scale: 1,                                               // End at normal size
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.5, ease: "easeOut" },        // Smooth scale animation for engagement
     },
   };
 
+  // Button animation with slide-up effect for action emphasis
   const buttonVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },                           // Start below viewport, invisible
     visible: {
       y: 0,
       opacity: 1,

@@ -1,53 +1,97 @@
+/**
+ * Application-Specific Styles
+ * 
+ * Component-specific CSS styles that complement the main design system.
+ * This file contains styles for specific UI elements and interactive components
+ * that require custom styling beyond the centralized design system.
+ * 
+ * Key Style Categories:
+ * - Root application container with responsive behavior
+ * - Logo animations and hover effects for branding
+ * - Card components with elevation and visual hierarchy
+ * - Drag-and-drop interface styles for interactive learning
+ * - Accessibility considerations and reduced motion support
+ * 
+ * Design Philosophy:
+ * - Follows CSS custom properties (variables) for maintainable theming
+ * - Responsive design with mobile-first approach
+ * - Accessibility-first with motion preferences respected
+ * - Performance optimized with will-change and transform properties
+ */
+
+/* Root Application Container */
+/* Establishes the main application viewport and overflow behavior */
 #root {
-  width: 100%;
-  max-width: 100vw;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-  overflow-x: hidden;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  width: 100%;                    /* Full viewport width */
+  max-width: 100vw;               /* Prevent horizontal overflow */
+  margin: 0 auto;                 /* Center content horizontally */
+  padding: 0;                     /* Remove default padding */
+  text-align: center;             /* Default center alignment for content */
+  overflow-x: hidden;             /* Prevent horizontal scrolling issues */
+  background: var(--bg-primary);  /* Use design system background color */
+  color: var(--text-primary);     /* Use design system text color */
 }
+
+/* Logo Styling and Animation */
+/* Interactive logo with hover effects and accessibility considerations */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 6em;                    /* Consistent logo size */
+  padding: 1.5em;                 /* Comfortable spacing around logo */
+  will-change: filter;            /* Optimize for filter animations */
+  transition: filter 300ms;       /* Smooth hover transition */
 }
+
+/* Logo hover effect with accent color glow */
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--accent-primary));
+  filter: drop-shadow(0 0 2em var(--accent-primary)); /* Primary accent glow effect */
 }
+
+/* React logo specific hover effect */
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em var(--accent-secondary));
+  filter: drop-shadow(0 0 2em var(--accent-secondary)); /* Secondary accent for React branding */
 }
+
+/* Logo Rotation Animation */
+/* Keyframe animation for rotating logo effect */
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg);      /* Start at 0 degrees */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg);    /* Complete 360-degree rotation */
   }
 }
+
+/* Accessibility-conscious animation */
+/* Only animate if user hasn't requested reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 20s linear; /* Slow, continuous rotation */
   }
 }
+
+/* Card Component Styling */
+/* Elevated card design following design system principles */
 .card {
-  padding: 2em;
-  background: var(--bg-card);
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px var(--shadow-dark);
+  padding: 2em;                   /* Generous internal spacing */
+  background: var(--bg-card);     /* Card background from design system */
+  border-radius: 12px;            /* Modern rounded corners */
+  border: 1px solid var(--border-color); /* Subtle border definition */
+  box-shadow: 0 4px 12px var(--shadow-dark); /* Depth and elevation */
 }
+
+/* Documentation Link Styling */
+/* Muted text for secondary information */
 .read-the-docs {
-  color: var(--text-muted);
+  color: var(--text-muted);       /* Subdued text color for less important content */
 }
+
 /* Drag and Drop Activity Styles */
+/* Comprehensive styling for interactive drag-and-drop learning components */
 .drag-drop-activity {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif;                   /* System font stack for optimal readability */
 }
 
 .drag-item {

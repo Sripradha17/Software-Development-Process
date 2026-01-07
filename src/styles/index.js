@@ -1,53 +1,90 @@
 
 
 /**
-* ============================================
-* CONSOLIDATED STYLES FOR SOFTWARE DEVELOPMENT PROCESS APP
-* ============================================
-*
-* This file contains all styling for the application pages including:
-* - IntroPage (Homepage)
-* - Learn Software Development Page
-* - Story Page
-* - Planning Page
-* - Analysis Page
-* - Design Page
-* - All Global Styles (previously in index.css and App.css)
-*
-* DESIGN SYSTEM:
-* ============================================
-* STANDARDIZED DARK THEME COLOR PALETTE:
-* - Primary backgrounds: #0f1419, #1a202c, #2d3748
-* - Card/component backgrounds: #374151, #4a5568
-* - Primary text: #e2e8f0
-* - Secondary text: #a0aec0, #718096
-* - Accent colors: #38b2ac (teal), #319795 (darker teal)
-* - Border colors: #4a5568
-* - Shadow: rgba(0, 0, 0, 0.2-0.3)
-*
-* STANDARDIZED BUTTON DESIGN:
-* - Padding: 0.75rem 1.5rem
-* - Font size: 1rem
-* - Font weight: 600
-* - Border radius: 8px
-* - Transition: all 0.3s ease
-* - Box shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
-* - Primary buttons: #38b2ac background
-* - Secondary buttons: #374151 background
-*
-* STANDARDIZED CARD DESIGN:
-* - Background: #374151
-* - Border: 1px solid #4a5568
-* - Border radius: 12px
-* - Padding: 1.5rem
-* - Box shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
-* - Hover: translateY(-2px) + enhanced shadow
-*
-* RESPONSIVE DESIGN APPROACH:
-* - Uses CSS clamp() for fluid, responsive typography and spacing
-* - Flexbox and Grid layouts with auto-fit/auto-fill for responsive containers
-* - Viewport units (vw, vh) and percentages for flexible sizing
-* - Global font-size adjustments for different breakpoints
+ * ============================================
+ * COMPREHENSIVE STYLES FOR SOFTWARE DEVELOPMENT PROCESS APP
+ * ============================================
+ *
+ * Central styling system for the educational software development platform.
+ * This file consolidates all visual design elements to ensure consistency
+ * across the entire application while maintaining a professional, modern aesthetic.
+ *
+ * INCLUDED COMPONENTS AND PAGES:
+ * - Homepage/IntroPage with feature showcase and statistics
+ * - Learning hub pages (traditional and AI-augmented SDLC)
+ * - Individual phase pages (planning, analysis, design, etc.)
+ * - Interactive components (quizzes, simulations, case studies)
+ * - Navigation and menu systems
+ * - Global application styles and typography
+ *
+ * DESIGN PHILOSOPHY:
+ * ============================================
+ * The design system emphasizes:
+ * 1. Educational Clarity: Clear visual hierarchy for learning content
+ * 2. Professional Aesthetics: Modern, industry-standard design patterns
+ * 3. Interactive Engagement: Visual feedback for user interactions
+ * 4. Accessibility: Color contrast and readable typography
+ * 5. Responsive Design: Seamless experience across all device sizes
+ *
+ * STANDARDIZED DARK THEME COLOR PALETTE:
+ * ============================================
+ * Primary Backgrounds:
+ * - Deep backgrounds: #0f1419 (primary), #1a202c (secondary), #2d3748 (elevated)
+ * - Content backgrounds: #374151 (cards), #4a5568 (interactive elements)
+ * 
+ * Text Colors:
+ * - Primary text: #e2e8f0 (high contrast for readability)
+ * - Secondary text: #a0aec0 (medium contrast), #718096 (low contrast)
+ * - Accent text: #38b2ac (teal brand), #319795 (darker teal)
+ * 
+ * Interactive Elements:
+ * - Border colors: #4a5568 (subtle separation)
+ * - Shadow colors: rgba(0, 0, 0, 0.2-0.3) (depth and elevation)
+ * - Hover states: Enhanced shadows and subtle transforms
+ *
+ * STANDARDIZED COMPONENT PATTERNS:
+ * ============================================
+ * 
+ * Button Design Standards:
+ * - Consistent padding: 0.75rem 1.5rem (comfortable touch targets)
+ * - Typography: 1rem font size, 600 weight (clear, readable)
+ * - Border radius: 8px (modern, friendly appearance)
+ * - Transitions: all 0.3s ease (smooth, professional animations)
+ * - Elevation: 0 2px 4px rgba(0, 0, 0, 0.2) (subtle depth)
+ * - Primary: #38b2ac background (brand color)
+ * - Secondary: #374151 background (neutral option)
+ * 
+ * Card Design Standards:
+ * - Background: #374151 (elevated surface)
+ * - Border: 1px solid #4a5568 (subtle definition)
+ * - Border radius: 12px (modern, rounded corners)
+ * - Padding: 1.5rem (comfortable content spacing)
+ * - Elevation: 0 4px 12px rgba(0, 0, 0, 0.2) (card-like depth)
+ * - Hover effects: translateY(-2px) + enhanced shadow (interactive feedback)
+ *
+ * RESPONSIVE DESIGN SYSTEM:
+ * ============================================
+ * 
+ * Fluid Typography:
+ * - Uses CSS clamp() for scalable text sizes across breakpoints
+ * - Maintains optimal reading experience on all devices
+ * - Preserves visual hierarchy across screen sizes
+ * 
+ * Flexible Layouts:
+ * - Flexbox for one-dimensional layouts (navigation, button groups)
+ * - CSS Grid for two-dimensional layouts (card grids, complex sections)
+ * - Auto-fit/auto-fill for responsive container adaptation
+ * 
+ * Adaptive Sizing:
+ * - Viewport units (vw, vh) for full-screen elements
+ * - Percentage-based widths for flexible container sizing
+ * - rem units for consistent, scalable spacing
+ * 
+ * Breakpoint Strategy:
+ * - Mobile-first approach with progressive enhancement
+ * - Global font-size adjustments for different screen categories
+ * - Container max-widths to prevent over-extension on large screens
+ */
 *
 * SCREEN SIZE BREAKPOINTS:
 * - Small (Mobile): < 480px

@@ -1,3 +1,40 @@
+/**
+ * Learn Software Development Hub Configuration
+ * 
+ * Educational content configuration for the main SDLC learning hub that provides
+ * an overview of all software development phases. This serves as the entry point
+ * for students beginning their journey through traditional SDLC methodology.
+ * 
+ * Content Structure:
+ * - Development stage definitions with clear descriptions
+ * - Progressive learning path from planning to maintenance
+ * - Phase relationships and dependencies explanation
+ * - Introduction to SDLC concepts and terminology
+ * - Navigation guidance for the learning experience
+ * 
+ * Educational Purpose:
+ * - Provides comprehensive overview before detailed phase exploration
+ * - Establishes foundational understanding of SDLC methodology
+ * - Shows logical flow and relationships between phases
+ * - Prepares students for in-depth phase-specific learning
+ * - Serves as reference point throughout the learning journey
+ * 
+ * Learning Objectives:
+ * - Understand the purpose and scope of each SDLC phase
+ * - Recognize the sequential and iterative nature of development
+ * - Appreciate the importance of systematic development approaches
+ * - Build vocabulary and conceptual foundation for advanced topics
+ * 
+ * This configuration creates the foundation for students to understand
+ * traditional software development before exploring AI-augmented approaches.
+ */
+
+/**
+ * SDLC Development Stages Overview
+ * 
+ * Comprehensive descriptions of each software development phase
+ * used in the main learning hub interface.
+ */
 const developmentStages = [
   {
     id: "planning",

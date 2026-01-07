@@ -1,3 +1,42 @@
+/**
+ * Traditional SDLC Maintenance Phase Configuration
+ * 
+ * Educational content for teaching classical software maintenance methodologies
+ * and post-deployment support practices. This provides foundational knowledge
+ * about systematic approaches to keeping software systems running and evolving.
+ * 
+ * Core Maintenance Activities:
+ * - Bug tracking and resolution processes
+ * - Performance monitoring and optimization
+ * - User support and help desk operations
+ * - System updates and security patching
+ * - Documentation updates and knowledge management
+ * - Change request evaluation and implementation
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental maintenance skills and long-term thinking
+ * - Emphasizes proactive system care and user support
+ * - Teaches systematic approach to software evolution
+ * - Provides foundation for understanding modern maintenance practices
+ * 
+ * Maintenance Types Covered:
+ * - Corrective maintenance (bug fixes and error correction)
+ * - Adaptive maintenance (environmental changes and updates)
+ * - Perfective maintenance (performance and feature improvements)
+ * - Preventive maintenance (proactive system care)
+ * 
+ * Learning Outcomes:
+ * Students will understand traditional maintenance methodologies that form
+ * the foundation for modern DevOps and site reliability practices, serving
+ * as the basis for AI-augmented maintenance approaches in the AI-SDLC section.
+ */
+
+/**
+ * Traditional Maintenance Process Steps
+ * 
+ * Sequential activities that form the foundation of software maintenance
+ * in classical development methodologies.
+ */
 const maintenanceSteps = [
 	{
 		id: 1,

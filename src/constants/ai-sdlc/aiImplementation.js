@@ -1,40 +1,78 @@
+/**
+ * AI-Enhanced Implementation Phase Configuration
+ * 
+ * Educational content showcasing how artificial intelligence transforms
+ * the coding and implementation phase through automated code generation,
+ * intelligent optimization, and real-time quality assistance.
+ * 
+ * AI Implementation Features:
+ * - Intelligent code generation from specifications and patterns
+ * - Real-time code optimization and refactoring suggestions
+ * - Automated testing with AI-generated test cases
+ * - Smart debugging with predictive error detection
+ * - AI-powered code review with security and performance analysis
+ * - Intelligent dependency management and library suggestions
+ * 
+ * Educational Approach:
+ * - Demonstrates practical AI coding assistants and tools
+ * - Shows how AI augments developer productivity without replacing creativity
+ * - Teaches responsible AI usage in software development
+ * - Illustrates the evolution from manual coding to AI-assisted development
+ * 
+ * Key Learning Points:
+ * - AI as a coding companion, not a replacement for developers
+ * - Understanding AI suggestions and maintaining code quality
+ * - Balancing automation with manual oversight and testing
+ * - Leveraging AI for complex problem-solving and optimization
+ * 
+ * This phase shows students the future of software development where
+ * AI and human developers collaborate to create better software faster.
+ */
+
+/**
+ * AI-Enhanced Implementation Process Steps
+ * 
+ * Sequential activities that demonstrate how artificial intelligence
+ * can accelerate and improve the software implementation process.
+ */
+// AI-enhanced implementation process steps with intelligent automation
 const aiImplementationSteps = [
   {
     id: 1,
-    title: "AI Environment Setup",
-    icon: "🤖⚙",
+    title: "AI Environment Setup",                          // Automated development environment configuration
+    icon: "🤖⚙",                                        // AI and settings icons combined
     description:
-      "AI configures dev environments, installs dependencies, and sets up version control automatically.",
-    color: "#FF6B6B",
+      "AI configures dev environments, installs dependencies, and sets up version control automatically.", // Intelligent development infrastructure setup
+    color: "#FF6B6B",                                      // Red color emphasizes foundational importance
   },
   {
     id: 2,
-    title: "AI-Assisted Coding",
-    icon: "🤖💻",
+    title: "AI-Assisted Coding",                           // Intelligent code generation and completion
+    icon: "🤖💻",                                        // AI and computer icons for coding assistance
     description:
-      "AI suggests code completions, refactors, and enforces best practices in real time.",
-    color: "#4ECDC4",
+      "AI generates boilerplate, suggests code completions, and helps write complex algorithms.", // Smart code assistance and generation
+    color: "#4ECDC4",                                      // Teal color for active development work
   },
   {
     id: 3,
-    title: "Automated Unit Testing",
-    icon: "🤖🧪",
+    title: "Automated Unit Testing",                       // AI-driven test generation and execution
+    icon: "🤖🧪",                                        // AI and testing flask icons
     description:
-      "AI generates and runs unit tests, highlighting edge cases and coverage gaps.",
-    color: "#45B7D1",
+      "AI generates and runs unit tests, highlighting edge cases and coverage gaps.", // Intelligent test creation and analysis
+    color: "#45B7D1",                                      // Blue color for testing and validation
   },
   {
     id: 4,
-    title: "AI Code Review",
-    icon: "🤖👀",
+    title: "AI Code Review",                               // Automated quality assurance and feedback
+    icon: "🤖👀",                                        // AI and eye icons for intelligent review
     description:
-      "AI reviews code for quality, security, and standards, providing actionable feedback.",
-    color: "#96CEB4",
+      "AI reviews code for quality, security, and standards, providing actionable feedback.", // Smart code analysis and recommendations
+    color: "#96CEB4",                                      // Green color for quality and approval
   },
   {
     id: 5,
-    title: "Smart Integration",
-    icon: "🤖🔗",
+    title: "Smart Integration",                            // AI-powered component and service integration
+    icon: "🤖🔗",                                        // AI and link icons for connection management
     description:
       "AI manages integration of components and APIs, resolving conflicts automatically.",
     color: "#FFEAA7",

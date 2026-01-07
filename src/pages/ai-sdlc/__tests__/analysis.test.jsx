@@ -1,3 +1,21 @@
+/**
+ * AI-Enhanced Analysis Phase Test Suite
+ * 
+ * Comprehensive testing for the AI-augmented analysis phase educational page.
+ * Validates that AI-enhanced requirements analysis concepts are properly
+ * presented and interactive elements function correctly.
+ * 
+ * Test Coverage:
+ * - Component rendering with AI analysis content
+ * - Interactive tabbed navigation functionality
+ * - Quiz component integration and assessment
+ * - Educational content presentation and accessibility
+ * - AI-specific workflow demonstrations
+ * 
+ * This test suite ensures students receive a reliable learning experience
+ * about AI-enhanced analysis methodologies and modern development practices.
+ */
+
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

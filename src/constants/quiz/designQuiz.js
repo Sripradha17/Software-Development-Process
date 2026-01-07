@@ -1,3 +1,41 @@
+/**
+ * Traditional SDLC Design Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical system design concepts and architectural principles.
+ * This quiz reinforces learning from the design phase content.
+ * 
+ * Quiz Focus Areas:
+ * - System architecture design and documentation
+ * - Database design principles and normalization
+ * - User interface and user experience design
+ * - API design and integration planning
+ * - Security architecture and access control
+ * - Performance and scalability considerations
+ * 
+ * Educational Design:
+ * - Multiple choice questions covering design fundamentals
+ * - Correct answers reinforce architectural best practices
+ * - Wrong answer explanations clarify design misconceptions
+ * - Scenarios requiring design decision-making
+ * - Integration of technical and user-centered design
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of design phase fundamentals
+ * - Test knowledge of architectural patterns and principles
+ * - Assess ability to make informed design decisions
+ * - Prepare students for implementation and testing phases
+ * 
+ * This quiz ensures students have mastered traditional design methodologies
+ * before progressing to implementation or AI-enhanced design approaches.
+ */
+
+/**
+ * Design Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional system design concepts,
+ * architectural principles, and design best practices.
+ */
 export const designQuiz = [
   {
     question: "What is the primary focus of the Design phase in SDLC?",

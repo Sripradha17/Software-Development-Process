@@ -1,3 +1,37 @@
+/**
+ * Traditional SDLC Review Phase Configuration
+ * 
+ * Educational content for teaching classical project review and retrospective
+ * methodologies in software development. This configuration provides systematic
+ * approaches to evaluating project outcomes and continuous improvement.
+ * 
+ * Review Phase Components:
+ * - Performance analysis with metrics and KPI evaluation
+ * - Stakeholder feedback collection and analysis
+ * - Team retrospectives for process improvement
+ * - Documentation review and knowledge capture
+ * - Lessons learned compilation and sharing
+ * - Process optimization recommendations
+ * 
+ * Educational Objectives:
+ * - Teach systematic approach to project evaluation
+ * - Emphasize importance of continuous improvement
+ * - Show value of stakeholder feedback in development process
+ * - Build skills in retrospective facilitation and analysis
+ * - Prepare foundation for modern agile retrospective practices
+ * 
+ * Learning Outcomes:
+ * Students understand how systematic review and reflection improve
+ * future project outcomes and team performance, forming the basis
+ * for modern continuous improvement practices.
+ */
+
+/**
+ * Traditional Review Process Steps
+ * 
+ * Sequential activities for conducting comprehensive project reviews
+ * and capturing lessons learned for future improvement.
+ */
 const reviewSteps = [
 	{
 		id: 1,

@@ -1,43 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import Menu from './Menu';
-import sdlcMenuItems from '../constants/sdlc/menuItems';
-import aiMenuItems from '../constants/ai-sdlc/aiMenuItems';
-import { sdlcCaseStudies, caseStudyConfig } from '../constants/caseStudy/sdlcCaseStudies';
-import { aiSdlcCaseStudies, aiCaseStudyConfig } from '../constants/caseStudy/aiSdlcCaseStudies';
-import styles from '../styles/index';
+/**
+ * Interactive Case Study Component
+ * 
+ * Provides immersive, real-world software development case studies with:
+ * - Multi-stage interactive scenarios based on actual industry projects
+ * - Progressive revelation of challenges and solutions
+ * - Multiple-choice questions testing understanding at each stage
+ * - Comprehensive scoring and performance tracking
+ * - Detailed explanations and learning outcomes
+ * - Support for both traditional and AI-augmented development approaches
+ * 
+ * Case studies help bridge the gap between theoretical knowledge and
+ * practical application in real software development environments.
+ */
 
+// React core imports for component functionality
+import React, { useState, useEffect } from 'react';         // Core React hooks for state and lifecycle management
+
+// Animation library for smooth transitions and visual feedback
+import { motion, AnimatePresence } from 'framer-motion';    // Advanced animation components for enhanced UX
+
+// React Router imports for navigation and parameter handling
+import { Link, useParams, useNavigate } from 'react-router-dom'; // Navigation components and URL parameter access
+
+// UI component imports
+import Menu from './Menu';                                           // Navigation menu component
+import sdlcMenuItems from '../constants/sdlc/menuItems';            // Traditional SDLC navigation items
+import aiMenuItems from '../constants/ai-sdlc/aiMenuItems';         // AI-augmented SDLC navigation items
+
+// Case study data imports
+import { sdlcCaseStudies, caseStudyConfig } from '../constants/caseStudy/sdlcCaseStudies';       // Traditional SDLC case studies
+import { aiSdlcCaseStudies, aiCaseStudyConfig } from '../constants/caseStudy/aiSdlcCaseStudies'; // AI-augmented case studies
+
+// Styling configuration
+import styles from '../styles/index';                               // Centralized styling system
+
+/**
+ * CaseStudy Component
+ * 
+ * Main component for interactive case study experiences.
+ * Manages progression through case study stages, tracks user responses,
+ * and provides comprehensive feedback and scoring.
+ */
 const CaseStudy = () => {
-  const { type, caseId } = useParams(); // 'sdlc' or 'ai-sdlc', and case study ID
-  const navigate = useNavigate();
+  // Extract case study type and ID from URL parameters
+  const { type, caseId } = useParams();     // 'sdlc' or 'ai-sdlc' type, and specific case study ID
+  const navigate = useNavigate();           // Navigation hook for programmatic routing
   
-  // Select case study data based on type
-  const caseStudies = type === 'ai-sdlc' ? aiSdlcCaseStudies : sdlcCaseStudies;
-  const config = type === 'ai-sdlc' ? aiCaseStudyConfig : caseStudyConfig;
-  const menuItems = type === 'ai-sdlc' ? aiMenuItems : sdlcMenuItems;
+  // Select appropriate data sources based on case study type
+  const caseStudies = type === 'ai-sdlc' ? aiSdlcCaseStudies : sdlcCaseStudies;    // Case study data array
+  const config = type === 'ai-sdlc' ? aiCaseStudyConfig : caseStudyConfig;         // Configuration settings
+  const menuItems = type === 'ai-sdlc' ? aiMenuItems : sdlcMenuItems;              // Navigation menu items
   
-  // Find the specific case study
-  const caseStudy = caseStudies.find(cs => cs.id === caseId);
+  // Find the specific case study by ID
+  const caseStudy = caseStudies.find(cs => cs.id === caseId);                      // Current case study object
   
-  // Component state
-  const [currentStageIndex, setCurrentStageIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [showExplanation, setShowExplanation] = useState(false);
-  const [userAnswers, setUserAnswers] = useState({});
-  const [showResults, setShowResults] = useState(false);
-  const [score, setScore] = useState(0);
-  const [caseStudyCompleted, setCaseStudyCompleted] = useState(false);
+  // Component state management for interactive case study experience
+  const [currentStageIndex, setCurrentStageIndex] = useState(0);       // Current stage in the case study progression
+  const [selectedAnswer, setSelectedAnswer] = useState(null);          // Currently selected answer option
+  const [showExplanation, setShowExplanation] = useState(false);       // Flag to show/hide answer explanation
+  const [userAnswers, setUserAnswers] = useState({});                  // Record of all user answers by stage
+  const [showResults, setShowResults] = useState(false);               // Flag to display final results summary
+  const [score, setScore] = useState(0);                               // Calculated score based on correct answers
+  const [caseStudyCompleted, setCaseStudyCompleted] = useState(false); // Completion status flag
 
-  // Animation variants
+  // Animation configuration for smooth transitions and visual feedback
+  // These variants define how elements appear, animate, and transition
+  
+  // Main container animation with staggered children for sequential appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                          // Initial invisible state
     visible: {
-      opacity: 1,
+      opacity: 1,                                     // Final visible state
       transition: {
-        duration: 0.3,
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        duration: 0.3,                                // Total animation duration
+        staggerChildren: 0.2,                        // Delay between child animations
+        delayChildren: 0.1                           // Initial delay before starting child animations
       }
     }
   };

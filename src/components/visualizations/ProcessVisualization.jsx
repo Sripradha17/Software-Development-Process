@@ -1,53 +1,106 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+/**
+ * Process Visualization Component
+ * 
+ * Interactive visualization component that displays SDLC phase processes
+ * with animated step-by-step breakdowns. Features include:
+ * - Dynamic visualization data for different SDLC phases
+ * - Support for both traditional and AI-augmented process flows
+ * - Animated step progression with auto-play functionality
+ * - Interactive controls for manual step navigation
+ * - Visual icons and color coding for different process types
+ * - Detailed sub-step breakdowns with AI enhancement highlights
+ * - Progress indicators and visual feedback for learning
+ * 
+ * The component adapts its content and presentation based on:
+ * - The specific SDLC stage being visualized (planning, analysis, design, etc.)
+ * - Whether AI augmentation features should be highlighted
+ * - User interaction preferences (auto-play vs manual control)
+ * 
+ * This visualization helps students understand the detailed workflow
+ * within each SDLC phase and how AI can enhance traditional processes.
+ * 
+ * @param {Object} props - Component props
+ * @param {string} props.stage - SDLC stage to visualize (planning, analysis, design, etc.)
+ * @param {boolean} props.isAI - Whether to show AI-augmented features and enhancements
+ */
+
+// React core imports for component functionality
+import React, { useState, useEffect } from 'react';   // Core React with hooks for state and lifecycle management
+
+// Animation library for smooth visual transitions
+import { motion, AnimatePresence } from 'framer-motion'; // Advanced animation components for enhanced UX
+
+// Icon library for visual elements and process representation
 import { 
-  FileText, 
-  Search, 
-  Code, 
-  CheckSquare, 
-  Rocket, 
-  Settings,
-  Bot,
-  Zap,
-  Target,
-  Users,
-  Clock,
-  BarChart3,
-  Lightbulb
+  FileText,    // Document and file icons for traditional processes
+  Search,      // Search and discovery icons for analysis activities
+  Code,        // Development and coding icons for implementation
+  CheckSquare, // Testing and validation icons for QA activities
+  Rocket,      // Deployment and launch icons for go-live processes
+  Settings,    // Configuration and maintenance icons for ongoing operations
+  Bot,         // AI and automation icons for enhanced processes
+  Zap,         // Performance and efficiency icons for optimizations
+  Target,      // Goal and objective icons for planning activities
+  Users,       // Team and stakeholder icons for collaborative work
+  Clock,       // Time and scheduling icons for timeline management
+  BarChart3,   // Analytics and reporting icons for measurement
+  Lightbulb    // Innovation and idea icons for creative processes
 } from 'lucide-react';
-import styles from '../../styles/index.js';
 
+// Styling configuration
+import styles from '../../styles/index.js';             // Centralized styling system
+
+/**
+ * ProcessVisualization Component
+ * 
+ * Creates interactive, animated visualizations of SDLC phase workflows
+ * with support for both traditional and AI-augmented processes.
+ */
 const ProcessVisualization = ({ stage, isAI = false }) => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true); // Auto-start animation
+  // State management for visualization control and progression
+  const [activeStep, setActiveStep] = useState(0);        // Currently highlighted step in the process
+  const [isPlaying, setIsPlaying] = useState(true);       // Auto-play animation control (starts automatically)
 
-  // Define visualization data for each stage
+  /**
+   * Visualization Data Configuration
+   * 
+   * Comprehensive data structure defining the visual representation and content
+   * for each SDLC stage. Each stage includes:
+   * - Stage metadata (title, icon, color scheme)
+   * - Step-by-step process breakdown
+   * - AI enhancement descriptions for augmented workflows
+   * - Sub-step details for comprehensive understanding
+   * 
+   * The data adapts based on the isAI flag to show either traditional
+   * or AI-augmented process variations.
+   */
   const visualizationData = {
+    // Planning Phase Visualization Configuration
     planning: {
-      title: isAI ? 'AI-Augmented Planning Process' : 'Planning Process',
-      icon: isAI ? Bot : FileText,
-      color: isAI ? '#667eea' : '#1ABC9C',
+      title: isAI ? 'AI-Augmented Planning Process' : 'Planning Process',  // Dynamic title based on AI mode
+      icon: isAI ? Bot : FileText,                                          // AI bot icon vs traditional document icon
+      color: isAI ? '#667eea' : '#1ABC9C',                                  // Purple for AI, teal for traditional
       steps: [
         {
           id: 1,
-          name: 'Requirement Gathering',
-          icon: Search,
-          aiFeature: 'Automated requirement mining from documents',
-          description: 'Collect and analyze stakeholder needs',
-          subSteps: ['Stakeholder interviews', 'Document analysis', 'Feature prioritization']
+          name: 'Requirement Gathering',                                     // Core activity name
+          icon: Search,                                                      // Visual icon for the activity
+          aiFeature: 'Automated requirement mining from documents',         // AI enhancement description
+          description: 'Collect and analyze stakeholder needs',             // Human-readable description
+          subSteps: ['Stakeholder interviews', 'Document analysis', 'Feature prioritization'] // Detailed sub-activities
         },
         {
           id: 2,
-          name: 'Scope Definition',
-          icon: Target,
-          aiFeature: 'AI-powered scope optimization',
-          description: 'Define project boundaries and deliverables',
-          subSteps: ['Feature mapping', 'Constraint identification', 'Success criteria']
+          name: 'Scope Definition',                                          // Project boundaries definition
+          icon: Target,                                                      // Target icon for goal-setting
+          aiFeature: 'AI-powered scope optimization',                       // AI enhancement for scope planning
+          description: 'Define project boundaries and deliverables',        // Activity description
+          subSteps: ['Feature mapping', 'Constraint identification', 'Success criteria'] // Sub-activity breakdown
         },
         {
           id: 3,
-          name: 'Resource Planning',
-          icon: Users,
+          name: 'Resource Planning',                                         // Team and resource allocation
+          icon: Users,                                                       // People icon for resource planning
           aiFeature: 'Predictive resource allocation',
           description: 'Allocate team members and resources',
           subSteps: ['Team assignment', 'Budget allocation', 'Tool selection']

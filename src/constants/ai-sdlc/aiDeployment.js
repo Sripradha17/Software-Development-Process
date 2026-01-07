@@ -1,4 +1,41 @@
-export const aiDeploymentSteps = [
+export /**
+ * AI-Enhanced Deployment Phase Configuration
+ * 
+ * Educational content showcasing how artificial intelligence transforms
+ * software deployment through intelligent automation, predictive monitoring,
+ * and smart infrastructure management.
+ * 
+ * AI Deployment Capabilities:
+ * - Intelligent deployment orchestration with risk assessment
+ * - AI-powered infrastructure provisioning and scaling
+ * - Predictive monitoring with anomaly detection
+ * - Automated rollback decisions based on performance metrics
+ * - Smart load balancing and resource optimization
+ * - AI-driven security monitoring and threat detection
+ * 
+ * Educational Focus:
+ * - Demonstrates modern DevOps enhanced with AI capabilities
+ * - Shows how AI makes deployments safer and more reliable
+ * - Teaches intelligent infrastructure management concepts
+ * - Illustrates the evolution to self-healing systems
+ * 
+ * Key Learning Points:
+ * - AI enables proactive rather than reactive deployment management
+ * - Machine learning optimizes resource usage and performance
+ * - Intelligent monitoring prevents issues before they impact users
+ * - AI-driven automation reduces human error in deployments
+ * 
+ * This phase shows students how AI is transforming operations
+ * and deployment, making systems more resilient and efficient.
+ */
+
+/**
+ * AI-Enhanced Deployment Process Steps
+ * 
+ * Systematic approach to leveraging artificial intelligence throughout
+ * the deployment lifecycle, from infrastructure setup to monitoring.
+ */
+const aiDeploymentSteps = [
   {
     id: 1,
     title: "AI-Driven Release Planning",

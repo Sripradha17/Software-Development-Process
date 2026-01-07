@@ -1,3 +1,41 @@
+/**
+ * Traditional SDLC Maintenance Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical software maintenance concepts and post-deployment support.
+ * This quiz reinforces learning from the maintenance phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Bug tracking and resolution processes
+ * - Performance monitoring and system optimization
+ * - User support and help desk operations
+ * - System updates and security patch management
+ * - Documentation maintenance and knowledge management
+ * - Change request evaluation and implementation
+ * 
+ * Educational Design:
+ * - Multiple choice questions covering maintenance fundamentals
+ * - Correct answers reinforce maintenance best practices
+ * - Wrong answer explanations clarify maintenance misconceptions
+ * - Real-world maintenance scenarios and decision-making
+ * - Long-term system care and evolution strategies
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of maintenance phase fundamentals
+ * - Test knowledge of operational support best practices
+ * - Assess ability to plan effective maintenance strategies
+ * - Evaluate understanding of software lifecycle completion
+ * 
+ * This quiz ensures students have mastered traditional maintenance
+ * methodologies and understand the full software development lifecycle.
+ */
+
+/**
+ * Maintenance Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional software maintenance concepts,
+ * operational support, and long-term system evolution.
+ */
 export const maintenanceQuiz = [
   {
     question: "What is the primary focus of the Maintenance phase?",
