@@ -1,8 +1,48 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+/**
+ * Traditional SDLC Testing Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical software testing
+ * methodologies and quality assurance practices. This interactive page guides
+ * students through systematic approaches to ensuring software quality and reliability.
+ * 
+ * Testing Concepts Covered:
+ * - Test planning and strategy development
+ * - Test case design and documentation methodologies
+ * - Manual testing execution and defect tracking processes
+ * - Integration testing and system testing approaches
+ * - User acceptance testing coordination and management
+ * - Performance testing basics and quality metrics
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different testing aspects
+ * - Animated step-by-step breakdown of testing activities
+ * - Interactive quiz to validate testing methodology understanding
+ * - Process visualization showing testing workflow integration
+ * - Real-world testing scenario examples and case studies
+ * 
+ * Educational Approach:
+ * - Builds fundamental testing skills and quality assurance mindset
+ * - Emphasizes systematic approach to software quality validation
+ * - Teaches different types of testing and their specific purposes
+ * - Provides foundation for understanding modern testing evolution
+ * 
+ * Testing Methodologies Covered:
+ * - Black box and white box testing techniques
+ * - Functional and non-functional testing approaches
+ * - Manual testing processes and comprehensive documentation
+ * - Defect lifecycle management and bug tracking systems
+ * - Test reporting and quality metrics analysis
+ * 
+ * This foundation prepares students for AI-enhanced testing approaches
+ * and modern quality assurance practices.
+ */
+
+// Core component and navigation system imports
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phase transitions
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC navigation configuration
+import React, { useState } from "react";                        // React with state management for interactive elements
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions and modal effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between development phases
 import { testingSteps, testingTypes, drawbacks } from "../../constants/sdlc/testing";
 import { testingQuiz } from "../../constants/quiz/testingQuiz";
 import Quiz from "../../components/Quiz";

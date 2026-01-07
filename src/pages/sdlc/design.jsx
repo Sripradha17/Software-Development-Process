@@ -1,8 +1,43 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+/**
+ * Traditional SDLC Design Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical system design
+ * methodologies and architectural principles in software development.
+ * This interactive page guides students through systematic design processes.
+ * 
+ * Design Concepts Covered:
+ * - System architecture planning and documentation
+ * - Database design with entity relationships and normalization
+ * - User interface design and user experience planning
+ * - API design and integration planning
+ * - Security architecture and access control design
+ * - Performance considerations and scalability planning
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different design aspects
+ * - Animated step-by-step breakdown of design activities
+ * - Interactive quiz to validate design methodology understanding
+ * - Process visualization showing design workflow integration
+ * - Modal dialogs for detailed design principle explanations
+ * 
+ * Educational Structure:
+ * 1. Introduction section explaining design phase importance
+ * 2. Detailed steps section with interactive design process exploration
+ * 3. Assessment section with comprehensive design quiz
+ * 4. Process visualization for understanding design workflow
+ * 
+ * Learning Outcomes:
+ * Students understand systematic design approaches that form the foundation
+ * for modern software architecture and serve as the basis for AI-augmented
+ * design methodologies taught in the AI-SDLC section.
+ */
+
+// Core component and navigation imports
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phases
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC navigation structure
+import React, { useState } from "react";                        // React with state management for tab switching
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for transitions and effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between phases
 import { designSteps, designTypes, drawbacks } from "../../constants/sdlc/design";
 import { designQuiz } from "../../constants/quiz/designQuiz";
 import Quiz from "../../components/Quiz";

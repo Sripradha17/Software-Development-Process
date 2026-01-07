@@ -1,49 +1,102 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import { planningSteps, planningTypes, drawbacks } from "../../constants/sdlc/planning";
-import { planningQuiz } from "../../constants/quiz/planningQuiz";
-import Quiz from "../../components/Quiz";
-import ProcessVisualization from "../../components/visualizations/ProcessVisualization";
-import styles from "../../styles/index.js";
- 
+/**
+ * Planning Phase Page Component
+ * 
+ * Comprehensive educational page covering the planning phase of the Software Development Life Cycle.
+ * Provides in-depth coverage of project planning methodologies, tools, and best practices.
+ * 
+ * Educational Features:
+ * - Interactive section navigation (intro, methodologies, tools, challenges, quiz)
+ * - Detailed planning methodology explanations with real-world examples
+ * - Modal-based detailed views for complex planning concepts
+ * - Interactive quiz for knowledge assessment
+ * - Process visualization components for better understanding
+ * - Common planning pitfalls and how to avoid them
+ * 
+ * This page helps students understand the critical importance of proper planning
+ * in software development and provides practical knowledge for real-world application.
+ */
 
+// UI component imports
+import Menu from "../../components/Menu";                           // Navigation menu component
+import sdlcMenuItems from "../../constants/sdlc/menuItems";        // SDLC-specific navigation items
+
+// React core imports for component functionality
+import React, { useState } from "react";                           // Core React with state management
+
+// Animation library for enhanced user experience
+import { motion, AnimatePresence } from "framer-motion";           // Advanced animation components
+
+// Navigation and routing imports
+import { Link, useNavigate } from "react-router-dom";               // Router components and navigation hook
+
+// Planning-specific data and content imports
+import { 
+  planningSteps,      // Sequential steps in the planning process
+  planningTypes,      // Different planning methodologies (Agile, Waterfall, etc.)
+  drawbacks          // Common planning pitfalls and challenges
+} from "../../constants/sdlc/planning";
+
+import { planningQuiz } from "../../constants/quiz/planningQuiz"; // Quiz questions for knowledge assessment
+
+// Interactive component imports
+import Quiz from "../../components/Quiz";                                           // Quiz interface component
+import ProcessVisualization from "../../components/visualizations/ProcessVisualization"; // Visual process diagrams
+
+// Styling configuration
+import styles from "../../styles/index.js";                        // Centralized styling system
+
+/**
+ * PlanningPage Component
+ * 
+ * Main component for the planning phase education module.
+ * Manages section navigation, modal states, and interactive content presentation.
+ */
 const PlanningPage = () => {
-  const [activeSection, setActiveSection] = useState("intro");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  const [selectedDrawback, setSelectedDrawback] = useState(null);
-  const navigate = useNavigate();
+  // State management for section navigation and interactive features
+  const [activeSection, setActiveSection] = useState("intro");        // Currently active content section
+  const [modalOpen, setModalOpen] = useState(false);                  // Controls modal visibility for detailed views
+  const [modalData, setModalData] = useState(null);                   // Data to display in modal (methodology details, etc.)
+  const [selectedDrawback, setSelectedDrawback] = useState(null);     // Currently selected planning drawback for detailed view
+  
+  const navigate = useNavigate();                                      // Navigation hook for programmatic routing
 
+  // Animation configuration for smooth visual transitions and engaging user experience
+  // These variants control how content appears, disappears, and transitions between states
+  
+  // Main container animation with staggered children for sequential element appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                     // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      opacity: 1,                                                // Final visible state
+      transition: { staggerChildren: 0.1 },                     // Stagger child animations by 0.1s for smooth flow
     },
   };
 
+  // Individual item animation for fade-in with slide-up effect
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },                             // Start 20px below and invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.3 },
+      y: 0,                                                      // End at normal position
+      opacity: 1,                                                // End fully visible
+      transition: { duration: 0.3 },                            // Smooth 0.3s transition
     },
   };
 
+  // Floating animation for visual elements to add life and engagement
   const floatAnimation = {
-    y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+    y: [0, -10, 0],                                             // Gentle up-and-down movement
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }, // Infinite smooth floating
   };
 
   return (
+    // Main page container with centralized styling
     <div style={styles.pageContainer}>
+      {/* Navigation menu positioned at top-right for easy access */}
       <div style={styles.absoluteTopRight}>
-        <Menu items={sdlcMenuItems} title="Menu" />
+        <Menu items={sdlcMenuItems} title="Menu" />  {/* SDLC-specific navigation menu */}
       </div>
+      
+      {/* Home navigation link for quick return to landing page */}
       <Link to="/" style={styles.backLink}>
         ← Back to Home
       </Link>

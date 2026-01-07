@@ -1,52 +1,92 @@
+/**
+ * Traditional SDLC Analysis Phase Configuration
+ * 
+ * Educational content for teaching classical requirements analysis methodologies
+ * in software development. This file provides foundational knowledge about
+ * systematic approaches to understanding and documenting software requirements.
+ * 
+ * Core Analysis Activities:
+ * - Stakeholder identification and engagement strategies
+ * - Requirements gathering techniques and best practices
+ * - Current state analysis and documentation methods
+ * - Gap analysis frameworks and methodologies
+ * - Feasibility assessment across multiple dimensions
+ * - Requirements prioritization using established frameworks
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental analysis skills before introducing AI enhancements
+ * - Emphasizes human-centered design and stakeholder collaboration
+ * - Teaches systematic thinking and documentation practices
+ * - Provides foundation for understanding why AI enhancements are valuable
+ * 
+ * Learning Outcomes:
+ * Students will understand traditional analysis methods that form the basis
+ * for modern software development and serve as the foundation for AI-augmented
+ * approaches taught in the AI-SDLC section.
+ */
+
+/**
+ * Traditional Analysis Process Steps
+ * 
+ * Sequential activities that form the foundation of requirements analysis
+ * in classical software development methodologies. These time-tested approaches
+ * provide the basis for understanding more advanced AI-assisted techniques.
+ */
+// Traditional analysis process steps with detailed workflow explanations
 const analysisSteps = [
   {
     id: 1,
-    title: "Stakeholder Identification",
-    icon: "👥",
+    title: "Stakeholder Identification",                    // Foundation step: Who are the key players?
+    icon: "👥",                                            // People icon representing collaborative nature
     description:
-      "Identify all people who have a stake in the project's success",
-    color: "#FF6B6B",
+      "Identify all people who have a stake in the project's success", // Comprehensive stakeholder discovery
+    color: "#FF6B6B",                                      // Red color emphasizes critical importance
   },
   {
     id: 2,
-    title: "Requirements Gathering",
-    icon: "📝",
-    description: "Collect and document system requirements",
-    color: "#4ECDC4",
+    title: "Requirements Gathering",                       // Information collection phase
+    icon: "📝",                                            // Document icon for structured documentation
+    description: "Collect and document system requirements",  // Systematic requirement elicitation process
+    color: "#4ECDC4",                                      // Teal color represents information gathering
   },
   {
     id: 3,
-    title: "Current State Analysis",
-    icon: "🔍",
-    description: "Study existing systems, processes, and pain points",
-    color: "#45B7D1",
+    title: "Current State Analysis",                       // Baseline understanding
+    icon: "🔍",                                      // Magnifying glass for investigation and analysis
+    description: "Study existing systems, processes, and pain points", // Understanding the existing situation
+    color: "#45B7D1",                                    // Blue for analysis and investigation
   },
   {
     id: 4,
-    title: "Gap Analysis",
-    icon: "📊",
+    title: "Gap Analysis",                                 // Difference identification
+    icon: "📊",                                      // Chart icon for analytical comparison
     description:
-      "Identify the difference between current state and desired future state",
-    color: "#96CEB4",
+      "Identify the difference between current state and desired future state", // Strategic gap identification
+    color: "#96CEB4",                                    // Green for improvement and growth
   },
   {
     id: 5,
-    title: "Feasibility Study",
-    icon: "⚖️",
-
-    description: "Assess technical, economic, and operational feasibility",
-    color: "#FFEAA7",
+    title: "Feasibility Study",                            // Viability assessment
+    icon: "⚖️",                                      // Scale icon for balanced assessment
+    description: "Assess technical, economic, and operational feasibility", // Multi-dimensional feasibility evaluation
+    color: "#FFEAA7",                                    // Yellow for caution and careful consideration
   },
   {
     id: 6,
-    title: "Requirements Prioritization",
-    icon: "🎯",
+    title: "Requirements Prioritization",                  // Strategic ranking
+    icon: "🎯",                                      // Target icon for focused prioritization
     description:
-      "Rank requirements using frameworks like MoSCoW or value vs effort",
-    color: "#DDA0DD",
+      "Rank requirements using frameworks like MoSCoW or value vs effort", // Systematic prioritization methodologies
+    color: "#DDA0DD",                                    // Purple for strategic thinking
   },
 ];
 
+/**
+ * Analysis Methodologies and Frameworks
+ * 
+ * Different approaches to conducting requirements analysis,
+ * each with specific use cases and benefits.
+ */
 const analysisTypes = [
   {
     id: "business",

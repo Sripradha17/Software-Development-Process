@@ -1,4 +1,43 @@
-export const aiMaintenanceSteps = [
+export /**
+ * AI-Enhanced Maintenance Phase Configuration
+ * 
+ * Educational content demonstrating how artificial intelligence revolutionizes
+ * software maintenance through predictive analytics, automated optimization,
+ * and intelligent issue resolution.
+ * 
+ * AI Maintenance Features:
+ * - Predictive maintenance using system health analytics
+ * - Automated performance optimization and tuning
+ * - AI-powered bug triage and priority assignment
+ * - Intelligent user feedback analysis and feature prioritization
+ * - Smart dependency management and security vulnerability detection
+ * - Automated documentation updates based on code changes
+ * 
+ * Educational Approach:
+ * - Shows how AI transforms reactive maintenance to proactive optimization
+ * - Demonstrates intelligent system health monitoring
+ * - Teaches AI-assisted decision making for maintenance priorities
+ * - Illustrates the evolution from manual to predictive maintenance
+ * 
+ * Key Concepts:
+ * - AI enables systems to self-monitor and self-optimize
+ * - Machine learning identifies patterns that predict failures
+ * - Intelligent automation reduces maintenance overhead
+ * - AI-powered analytics provide insights for continuous improvement
+ * 
+ * Learning Outcomes:
+ * Students understand how AI changes maintenance from costly,
+ * time-consuming reactive work to efficient, predictive system
+ * optimization that improves user experience and reduces costs.
+ */
+
+/**
+ * AI-Enhanced Maintenance Process Steps
+ * 
+ * Comprehensive approach to using artificial intelligence throughout
+ * the software maintenance lifecycle, from monitoring to optimization.
+ */
+const aiMaintenanceSteps = [
   {
     id: 1,
     title: "AI-Powered Monitoring & Logging",

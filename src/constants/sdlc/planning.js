@@ -1,53 +1,90 @@
+/**
+ * Planning Phase Configuration Data
+ * 
+ * Comprehensive configuration for the Planning phase of the Software Development Life Cycle.
+ * This file contains all the educational content, visual elements, and interactive data
+ * needed to teach effective project planning principles and practices.
+ * 
+ * Data Structures Included:
+ * - planningSteps: Sequential steps in the planning process
+ * - planningTypes: Different planning methodologies (Waterfall, Agile, etc.)
+ * - drawbacks: Common planning pitfalls and how to avoid them
+ * 
+ * Each planning step includes:
+ * - Visual icons for easy recognition and engagement
+ * - Clear descriptions of activities and outcomes
+ * - Color coding for visual organization
+ * - Educational content that builds foundational planning skills
+ * 
+ * This configuration supports interactive learning through visual representations
+ * and helps students understand the critical importance of thorough planning
+ * in successful software development projects.
+ */
+
+/**
+ * Core Planning Steps
+ * 
+ * Sequential activities that constitute effective software project planning.
+ * These steps provide a structured approach to project initiation and setup.
+ */
+// Traditional planning process steps with detailed workflow guidance
 const planningSteps = [
   {
     id: 1,
-    title: "Define Objectives",
-    icon: "🎯 ",
-    description: "Clearly state what you want to achieve",
-    color: "#4bb1b4ff",
+    title: "Define Objectives",                              // Foundation step: What are we building and why?
+    icon: "🎯 ",                                         // Target icon emphasizes precision and focus
+    description: "Clearly state what you want to achieve",   // SMART objectives ensure project clarity
+    color: "#4bb1b4ff",                                    // Teal color for foundational importance
   },
   {
     id: 2,
-    title: "Gather Requirements",
-    icon: "📝 ",
-    description: "Collect all needs from stakeholders",
-    color: "#325fa1ff",
+    title: "Gather Requirements",                           // Stakeholder input collection and analysis
+    icon: "📝 ",                                         // Documentation icon for systematic recording
+    description: "Collect all needs from stakeholders",     // Comprehensive stakeholder engagement process
+    color: "#325fa1ff",                                    // Blue theme represents information and communication
   },
   {
     id: 3,
-    title: "Assess Resources",
-    icon: "⚡",
-    description: "Evaluate time, budget, and team capabilities",
-    color: "#4496a5ff",
+    title: "Assess Resources",                              // Realistic capability and constraint evaluation
+    icon: "⚡",                                            // Lightning icon for energy/capability assessment
+    description: "Evaluate time, budget, and team capabilities", // Honest resource inventory for project success
+    color: "#4496a5ff",                                    // Balanced color for objective assessment
   },
   {
     id: 4,
-    title: "Create Timeline",
-    icon: "📅 ",
-    description: "Set realistic milestones and deadlines",
-    color: "#2dac6cff",
+    title: "Create Timeline",                               // Temporal planning with realistic milestones
+    icon: "📅 ",                                         // Calendar icon for systematic scheduling
+    description: "Set realistic milestones and deadlines",  // Time-bound deliverables with buffer planning
+    color: "#2dac6cff",                                    // Green theme represents growth and progress
   },
   {
     id: 5,
-    title: "Identify Risks",
-    icon: "⚠ ",
-    description: "Anticipate potential problems and plan mitigation",
-    color: "#4aa07cff",
+    title: "Identify Risks",                               // Proactive threat identification and mitigation
+    icon: "⚠ ",                                           // Warning icon for risk awareness and preparation
+    description: "Anticipate potential problems and plan mitigation", // Forward-thinking risk management strategy
+    color: "#4aa07cff",                                    // Cautionary color for risk awareness
   },
   {
     id: 6,
-    title: "Document Everything",
-    icon: "📚 ",
-    description: "Create clear, accessible documentation",
-    color: "#DDA0DD",
+    title: "Document Everything",                           // Knowledge capture and team communication
+    icon: "📚 ",                                         // Books icon represents knowledge preservation
+    description: "Create clear, accessible documentation",   // Comprehensive information architecture
+    color: "#DDA0DD",                                      // Purple theme for knowledge management activities
   },
 ];
+
+/**
+ * Planning Methodologies
+ * 
+ * Different approaches to project planning, each with distinct characteristics,
+ * advantages, and appropriate use cases in software development.
+ */
 const planningTypes = [
   {
     id: "waterfall",
-    name: "Waterfall Planning",
-    icon: "🌊 ",
-    emoji: "📊 ",
+    name: "Waterfall Planning",                             // Traditional sequential planning approach
+    icon: "🌊 ",                                         // Wave icon representing sequential flow
+    emoji: "📊 ",                                       // Chart icon for structured approach
     color: "#4bb1b4ff",
     story: {
       title: "The Bridge Construction Project",

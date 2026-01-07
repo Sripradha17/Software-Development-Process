@@ -1,32 +1,74 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { render } from '@testing-library/react';
-import { renderWithRouter, mockQuizData, mockMenuItems } from '../../test/testUtils';
-import Quiz from '../Quiz';
-import Menu from '../Menu';
-import CaseStudy from '../CaseStudy';
-import DragDropQuiz from '../DragDropQuiz';
+/**
+ * Component Test Suite
+ * 
+ * Comprehensive testing suite for interactive components in the Software Development
+ * Process educational platform. Tests cover functionality, user interactions,
+ * accessibility, and edge cases for core educational components.
+ * 
+ * Components Under Test:
+ * - Quiz: Interactive quiz functionality with feedback
+ * - Menu: Navigation menu behavior and interactions
+ * - CaseStudy: Case study progression and scoring
+ * - DragDropQuiz: Drag-and-drop ordering functionality
+ * 
+ * Testing Strategy:
+ * - Unit tests for individual component behavior
+ * - Integration tests for component interactions
+ * - User event simulation for realistic interaction testing
+ * - Edge case testing for error handling and boundary conditions
+ * - Accessibility testing for inclusive design compliance
+ */
 
-// Mock ResizeObserver for drag-drop components
+// Testing framework imports
+import { describe, it, expect, vi, beforeEach } from 'vitest';    // Core testing utilities
+import { screen, fireEvent, waitFor } from '@testing-library/react'; // DOM testing utilities
+import userEvent from '@testing-library/user-event';              // Enhanced user interaction simulation
+import { render } from '@testing-library/react';                  // Component rendering utility
+
+// Custom testing utilities and mock data
+import { 
+  renderWithRouter,    // Custom render function with router context
+  mockQuizData,        // Mock quiz question data for testing
+  mockMenuItems        // Mock menu configuration for testing
+} from '../../test/testUtils';
+
+// Component imports for testing
+import Quiz from '../Quiz';               // Interactive quiz component
+import Menu from '../Menu';               // Navigation menu component
+import CaseStudy from '../CaseStudy';     // Case study learning component
+import DragDropQuiz from '../DragDropQuiz'; // Drag-and-drop quiz component
+
+/**
+ * ResizeObserver Mock for Drag-Drop Components
+ * 
+ * The drag-and-drop functionality requires ResizeObserver which is not available
+ * in the test environment. This mock provides the necessary interface without
+ * actual resize observation functionality.
+ */
 global.ResizeObserver = class ResizeObserver {
   constructor(callback) {
     this.callback = callback;
   }
-  observe = vi.fn();
-  unobserve = vi.fn();
-  disconnect = vi.fn();
+  observe = vi.fn();      // Mock observe method
+  unobserve = vi.fn();    // Mock unobserve method
+  disconnect = vi.fn();   // Mock disconnect method
 };
 
-// Mock framer-motion for components
+/**
+ * Framer Motion Mock for Component Tests
+ * 
+ * Mocks Framer Motion animation components to focus testing on functionality
+ * rather than animation behavior. Replaces animated components with their
+ * static HTML equivalents for reliable testing.
+ */
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }) => <div {...props}>{children}</div>,
-    button: ({ children, ...props }) => <button {...props}>{children}</button>,
-    h2: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
-    p: ({ children, ...props }) => <p {...props}>{children}</p>,
+    div: ({ children, ...props }) => <div {...props}>{children}</div>,        // Replace motion.div
+    button: ({ children, ...props }) => <button {...props}>{children}</button>, // Replace motion.button
+    h2: ({ children, ...props }) => <h2 {...props}>{children}</h2>,            // Replace motion.h2
+    p: ({ children, ...props }) => <p {...props}>{children}</p>,              // Replace motion.p
   },
-  AnimatePresence: ({ children }) => children,
+  AnimatePresence: ({ children }) => children, // Replace AnimatePresence with direct child rendering
 }));
 
 // Mock ResizeObserver for DragDropQuiz

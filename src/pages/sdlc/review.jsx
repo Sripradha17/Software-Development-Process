@@ -1,8 +1,48 @@
-import Menu from "../../components/Menu";
-import sdlcMenuItems from "../../constants/sdlc/menuItems";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+/**
+ * Traditional SDLC Review Phase Educational Page
+ * 
+ * Comprehensive learning module that teaches classical code review concepts
+ * and quality assurance practices. This interactive page guides students
+ * through systematic approaches to evaluating and improving software quality.
+ * 
+ * Review Concepts Covered:
+ * - Manual code review processes and established best practices
+ * - Quality criteria and coding standards compliance verification
+ * - Peer review techniques and effective collaborative practices
+ * - Documentation review and technical writing standards
+ * - Test coverage analysis and comprehensive quality metrics
+ * - Technical debt identification and strategic management
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different review aspects
+ * - Animated step-by-step breakdown of review activities
+ * - Interactive quiz to validate review methodology understanding
+ * - Process visualization showing review workflow integration
+ * - Real-world review scenarios and professional collaboration examples
+ * 
+ * Educational Approach:
+ * - Builds fundamental review skills and quality assurance principles
+ * - Emphasizes systematic approach to code quality validation
+ * - Teaches professional collaboration and constructive feedback practices
+ * - Provides foundation for understanding modern review tool evolution
+ * 
+ * Review Methodologies Covered:
+ * - Code inspection techniques and systematic evaluation processes
+ * - Peer review workflows and collaborative quality assurance
+ * - Documentation review standards and technical communication
+ * - Quality gate implementation and approval processes
+ * - Metrics-based quality assessment and continuous improvement
+ * 
+ * This foundation prepares students for modern code review tools and
+ * AI-enhanced review and analysis techniques taught in the AI-SDLC section.
+ */
+
+// Core component and navigation imports
+import Menu from "../../components/Menu";                      // Navigation component for SDLC phase transitions
+import sdlcMenuItems from "../../constants/sdlc/menuItems";    // Traditional SDLC menu structure
+import React, { useState } from "react";                        // React with state management for interactive elements
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for transitions and modal effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation and phase linking
 import { reviewSteps, reviewTypes, drawbacks } from "../../constants/sdlc/review";
 import { reviewQuiz } from "../../constants/quiz/reviewQuiz";
 import Quiz from "../../components/Quiz";

@@ -1,3 +1,43 @@
+/**
+ * Traditional SDLC Case Study Collection
+ * 
+ * Real-world case studies that demonstrate the application of traditional
+ * Software Development Life Cycle methodologies in practical scenarios.
+ * These case studies provide contextual learning through problem-solving
+ * and decision-making exercises.
+ * 
+ * Case Study Structure:
+ * - Realistic business scenarios with authentic constraints
+ * - Phase-by-phase progression following traditional SDLC
+ * - Decision points that test understanding of SDLC principles
+ * - Multiple choice questions with detailed explanations
+ * - Best practices recommendations for each development phase
+ * - Real-world challenges and their systematic solutions
+ * 
+ * Educational Objectives:
+ * - Apply theoretical SDLC knowledge to practical situations
+ * - Understand how different business contexts affect development decisions
+ * - Learn from realistic project challenges and constraints
+ * - Practice systematic problem-solving and decision-making
+ * - Build experience with project management considerations
+ * 
+ * Case Study Categories:
+ * - E-commerce platforms with scalability and security requirements
+ * - Healthcare systems with compliance and reliability needs
+ * - Financial applications with regulatory and security constraints
+ * - Educational platforms with usability and accessibility focus
+ * - Enterprise systems with integration and performance requirements
+ * 
+ * Each case study guides students through the complete SDLC process,
+ * demonstrating how systematic methodology leads to successful outcomes.
+ */
+
+/**
+ * Traditional SDLC Case Study Data
+ * 
+ * Comprehensive collection of real-world case studies demonstrating
+ * classical software development methodologies and decision-making processes.
+ */
 // SDLC Case Studies Data
 export const sdlcCaseStudies = [
   {

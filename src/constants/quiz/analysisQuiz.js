@@ -1,3 +1,41 @@
+/**
+ * Traditional SDLC Analysis Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical requirements analysis concepts and methodologies. This quiz
+ * reinforces learning from the analysis phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Requirements gathering techniques and best practices
+ * - Stakeholder identification and engagement strategies
+ * - Analysis methodologies and frameworks
+ * - Documentation standards and practices
+ * - Quality criteria for requirements
+ * - Common analysis pitfalls and how to avoid them
+ * 
+ * Educational Design:
+ * - Multiple choice questions with detailed explanations
+ * - Correct answers reinforce key concepts
+ * - Wrong answer explanations clarify common misconceptions
+ * - Progressive difficulty from basic to advanced concepts
+ * - Real-world scenarios and practical applications
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of analysis phase fundamentals
+ * - Test practical application of analysis techniques
+ * - Assess knowledge of industry best practices
+ * - Prepare students for AI-enhanced analysis concepts
+ * 
+ * This quiz serves as a checkpoint to ensure students have mastered
+ * traditional analysis methods before progressing to AI-augmented approaches.
+ */
+
+/**
+ * Analysis Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional requirements analysis concepts,
+ * techniques, and best practices in software development.
+ */
 export const analysisQuiz = [
   {
     question: "What is the main goal of the Analysis phase in SDLC?",

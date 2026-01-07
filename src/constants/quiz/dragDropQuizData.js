@@ -1,53 +1,86 @@
-// Drag and Drop Quiz Data for SDLC and AI-SDLC
+/**
+ * Drag and Drop Quiz Configuration Data
+ * 
+ * Interactive assessment data for both traditional SDLC and AI-augmented SDLC workflows.
+ * These quizzes use drag-and-drop interactions to test student understanding of:
+ * - Phase sequencing and logical flow
+ * - Matching activities to appropriate phases
+ * - Understanding relationships between different SDLC components
+ * 
+ * Quiz Types Supported:
+ * 1. Matching Quizzes: Drag items to match with correct descriptions
+ * 2. Ordering Quizzes: Arrange phases in correct chronological sequence
+ * 3. Categorization Quizzes: Group activities by phase or methodology
+ * 
+ * Each quiz includes:
+ * - Question prompts and instructions
+ * - Draggable items with unique identifiers
+ * - Target zones with correct answer mapping
+ * - Scoring logic and feedback mechanisms
+ * - Support for both traditional and AI-enhanced workflows
+ * 
+ * The interactive nature helps reinforce learning through kinesthetic
+ * engagement and provides immediate feedback on understanding.
+ */
+
+/**
+ * Traditional SDLC Drag and Drop Quiz Collection
+ * 
+ * Comprehensive quiz set focusing on classical software development phases,
+ * their sequence, activities, and relationships.
+ */
 export const sdlcDragDropQuiz = [
   {
     id: 1,
-    question: "Match the SDLC phases to their correct descriptions:",
-    type: "match",
+    question: "Match the SDLC phases to their correct descriptions:",  // Matching quiz for phase understanding
+    type: "match",                                                      // Quiz type identifier for component logic
+    // Draggable items representing different SDLC phases
     items: [
-      { id: "planning", text: "Planning", type: "draggable" },
-      { id: "analysis", text: "Analysis", type: "draggable" },
-      { id: "design", text: "Design", type: "draggable" },
-      { id: "implementation", text: "Implementation", type: "draggable" },
-      { id: "testing", text: "Testing", type: "draggable" }
+      { id: "planning", text: "Planning", type: "draggable" },           // Project initiation and scope definition
+      { id: "analysis", text: "Analysis", type: "draggable" },           // Requirements gathering and analysis
+      { id: "design", text: "Design", type: "draggable" },               // System architecture and UI design
+      { id: "implementation", text: "Implementation", type: "draggable" }, // Coding and development work
+      { id: "testing", text: "Testing", type: "draggable" }              // Quality assurance and validation
     ],
+    // Target zones with descriptions that must be matched correctly
     targets: [
       { 
         id: "planning-desc", 
-        text: "Define project scope, requirements, and create project roadmap",
-        correctMatch: "planning"
+        text: "Define project scope, requirements, and create project roadmap", // Planning phase description
+        correctMatch: "planning"                                             // Correct draggable item for this target
       },
       { 
         id: "analysis-desc", 
-        text: "Gather detailed requirements and analyze system needs",
-        correctMatch: "analysis"
+        text: "Gather detailed requirements and analyze system needs",        // Analysis phase description
+        correctMatch: "analysis"                                             // Correct match identifier
       },
       { 
         id: "design-desc", 
-        text: "Create system architecture and user interface mockups",
-        correctMatch: "design"
+        text: "Create system architecture and user interface mockups",       // Design phase description
+        correctMatch: "design"                                               // Correct match identifier
       },
       { 
         id: "implementation-desc", 
-        text: "Write code and develop the actual software solution",
-        correctMatch: "implementation"
+        text: "Write code and develop the actual software solution",         // Implementation phase description
+        correctMatch: "implementation"                                       // Correct match identifier
       },
       { 
         id: "testing-desc", 
-        text: "Verify software functionality and identify bugs",
-        correctMatch: "testing"
+        text: "Verify software functionality and identify bugs",            // Testing phase description
+        correctMatch: "testing"                                              // Correct match identifier
       }
     ]
   },
   {
     id: 2,
-    question: "Order these SDLC phases in the correct sequence:",
-    type: "order",
+    question: "Order these SDLC phases in the correct sequence:",        // Sequential ordering quiz
+    type: "order",                                                        // Ordering quiz type for proper sequencing
+    // Items to be arranged in correct chronological order
     items: [
-      { id: "maintenance", text: "Maintenance", correctOrder: 6 },
-      { id: "design", text: "Design", correctOrder: 3 },
-      { id: "planning", text: "Planning", correctOrder: 1 },
-      { id: "testing", text: "Testing", correctOrder: 5 },
+      { id: "maintenance", text: "Maintenance", correctOrder: 6 },        // Post-deployment support (final phase)
+      { id: "design", text: "Design", correctOrder: 3 },                  // System design (third in sequence)
+      { id: "planning", text: "Planning", correctOrder: 1 },              // Project planning (first phase)
+      { id: "testing", text: "Testing", correctOrder: 5 },                // Quality assurance (fifth phase)
       { id: "implementation", text: "Implementation", correctOrder: 4 },
       { id: "analysis", text: "Analysis", correctOrder: 2 }
     ]

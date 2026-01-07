@@ -1,3 +1,23 @@
+/**
+ * AI-Enhanced Review Phase Educational Page
+ * 
+ * Comprehensive learning module that demonstrates how artificial intelligence
+ * revolutionizes code review and quality assurance through intelligent analysis,
+ * automated feedback, and comprehensive quality metrics.
+ * 
+ * AI Review Concepts Covered:
+ * - Intelligent code analysis for bugs, security vulnerabilities, and performance issues
+ * - Automated best practice recommendations based on industry standards and patterns
+ * - AI-powered documentation quality assessment and improvement suggestions
+ * - Smart test coverage analysis with automated gap identification
+ * - Automated accessibility compliance checking and remediation suggestions
+ * - Intelligent technical debt assessment and strategic prioritization
+ * 
+ * This page shows students how AI transforms code review from subjective,
+ * time-consuming manual processes to comprehensive, consistent quality
+ * assurance that significantly improves code quality and team productivity.
+ */
+
  import Menu from "../../components/Menu";
 import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
 import React, { useState } from "react";

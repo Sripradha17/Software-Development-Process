@@ -1,3 +1,29 @@
+/**
+ * Comprehensive AI-SDLC Test Suite
+ * 
+ * Complete testing suite for AI-enhanced Software Development Life Cycle pages.
+ * This test file validates functionality, user interactions, and educational
+ * content across all AI-augmented development phase components.
+ * 
+ * Test Coverage:
+ * - AI Planning: Predictive project management and intelligent resource allocation
+ * - AI Implementation: Automated code generation and intelligent development assistance
+ * - AI Testing: Automated test generation and intelligent quality assurance
+ * - AI Deployment: Intelligent deployment automation and predictive monitoring
+ * - AI Maintenance: Predictive maintenance and automated system optimization
+ * - AI Review: Intelligent code review and automated quality analysis
+ * 
+ * Testing Strategy:
+ * - Component rendering validation for all AI-enhanced pages
+ * - User interaction testing for educational interfaces
+ * - Mock validation for AI-specific data and configurations
+ * - Integration testing for navigation and workflow consistency
+ * - Accessibility testing for inclusive educational experiences
+ * 
+ * This comprehensive test suite ensures the AI-SDLC educational experience
+ * is reliable, accessible, and effectively teaches modern development practices.
+ */
+
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

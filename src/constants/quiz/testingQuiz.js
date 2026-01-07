@@ -1,3 +1,41 @@
+/**
+ * Traditional SDLC Testing Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical software testing concepts and quality assurance practices.
+ * This quiz reinforces learning from the testing phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Test planning and strategy development
+ * - Test case design and execution methodologies
+ * - Different types of testing (unit, integration, system, UAT)
+ * - Manual testing processes and documentation
+ * - Defect tracking and bug lifecycle management
+ * - Quality metrics and testing best practices
+ * 
+ * Educational Design:
+ * - Multiple choice questions covering testing fundamentals
+ * - Correct answers reinforce quality assurance principles
+ * - Wrong answer explanations clarify testing misconceptions
+ * - Practical testing scenarios and decision-making
+ * - Industry standard testing methodologies
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of testing phase fundamentals
+ * - Test knowledge of quality assurance best practices
+ * - Assess ability to design effective testing strategies
+ * - Prepare students for deployment and maintenance phases
+ * 
+ * This quiz ensures students have mastered traditional testing methodologies
+ * before progressing to AI-enhanced testing approaches.
+ */
+
+/**
+ * Testing Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional software testing concepts,
+ * quality assurance practices, and testing methodologies.
+ */
 export const testingQuiz = [
   {
     question: "What is the primary purpose of software testing?",

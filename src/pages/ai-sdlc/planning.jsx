@@ -1,9 +1,50 @@
- import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+ /**
+ * AI-Enhanced Planning Phase Educational Page
+ * 
+ * Comprehensive learning module that demonstrates how artificial intelligence
+ * transforms project planning through predictive analytics, intelligent resource
+ * allocation, and data-driven decision making.
+ * 
+ * AI Planning Concepts Covered:
+ * - Predictive timeline estimation using historical project data and machine learning
+ * - Intelligent resource allocation based on team skills, availability, and performance
+ * - AI-powered risk assessment and automated mitigation planning
+ * - Smart milestone planning with dependency optimization algorithms
+ * - Automated team composition recommendations based on project requirements
+ * - Intelligent budget forecasting with scenario analysis and optimization
+ * 
+ * Interactive Learning Features:
+ * - Tabbed interface for exploring different AI planning aspects
+ * - Animated demonstrations of intelligent planning workflows and algorithms
+ * - Interactive quiz to test AI planning methodology understanding
+ * - Process visualization showing AI-enhanced planning pipeline
+ * - Real-world examples of AI project management tools and platforms
+ * 
+ * Educational Philosophy:
+ * - Demonstrates how AI enhances traditional planning methodologies
+ * - Shows data-driven approaches to project management and decision making
+ * - Teaches predictive planning versus reactive project adjustments
+ * - Illustrates balance between AI insights and human judgment in planning
+ * 
+ * Key Learning Points:
+ * - AI provides data-driven insights for more informed planning decisions
+ * - Machine learning improves estimation accuracy over time through learning
+ * - Predictive analytics help identify and mitigate project risks early
+ * - AI-assisted planning reduces project failure rates and improves outcomes
+ * 
+ * This page shows students how AI transforms project management from
+ * experience-based guessing to data-driven, predictive planning that
+ * significantly improves project success rates and team efficiency.
+ */
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+// Core component and navigation system imports
+import Menu from "../../components/Menu";                      // Navigation component for AI-SDLC phase management
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";  // AI-enhanced navigation configuration
+
+// React functionality and routing imports
+import React, { useState } from "react";                        // React with state management for interactive elements
+import { motion, AnimatePresence } from "framer-motion";        // Animation library for smooth transitions and effects
+import { Link, useNavigate } from "react-router-dom";          // React Router for navigation between AI-enhanced phases
 import { aiPlanningSteps, aiPlanningTypes, aiPlanningDrawbacks } from "../../constants/ai-sdlc/aiPlanning";
 import { aiPlanningQuiz } from "../../constants/quiz/aiPlanningQuiz";
 import Quiz from "../../components/Quiz";

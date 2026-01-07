@@ -1,3 +1,41 @@
+/**
+ * AI-Enhanced Deployment Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of AI-augmented deployment concepts and intelligent infrastructure management.
+ * This quiz reinforces learning from the AI-enhanced deployment phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Intelligent deployment orchestration and automation
+ * - AI-powered infrastructure provisioning and scaling
+ * - Predictive monitoring with anomaly detection
+ * - Automated rollback decisions based on performance metrics
+ * - Smart load balancing and resource optimization
+ * - AI-driven security monitoring and threat detection
+ * 
+ * Educational Design:
+ * - Multiple choice questions with AI deployment scenarios
+ * - Correct answers explain AI deployment benefits and automation
+ * - Wrong answer explanations clarify AI deployment limitations
+ * - Real-world DevOps AI tools and platform examples
+ * - Integration of traditional deployment with AI enhancements
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of AI applications in deployment
+ * - Test knowledge of intelligent infrastructure management
+ * - Assess ability to leverage AI for safer, smarter deployments
+ * - Evaluate understanding of predictive operational practices
+ * 
+ * This quiz builds on traditional deployment knowledge to assess student
+ * readiness for modern, AI-augmented DevOps and deployment practices.
+ */
+
+/**
+ * AI-Enhanced Deployment Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering AI applications in deployment,
+ * intelligent infrastructure management, and automated operations.
+ */
 export const aiDeploymentQuiz = [
   {
     question: "What is a key advantage of AI-assisted deployment automation?",

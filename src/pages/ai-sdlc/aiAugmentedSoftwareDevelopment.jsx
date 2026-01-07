@@ -1,52 +1,95 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
-import aiDevelopmentStages from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopment";
+/**
+ * AI-Augmented Software Development Hub Page
+ * 
+ * Central learning hub for AI-enhanced software development processes.
+ * This page introduces students to modern development workflows that
+ * integrate artificial intelligence tools and methodologies.
+ * 
+ * Key Features:
+ * - Interactive stage selection with detailed AI enhancement information
+ * - Visual comparison between traditional and AI-augmented approaches
+ * - Navigation to specific AI-SDLC phase pages
+ * - Animated stage cards with hover effects and detailed descriptions
+ * - Comprehensive overview of AI tools and their applications in each phase
+ * 
+ * The page serves as the main entry point for students interested in
+ * learning about cutting-edge, AI-powered development practices that
+ * are transforming the software industry.
+ */
 
-import React, { useState } from "react";
-import styles from "../../styles/index.js";
-import Menu from "../../components/Menu";
-import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems";
+// Animation library for smooth visual transitions and interactive effects
+import { motion, AnimatePresence } from "framer-motion";    // Advanced animation components for enhanced UX
+
+// React Router imports for navigation between pages
+import { Link, useNavigate } from "react-router-dom";       // Navigation components and programmatic routing
+
+// AI-SDLC configuration data import
+import aiDevelopmentStages from "../../constants/ai-sdlc/aiAugmentedSoftwareDevelopment"; // AI-enhanced stage definitions
+
+// React core imports for component functionality
+import React, { useState } from "react";                   // Core React with state management
+
+// Styling and UI component imports
+import styles from "../../styles/index.js";                // Centralized styling system
+import Menu from "../../components/Menu";                   // Navigation menu component
+import aiMenuItems from "../../constants/ai-sdlc/aiMenuItems"; // AI-specific navigation items
+
+/**
+ * AiAugmentedSoftwareDevelopment Component
+ * 
+ * Main hub page for AI-augmented SDLC learning experiences.
+ * Provides overview and navigation to AI-enhanced development phases.
+ */
 const AiAugmentedSoftwareDevelopment = () => {
-  const [selectedStage, setSelectedStage] = useState(null);
-  const navigate = useNavigate();
+  // State management for interactive stage selection
+  const [selectedStage, setSelectedStage] = useState(null); // Currently selected/highlighted stage
+  const navigate = useNavigate();                           // Navigation hook for programmatic routing
 
+  // Animation configuration for engaging visual presentation
+  // These variants create smooth, professional transitions that enhance the learning experience
+  
+  // Main container animation with staggered children for sequential appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                                  // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { duration: 0.8, staggerChildren: 0.2 },
+      opacity: 1,                                             // Final visible state
+      transition: { duration: 0.8, staggerChildren: 0.2 },   // Smooth entrance with staggered children
     },
   };
 
+  // Page title animation with slide-down effect for dramatic entrance
   const titleVariants = {
-    hidden: { y: -50, opacity: 0 },
+    hidden: { y: -50, opacity: 0 },                          // Start above viewport, invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      y: 0,                                                   // End at normal position
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.8, ease: "easeOut" },        // Smooth easing for professional feel
     },
   };
 
+  // Description text animation with slide-up effect for content reveal
   const descriptionVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },                           // Start below viewport, invisible
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, delay: 0.3 },
+      y: 0,                                                   // End at normal position
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.6, delay: 0.3 },             // Delayed entrance after title
     },
   };
 
+  // Stage card animation with scale effect for engaging presentation
   const stageVariants = {
-    hidden: { scale: 0, opacity: 0 },
+    hidden: { scale: 0, opacity: 0 },                        // Start small and invisible
     visible: {
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      scale: 1,                                               // End at normal size
+      opacity: 1,                                             // End visible
+      transition: { duration: 0.5, ease: "easeOut" },        // Smooth scale animation
     },
   };
 
+  // Button animation with slide-up effect for call-to-action emphasis
   const buttonVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 50, opacity: 0 },                           // Start below viewport, invisible
     visible: {
       y: 0,
       opacity: 1,

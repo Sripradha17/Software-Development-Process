@@ -1,52 +1,114 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "../styles/index.js";
+/**
+ * Decision Choice Component
+ * 
+ * Interactive decision-making interface for simulation scenarios.
+ * Allows users to choose between different options during simulation phases,
+ * with features including:
+ * - Multiple decision options with detailed descriptions
+ * - Impact preview on hover showing consequence summaries
+ * - Two-step decision process (select then confirm) to prevent accidental choices
+ * - Animated consequence visualization with detailed impact breakdown
+ * - Context-aware decision presentation based on current game state
+ * - Visual feedback and confirmation flow for better user experience
+ * 
+ * This component is central to the simulation learning experience,
+ * helping students understand the consequences of different choices
+ * in software development scenarios.
+ * 
+ * @param {Object} props - Component props
+ * @param {Object} props.phase - Current simulation phase information
+ * @param {Array} props.decisions - Available decision options for this phase
+ * @param {Function} props.onDecision - Callback when user confirms a decision
+ * @param {Object} props.gameContext - Current simulation context (budget, timeline, etc.)
+ * @param {number} props.phaseNumber - Current phase number for display
+ */
 
+// React core imports for component functionality
+import React, { useState } from "react";            // Core React with state management
+
+// Animation library for smooth transitions and visual feedback
+import { motion, AnimatePresence } from "framer-motion"; // Advanced animation components
+
+// Styling configuration
+import styles from "../styles/index.js";             // Centralized styling system
+
+/**
+ * DecisionChoice Component
+ * 
+ * Manages the decision-making flow during simulation phases.
+ * Provides interactive choice selection with consequence preview.
+ */
 const DecisionChoice = ({ phase, decisions, onDecision, gameContext, phaseNumber }) => {
-  const [selectedDecision, setSelectedDecision] = useState(null);
-  const [showConsequences, setShowConsequences] = useState(false);
-  const [hoveredDecision, setHoveredDecision] = useState(null);
+  // State management for decision selection and confirmation flow
+  const [selectedDecision, setSelectedDecision] = useState(null);    // Currently selected decision option
+  const [showConsequences, setShowConsequences] = useState(false);   // Flag to show consequence details
+  const [hoveredDecision, setHoveredDecision] = useState(null);      // Decision being hovered for preview
 
+  // Animation configuration for smooth decision selection flow
+  // These variants define how decision options and consequences appear
+  
+  // Main container animation with staggered decision options
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                          // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
+      opacity: 1,                                     // Final visible state
+      transition: { staggerChildren: 0.15 }           // Stagger decision option animations
     }
   };
 
+  // Individual decision option animation with slide-up effect
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 30 },                   // Start invisible and below final position
+    visible: { opacity: 1, y: 0 }                    // End visible at normal position
   };
 
+  // Consequence panel animation with spring effect for engagement
   const consequenceVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.8 },              // Start invisible and smaller
     visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { type: "spring", stiffness: 300, damping: 20 }
+      opacity: 1,                                     // End visible
+      scale: 1,                                       // End at normal size
+      transition: { type: "spring", stiffness: 300, damping: 20 } // Spring animation for smooth appearance
     },
-    exit: { opacity: 0, scale: 0.8 }
+    exit: { opacity: 0, scale: 0.8 }                 // Exit animation when hiding consequences
   };
 
+  /**
+   * Handles decision selection (first step of two-step process)
+   * 
+   * @param {Object} decision - Selected decision object with consequences
+   */
   const handleDecisionSelect = (decision) => {
-    setSelectedDecision(decision);
-    setShowConsequences(true);
+    setSelectedDecision(decision);                    // Store selected decision
+    setShowConsequences(true);                        // Show consequence preview
   };
 
+  /**
+   * Handles decision confirmation (second step - final commit)
+   * Calls parent callback to apply decision and proceed with simulation
+   */
   const handleConfirmDecision = () => {
     if (selectedDecision) {
-      onDecision(selectedDecision);
+      onDecision(selectedDecision);                   // Apply decision and continue simulation
     }
   };
 
+  /**
+   * Handles returning to decision selection (cancel confirmation)
+   * Allows users to change their mind before final commitment
+   */
   const handleBackToChoices = () => {
-    setSelectedDecision(null);
-    setShowConsequences(false);
+    setSelectedDecision(null);                        // Clear selected decision
+    setShowConsequences(false);                       // Hide consequence panel
   };
 
-  // Calculate impact preview for hover effect
+  /**
+   * Calculate impact preview for hover effect
+   * Provides quick preview of decision consequences on hover
+   * 
+   * @param {Object} consequences - Decision consequences object
+   * @returns {Array} Array of impact summaries for display
+   */
   const getImpactPreview = (consequences) => {
     const impacts = [];
     Object.keys(consequences).forEach(key => {

@@ -1,4 +1,36 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+/**
+ * Introduction Page Test Suite
+ * 
+ * Comprehensive testing for the main landing page of the Software Development
+ * Process educational platform. Validates that the introduction and feature
+ * showcase functionality works correctly for new users.
+ * 
+ * Test Coverage:
+ * - Component rendering with platform introduction content
+ * - Feature carousel and auto-rotation functionality
+ * - Call-to-action buttons and navigation to learning paths
+ * - Responsive design and accessibility compliance
+ * - Platform statistics and benefits presentation
+ * 
+ * Introduction Page Features Tested:
+ * - Animated feature showcase with rotating highlights
+ * - Platform statistics and educational benefits overview
+ * - Navigation to traditional SDLC and AI-augmented learning paths
+ * - Auto-rotating feature carousel for engaging presentation
+ * - Responsive design with smooth animations and transitions
+ * 
+ * Testing Strategy:
+ * - Mock introduction data and feature configurations
+ * - Simulate user interactions with call-to-action elements
+ * - Validate proper content rendering and visual presentation
+ * - Test carousel functionality and auto-rotation behavior
+ * - Ensure accessibility and responsive design compliance
+ * 
+ * This test suite ensures new users receive an engaging, accessible introduction
+ * to the platform that effectively guides them to appropriate learning paths.
+ */
+
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithRouter } from '../../../test/testUtils';

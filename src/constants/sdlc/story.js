@@ -1,3 +1,33 @@
+/**
+ * Traditional SDLC Story Content
+ * 
+ * Interactive narrative content for the Software Development Life Cycle story page.
+ * Contains chapter-based content following Sarah and Alex as they develop a coffee
+ * shop app using traditional SDLC methodology.
+ * 
+ * Story Structure:
+ * - Chapter-based progression through all SDLC phases
+ * - Character-driven narrative with business owner (Sarah) and developer (Alex)
+ * - Real-world analogies to make technical concepts accessible
+ * - Visual elements including icons, illustrations, and color themes
+ * 
+ * Educational Purpose:
+ * - Makes abstract software development concepts concrete through storytelling
+ * - Demonstrates stakeholder collaboration and communication patterns
+ * - Shows practical application of each SDLC phase in business context
+ * - Provides memorable learning experience through narrative engagement
+ * 
+ * Each chapter contains:
+ * - id: Unique identifier for chapter navigation
+ * - title: Chapter heading for display
+ * - subtitle: Phase or theme description
+ * - icon: Visual identifier for the chapter
+ * - story: Array of narrative paragraphs with dialogue and explanation
+ * - illustration: Visual elements for enhanced engagement
+ * - color/gradient: Theme colors for visual consistency
+ */
+
+// Coffee shop app development story chapters
 const chapters = [
   {
     id: 0,

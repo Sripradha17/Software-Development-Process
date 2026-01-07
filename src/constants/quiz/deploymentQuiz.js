@@ -1,3 +1,41 @@
+/**
+ * Traditional SDLC Deployment Phase Quiz Configuration
+ * 
+ * Educational assessment questions designed to test student understanding
+ * of classical software deployment concepts and production release practices.
+ * This quiz reinforces learning from the deployment phase content.
+ * 
+ * Quiz Focus Areas:
+ * - Production environment setup and configuration
+ * - Release planning and coordination strategies
+ * - Manual deployment processes and checklists
+ * - Go-live procedures and stakeholder communication
+ * - Post-deployment monitoring and validation
+ * - Rollback procedures and contingency planning
+ * 
+ * Educational Design:
+ * - Multiple choice questions covering deployment fundamentals
+ * - Correct answers reinforce deployment best practices
+ * - Wrong answer explanations clarify deployment misconceptions
+ * - Real-world deployment scenarios and decision-making
+ * - Risk management and operational considerations
+ * 
+ * Assessment Objectives:
+ * - Verify understanding of deployment phase fundamentals
+ * - Test knowledge of production release best practices
+ * - Assess ability to plan and execute safe deployments
+ * - Prepare students for maintenance and operational phases
+ * 
+ * This quiz ensures students have mastered traditional deployment
+ * methodologies before progressing to modern DevOps and AI-enhanced practices.
+ */
+
+/**
+ * Deployment Phase Assessment Questions
+ * 
+ * Comprehensive quiz covering traditional software deployment concepts,
+ * release management, and production operations.
+ */
 export const deploymentQuiz = [
   {
     question: "What is the main goal of the Deployment phase?",

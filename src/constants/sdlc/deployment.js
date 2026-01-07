@@ -1,3 +1,43 @@
+/**
+ * Traditional SDLC Deployment Phase Configuration
+ * 
+ * Educational content for teaching classical software deployment methodologies
+ * and production release practices. This provides foundational knowledge about
+ * systematic approaches to moving software from development to production.
+ * 
+ * Core Deployment Activities:
+ * - Production environment setup and configuration
+ * - Release planning and scheduling
+ * - Manual deployment processes and checklists
+ * - Go-live coordination and stakeholder communication
+ * - Post-deployment monitoring and validation
+ * - Rollback procedures and contingency planning
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental deployment skills and operational awareness
+ * - Emphasizes careful planning and risk management
+ * - Teaches systematic approach to production releases
+ * - Provides foundation for understanding modern DevOps evolution
+ * 
+ * Key Deployment Concepts:
+ * - Environment management and promotion strategies
+ * - Change management and approval processes
+ * - Production readiness criteria and validation
+ * - Monitoring and observability in production
+ * - Incident response and rollback procedures
+ * 
+ * Learning Outcomes:
+ * Students will understand traditional deployment methodologies that form
+ * the foundation for modern DevOps practices and serve as the basis for
+ * AI-augmented deployment approaches taught in the AI-SDLC section.
+ */
+
+/**
+ * Traditional Deployment Process Steps
+ * 
+ * Sequential activities that form the foundation of software deployment
+ * in classical development methodologies.
+ */
 const deploymentSteps = [
   {
     id: 1,

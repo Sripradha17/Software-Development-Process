@@ -1,53 +1,100 @@
+/**
+ * Global CSS Foundation and Design System
+ * 
+ * Establishes the foundational styles and design system for the entire
+ * Software Development Process educational platform. This file defines:
+ * 
+ * Core Design Elements:
+ * - CSS custom properties (variables) for consistent theming
+ * - Typography system with optimized rendering
+ * - Color palette for dark theme with accessibility considerations
+ * - Global resets and box-sizing for consistent behavior
+ * - Responsive design foundations
+ * 
+ * Design Philosophy:
+ * - Dark theme optimized for extended reading and reduced eye strain
+ * - Accessibility-first approach with proper color contrast
+ * - Performance optimized with font rendering improvements
+ * - Maintainable through CSS custom properties
+ * - Responsive and mobile-friendly base styles
+ * 
+ * Usage:
+ * This file is imported globally and provides the foundation for all
+ * component-specific styles. Variables defined here are used throughout
+ * the application for consistent theming and easy maintenance.
+ */
+
+/* CSS Custom Properties and Global Foundation */
+/* Establishes design system variables and optimized typography */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: dark;
-  color: #e2e8f0;
-  background: linear-gradient(135deg, #0f1419, #1a202c, #2d3748);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Typography System */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; /* Modern, readable font stack */
+  line-height: 1.5;                           /* Optimal reading line height */
+  font-weight: 400;                           /* Normal font weight as default */
+  color-scheme: dark;                         /* Indicate dark theme preference */
+  color: #e2e8f0;                             /* Primary text color for readability */
+  background: linear-gradient(135deg, #0f1419, #1a202c, #2d3748); /* Dynamic background gradient */
   
-  /* Dark Theme Color Variables */
-  --bg-primary: #0f1419;
-  --bg-secondary: #1a202c;
-  --bg-tertiary: #2d3748;
-  --bg-card: #374151;
-  --bg-hover: #4a5568;
-  --text-primary: #e2e8f0;
-  --text-secondary: #a0aec0;
-  --text-muted: #718096;
-  --accent-primary: #38b2ac;
-  --accent-secondary: #319795;
-  --accent-tertiary: #2c7a7b;
-  --border-color: #4a5568;
-  --shadow-dark: rgba(0, 0, 0, 0.3);
+  /* Font Rendering Optimization */
+  font-synthesis: none;                       /* Disable synthetic font variations */
+  text-rendering: optimizeLegibility;         /* Optimize text rendering for quality */
+  -webkit-font-smoothing: antialiased;        /* Smooth fonts on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale;         /* Smooth fonts on Firefox/macOS */
+  
+  /* Design System Color Palette */
+  /* Dark theme colors optimized for educational content and extended use */
+  
+  /* Background Color Hierarchy */
+  --bg-primary: #0f1419;      /* Deepest background for main application areas */
+  --bg-secondary: #1a202c;    /* Secondary background for sections and panels */
+  --bg-tertiary: #2d3748;     /* Tertiary background for elevated content */
+  --bg-card: #374151;         /* Card and component backgrounds */
+  --bg-hover: #4a5568;        /* Interactive hover states */
+  
+  /* Text Color Hierarchy */
+  --text-primary: #e2e8f0;    /* Primary text with high contrast for readability */
+  --text-secondary: #a0aec0;  /* Secondary text for less prominent content */
+  --text-muted: #718096;      /* Muted text for subtle information */
+  
+  /* Accent Colors for Branding and Interaction */
+  --accent-primary: #38b2ac;  /* Primary brand color for main actions */
+  --accent-secondary: #319795; /* Secondary accent for variations */
+  --accent-tertiary: #2c7a7b; /* Tertiary accent for subtle emphasis */
+  
+  /* UI Element Colors */
+  --border-color: #4a5568;    /* Subtle borders for component definition */
+  --shadow-dark: rgba(0, 0, 0, 0.3); /* Drop shadows for depth and elevation */
 }
 
+/* Global CSS Reset and Box Model */
+/* Establishes consistent behavior across all elements */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;     /* Include padding and border in element size calculations */
+  margin: 0;                  /* Remove default margins for consistent spacing */
+  padding: 0;                 /* Remove default padding for controlled spacing */
 }
 
+/* Link Styling */
+/* Default link appearance with hover effects */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 500;           /* Medium weight for link emphasis */
+  color: #646cff;             /* Default link color */
+  text-decoration: inherit;   /* Inherit text decoration from parent */
 }
 
+/* Link Hover State */
 a:hover {
-  color: #535bf2;
+  color: #535bf2;             /* Darker shade for hover feedback */
 }
 
+/* Body Element Foundation */
+/* Core body styling for responsive, accessible layout */
 body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  width: 100%;
+  margin: 0;                  /* Remove default body margin */
+  padding: 0;                 /* Remove default body padding */
+  min-width: 320px;           /* Minimum width for mobile compatibility */
+  min-height: 100vh;          /* Full viewport height minimum */
+  width: 100%;                /* Full width utilization */
   overflow-x: hidden;
 }
 

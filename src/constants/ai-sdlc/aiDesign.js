@@ -1,3 +1,36 @@
+/**
+ * AI-Enhanced Design Phase Configuration
+ * 
+ * Educational content demonstrating how artificial intelligence revolutionizes
+ * the design phase of software development through intelligent automation,
+ * optimization, and pattern recognition.
+ * 
+ * AI Design Capabilities:
+ * - Intelligent architecture suggestions based on performance patterns
+ * - Automated database schema optimization using usage analytics
+ * - AI-powered API design with auto-documentation generation
+ * - Smart UI/UX prototyping with accessibility optimization
+ * - Predictive security analysis during design phase
+ * - Automated design validation and optimization recommendations
+ * 
+ * Educational Focus:
+ * - Shows practical applications of AI in system design
+ * - Demonstrates how AI enhances traditional design methodologies
+ * - Teaches integration of machine learning into design workflows
+ * - Illustrates the balance between AI assistance and human creativity
+ * 
+ * Learning Outcomes:
+ * Students learn how AI transforms design from manual, experience-based
+ * decisions to data-driven, optimized solutions while maintaining the
+ * importance of human oversight and creative problem-solving.
+ */
+
+/**
+ * AI-Enhanced Design Process Steps
+ * 
+ * Systematic approach to leveraging artificial intelligence throughout
+ * the design phase, from architecture to user experience optimization.
+ */
 const aiDesignSteps = [
   {
     id: 1,

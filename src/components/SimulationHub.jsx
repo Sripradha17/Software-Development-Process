@@ -1,53 +1,113 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getAllSimulationScenarios, SIMULATION_TYPES, simulationNavItems } from "../constants/simulation/simulationConstants";
-import Menu from "./Menu";
-import sdlcMenuItems from "../constants/sdlc/menuItems";
-import aiMenuItems from "../constants/ai-sdlc/aiMenuItems";
-import styles from "../styles/index.js";
+/**
+ * Simulation Hub Component
+ * 
+ * Central hub for accessing and selecting simulation scenarios.
+ * Provides an organized interface for choosing between different types of
+ * software development simulations including:
+ * - Traditional SDLC simulations with classic methodologies
+ * - AI-augmented SDLC simulations with modern AI integration
+ * 
+ * Features include:
+ * - Type-based filtering of simulation scenarios
+ * - Animated scenario cards with hover effects
+ * - Progress tracking and difficulty indicators
+ * - Navigation integration with URL parameter management
+ * - Responsive grid layout for optimal viewing
+ */
 
+// React core imports for component functionality
+import React, { useState, useEffect, useMemo } from "react"; // Core React hooks for state, effects, and memoization
+
+// Animation library for smooth visual transitions
+import { motion } from "framer-motion";                      // Animation components for enhanced UX
+
+// React Router imports for navigation and URL management
+import { Link, useNavigate, useParams } from "react-router-dom"; // Navigation components and parameter handling
+
+// Simulation configuration and data imports
+import { 
+  getAllSimulationScenarios,  // Function to fetch all available simulation scenarios
+  SIMULATION_TYPES,           // Constants defining simulation types (SDLC, AI_SDLC)
+  simulationNavItems          // Navigation configuration for different simulation types
+} from "../constants/simulation/simulationConstants";
+
+// UI component imports
+import Menu from "./Menu";                                    // Navigation menu component
+import sdlcMenuItems from "../constants/sdlc/menuItems";     // Traditional SDLC navigation items
+import aiMenuItems from "../constants/ai-sdlc/aiMenuItems";  // AI-augmented SDLC navigation items
+import styles from "../styles/index.js";                     // Centralized styling system
+
+/**
+ * SimulationHub Component
+ * 
+ * Main component for simulation selection and navigation.
+ * Manages simulation type filtering and URL synchronization.
+ */
 const SimulationHub = () => {
-  const { type } = useParams();
-  const [selectedType, setSelectedType] = useState(type || SIMULATION_TYPES.SDLC);
-  const navigate = useNavigate();
+  // Extract simulation type from URL parameters
+  const { type } = useParams();                                 // Get 'type' parameter from current URL
+  
+  // State for managing currently selected simulation type
+  const [selectedType, setSelectedType] = useState(type || SIMULATION_TYPES.SDLC); // Default to SDLC if no type specified
+  
+  // Navigation hook for programmatic routing
+  const navigate = useNavigate();                               // Hook for navigation control
 
-  // Sync selectedType with URL parameter
+  /**
+   * Effect hook for URL parameter synchronization
+   * 
+   * Keeps the selected simulation type in sync with the URL parameter.
+   * Handles navigation updates when type changes or when no type is specified.
+   */
   useEffect(() => {
+    // Validate and set simulation type from URL parameter
     if (type && (type === SIMULATION_TYPES.SDLC || type === SIMULATION_TYPES.AI_SDLC)) {
-      setSelectedType(type);
+      setSelectedType(type);                        // Update state with valid type from URL
     } else if (!type) {
-      // If no type in URL, default to SDLC and update URL
+      // Default to SDLC type and update URL if no type specified
       navigate(`/simulation/${SIMULATION_TYPES.SDLC}`, { replace: true });
     }
-  }, [type, navigate]);
+  }, [type, navigate]);                             // Re-run when type or navigate function changes
   
+  /**
+   * Memoized scenarios computation
+   * 
+   * Efficiently computes and caches the list of scenarios for the selected type.
+   * Only recalculates when selectedType changes to optimize performance.
+   */
   const scenarios = useMemo(() => {
     const scenarioList = getAllSimulationScenarios(selectedType);
-    console.log('Selected type:', selectedType, 'Scenarios count:', scenarioList?.length);
+    console.log('Selected type:', selectedType, 'Scenarios count:', scenarioList?.length); // Debug logging
     return scenarioList;
-  }, [selectedType]);
+  }, [selectedType]);                               // Dependency: recalculate when selectedType changes
   
-  const navInfo = simulationNavItems[selectedType];
+  // Get navigation configuration for current simulation type
+  const navInfo = simulationNavItems[selectedType];  // Navigation items specific to current type
 
+  // Animation configuration for smooth visual transitions
+  // These variants define how elements appear and animate
+  
+  // Container animation with staggered children for sequential appearance
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0 },                          // Initial invisible state
     visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      opacity: 1,                                     // Final visible state
+      transition: { staggerChildren: 0.1 }            // Stagger child animations by 0.1s
     }
   };
 
+  // Individual item animation for fade-in with slide up effect
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 30 },                   // Start invisible and 30px below
+    visible: { opacity: 1, y: 0 }                    // End visible at normal position
   };
 
+  // Card animation with scale effect for interactive feedback
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.8 },              // Start invisible and smaller
     visible: { 
-      opacity: 1, 
-      scale: 1,
+      opacity: 1,                                     // End visible
+      scale: 1,                                       // End at normal size
       transition: { type: "spring", stiffness: 300, damping: 20 }
     }
   };

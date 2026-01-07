@@ -1,3 +1,43 @@
+/**
+ * Traditional SDLC Design Phase Configuration
+ * 
+ * Educational content for teaching classical system design methodologies
+ * in software development. This provides foundational knowledge about
+ * systematic approaches to creating software architecture and user interfaces.
+ * 
+ * Core Design Activities:
+ * - System architecture planning and documentation
+ * - Database design with entity relationships and normalization
+ * - User interface design and user experience planning
+ * - API design and integration planning
+ * - Security architecture and access control design
+ * - Performance considerations and scalability planning
+ * 
+ * Educational Philosophy:
+ * - Builds fundamental design skills before introducing AI enhancements
+ * - Emphasizes systematic thinking and documentation practices
+ * - Teaches proven design patterns and architectural principles
+ * - Provides foundation for understanding modern design evolution
+ * 
+ * Learning Outcomes:
+ * Students will understand traditional design methodologies that form
+ * the foundation for modern software architecture and serve as the basis
+ * for AI-augmented design approaches taught in the AI-SDLC section.
+ * 
+ * Design Principles Covered:
+ * - Separation of concerns and modular design
+ * - Scalability and performance considerations
+ * - Security by design principles
+ * - User-centered design methodologies
+ * - Documentation and communication of design decisions
+ */
+
+/**
+ * Traditional Design Process Steps
+ * 
+ * Sequential activities that form the foundation of system design
+ * in classical software development methodologies.
+ */
 const designSteps = [
   {
     id: 1,
