@@ -227,7 +227,7 @@ const SimulationEngine = () => {
           <h1 style={styles.simulationEngineTitle}>
             {scenario.icon} {scenario.title}
             {scenario.type === 'ai-sdlc' && (
-              <span style={styles.aiIndicator}>🤖 AI Enhanced</span>
+              <span style={styles.aiIndicator}> AI Enhanced</span>
             )}
           </h1>
           <p style={styles.simulationEnginePhase}>

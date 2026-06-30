@@ -255,7 +255,7 @@ const DevelopmentProcessStory = () => {
             {/* Main intro content with floating animation */}
             <motion.div style={styles.introContent} animate={floatingAnimation}>
               {/* Coffee shop emoji icon */}
-              <motion.div style={styles.introIcon}>☕</motion.div>
+              <motion.div style={styles.introIcon}></motion.div>
               
               {/* Story title */}
               <motion.h1 style={styles.introTitle}>
@@ -309,7 +309,7 @@ const DevelopmentProcessStory = () => {
                   delay: i * 0.5,                                // Staggered start times
                 }}
               >
-                ☕
+                
               </motion.div>
             ))}
           </motion.div>
@@ -444,20 +444,20 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}              // Slight growth on hover
                     whileTap={{ scale: 0.97 }}                // Slight shrink on tap
                   >
-                    📝 Planning
+                     Planning
                   </motion.button>
                   
                   {/* Analysis Phase Button */}
                   <motion.button
                     style={{
                       ...styles.planButton,
-                      background: "linear-gradient(135deg, #f39c12 0%, #e67e22 100%)",
+                      background: "linear-gradient(135deg, #228b82 0%, #1a6b66 100%)",
                     }}
                     onClick={() => navigate("/analysis")}       // Navigate to analysis phase
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📊 Analysis
+                     Analysis
                   </motion.button>
                   
                   {/* Design Phase Button */}
@@ -467,7 +467,7 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📐 Design
+                     Design
                   </motion.button>
                   
                   {/* Implementation Phase Button */}
@@ -477,7 +477,7 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    💻 Implementation
+                     Implementation
                   </motion.button>
                   
                   {/* Testing Phase Button */}
@@ -487,7 +487,7 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🧪 Testing
+                     Testing
                   </motion.button>
                   
                   {/* Deployment Phase Button */}
@@ -497,7 +497,7 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🚀 Deployment
+                     Deployment
                   </motion.button>
                   
                   {/* Maintenance Phase Button */}
@@ -507,17 +507,17 @@ const DevelopmentProcessStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🛠 Maintenance
+                     Maintenance
                   </motion.button>
                   
                   {/* Review Phase Button */}
                   <motion.button
-                    style={styles.planButtonDark}
+                    style={{ ...styles.planButtonDark, backgroundColor: "#325fa1", border: "1px solid #325fa1" }}
                     onClick={() => navigate("/review")}         // Navigate to review phase
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📋 Review
+                     Review
                   </motion.button>
                 </div>
                 
@@ -557,7 +557,7 @@ const DevelopmentProcessStory = () => {
           whileHover={{ scale: 1.1 }}                          // Enlarge on hover
           whileTap={{ scale: 0.9 }}                            // Shrink on tap
         >
-          {isAutoPlay ? "⏸ Pause" : "▶ Auto Play"}             // Dynamic button text
+          {isAutoPlay ? " Pause" : " Auto Play"}             // Dynamic button text
         </motion.button>
 
         {/* Next Chapter Button */}
@@ -600,7 +600,7 @@ const DevelopmentProcessStory = () => {
           }}
         >
           {/* Random themed icons for tech/coffee shop atmosphere */}
-          {["☕", "📱 ", "💻 ", "🚀 ", "✨ "][Math.floor(Math.random() * 5)]}
+          {["", " ", " ", " ", " "][Math.floor(Math.random() * 5)]}
         </motion.div>
       ))}
     </div>

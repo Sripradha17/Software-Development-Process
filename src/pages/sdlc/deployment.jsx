@@ -94,7 +94,7 @@ const DeploymentPage = () => {
       </Link>
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -104,7 +104,9 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -115,7 +117,9 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Visualization
+          
         </motion.button>
         <motion.button
           style={{
@@ -127,7 +131,9 @@ const DeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          📦
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -139,7 +145,9 @@ const DeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -151,7 +159,9 @@ const DeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -162,7 +172,9 @@ const DeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -175,7 +187,9 @@ const DeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -192,7 +206,7 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🚀 ✨
+                 
               </motion.div>
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
                 Deployment in Software Development
@@ -212,19 +226,19 @@ const DeploymentPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🚚</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Delivers software to users or production</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔄</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Handles updates, rollbacks, and migrations</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📈</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Monitors health and performance</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Ensures security and compliance</span>
                   </div>
                 </div>
@@ -299,7 +313,7 @@ const DeploymentPage = () => {
               </div>
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Successful deployment is more
+                   <strong>Remember:</strong> Successful deployment is more
                   than just pushing code—it's about planning, monitoring, and
                   ensuring a smooth transition for users. Good deployment
                   minimizes downtime, enables quick rollback, and keeps your
@@ -369,7 +383,7 @@ const DeploymentPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -481,7 +495,7 @@ const DeploymentPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -572,7 +586,7 @@ const DeploymentPage = () => {
                       >
                         {selectedDeploymentDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDeploymentDrawback === drawback.id && (
@@ -624,20 +638,7 @@ const DeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😄
-                </motion.div>
+                <div style={styles.jokeIcon} />
                 <h2 style={styles.jokeTitle}>Deployment Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
@@ -649,7 +650,7 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Because it lost its cache! 💸
+                    Because it lost its cache! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -662,7 +663,7 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    Because they never feel blue after going green! 🟢
+                    Because they never feel blue after going green! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -675,7 +676,7 @@ const DeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    You're not coming to production! 🚫
+                    You're not coming to production! 
                   </motion.p>
                 </div>
                 <motion.div
@@ -685,7 +686,7 @@ const DeploymentPage = () => {
                   transition={{ delay: 0.8 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Deployment Wisdom: "Automate deployments, but never
+                     Deployment Wisdom: "Automate deployments, but never
                     automate blame!"
                   </p>
                   <p style={styles.wisdomExplanation}>
@@ -700,7 +701,7 @@ const DeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                     Home
                   </motion.button>
                   
                   <motion.button
@@ -709,7 +710,7 @@ const DeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
                   
                   <motion.button
@@ -732,7 +733,7 @@ const DeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🔧 ✨
+                    Next: Maintenance  
                   </motion.button>
                 </div>
               </motion.div>
@@ -752,17 +753,15 @@ const DeploymentPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Deployment phase concepts.
@@ -777,7 +776,7 @@ const DeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                     Home
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -799,7 +798,7 @@ const DeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🔧 ✨
+                    Next: Maintenance  
                   </motion.button>
                 </div>
               </motion.div>
@@ -828,7 +827,7 @@ const DeploymentPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🧪 ", "✅ ", "🔍 ", "�", "�️", "⚡"][i]}
+          {[" ", " ", " ", "�", "�", ""][i]}
         </motion.div>
       ))}
     </div>

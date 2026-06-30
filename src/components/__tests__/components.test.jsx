@@ -138,7 +138,7 @@ describe('Core Components', () => {
         await user.click(answer);
         
         await waitFor(() => {
-          expect(screen.getByText('✅ Correct!')).toBeInTheDocument();
+          expect(screen.getByText((_, el) => el.tagName.toLowerCase() === 'div' && el.textContent.trim().startsWith('Correct!'))).toBeInTheDocument();
           expect(screen.getByText('Analysis is the first phase where requirements are gathered.')).toBeInTheDocument();
         });
       });
@@ -183,7 +183,7 @@ describe('Core Components', () => {
         await user.click(correctAnswer);
         
         // After clicking the correct answer, feedback should be shown immediately
-        expect(screen.getByText('✅ Correct!')).toBeInTheDocument();
+        expect(screen.getByText((_, el) => el.tagName.toLowerCase() === 'div' && el.textContent.trim().startsWith('Correct!'))).toBeInTheDocument();
       });
     });
   });
@@ -256,7 +256,7 @@ describe('Core Components', () => {
 
       it('handles malformed menu items gracefully', () => {
         const malformedItems = [
-          { label: null, path: "/broken", icon: "❌" }
+          { label: null, path: "/broken", icon: "" }
         ];
         
         renderWithRouter(<Menu items={malformedItems} title="Broken Menu" />);

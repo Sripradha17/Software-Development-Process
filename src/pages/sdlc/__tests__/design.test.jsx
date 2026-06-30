@@ -35,7 +35,7 @@ vi.mock('../../../constants/sdlc/design', () => ({
     {
       id: 1,
       title: "System Architecture",
-      icon: "🏗️",
+      icon: "",
       description: "Design the overall system architecture",
       color: "#FF6B6B"
     }
@@ -44,8 +44,8 @@ vi.mock('../../../constants/sdlc/design', () => ({
     {
       id: "uiux",
       name: "UI/UX Design",
-      icon: "🖌️",
-      emoji: "🎨",
+      icon: "",
+      emoji: "",
       color: "#F8B500",
       story: {
         title: "The Food Ordering App",
@@ -59,7 +59,7 @@ vi.mock('../../../constants/sdlc/design', () => ({
     {
       id: 1,
       title: "Over-engineering",
-      icon: "⚙️",
+      icon: "",
       problem: "Creating unnecessarily complex designs",
       resolution: "Keep designs simple and scalable"
     }
@@ -127,7 +127,7 @@ describe('DesignPage', () => {
       renderWithRouter(<DesignPage />);
       
       const buttons = screen.getAllByRole('button');
-      const emojiButtons = buttons.filter(button => /^[🛠️📊🚀📚⚠😄🧠]$/.test(button.textContent || ''));
+      const emojiButtons = buttons.filter(button => /^[]$/.test(button.textContent || ''));
       if (emojiButtons.length > 0) {
         await user.click(emojiButtons[0]);
       }

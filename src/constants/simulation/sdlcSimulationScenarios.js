@@ -45,7 +45,7 @@ export const sdlcSimulationScenarios = [
     id: "mobile-banking-app",
     title: "Mobile Banking Application",
     description: "You're leading the development of a secure mobile banking application for a major financial institution using traditional SDLC approaches.",
-    icon: "🏦",
+    icon: "",
     color: "#1ABC9C",
     type: "sdlc",
     initialContext: {
@@ -64,7 +64,7 @@ export const sdlcSimulationScenarios = [
         scenario: "You need to plan the mobile banking application using traditional project management approaches. The stakeholders have high expectations for security, user experience, and regulatory compliance.",
         currentStatus: {
           description: "Your team is assembled and ready to start planning the mobile banking application using established SDLC methodologies.",
-          image: "👥💼"
+          image: ""
         },
         decisions: [
           {
@@ -351,7 +351,7 @@ export const sdlcSimulationScenarios = [
     id: "e-commerce-platform",
     title: "E-Commerce Platform",
     description: "Build a scalable e-commerce platform using traditional SDLC methodologies for a growing retail business.",
-    icon: "🛒",
+    icon: "",
     color: "#16A085",
     type: "sdlc",
     initialContext: {
@@ -437,7 +437,7 @@ export const sdlcSimulationScenarios = [
     id: "social-media-platform",
     title: "Social Media Platform",
     description: "Build a scalable social media platform with real-time features, content moderation, and user engagement systems using traditional SDLC methodologies.",
-    icon: "📱💬",
+    icon: "",
     color: "#e74c3c",
     type: "sdlc",
     initialContext: {
@@ -456,7 +456,7 @@ export const sdlcSimulationScenarios = [
         scenario: "You're tasked with planning a social media platform that needs to handle millions of users, real-time messaging, content sharing, and robust moderation systems.",
         currentStatus: {
           description: "Your team is ready to plan the next big social media platform. Focus on scalability, user engagement, and content safety.",
-          image: "👥📊"
+          image: ""
         },
         decisions: [
           {
@@ -509,7 +509,7 @@ export const sdlcSimulationScenarios = [
     id: "enterprise-crm-system",
     title: "Enterprise CRM System",
     description: "Develop a comprehensive Customer Relationship Management system for large enterprises with complex integration requirements and strict compliance needs.",
-    icon: "🏢📊",
+    icon: "",
     color: "#9b59b6",
     type: "sdlc",
     initialContext: {
@@ -528,7 +528,7 @@ export const sdlcSimulationScenarios = [
         scenario: "You're leading the development of a CRM system that must integrate with existing enterprise systems, handle complex workflows, and meet strict compliance requirements.",
         currentStatus: {
           description: "Enterprise stakeholders expect a robust, scalable CRM that integrates seamlessly with their existing IT infrastructure.",
-          image: "🏢🔗"
+          image: ""
         },
         decisions: [
           {
@@ -581,7 +581,7 @@ export const sdlcSimulationScenarios = [
     id: "iot-healthcare-platform",
     title: "IoT Healthcare Monitoring Platform",
     description: "Develop a comprehensive healthcare IoT platform that monitors patient vitals, manages medical devices, and ensures HIPAA compliance using traditional SDLC approaches.",
-    icon: "🏥🔗",
+    icon: "",
     color: "#2ecc71",
     type: "sdlc",
     initialContext: {
@@ -600,7 +600,7 @@ export const sdlcSimulationScenarios = [
         scenario: "You're developing a critical healthcare platform that must integrate with medical devices, ensure patient data security, and comply with strict healthcare regulations like HIPAA and FDA requirements.",
         currentStatus: {
           description: "Your team must navigate complex healthcare regulations, device integration challenges, and life-critical system requirements in this highly regulated environment.",
-          image: "🏥📋🔐"
+          image: ""
         },
         decisions: [
           {
@@ -653,7 +653,7 @@ export const sdlcSimulationScenarios = [
     id: "gaming-platform",
     title: "Multiplayer Gaming Platform",
     description: "Build a high-performance multiplayer gaming platform with real-time gameplay, matchmaking, and social features using traditional game development methodologies.",
-    icon: "🎮🕹️",
+    icon: "",
     color: "#ff6b6b",
     type: "sdlc",
     initialContext: {
@@ -672,7 +672,7 @@ export const sdlcSimulationScenarios = [
         scenario: "You're creating a competitive multiplayer gaming platform that requires ultra-low latency, robust anti-cheat systems, and seamless cross-platform compatibility.",
         currentStatus: {
           description: "Your team faces the challenge of building a platform that can handle millions of concurrent players while maintaining fair gameplay and excellent user experience.",
-          image: "🎮⚡🌐"
+          image: ""
         },
         decisions: [
           {
@@ -1003,16 +1003,16 @@ export const calculateFinalOutcome = (initialContext, decisions) => {
   // Determine outcome title and description
   let title, description;
   if (successScore >= 85) {
-    title = '🎉 Outstanding Success!';
+    title = ' Outstanding Success!';
     description = 'Your project exceeded expectations and delivered exceptional results. Stakeholders are thrilled with the outcome.';
   } else if (successScore >= 70) {
-    title = '✅ Project Success';
+    title = ' Project Success';
     description = 'Your project was successful with good results across most metrics. Some areas could be improved for future projects.';
   } else if (successScore >= 50) {
-    title = '⚠️ Mixed Results';
+    title = ' Mixed Results';
     description = 'Your project had mixed outcomes. While some aspects were successful, significant challenges impacted overall results.';
   } else {
-    title = '❌ Project Challenges';
+    title = ' Project Challenges';
     description = 'Your project faced major difficulties and did not meet success criteria. Important lessons learned for future projects.';
   }
 

@@ -91,7 +91,7 @@ const AIDeploymentPage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -101,7 +101,9 @@ const AIDeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -113,7 +115,9 @@ const AIDeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          📦
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -125,7 +129,9 @@ const AIDeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -137,7 +143,9 @@ const AIDeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠️
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -148,7 +156,9 @@ const AIDeploymentPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -161,7 +171,9 @@ const AIDeploymentPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -178,7 +190,7 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖🚀
+                
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -196,19 +208,19 @@ const AIDeploymentPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Automates deployment and rollback</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📊</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Monitors system health in real time</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Predicts and prevents failures</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Optimizes user training and adoption</span>
                   </div>
                 </div>
@@ -262,7 +274,7 @@ const AIDeploymentPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate deployment and monitor for issues, but always keep humans in the loop for critical releases.
+                   <strong>Tip:</strong> Use AI to automate deployment and monitor for issues, but always keep humans in the loop for critical releases.
                 </p>
               </motion.div>
 
@@ -327,7 +339,7 @@ const AIDeploymentPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -440,7 +452,7 @@ const AIDeploymentPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -493,20 +505,7 @@ const AIDeploymentPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
 
                 <h2 style={styles.jokeTitle}>AI Deployment Humor Break!</h2>
 
@@ -520,7 +519,7 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always had a rollback plan! 🤖🔄
+                    A: Because it always had a rollback plan! 
                   </motion.p>
                 </div>
 
@@ -534,7 +533,7 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With zero downtime and infinite optimism! 🚀🤖
+                    A: With zero downtime and infinite optimism! 
                   </motion.p>
                 </div>
 
@@ -548,7 +547,7 @@ const AIDeploymentPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee a perfect rollback!" 😅🤖
+                    AI: "I can guarantee a perfect rollback!" 
                   </motion.p>
                 </div>
 
@@ -559,7 +558,7 @@ const AIDeploymentPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a deployment partner, not a replacement for human judgment."</em>
+                     <em>"AI is a deployment partner, not a replacement for human judgment."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
                     Use AI to automate and accelerate deployment, but always keep humans in the loop!
@@ -574,7 +573,7 @@ const AIDeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -584,7 +583,7 @@ const AIDeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
 
                   <motion.button
@@ -608,7 +607,7 @@ const AIDeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🤖✨
+                    Next: Maintenance 
                   </motion.button>
                 </div>
               </motion.div>
@@ -628,17 +627,15 @@ const AIDeploymentPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Deployment concepts.
@@ -653,7 +650,7 @@ const AIDeploymentPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -675,7 +672,7 @@ const AIDeploymentPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🤖✨
+                    Next: Maintenance 
                   </motion.button>
                 </div>
               </motion.div>
@@ -704,7 +701,6 @@ const AIDeploymentPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🚀", "📦", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>

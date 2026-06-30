@@ -181,7 +181,7 @@ const CaseStudyList = () => {
                     {type === 'ai-sdlc' ? 'Advanced' : 'Intermediate'}
                   </span>
                   <div style={styles.difficultyStars}>
-                    {'★'.repeat(type === 'ai-sdlc' ? 4 : 3)}{'☆'.repeat(type === 'ai-sdlc' ? 1 : 2)}
+                    {''.repeat(type === 'ai-sdlc' ? 4 : 3)}{''.repeat(type === 'ai-sdlc' ? 1 : 2)}
                   </div>
                 </div>
               </div>

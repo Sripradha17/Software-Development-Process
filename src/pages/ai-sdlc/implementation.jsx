@@ -76,7 +76,7 @@ const AIImplementationPage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -86,7 +86,9 @@ const AIImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🤖
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -97,7 +99,9 @@ const AIImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Visualization
+          
         </motion.button>
         <motion.button
           style={{
@@ -109,7 +113,9 @@ const AIImplementationPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          🚀
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -121,7 +127,9 @@ const AIImplementationPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📚
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -133,7 +141,9 @@ const AIImplementationPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠️
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -144,7 +154,9 @@ const AIImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -157,7 +169,9 @@ const AIImplementationPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -174,7 +188,7 @@ const AIImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖✨
+                
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -192,19 +206,19 @@ const AIImplementationPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Automates setup, coding, and testing</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📊</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Reviews code and suggests improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Integrates components and resolves conflicts</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Keeps documentation up to date automatically</span>
                   </div>
                 </div>
@@ -282,7 +296,7 @@ const AIImplementationPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate repetitive tasks and focus your energy on creative problem solving.
+                   <strong>Tip:</strong> Use AI to automate repetitive tasks and focus your energy on creative problem solving.
                 </p>
               </motion.div>
 
@@ -347,7 +361,7 @@ const AIImplementationPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -460,7 +474,7 @@ const AIImplementationPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -513,20 +527,7 @@ const AIImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
 
                 <h2 style={styles.jokeTitle}>AI Implementation Humor Break!</h2>
 
@@ -540,7 +541,7 @@ const AIImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because the AI squashed them before they appeared! 🤖🐛
+                    A: Because the AI squashed them before they appeared! 
                   </motion.p>
                 </div>
 
@@ -554,7 +555,7 @@ const AIImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. The AI just rewrites it from scratch! 🛠️🤖
+                    A: None. The AI just rewrites it from scratch! 
                   </motion.p>
                 </div>
 
@@ -568,7 +569,7 @@ const AIImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The developer: "So... you want perpetual improvement? Got it! I'll just add that to my list of paradoxical requirements." 😅🤖
+                    The developer: "So... you want perpetual improvement? Got it! I'll just add that to my list of paradoxical requirements." 
                   </motion.p>
                 </div>
 
@@ -579,7 +580,7 @@ const AIImplementationPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a coding partner, not a replacement for human ingenuity."</em>
+                     <em>"AI is a coding partner, not a replacement for human ingenuity."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
                     Use AI to accelerate development, but always keep humans in the loop!
@@ -594,7 +595,7 @@ const AIImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -604,7 +605,7 @@ const AIImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
 
                   <motion.button
@@ -628,7 +629,7 @@ const AIImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🤖✨
+                    Next: Testing 
                   </motion.button>
                 </div>
               </motion.div>
@@ -648,17 +649,15 @@ const AIImplementationPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Implementation concepts.
@@ -673,7 +672,7 @@ const AIImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -695,7 +694,7 @@ const AIImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🤖✨
+                    Next: Testing 
                   </motion.button>
                 </div>
               </motion.div>
@@ -715,17 +714,15 @@ const AIImplementationPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Implementation concepts.
@@ -740,7 +737,7 @@ const AIImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -762,7 +759,7 @@ const AIImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🤖✨
+                    Next: Testing 
                   </motion.button>
                 </div>
               </motion.div>
@@ -791,7 +788,6 @@ const AIImplementationPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🚀", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>

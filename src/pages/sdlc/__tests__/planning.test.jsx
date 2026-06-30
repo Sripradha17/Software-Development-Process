@@ -109,11 +109,11 @@ describe('PlanningPage', () => {
      */
     it('displays all navigation sections', () => {
       renderWithRouter(<PlanningPage />);
-      
-      // Verify multiple instances of planning icons are present (different sections)
-      expect(screen.getAllByText('📋')).toHaveLength(3); // Planning icons for different sections
-      expect(screen.getByText('📊')).toBeInTheDocument();     // Analytics/steps icon
-      expect(screen.getAllByText('🎯')).toHaveLength(3);      // Target/goal icons for planning objectives
+
+      // Verify the floating nav exposes a labeled button for every section
+      ['Intro', 'Visualization', 'Steps', 'Types', 'Drawbacks', 'Joke', 'Quiz'].forEach((label) => {
+        expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
+      });
     });
 
     /**
@@ -140,7 +140,7 @@ describe('PlanningPage', () => {
       renderWithRouter(<PlanningPage />);
       
       // Simulate user clicking on steps/visualization section
-      const stepsButton = screen.getAllByText('📊')[0];  // First analytics icon (steps section)
+      const stepsButton = screen.getByRole('button', { name: 'Steps' });
       await user.click(stepsButton);                      // Perform click interaction
       
       // Verify that planning content appears after navigation

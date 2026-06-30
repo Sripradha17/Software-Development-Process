@@ -171,6 +171,61 @@ img {
   }
 }
 
+/* Decorative accent animations (replace emoji/icon imagery with motion + color) */
+@keyframes accentPulse {
+  0%, 100% { transform: scaleX(1); opacity: 0.85; box-shadow: 0 0 12px var(--accent-glow, rgba(56, 178, 172, 0.6)); }
+  50% { transform: scaleX(1.6); opacity: 1; box-shadow: 0 0 22px var(--accent-glow, rgba(56, 178, 172, 0.9)); }
+}
+
+@keyframes accentDotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+
+@keyframes accentGlowPulse {
+  0%, 100% { opacity: 0.7; box-shadow: 0 0 10px var(--accent-glow, rgba(56, 178, 172, 0.5)); }
+  50% { opacity: 1; box-shadow: 0 0 26px var(--accent-glow, rgba(56, 178, 172, 0.9)); }
+}
+
+@keyframes accentSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes networkNodePulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+@keyframes networkLineFlow {
+  0%, 100% { opacity: 0.1; stroke-dashoffset: 0; }
+  50% { opacity: 0.5; stroke-dashoffset: -8; }
+}
+
+/* Floating section nav: a vertical pill on the left at desktop widths,
+   collapses into a horizontal scrollable bar pinned to the bottom on
+   small screens so it never overlaps body copy on narrow viewports. */
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  left: clamp(10px, 2vw, 20px);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .floating-nav {
+    top: auto;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    max-width: calc(100vw - 24px);
+    overflow-x: auto;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: var(--text-primary);

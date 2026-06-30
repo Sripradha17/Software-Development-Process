@@ -36,18 +36,18 @@ const OutcomeTracker = ({ context, initialContext, currentPhase, totalPhases }) 
   // Base metrics configuration for all simulation types
   // Each metric includes display properties and formatting information
   const baseMetrics = [
-    { key: 'budget', label: 'Budget', icon: '💰', color: '#1ABC9C', unit: '$' },           // Financial tracking with dollar formatting
-    { key: 'timeline', label: 'Timeline', icon: '⏰', color: '#16A085', unit: 'months' },        // Time tracking with month formatting
-    { key: 'userSatisfaction', label: 'User Satisfaction', icon: '😊', color: '#4bb1b4ff' }, // User happiness metric (percentage)
-    { key: 'security', label: 'Security', icon: '🔒', color: '#325fa1ff' },                 // Security posture metric (percentage)
-    { key: 'performance', label: 'Performance', icon: '⚡', color: '#2dac6cff' },              // System performance metric (percentage)
-    { key: 'reputation', label: 'Reputation', icon: '⭐', color: '#4496a5ff' }                   // Project/team reputation metric (percentage)
+    { key: 'budget', label: 'Budget', icon: '', color: '#1ABC9C', unit: '$' },           // Financial tracking with dollar formatting
+    { key: 'timeline', label: 'Timeline', icon: '', color: '#16A085', unit: 'months' },        // Time tracking with month formatting
+    { key: 'userSatisfaction', label: 'User Satisfaction', icon: '', color: '#4bb1b4ff' }, // User happiness metric (percentage)
+    { key: 'security', label: 'Security', icon: '', color: '#325fa1ff' },                 // Security posture metric (percentage)
+    { key: 'performance', label: 'Performance', icon: '', color: '#2dac6cff' },              // System performance metric (percentage)
+    { key: 'reputation', label: 'Reputation', icon: '', color: '#4496a5ff' }                   // Project/team reputation metric (percentage)
   ];
   
   // Conditionally add AI efficiency metric for AI-enhanced simulations
   // This metric only appears when the simulation includes AI-augmented features
   const metrics = context.aiEfficiency !== undefined 
-    ? [...baseMetrics, { key: 'aiEfficiency', label: 'AI Efficiency', icon: '🤖', color: '#667eea' }] // AI utilization effectiveness
+    ? [...baseMetrics, { key: 'aiEfficiency', label: 'AI Efficiency', icon: '', color: '#667eea' }] // AI utilization effectiveness
     : baseMetrics;
   
   // Determine simulation type for conditional rendering and behavior
@@ -137,7 +137,7 @@ const OutcomeTracker = ({ context, initialContext, currentPhase, totalPhases }) 
 
       <div style={trackerStyles.metricsContainer}>
         <h3 style={trackerStyles.metricsTitle}>
-          {isAIEnhanced ? '🤖 AI-Enhanced Metrics' : 'Project Metrics'}
+          {isAIEnhanced ? ' AI-Enhanced Metrics' : 'Project Metrics'}
         </h3>
         <div style={trackerStyles.metricsGrid}>
           {metrics.map((metric) => {

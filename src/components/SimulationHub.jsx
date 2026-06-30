@@ -134,7 +134,7 @@ const SimulationHub = () => {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <h1 style={styles.simulationHubTitle}>🎯 Project Simulation Hub</h1>
+          <h1 style={styles.simulationHubTitle}> Project Simulation Hub</h1>
           <p style={styles.simulationHubSubtitle}>
             Experience real-world software development challenges through interactive scenarios.
             Make decisions at each phase and see how they impact your project's success.
@@ -180,7 +180,7 @@ const SimulationHub = () => {
                 }}
               >
                 {scenario.type === 'ai-sdlc' && (
-                  <div style={styles.aiEnhancedBadge}>🤖 AI</div>
+                  <div style={styles.aiEnhancedBadge}> AI</div>
                 )}
                 <div style={styles.simulationCardIcon}>{scenario.icon}</div>
                 <h3 style={styles.simulationCardTitle}>
@@ -191,11 +191,11 @@ const SimulationHub = () => {
                 </p>
 
                 <div style={{ marginBottom: '1rem', fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center' }}>
-                  💰 ${scenario.initialContext.budget.toLocaleString()} | 
-                  ⏰ {scenario.initialContext.timeline} months | 
-                  👥 {scenario.initialContext.teamSize} team members
+                   ${scenario.initialContext.budget.toLocaleString()} | 
+                   {scenario.initialContext.timeline} months | 
+                   {scenario.initialContext.teamSize} team members
                   {scenario.initialContext.aiEfficiency !== undefined && (
-                    <> | 🤖 AI Enhanced</>
+                    <> |  AI Enhanced</>
                   )}
                 </div>
 

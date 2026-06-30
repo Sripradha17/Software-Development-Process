@@ -41,48 +41,56 @@ const developmentStages = [
     title: "Planning",
     description:
       "Define the project scope, requirements, and create a roadmap. This phase involves stakeholder meetings, timeline estimation and resource allocation.",
+    color: "#1a6b66",
   },
   {
     id: "analysis",
     title: "Analysis",
     description:
       "Gather detailed requirements and analyze the needs of the end-users. This phase includes feasibility studies and risk assessments.",
+    color: "#228b82",
   },
   {
     id: "design",
     title: "Design",
     description:
       "Create system architecture, design user interfaces, and plan database structures. This phase focuses on creating prototypes and design documents.",
+    color: "#2c9d93",
   },
   {
     id: "implementation",
     title: "Implementation",
     description:
       "Write code, develop features, and integrate systems. This phase involves coding, unit testing, and version control management.",
+    color: "#38b2ac",
   },
   {
     id: "testing",
     title: "Testing",
     description:
       "Conduct various tests to ensure the software meets quality standards. This phase includes functional testing, performance testing, and bug fixing.",
+    color: "#4bb1b4",
   },
   {
     id: "deployment",
     title: "Deployment",
     description:
       "Release the software to production environments. This phase involves user training, documentation, and post-deployment support.",
+    color: "#4496a5",
   },
   {
     id: "maintenance",
     title: "Maintenance",
     description:
       "Ongoing support and updates to the software. This phase includes monitoring performance, fixing issues, and implementing new features as needed.",
+    color: "#3d7ea6",
   },
   {
     id: "review",
     title: "Review",
     description:
       "Evaluate the project outcomes against initial goals. This phase involves gathering feedback, conducting retrospectives, and documenting lessons learned.",
+    color: "#325fa1",
   },
 ];
 export default developmentStages;

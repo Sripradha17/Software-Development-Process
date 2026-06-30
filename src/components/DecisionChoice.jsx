@@ -128,14 +128,14 @@ const DecisionChoice = ({ phase, decisions, onDecision, gameContext, phaseNumber
 
   const getMetricIcon = (metric) => {
     const icons = {
-      Budget: '💰',
-      Timeline: '⏰',
-      UserSatisfaction: '😊',
-      Security: '🔒',
-      Performance: '⚡',
-      Reputation: '⭐'
+      Budget: '',
+      Timeline: '',
+      UserSatisfaction: '',
+      Security: '',
+      Performance: '',
+      Reputation: ''
     };
-    return icons[metric] || '📊';
+    return icons[metric] || '';
   };
 
   return (

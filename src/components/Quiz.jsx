@@ -82,7 +82,7 @@ const Quiz = ({ questions }) => {
               : {...styles.quizFeedback, ...styles.quizFeedbackIncorrect}}   // Red styling for incorrect
             >
               {/* Correct/Incorrect indicator with emoji */}
-              {q.options[selected[qIdx]].correct ? '✅ Correct!' : '❌ Incorrect.'}
+              {q.options[selected[qIdx]].correct ? ' Correct!' : ' Incorrect.'}
               
               {/* Detailed explanation for learning */}
               <div style={styles.quizExplanation}>

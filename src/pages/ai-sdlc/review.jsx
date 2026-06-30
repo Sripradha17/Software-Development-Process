@@ -74,7 +74,7 @@ const AIReviewPage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -84,7 +84,9 @@ const AIReviewPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -96,7 +98,9 @@ const AIReviewPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          🔄
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -108,7 +112,9 @@ const AIReviewPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -120,7 +126,9 @@ const AIReviewPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠️
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -131,7 +139,9 @@ const AIReviewPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -144,7 +154,9 @@ const AIReviewPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -161,7 +173,7 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖📊
+                
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -181,19 +193,19 @@ const AIReviewPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Automates feedback analysis</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📊</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Tracks performance and outcomes</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Suggests process improvements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Documents lessons for future teams</span>
                   </div>
                 </div>
@@ -247,7 +259,7 @@ const AIReviewPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to analyze feedback and track
+                   <strong>Tip:</strong> Use AI to analyze feedback and track
                   improvements, but always discuss results as a team.
                 </p>
               </motion.div>
@@ -313,7 +325,7 @@ const AIReviewPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -427,7 +439,7 @@ const AIReviewPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -480,20 +492,7 @@ const AIReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
 
                 <h2 style={styles.jokeTitle}>AI Review Humor Break!</h2>
 
@@ -507,7 +506,7 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always documented everything! 🤖📝
+                    A: Because it always documented everything! 
                   </motion.p>
                 </div>
 
@@ -521,7 +520,7 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With infinite formats and zero blame! 🔄🤖
+                    A: With infinite formats and zero blame! 
                   </motion.p>
                 </div>
 
@@ -536,7 +535,7 @@ const AIReviewPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee continuous documentation!" 😅🤖
+                    AI: "I can guarantee continuous documentation!" 
                   </motion.p>
                 </div>
 
@@ -547,7 +546,7 @@ const AIReviewPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭{" "}
+                    {" "}
                     <em>
                       "AI is a review partner, not a replacement for team
                       reflection."
@@ -567,7 +566,7 @@ const AIReviewPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -577,7 +576,7 @@ const AIReviewPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
 
                   <motion.button
@@ -600,7 +599,7 @@ const AIReviewPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🛠
+                    Next: Maintenance 
                   </motion.button>
                 </div>
               </motion.div>
@@ -620,17 +619,15 @@ const AIReviewPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Review concepts.
@@ -645,7 +642,7 @@ const AIReviewPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -667,7 +664,7 @@ const AIReviewPage = () => {
                       },
                     }}
                   >
-                    Next: Maintenance 🛠
+                    Next: Maintenance 
                   </motion.button>
                 </div>
               </motion.div>
@@ -696,7 +693,6 @@ const AIReviewPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "📊", "🔄", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>

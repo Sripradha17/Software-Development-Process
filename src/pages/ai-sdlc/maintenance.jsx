@@ -92,7 +92,7 @@ const AIMaintenancePage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -102,7 +102,9 @@ const AIMaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🛠️
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -114,7 +116,9 @@ const AIMaintenancePage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          🧰
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -126,7 +130,9 @@ const AIMaintenancePage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -138,7 +144,9 @@ const AIMaintenancePage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠️
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -149,7 +157,9 @@ const AIMaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -162,7 +172,9 @@ const AIMaintenancePage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -179,7 +191,7 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖🛠️
+                
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -197,19 +209,19 @@ const AIMaintenancePage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Automates bug detection and fixes</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📊</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Monitors health and predicts issues</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Optimizes performance proactively</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Manages technical debt and security</span>
                   </div>
                 </div>
@@ -263,7 +275,7 @@ const AIMaintenancePage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Use AI to automate routine maintenance, but always review critical changes manually.
+                   <strong>Tip:</strong> Use AI to automate routine maintenance, but always review critical changes manually.
                 </p>
               </motion.div>
 
@@ -328,7 +340,7 @@ const AIMaintenancePage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -441,7 +453,7 @@ const AIMaintenancePage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -494,20 +506,7 @@ const AIMaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
 
                 <h2 style={styles.jokeTitle}>AI Maintenance Humor Break!</h2>
 
@@ -521,7 +520,7 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because it always had a patch ready! 🤖🩹
+                    A: Because it always had a patch ready! 
                   </motion.p>
                 </div>
 
@@ -535,7 +534,7 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: With predictive debugging and infinite optimism! 🐞🤖
+                    A: With predictive debugging and infinite optimism! 
                   </motion.p>
                 </div>
 
@@ -549,7 +548,7 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    AI: "I can guarantee zero panic!" 😅🤖
+                    AI: "I can guarantee zero panic!" 
                   </motion.p>
                 </div>
 
@@ -560,7 +559,7 @@ const AIMaintenancePage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is a maintenance partner, not a replacement for human insight."</em>
+                     <em>"AI is a maintenance partner, not a replacement for human insight."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
                     Use AI to automate and accelerate maintenance, but always keep humans in the loop!
@@ -575,7 +574,7 @@ const AIMaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -585,7 +584,7 @@ const AIMaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
 
                   <motion.button
@@ -609,7 +608,7 @@ const AIMaintenancePage = () => {
                       },
                     }}
                   >
-                    Next: Review 🤖✨
+                    Next: Review 
                   </motion.button>
                 </div>
               </motion.div>
@@ -629,17 +628,15 @@ const AIMaintenancePage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Maintenance concepts.
@@ -654,7 +651,7 @@ const AIMaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                 </div>
                 
@@ -665,7 +662,7 @@ const AIMaintenancePage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <h3 style={styles.congratsTitle}>🎉 Congratulations!</h3>
+                    <h3 style={styles.congratsTitle}> Congratulations!</h3>
                     <p style={styles.congratsText}>
                       You've completed all stages of the AI-Augmented Software Development Process!
                       Now put your knowledge to the test with interactive AI-enhanced project simulations.
@@ -679,7 +676,7 @@ const AIMaintenancePage = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      🏠 Home
+                       Home
                     </motion.button>
                     <motion.button
                       style={styles.simulationButton}
@@ -705,7 +702,7 @@ const AIMaintenancePage = () => {
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                       >
-                        🤖 Try AI-Enhanced Simulations
+                         Try AI-Enhanced Simulations
                       </motion.span>
                     </motion.button>
                   </div>
@@ -736,7 +733,6 @@ const AIMaintenancePage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "🛠️", "🧰", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>

@@ -13,12 +13,12 @@
  * - Assessment through interactive quizzes and process visualization
  * 
  * AI Analysis Capabilities Covered:
- * 🤖 Automated stakeholder mapping using NLP and data mining
- * 📊 Intelligent requirements extraction from unstructured data
- * 🔍 AI-powered current state analysis with system scanning
- * 📈 Predictive gap analysis with risk assessment algorithms
- * 🎯 Machine learning-based feasibility predictions
- * ⚡ Smart prioritization using multi-factor optimization
+ *  Automated stakeholder mapping using NLP and data mining
+ *  Intelligent requirements extraction from unstructured data
+ *  AI-powered current state analysis with system scanning
+ *  Predictive gap analysis with risk assessment algorithms
+ *  Machine learning-based feasibility predictions
+ *  Smart prioritization using multi-factor optimization
  * 
  * Learning Flow:
  * 1. Introduction to AI-enhanced analysis concepts
@@ -116,7 +116,7 @@ const AnalysisWithAIPage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -126,7 +126,9 @@ const AnalysisWithAIPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🤖
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -137,7 +139,9 @@ const AnalysisWithAIPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Visualization
+          
         </motion.button>
         <motion.button
           style={{
@@ -149,7 +153,9 @@ const AnalysisWithAIPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Steps"
         >
-          🔍
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -161,7 +167,9 @@ const AnalysisWithAIPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Types"
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -173,7 +181,9 @@ const AnalysisWithAIPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Drawbacks"
         >
-          ⚠️
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -184,7 +194,9 @@ const AnalysisWithAIPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -197,7 +209,9 @@ const AnalysisWithAIPage = () => {
           whileTap={{ scale: 0.95 }}
           aria-label="Quiz"
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -214,7 +228,7 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🤖✨
+                
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -232,19 +246,19 @@ const AnalysisWithAIPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤖</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Automates tedious data analysis and requirements extraction</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>📊</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Finds patterns and risks humans might miss</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Accelerates stakeholder alignment with smart insights</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Supports unbiased, data-driven decisions</span>
                   </div>
                 </div>
@@ -322,7 +336,7 @@ const AnalysisWithAIPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Tip:</strong> Let AI do the heavy lifting—focus your human expertise on creative problem solving and stakeholder engagement.
+                   <strong>Tip:</strong> Let AI do the heavy lifting—focus your human expertise on creative problem solving and stakeholder engagement.
                 </p>
               </motion.div>
 
@@ -387,7 +401,7 @@ const AnalysisWithAIPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -500,7 +514,7 @@ const AnalysisWithAIPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -553,20 +567,7 @@ const AnalysisWithAIPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
 
                 <h2 style={styles.jokeTitle}>AI Analysis Humor Break!</h2>
 
@@ -580,7 +581,7 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because they always had the best data-driven insights! 📊🤖
+                    A: Because they always had the best data-driven insights! 
                   </motion.p>
                 </div>
 
@@ -594,7 +595,7 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: None. They just train a model to predict when it will fail and automate the replacement! 💡🤖
+                    A: None. They just train a model to predict when it will fail and automate the replacement! 
                   </motion.p>
                 </div>
 
@@ -608,7 +609,7 @@ const AnalysisWithAIPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3 }}
                   >
-                    The analyst: "So... you want explainable intelligence? Got it! Let me just add that to my backlog of ethical requirements." 😅🤖
+                    The analyst: "So... you want explainable intelligence? Got it! Let me just add that to my backlog of ethical requirements." 
                   </motion.p>
                 </div>
 
@@ -619,7 +620,7 @@ const AnalysisWithAIPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"AI is not a replacement for human analysis—it's a superpower for it."</em>
+                     <em>"AI is not a replacement for human analysis—it's a superpower for it."</em>
                   </p>
                   <p style={styles.wisdomExplanation}>
                     Use AI to amplify your strengths, not replace your judgment!
@@ -634,7 +635,7 @@ const AnalysisWithAIPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -644,7 +645,7 @@ const AnalysisWithAIPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
 
                   <motion.button
@@ -668,7 +669,7 @@ const AnalysisWithAIPage = () => {
                       },
                     }}
                   >
-                    Next: Design 🎨✨
+                    Next: Design 
                   </motion.button>
                 </div>
               </motion.div>
@@ -688,17 +689,15 @@ const AnalysisWithAIPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand AI-Augmented Analysis concepts.
@@ -713,7 +712,7 @@ const AnalysisWithAIPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -735,7 +734,7 @@ const AnalysisWithAIPage = () => {
                       },
                     }}
                   >
-                    Next: Design 🤖✨
+                    Next: Design 
                   </motion.button>
                 </div>
               </motion.div>
@@ -764,7 +763,6 @@ const AnalysisWithAIPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "📊", "📝", "💡", "✨"][i % 5]}
         </motion.div>
       ))}
     </div>

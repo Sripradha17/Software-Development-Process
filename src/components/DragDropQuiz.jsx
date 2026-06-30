@@ -350,15 +350,13 @@ const DragDropQuiz = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div 
-              style={styles.resultIcon} 
+            <motion.div
+              style={styles.resultIcon}
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.1 }}
-            >
-              {score >= quizConfig.passingScore ? '🎉' : '📚'}
-            </motion.div>
+            />
             
             <motion.h1 
               style={styles.resultTitle} 
@@ -474,7 +472,7 @@ const DragDropQuiz = () => {
           
           <div style={styles.quizTimer}>
             <span style={timeRemaining <= 30 ? styles.timerWarning : styles.timerNormal}>
-              ⏱️ {formatTime(timeRemaining)}
+               {formatTime(timeRemaining)}
             </span>
           </div>
         </motion.div>

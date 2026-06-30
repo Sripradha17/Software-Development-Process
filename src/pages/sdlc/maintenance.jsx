@@ -91,7 +91,7 @@ const MaintenancePage = () => {
       </Link>
        
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -101,7 +101,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🔧
+          
+        Intro
+          
         </motion.button>
         <motion.button
           style={{
@@ -112,7 +114,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Visualization
+          
         </motion.button>
         <motion.button
           style={{
@@ -123,7 +127,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🛠
+          
+        Steps
+          
         </motion.button>
         <motion.button
           style={{
@@ -134,7 +140,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📖
+          
+        Types
+          
         </motion.button>
         <motion.button
           style={{
@@ -145,7 +153,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          
+        Drawbacks
+          
         </motion.button>
         <motion.button
           style={{
@@ -156,7 +166,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -168,7 +180,9 @@ const MaintenancePage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
       <div style={styles.contentContainer}>
@@ -184,7 +198,7 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🔧 ✨
+                 
               </motion.div>
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
                 Maintenance in Software Development
@@ -202,19 +216,19 @@ const MaintenancePage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔍</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Identifies bugs before they reach users</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛠</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Validates functionality meets requirements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Ensures performance and scalability</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Builds confidence in code changes</span>
                   </div>
                 </div>
@@ -289,7 +303,7 @@ const MaintenancePage = () => {
               </div>
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Maintenance is not just about
+                   <strong>Remember:</strong> Maintenance is not just about
                   fixing bugs—it's about keeping your software valuable and
                   reliable. Good maintenance prevents issues, adapts to new
                   needs, and extends the life of your product.
@@ -348,7 +362,7 @@ const MaintenancePage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -462,7 +476,7 @@ const MaintenancePage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -514,20 +528,7 @@ const MaintenancePage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😄
-                </motion.div>
+                <div style={styles.jokeIcon} />
                 <h2 style={styles.jokeTitle}>Maintenance Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
@@ -540,7 +541,7 @@ const MaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    To sweep up all the legacy code! 🧹
+                    To sweep up all the legacy code! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -553,7 +554,7 @@ const MaintenancePage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                   >
-                    When the error logs are longer than the user manual! 📚
+                    When the error logs are longer than the user manual! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -567,7 +568,7 @@ const MaintenancePage = () => {
                     transition={{ delay: 0.5 }}
                   >
                     Because nobody wants to see what really happens behind the
-                    scenes! 🌙
+                    scenes! 
                   </motion.p>
                 </div>
                 <motion.div
@@ -577,7 +578,7 @@ const MaintenancePage = () => {
                   transition={{ delay: 0.8 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Maintenance Wisdom: "If debugging is the process of
+                     Maintenance Wisdom: "If debugging is the process of
                     removing bugs, then programming must be the process of
                     putting them in."
                   </p>
@@ -593,7 +594,7 @@ const MaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                     Home
                   </motion.button>
                   
                   <motion.button
@@ -602,7 +603,7 @@ const MaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
                   
                   <motion.button
@@ -625,7 +626,7 @@ const MaintenancePage = () => {
                       },
                     }}
                   >
-                    🎯 Try Simulations
+                     Try Simulations
                   </motion.button>
                 </div>
               </motion.div>
@@ -645,17 +646,15 @@ const MaintenancePage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Maintenance phase concepts.
@@ -670,7 +669,7 @@ const MaintenancePage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                     Home
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -692,7 +691,7 @@ const MaintenancePage = () => {
                       },
                     }}
                   >
-                    🎯 Try Simulations
+                     Try Simulations
                   </motion.button>
                 </div>
               </motion.div>
@@ -721,7 +720,7 @@ const MaintenancePage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🔧", "🛠", "🔍", "🧰", "🛡️", "⚡"][i]}
+          {["", "", "", "", "", ""][i]}
         </motion.div>
       ))}
     </div>

@@ -1,16 +1,22 @@
 /**
  * Main Application Component
- * 
+ *
  * This is the root component of the Software Development Process educational app.
  * It sets up routing for all pages including:
  * - Traditional SDLC phases (planning, analysis, design, implementation, testing, deployment, maintenance, review)
  * - AI-augmented SDLC phases with modern AI integration
  * - Interactive simulations and quizzes
  * - Case studies for real-world learning
+ *
+ * Every route is wrapped in PageTransition and rendered inside an
+ * AnimatePresence keyed on the current path, so navigating between pages
+ * fades/slides instead of hard-cutting. A scroll progress bar and a
+ * scroll-to-top button are mounted once here so they persist across routes.
  */
 
 // React Router imports for client-side routing
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 // Traditional SDLC page imports - covers classic software development lifecycle
 import IntroPage from "./pages/sdlc/IntroPage";                      // Landing page with overview
@@ -48,60 +54,81 @@ import DragDropQuiz from "./components/DragDropQuiz";         // Drag-and-drop q
 import CaseStudyList from "./components/CaseStudyList";       // List view of available case studies
 import CaseStudy from "./components/CaseStudy";               // Individual case study viewer with detailed scenarios
 
+// Cross-route chrome: persists across navigation, doesn't reset on page change
+import PageTransition from "./components/PageTransition";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+
+const wrap = (Component) => (
+  <PageTransition>
+    <Component />
+  </PageTransition>
+);
 
 /**
- * Main App Component
- * 
- * Sets up the complete routing structure for the educational platform.
- * Organizes routes into logical groups for better maintainability.
- * 
- * @returns {JSX.Element} The main application with all routes configured
+ * AnimatedRoutes
+ *
+ * Keys the Routes tree on the current pathname so AnimatePresence can detect
+ * a route change and play the outgoing page's exit animation before the
+ * incoming page enters.
  */
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Landing and overview pages */}
+        <Route path="/" element={wrap(IntroPage)} />
+        <Route path="/learn-software-development" element={wrap(LearnSoftwareDev)} />
+        <Route path="/story" element={wrap(DevelopmentProcessStory)} />
+        <Route path="/ai-augmented-development" element={wrap(AiAugmentedSoftwareDevelopment)} />
+        <Route path="/ai-augmented-story" element={wrap(AiAugmentedDevelopmentStory)} />
+
+        {/* Traditional SDLC phase routes - classic software development methodology */}
+        <Route path="/planning" element={wrap(PlanningPage)} />
+        <Route path="/analysis" element={wrap(AnalysisPage)} />
+        <Route path="/design" element={wrap(DesignPage)} />
+        <Route path="/implementation" element={wrap(ImplementationPage)} />
+        <Route path="/testing" element={wrap(TestingPage)} />
+        <Route path="/deployment" element={wrap(DeploymentPage)} />
+        <Route path="/maintenance" element={wrap(MaintenancePage)} />
+        <Route path="/review" element={wrap(ReviewPage)} />
+
+        {/* AI-augmented SDLC phase routes - modern development with AI integration */}
+        <Route path="/ai-planning" element={wrap(AIPlanningPage)} />
+        <Route path="/ai-analysis" element={wrap(AnalysisWithAIPage)} />
+        <Route path="/ai-design" element={wrap(AIDesignPage)} />
+        <Route path="/ai-implementation" element={wrap(AIImplementationPage)} />
+        <Route path="/ai-testing" element={wrap(AITestingPage)} />
+        <Route path="/ai-deployment" element={wrap(AIDeploymentPage)} />
+        <Route path="/ai-maintenance" element={wrap(AIMaintenancePage)} />
+        <Route path="/ai-review" element={wrap(AIReviewPage)} />
+
+        {/* Interactive simulation routes for hands-on learning */}
+        <Route path="/simulation" element={wrap(SimulationHub)} />
+        <Route path="/simulation/:type" element={wrap(SimulationHub)} />
+        <Route path="/simulation/:type/:scenarioId" element={wrap(SimulationEngine)} />
+
+        {/* Interactive assessment routes */}
+        <Route path="/drag-drop-quiz/:type" element={wrap(DragDropQuiz)} />
+
+        {/* Real-world case study routes */}
+        <Route path="/case-studies/:type" element={wrap(CaseStudyList)} />
+        <Route path="/case-study/:type/:caseId" element={wrap(CaseStudy)} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
-    // Router wrapper enables client-side navigation throughout the app
     <Router>
-      <Routes>
-        {/* Landing and overview pages */}
-        <Route path="/" element={<IntroPage />} />                                    {/* Home page with app introduction */}
-        <Route path="/learn-software-development" element={<LearnSoftwareDev />} />   {/* Main learning dashboard */}
-        <Route path="/story" element={<DevelopmentProcessStory />} />                 {/* Traditional SDLC narrative */}
-        <Route path="/ai-augmented-development" element={<AiAugmentedSoftwareDevelopment />} /> {/* AI-SDLC overview */}
-        <Route path="/ai-augmented-story" element={<AiAugmentedDevelopmentStory />} /> {/* AI development story */}
-        
-        {/* Traditional SDLC phase routes - classic software development methodology */}
-        <Route path="/planning" element={<PlanningPage />} />           {/* Project planning and requirement gathering */}
-        <Route path="/analysis" element={<AnalysisPage />} />           {/* Detailed requirements analysis and documentation */}
-        <Route path="/design" element={<DesignPage />} />               {/* System architecture and design specifications */}
-        <Route path="/implementation" element={<ImplementationPage />} /> {/* Coding and development phase */}
-        <Route path="/testing" element={<TestingPage />} />             {/* Quality assurance and testing methodologies */}
-        <Route path="/deployment" element={<DeploymentPage />} />       {/* Production deployment and go-live processes */}
-        <Route path="/maintenance" element={<MaintenancePage />} />     {/* Post-deployment support and updates */}
-        <Route path="/review" element={<ReviewPage />} />               {/* Project retrospective and lessons learned */
-        
-        {/* AI-augmented SDLC phase routes - modern development with AI integration */}
-        <Route path="/ai-planning" element={<AIPlanningPage />} />           {/* AI-assisted project planning with smart recommendations */}
-        <Route path="/ai-analysis" element={<AnalysisWithAIPage />} />       {/* AI-enhanced requirements analysis and validation */}
-        <Route path="/ai-design" element={<AIDesignPage />} />               {/* AI-powered design patterns and architecture suggestions */}
-        <Route path="/ai-implementation" element={<AIImplementationPage />} /> {/* AI-assisted coding with automated code generation */}
-        <Route path="/ai-testing" element={<AITestingPage />} />             {/* AI-driven test case generation and execution */}
-        <Route path="/ai-deployment" element={<AIDeploymentPage />} />       {/* AI-optimized deployment with predictive analytics */}
-        <Route path="/ai-maintenance" element={<AIMaintenancePage />} />     {/* AI-supported monitoring and predictive maintenance */}
-        <Route path="/ai-review" element={<AIReviewPage />} />               {/* AI-enhanced analytics and process optimization */}
-        
-        {/* Interactive simulation routes for hands-on learning */}
-        <Route path="/simulation" element={<SimulationHub />} />                        {/* Main simulation selection hub */}
-        <Route path="/simulation/:type" element={<SimulationHub />} />                  {/* Filtered simulations by type (sdlc/ai-sdlc) */}
-        <Route path="/simulation/:type/:scenarioId" element={<SimulationEngine />} />   {/* Individual simulation with decision-making scenarios */}
-        
-        {/* Interactive assessment routes */}
-        <Route path="/drag-drop-quiz/:type" element={<DragDropQuiz />} />               {/* Drag-and-drop phase ordering quiz */}
-        
-        {/* Real-world case study routes */}
-        <Route path="/case-studies/:type" element={<CaseStudyList />} />               {/* Case study library filtered by type */}
-        <Route path="/case-study/:type/:caseId" element={<CaseStudy />} />             {/* Individual case study with detailed analysis */
-      </Routes>
+      <ScrollProgressBar />
+      <AnimatedRoutes />
+      <ScrollToTopButton />
     </Router>
   );
 }
+
 export default App;

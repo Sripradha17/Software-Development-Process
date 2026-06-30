@@ -44,7 +44,13 @@ import sdlcMenuItems from "../../constants/sdlc/menuItems"; // Traditional SDLC 
 const LearnSoftwareDevelopment = () => {
   // State management for interactive stage selection and presentation
   const [selectedStage, setSelectedStage] = useState(null); // Currently selected/highlighted stage
+  const [exploredStages, setExploredStages] = useState(new Set()); // Stages the visitor has opened this session
   const navigate = useNavigate();                           // Navigation hook for programmatic routing
+
+  const handleSelectStage = (stage) => {
+    setSelectedStage(stage);
+    setExploredStages((prev) => new Set(prev).add(stage.id));
+  };
 
   // Animation configuration for engaging visual presentation
   // These variants create professional, smooth transitions that enhance the educational experience
@@ -161,6 +167,19 @@ const LearnSoftwareDevelopment = () => {
           </p>
         </motion.div>
 
+        <motion.p
+          variants={descriptionVariants}
+          style={{
+            color: "rgba(255, 255, 255, 0.75)",
+            fontSize: "0.95rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          {exploredStages.size === 0
+            ? "Tap a stage to learn what happens in it."
+            : `You've explored ${exploredStages.size} of ${developmentStages.length} stages.`}
+        </motion.p>
+
         <motion.div style={styles.stagesContainer}>
           {developmentStages.map((stage, index) => (
             <motion.div
@@ -173,7 +192,7 @@ const LearnSoftwareDevelopment = () => {
               }}
               variants={stageVariants}
               custom={index}
-              onClick={() => setSelectedStage(stage)}
+              onClick={() => handleSelectStage(stage)}
               layout
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
@@ -182,6 +201,10 @@ const LearnSoftwareDevelopment = () => {
                 style={{
                   ...styles.stageCircle,
                   backgroundColor: stage.color,
+                  outline: exploredStages.has(stage.id)
+                    ? "2px solid rgba(255, 255, 255, 0.8)"
+                    : "none",
+                  outlineOffset: "3px",
                 }}
                 initial={{ opacity: 1 }}
                 animate={{
@@ -225,6 +248,23 @@ const LearnSoftwareDevelopment = () => {
                 <p style={styles.cardDescription}>
                   {selectedStage.description}
                 </p>
+                <motion.button
+                  style={{
+                    marginTop: "1.5rem",
+                    padding: "0.65rem 1.4rem",
+                    borderRadius: "999px",
+                    border: "1px solid #38b2ac",
+                    background: "linear-gradient(135deg, #38b2ac, #2c7a7b)",
+                    color: "#e2e8f0",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate(`/${selectedStage.id}`)}
+                >
+                  Go to {selectedStage.title} →
+                </motion.button>
               </motion.div>
             </motion.div>
           )}

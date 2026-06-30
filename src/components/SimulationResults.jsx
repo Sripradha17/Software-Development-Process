@@ -107,14 +107,14 @@ const SimulationResults = ({
    */
   const getMetricIcon = (metric) => {
     const icons = {
-      budget: '💰',           // Financial/cost metrics
-      timeline: '⏰',         // Time-related metrics
-      userSatisfaction: '😊', // User experience metrics
-      security: '🔒',         // Security and safety metrics
-      performance: '⚡',      // System performance metrics
-      reputation: '⭐'        // Reputation and quality metrics
+      budget: '',           // Financial/cost metrics
+      timeline: '',         // Time-related metrics
+      userSatisfaction: '', // User experience metrics
+      security: '',         // Security and safety metrics
+      performance: '',      // System performance metrics
+      reputation: ''        // Reputation and quality metrics
     };
-    return icons[metric] || '📊';
+    return icons[metric] || '';
   };
 
   return (
@@ -151,7 +151,7 @@ const SimulationResults = ({
           <h2 style={resultsStyles.sectionTitle}>Project Summary</h2>
           <div style={resultsStyles.summaryGrid}>
             <div style={resultsStyles.summaryCard}>
-              <h3>📊 Final Metrics</h3>
+              <h3> Final Metrics</h3>
               <div style={resultsStyles.metricsDisplay}>
                 {Object.entries(gameContext).map(([key, value]) => {
                   if (key === 'teamSize') return null;
@@ -178,7 +178,7 @@ const SimulationResults = ({
             </div>
             
             <div style={resultsStyles.summaryCard}>
-              <h3>📈 Budget & Timeline</h3>
+              <h3> Budget & Timeline</h3>
               <div style={resultsStyles.varianceDisplay}>
                 <div style={resultsStyles.varianceItem}>
                   <span>Budget Variance:</span>
@@ -246,7 +246,7 @@ const SimulationResults = ({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
               >
-                <span style={resultsStyles.lessonBullet}>💡</span>
+                <span style={resultsStyles.lessonBullet}></span>
                 <span style={resultsStyles.lessonText}>{lesson}</span>
               </motion.div>
             ))}
@@ -261,7 +261,7 @@ const SimulationResults = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            🔄 Try Again with Different Choices
+             Try Again with Different Choices
           </motion.button>
           <motion.button
             style={resultsStyles.hubButton}
@@ -269,7 +269,7 @@ const SimulationResults = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            🎯 Choose Different Scenario
+             Choose Different Scenario
           </motion.button>
           <motion.button
             style={resultsStyles.quizButton}
@@ -277,7 +277,7 @@ const SimulationResults = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            🧩 Test Your Knowledge - Drag & Drop Quiz
+             Test Your Knowledge - Drag & Drop Quiz
           </motion.button>
           <motion.button
             style={resultsStyles.caseStudyButton}
@@ -285,7 +285,7 @@ const SimulationResults = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            📚 Explore Real-World Case Studies
+             Explore Real-World Case Studies
           </motion.button>
         </motion.div>
 
@@ -298,7 +298,7 @@ const SimulationResults = ({
             transition={{ delay: 1, type: "spring", stiffness: 300, damping: 20 }}
           >
             <div style={resultsStyles.badgeContent}>
-              <div style={resultsStyles.badgeIcon}>🏆</div>
+              <div style={resultsStyles.badgeIcon}></div>
               <div style={resultsStyles.badgeText}>
                 <div>Outstanding Project Management!</div>
                 <div style={resultsStyles.badgeSubtext}>Industry Leader Achievement</div>
@@ -508,7 +508,7 @@ const resultsStyles = {
     boxShadow: '0 4px 15px rgba(75, 177, 180, 0.3)'
   },
   quizButton: {
-    background: 'linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%)',
+    background: 'linear-gradient(135deg, #325fa1 0%, #28456e 100%)',
     color: 'white',
     border: 'none',
     padding: '0.75rem 1.5rem',
@@ -517,10 +517,10 @@ const resultsStyles = {
     fontWeight: '600',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(155, 89, 182, 0.3)'
+    boxShadow: '0 4px 15px rgba(50, 95, 161, 0.3)'
   },
   caseStudyButton: {
-    background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+    background: 'linear-gradient(135deg, #4a5568 0%, #374151 100%)',
     color: 'white',
     border: 'none',
     padding: '0.75rem 1.5rem',
@@ -529,15 +529,15 @@ const resultsStyles = {
     fontWeight: '600',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(230, 126, 34, 0.3)'
+    boxShadow: '0 4px 15px rgba(74, 85, 104, 0.3)'
   },
   achievementBadge: {
-    background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+    background: 'linear-gradient(135deg, #2c7a7b 0%, #1a6b66 100%)',
     borderRadius: '12px',
     padding: '1.5rem',
     textAlign: 'center',
-    border: '3px solid #f39c12',
-    boxShadow: '0 10px 30px rgba(243, 156, 18, 0.3)'
+    border: '3px solid #38b2ac',
+    boxShadow: '0 10px 30px rgba(56, 178, 172, 0.3)'
   },
   badgeContent: {
     display: 'flex',
@@ -546,10 +546,14 @@ const resultsStyles = {
     gap: '1rem'
   },
   badgeIcon: {
-    fontSize: '3rem'
+    width: '40px',
+    height: '8px',
+    borderRadius: '999px',
+    background: 'linear-gradient(90deg, #38b2ac, #4bb1b4, #38b2ac)',
+    animation: 'accentGlowPulse 2s ease-in-out infinite',
   },
   badgeText: {
-    color: '#795548',
+    color: '#e2e8f0',
     fontWeight: '600'
   },
   badgeSubtext: {

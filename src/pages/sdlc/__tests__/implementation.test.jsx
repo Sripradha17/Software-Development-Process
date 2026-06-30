@@ -96,7 +96,7 @@ describe('ImplementationPage', () => {
       renderWithRouter(<ImplementationPage />);
       
       const buttons = screen.getAllByRole('button');
-      const emojiButtons = buttons.filter(button => /^[🛠️📊🚀📚⚠😄🧠]$/.test(button.textContent || ''));
+      const emojiButtons = buttons.filter(button => /^(Intro|Visualization|Steps|Types|Drawbacks|Joke|Quiz)$/.test((button.textContent || '').trim()));
       expect(emojiButtons.length).toBeGreaterThan(0);
     });
 
@@ -105,7 +105,7 @@ describe('ImplementationPage', () => {
       renderWithRouter(<ImplementationPage />);
       
       const buttons = screen.getAllByRole('button');
-      const emojiButtons = buttons.filter(button => /^[🛠️📊🚀📚⚠😄🧠]$/.test(button.textContent || ''));
+      const emojiButtons = buttons.filter(button => /^(Intro|Visualization|Steps|Types|Drawbacks|Joke|Quiz)$/.test((button.textContent || '').trim()));
       if (emojiButtons.length > 0) {
         await user.click(emojiButtons[0]);
       }

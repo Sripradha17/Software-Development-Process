@@ -97,7 +97,7 @@ describe('TestingPage', () => {
       renderWithRouter(<TestingPage />);
       
       // Simulate user interaction with steps/process visualization button
-      const stepsButton = screen.getByRole('button', { name: /steps|view process visualization/i });
+      const stepsButton = screen.getByRole('button', { name: 'Steps' });
       await user.click(stepsButton);                     // Execute user click interaction
       
       // Verify that testing methodology content is properly displayed

@@ -156,7 +156,7 @@ const AiAugmentedDevelopmentStory = () => {
             exit="exit"
           >
             <motion.div style={styles.introContent} animate={floatingAnimation}>
-              <motion.div style={styles.introIcon}>🤖</motion.div>
+              <motion.div style={styles.introIcon}></motion.div>
               <motion.h1 style={styles.introTitle}>
                 AI-Augmented Coffee Shop App
               </motion.h1>
@@ -200,7 +200,7 @@ const AiAugmentedDevelopmentStory = () => {
                   delay: i * 0.5,
                 }}
               >
-                🤖
+                
               </motion.div>
             ))}
           </motion.div>
@@ -329,7 +329,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📝 Planning
+                     Planning
                   </motion.button>
                   <motion.button
                     style={{
@@ -341,7 +341,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📊 Analysis
+                     Analysis
                   </motion.button>
                   <motion.button
                     style={{
@@ -353,7 +353,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    📐 Design
+                     Design
                   </motion.button>
                   <motion.button
                     style={{
@@ -365,7 +365,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    💻 Implementation
+                     Implementation
                   </motion.button>
                   <motion.button
                     style={{
@@ -377,7 +377,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🧪 Testing
+                     Testing
                   </motion.button>
                   <motion.button
                     style={{
@@ -389,7 +389,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🚀 Deployment
+                     Deployment
                   </motion.button>
                   <motion.button
                     style={{
@@ -401,7 +401,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🛠 Maintenance
+                     Maintenance
                   </motion.button>
                   <motion.button
                     style={{
@@ -413,7 +413,7 @@ const AiAugmentedDevelopmentStory = () => {
                     whileHover={{ scale: 1.07 }}
                     whileTap={{ scale: 0.97 }}
                   >
-                    🔍 Review
+                     Review
                   </motion.button>
                 </div>
                 <div
@@ -449,7 +449,7 @@ const AiAugmentedDevelopmentStory = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          {isAutoPlay ? "⏸ Pause" : "▶ Auto Play"}
+          {isAutoPlay ? " Pause" : " Auto Play"}
         </motion.button>
         <motion.button
           style={{
@@ -487,7 +487,7 @@ const AiAugmentedDevelopmentStory = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🤖", "📱 ", "💻 ", "🚀 ", "✨ "][Math.floor(Math.random() * 5)]}
+          {["", " ", " ", " ", " "][Math.floor(Math.random() * 5)]}
         </motion.div>
       ))}
     </div>

@@ -47,7 +47,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-mobile-banking-app",
     title: "AI-Enhanced Mobile Banking Application",
     description: "You're leading the development of a secure mobile banking application using AI-augmented development processes and tools.",
-    icon: "🤖🏦",
+    icon: "",
     color: "#4bb1b4ff",
     type: "ai-sdlc",
     initialContext: {
@@ -67,7 +67,7 @@ export const aiSdlcSimulationScenarios = [
         scenario: "Use AI tools to analyze market data, predict user needs, and optimize project planning. AI can help with risk assessment and resource allocation.",
         currentStatus: {
           description: "Your team is ready to leverage AI tools for intelligent project planning and predictive analysis.",
-          image: "🤖👥💼"
+          image: ""
         },
         decisions: [
           {
@@ -355,7 +355,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-healthcare-system",
     title: "AI-Enhanced Healthcare Platform",
     description: "Develop a patient management system using AI-augmented development processes for improved healthcare delivery.",
-    icon: "🤖🏥",
+    icon: "",
     color: "#325fa1ff",
     type: "ai-sdlc",
     initialContext: {
@@ -658,7 +658,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-smart-city-platform",
     title: "AI-Powered Smart City Platform",
     description: "Build an intelligent city management platform using AI for traffic optimization, energy management, and citizen services with AI-enhanced development processes.",
-    icon: "🏙️🤖",
+    icon: "",
     color: "#3498db",
     type: "ai-sdlc",
     initialContext: {
@@ -678,7 +678,7 @@ export const aiSdlcSimulationScenarios = [
         scenario: "You're developing a comprehensive smart city platform that uses AI for traffic management, energy optimization, and citizen services. Leverage AI tools for planning this complex IoT and data-intensive project.",
         currentStatus: {
           description: "Your team will use AI to analyze city data patterns, predict resource needs, and optimize the development approach for this massive undertaking.",
-          image: "🏙️🤖📊"
+          image: ""
         },
         decisions: [
           {
@@ -964,7 +964,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-fintech-trading-platform",
     title: "AI-Enhanced Trading Platform",
     description: "Develop a high-frequency trading platform with AI-powered market analysis, risk management, and algorithmic trading capabilities using cutting-edge AI development tools.",
-    icon: "📈🤖",
+    icon: "",
     color: "#f39c12",
     type: "ai-sdlc",
     initialContext: {
@@ -984,7 +984,7 @@ export const aiSdlcSimulationScenarios = [
         scenario: "You're building a sophisticated trading platform that must handle microsecond transactions, AI-powered market predictions, and regulatory compliance. Use AI development tools to optimize every aspect of the project.",
         currentStatus: {
           description: "Your team needs to leverage AI for both the platform's trading algorithms and the development process itself to meet aggressive performance and compliance requirements.",
-          image: "📈🤖⚡"
+          image: ""
         },
         decisions: [
           {
@@ -1270,7 +1270,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-elearning-platform",
     title: "AI-Powered E-Learning Platform",
     description: "Build an intelligent educational platform that personalizes learning paths, provides AI tutoring, and adapts to student learning styles using advanced AI development methodologies.",
-    icon: "🎓🤖",
+    icon: "",
     color: "#8e44ad",
     type: "ai-sdlc",
     initialContext: {
@@ -1290,7 +1290,7 @@ export const aiSdlcSimulationScenarios = [
         scenario: "You're developing an AI-powered e-learning platform that must understand individual learning patterns, provide personalized content, and scale to millions of students while using AI tools to accelerate development.",
         currentStatus: {
           description: "Your team will leverage AI for both the platform's educational algorithms and to optimize the development process itself, creating a truly intelligent learning ecosystem.",
-          image: "🎓🤖📚"
+          image: ""
         },
         decisions: [
           {
@@ -1576,7 +1576,7 @@ export const aiSdlcSimulationScenarios = [
     id: "ai-supply-chain-platform",
     title: "AI-Driven Supply Chain Management",
     description: "Develop an intelligent supply chain platform that uses AI for demand forecasting, inventory optimization, and logistics automation while leveraging AI development tools.",
-    icon: "📦🤖",
+    icon: "",
     color: "#1abc9c",
     type: "ai-sdlc",
     initialContext: {
@@ -1596,7 +1596,7 @@ export const aiSdlcSimulationScenarios = [
         scenario: "You're building a comprehensive supply chain platform that uses AI to predict demand, optimize inventory, automate logistics, and prevent disruptions across global supply networks.",
         currentStatus: {
           description: "Your team will integrate AI algorithms for predictive analytics while using AI development tools to accelerate the creation of this complex logistics platform.",
-          image: "📦🤖🌍"
+          image: ""
         },
         decisions: [
           {
@@ -1961,16 +1961,16 @@ export const calculateAiFinalOutcome = (initialContext, decisions) => {
   // Determine AI-specific outcome title and description
   let title, description;
   if (successScore >= 85) {
-    title = '🤖🎉 AI-Powered Excellence!';
+    title = ' AI-Powered Excellence!';
     description = 'Your AI-augmented project achieved outstanding success! AI integration amplified team capabilities and delivered exceptional results.';
   } else if (successScore >= 70) {
-    title = '🤖✅ AI-Enhanced Success';
+    title = ' AI-Enhanced Success';
     description = 'Your AI-augmented project was successful with strong results. AI tools effectively enhanced traditional development processes.';
   } else if (successScore >= 50) {
-    title = '🤖⚠️ Mixed AI Integration';
+    title = ' Mixed AI Integration';
     description = 'Your project had mixed AI integration results. While some AI tools helped, others faced adoption challenges that impacted outcomes.';
   } else {
-    title = '🤖❌ AI Integration Challenges';
+    title = ' AI Integration Challenges';
     description = 'Your AI-augmented project faced significant challenges. AI integration difficulties and adoption issues impacted overall success.';
   }
 

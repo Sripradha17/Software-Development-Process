@@ -36,6 +36,7 @@ vi.mock('react-router-dom', () => ({
   ...vi.importActual('react-router-dom'),              // Preserve other React Router exports
   useNavigate: () => vi.fn(),                          // Mock navigation function
   useParams: () => ({ type: 'sdlc', caseId: '1' }),   // Mock URL parameters for consistent testing
+  useLocation: () => ({ pathname: '/' }),              // Mock current location for active-link checks
   MemoryRouter: vi.fn().mockImplementation((props) => {
     const { children, initialEntries } = props;
     // Render a simple div container instead of actual router
@@ -108,9 +109,9 @@ vi.mock('lottie-react', () => ({
 
 // Mock react-icons
 vi.mock('react-icons/fa', () => ({
-  FaPlay: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-play' }, '▶')),
-  FaCheck: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-check' }, '✓')),
-  FaTimes: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-times' }, '✗')),
+  FaPlay: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-play' }, '')),
+  FaCheck: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-check' }, '')),
+  FaTimes: vi.fn().mockImplementation(() => React.createElement('span', { 'data-testid': 'fa-times' }, '')),
 }));
 
 // Global test utilities

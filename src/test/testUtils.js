@@ -92,9 +92,9 @@ export const mockStepsData = [
  * and navigation-related functionality.
  */
 export const mockMenuItems = [
-  { label: "Home", path: "/", icon: "🏠" },            // Home page navigation
-  { label: "Analysis", path: "/analysis", icon: "📊" },   // Analysis phase navigation
-  { label: "Design", path: "/design", icon: "🎨" }      // Design phase navigation
+  { label: "Home", path: "/", icon: "" },            // Home page navigation
+  { label: "Analysis", path: "/analysis", icon: "" },   // Analysis phase navigation
+  { label: "Design", path: "/design", icon: "" }      // Design phase navigation
 ];
 
 /**

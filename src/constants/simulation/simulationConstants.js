@@ -85,13 +85,13 @@ export const simulationNavItems = {
   [SIMULATION_TYPES.SDLC]: {
     title: "Traditional SDLC Simulations",                        // Display title for navigation card
     description: "Experience software development using traditional methodologies", // Card description
-    icon: "⚙️",                                                  // Visual icon for the simulation type
+    icon: "",                                                  // Visual icon for the simulation type
     path: "/simulation/sdlc"                                    // URL path for this simulation type
   },
   [SIMULATION_TYPES.AI_SDLC]: {
     title: "AI-Augmented SDLC Simulations",                      // Display title for AI simulation card
     description: "Explore AI-enhanced development processes and tools", // Card description
-    icon: "🤖",                                                  // AI-themed icon
+    icon: "",                                                  // AI-themed icon
     path: "/simulation/ai-sdlc"                                 // URL path for AI simulations
   }
 };

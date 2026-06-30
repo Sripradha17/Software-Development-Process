@@ -42,7 +42,7 @@ const designSteps = [
   {
     id: 1,
     title: "System Architecture",
-    icon: "🏗️",
+    icon: "",
     description:
       "Define the high-level structure: components, layers, and their interactions",
     color: "#FF6B6B",
@@ -50,7 +50,7 @@ const designSteps = [
   {
     id: 2,
     title: "Database Design",
-    icon: "🗄️",
+    icon: "",
     description:
       "Model data structures, relationships, and optimize for performance",
     color: "#4ECDC4",
@@ -58,7 +58,7 @@ const designSteps = [
   {
     id: 3,
     title: "API Design",
-    icon: "🔌",
+    icon: "",
     description:
       "Create clear interfaces for system communication and integration",
     color: "#45B7D1",
@@ -67,7 +67,7 @@ const designSteps = [
     id: 4,
     title: "UI/UX Design",
 
-    icon: "🎨",
+    icon: "",
     description:
       "Design user interfaces focusing on usability and user experience",
     color: "#96CEB4",
@@ -75,7 +75,7 @@ const designSteps = [
   {
     id: 5,
     title: "Security Design",
-    icon: "🔒",
+    icon: "",
     description:
       "Plan authentication, authorization, encryption, and data protection",
     color: "#FFEAA7",
@@ -83,7 +83,7 @@ const designSteps = [
   {
     id: 6,
     title: "Design Documentation",
-    icon: "📐",
+    icon: "",
     description:
       "Create diagrams, wireframes, and specifications for developers",
     color: "#DDA0DD",
@@ -94,43 +94,43 @@ const designTypes = [
   {
     id: "architecture",
     name: "Architecture Design",
-    icon: "🏛️",
-    emoji: "🏗️",
+    icon: "",
+    emoji: "",
     color: "#667eea",
     story: {
       title: "The Social Media Platform",
       scenario:
         "SocialNet designed a monolithic architecture where all features (posts, messages, notifications, feeds) lived in one massive application. Initially, deployment was simple - just one codebase.",
-      failure: "❌ As they grew to 10 million users, the single server couldn't handle the load. Worse, a bug in the messaging feature crashed the ENTIRE platform - posts, feeds, everything went down. Scaling meant duplicating the whole massive app, wasting resources on underused features.",
-      fix: "✅ They redesigned using Microservices Architecture - separated into independent services: PostService, MessageService, NotificationService, etc. Each could scale independently. When messaging went down, posts still worked! They could deploy bug fixes to one service without touching others. Result: 99.99% uptime achieved."
+      failure: " As they grew to 10 million users, the single server couldn't handle the load. Worse, a bug in the messaging feature crashed the ENTIRE platform - posts, feeds, everything went down. Scaling meant duplicating the whole massive app, wasting resources on underused features.",
+      fix: " They redesigned using Microservices Architecture - separated into independent services: PostService, MessageService, NotificationService, etc. Each could scale independently. When messaging went down, posts still worked! They could deploy bug fixes to one service without touching others. Result: 99.99% uptime achieved."
     },
   },
   {
     id: "database",
     name: "Database Design",
-    icon: "💾",
-    emoji: "🗄️",
+    icon: "",
+    emoji: "",
     color: "#4ECDC4",
     story: {
       title: "The E-Learning Platform",
       scenario:
         "EduTech designed their database with a single 'Users' table storing students, teachers, admins, and parents. They thought 'everyone is a user, right?' and added columns: has_teaching_degree, student_grade_level, parent_of_student_id.",
-      failure: "❌ The table became a nightmare with 50+ columns, most NULL for any given user. Queries were slow (scanning irrelevant columns). Adding new user types meant altering the massive table. A student accidentally got marked as 'has_teaching_degree=true' and could grade assignments!",
-      fix: "✅ They redesigned using Table-Per-Type pattern: Base 'Users' table with common fields (name, email), plus separate Student, Teacher, Admin, Parent tables linked via foreign keys. Clean structure, fast queries, type-safe operations. Added role-based access control. Query performance improved 10x."
+      failure: " The table became a nightmare with 50+ columns, most NULL for any given user. Queries were slow (scanning irrelevant columns). Adding new user types meant altering the massive table. A student accidentally got marked as 'has_teaching_degree=true' and could grade assignments!",
+      fix: " They redesigned using Table-Per-Type pattern: Base 'Users' table with common fields (name, email), plus separate Student, Teacher, Admin, Parent tables linked via foreign keys. Clean structure, fast queries, type-safe operations. Added role-based access control. Query performance improved 10x."
     },
   },
   {
     id: "uiux",
     name: "UI/UX Design",
-    icon: "🖌️",
-    emoji: "🎨",
+    icon: "",
+    emoji: "",
     color: "#F8B500",
     story: {
       title: "The Food Ordering App",
       scenario:
         "FoodieGo designers created a beautiful app with animated transitions, custom fonts, parallax scrolling, and vibrant gradients. It looked stunning in design showcases and won awards for aesthetics.",
-      failure: "❌ Real users struggled! The custom font was hard to read. Animations made the app feel sluggish. The 'Order' button was hidden at the bottom requiring scrolling. Users took an average of 47 seconds to place an order - competitors averaged 12 seconds. Conversion rate: 8% (industry average: 35%).",
-      fix: "✅ They applied Jakob's Law: 'Users spend most of their time on OTHER sites' - follow familiar patterns. Redesigned with: Standard readable font, prominent 'Order' button, simplified navigation, reduced animations. Added A/B testing to validate every design decision with real user data. Order time dropped to 9 seconds, conversion jumped to 42%."
+      failure: " Real users struggled! The custom font was hard to read. Animations made the app feel sluggish. The 'Order' button was hidden at the bottom requiring scrolling. Users took an average of 47 seconds to place an order - competitors averaged 12 seconds. Conversion rate: 8% (industry average: 35%).",
+      fix: " They applied Jakob's Law: 'Users spend most of their time on OTHER sites' - follow familiar patterns. Redesigned with: Standard readable font, prominent 'Order' button, simplified navigation, reduced animations. Added A/B testing to validate every design decision with real user data. Order time dropped to 9 seconds, conversion jumped to 42%."
     },
   },
 ];
@@ -139,7 +139,7 @@ const drawbacks = [
   {
     id: 1,
     title: "Over-Engineering",
-    icon: "🛠️",
+    icon: "",
     problem:
       "Designing for problems you don't have yet - 'what if we need to scale to a billion users?'",
     color: "#FF6B6B",
@@ -159,7 +159,7 @@ const drawbacks = [
   {
     id: 3,
     title: "Resume-Driven Development",
-    icon: "📄",
+    icon: "",
     problem:
       "Choosing trendy technologies to pad your resume, not because they solve the problem",
     color: "#45B7D1",
@@ -170,7 +170,7 @@ const drawbacks = [
     id: 4,
     title: "The Ivory Tower Design",
 
-    icon: "🏰",
+    icon: "",
     problem:
       "Architects designing in isolation without consulting developers who'll build it",
     color: "#96CEB4",
@@ -180,7 +180,7 @@ const drawbacks = [
   {
     id: 5,
     title: "No Design at All",
-    icon: "🚫",
+    icon: "",
     problem:
       "'Let's just start coding and figure it out as we go!' - chaos guaranteed",
     color: "#DDA0DD",

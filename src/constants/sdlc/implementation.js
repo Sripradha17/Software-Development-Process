@@ -41,7 +41,7 @@ const implementationSteps = [
   {
     id: 1,
     title: "Environment Setup",
-    icon: "⚙ ",
+    icon: " ",
     description:
       "Configure development environment, version control, and necessary tools",
     color: "#FF6B6B",
@@ -49,7 +49,7 @@ const implementationSteps = [
   {
     id: 2,
     title: "Code Development",
-    icon: "💻 ",
+    icon: " ",
     description:
       "Write clean, maintainable code following best practices and coding standards",
     color: "#4ECDC4",
@@ -57,7 +57,7 @@ const implementationSteps = [
   {
     id: 3,
     title: "Unit Testing",
-    icon: "🧪 ",
+    icon: " ",
     description:
       "Write and execute unit tests to ensure individual components work correctly",
     color: "#45B7D1",
@@ -65,7 +65,7 @@ const implementationSteps = [
   {
     id: 4,
     title: "Code Review",
-    icon: "👀 ",
+    icon: " ",
     description:
       "Peer review code for quality, security, and adherence to standards",
     color: "#96CEB4",
@@ -73,14 +73,14 @@ const implementationSteps = [
   {
     id: 5,
     title: "Integration",
-    icon: "🔗 ",
+    icon: " ",
     description: "Integrate components, third-party services, and APIs",
     color: "#FFEAA7",
   },
   {
     id: 6,
     title: "Documentation",
-    icon: "📝 ",
+    icon: " ",
     description:
       "Document code, APIs, and implementation decisions for future reference",
     color: "#DDA0DD",
@@ -90,50 +90,50 @@ const implementationTypes = [
   {
     id: "tdd",
     name: "Test-Driven Development",
-    emoji: "🧪 ",
+    emoji: " ",
     color: "#667eea",
     story: {
       title: "The Payment Gateway",
       scenario:
         "PayFast developers started coding the payment processing feature immediately. They wrote thousands of lines of code, then tried to add tests later. 'We'll test it once it works,' they said.",
       failure:
-        "❌ After 3 months of coding, they discovered critical bugs during manual testing. The refund logic had edge cases they never considered. Adding tests broke existing functionality. They spent 2 more months fixing bugs, only to introduce new ones. Customer complaints skyrocketed about failed transactions.",
-      fix: "✅ They adopted Test-Driven Development (TDD): Write test first → Write minimal code to pass → Refactor. For each feature: 1) Write test for expected behavior, 2) Code fails initially, 3) Write code to pass test, 4) Refactor safely. Result: 95% code coverage, bugs caught early, confident refactoring. Development actually became FASTER.",
+        " After 3 months of coding, they discovered critical bugs during manual testing. The refund logic had edge cases they never considered. Adding tests broke existing functionality. They spent 2 more months fixing bugs, only to introduce new ones. Customer complaints skyrocketed about failed transactions.",
+      fix: " They adopted Test-Driven Development (TDD): Write test first → Write minimal code to pass → Refactor. For each feature: 1) Write test for expected behavior, 2) Code fails initially, 3) Write code to pass test, 4) Refactor safely. Result: 95% code coverage, bugs caught early, confident refactoring. Development actually became FASTER.",
     },
   },
   {
     id: "pair",
     name: "Pair Programming",
-    emoji: "👥 ",
+    emoji: " ",
     color: "#4ECDC4",
     story: {
       title: "The Healthcare System",
       scenario:
         "MediSoft had each developer work solo on features. They believed 'two people on one task is wasteful.' Developers worked in isolation, occasionally asking questions via Slack.",
       failure:
-        "❌ Critical bugs made it to production because only one person reviewed each feature. Knowledge silos formed - only Sarah understood the billing module, only Tom knew authentication. When Sarah went on vacation, billing feature deployment stopped. Code reviews were superficial since reviewers didn't understand the context.",
-      fix: "✅ They implemented Pair Programming for critical features: Driver (writes code) + Navigator (reviews, thinks strategically). Rotated pairs daily. Benefits: Real-time code review, knowledge sharing, fewer bugs, better design decisions, no knowledge silos. Junior devs learned faster. Yes, it seemed 'slower,' but quality improved so much that overall velocity INCREASED by 30%.",
+        " Critical bugs made it to production because only one person reviewed each feature. Knowledge silos formed - only Sarah understood the billing module, only Tom knew authentication. When Sarah went on vacation, billing feature deployment stopped. Code reviews were superficial since reviewers didn't understand the context.",
+      fix: " They implemented Pair Programming for critical features: Driver (writes code) + Navigator (reviews, thinks strategically). Rotated pairs daily. Benefits: Real-time code review, knowledge sharing, fewer bugs, better design decisions, no knowledge silos. Junior devs learned faster. Yes, it seemed 'slower,' but quality improved so much that overall velocity INCREASED by 30%.",
     },
   },
   {
     id: "ci",
     name: "Continuous Integration",
-    emoji: "🔄 ",
+    emoji: " ",
     color: "#F8B500",
     story: {
       title: "The E-Commerce Platform",
       scenario:
         "ShopNow developers worked on feature branches for weeks, sometimes months. They merged code to main branch only when features were 'complete.' Integration happened quarterly.",
       failure:
-        "❌ 'Merge Hell' occurred every quarter: Hundreds of conflicts, incompatible changes, features breaking each other. One merge took 3 weeks and required all hands on deck. Dependencies diverged so much that the project wouldn't even build. Releases were nightmares taking days to stabilize.",
-      fix: "✅ Implemented Continuous Integration (CI): Merge to main branch DAILY, automated tests run on every commit, build must pass before merge. Used feature flags for incomplete features. Set up CI pipeline: commit → automated build → run tests → deploy to staging. Conflicts detected early (minutes, not months), always in deployable state, 'merge hell' eliminated. Releases became routine.",
+        " 'Merge Hell' occurred every quarter: Hundreds of conflicts, incompatible changes, features breaking each other. One merge took 3 weeks and required all hands on deck. Dependencies diverged so much that the project wouldn't even build. Releases were nightmares taking days to stabilize.",
+      fix: " Implemented Continuous Integration (CI): Merge to main branch DAILY, automated tests run on every commit, build must pass before merge. Used feature flags for incomplete features. Set up CI pipeline: commit → automated build → run tests → deploy to staging. Conflicts detected early (minutes, not months), always in deployable state, 'merge hell' eliminated. Releases became routine.",
     },
   },
 ];
 const drawbacks = [
   {
     id: 1,
-    icon: "🐛 ",
+    icon: " ",
     title: "Code Debt Accumulation",
     problem:
       "Rushing implementation without refactoring creates technical debt that compounds over time, making future changes exponentially harder.",
@@ -142,7 +142,7 @@ const drawbacks = [
   },
   {
     id: 2,
-    icon: "🔒 ",
+    icon: " ",
     title: "Security Vulnerabilities",
     problem:
       "Focusing only on functionality while ignoring security leads to vulnerabilities that can be exploited, risking data breaches and usertrust.",
@@ -151,7 +151,7 @@ const drawbacks = [
   },
   {
     id: 3,
-    icon: "📚 ",
+    icon: " ",
     title: "Poor Documentation",
     problem:
       "Undocumented code becomes a mystery to other developers and even to the original author after time passes, leading to maintenance nightmares.",
@@ -160,7 +160,7 @@ const drawbacks = [
   },
   {
     id: 4,
-    icon: "⚡",
+    icon: "",
     title: "Performance Ignored",
     problem:
       "Not considering performance during implementation leads to slow applications that frustrate users and require expensive rewrites later.",

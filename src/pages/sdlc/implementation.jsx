@@ -93,7 +93,7 @@ const ImplementationPage = () => {
        
 
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         <motion.button
           style={{
             ...styles.navItem,
@@ -103,7 +103,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🛠️
+          
+        Intro
+          
         </motion.button>
 
         <motion.button
@@ -115,7 +117,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📊
+          
+        Visualization
+          
         </motion.button>
 
         <motion.button
@@ -127,7 +131,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🚀
+          
+        Steps
+          
         </motion.button>
 
         <motion.button
@@ -139,7 +145,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          📚
+          
+        Types
+          
         </motion.button>
 
         <motion.button
@@ -151,7 +159,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ⚠
+          
+        Drawbacks
+          
         </motion.button>
 
         <motion.button
@@ -163,7 +173,9 @@ const ImplementationPage = () => {
           while3Hover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          😄
+          
+        Joke
+          
         </motion.button>
 
         <motion.button
@@ -175,7 +187,9 @@ const ImplementationPage = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          🧠
+          
+        Quiz
+          
         </motion.button>
       </div>
 
@@ -192,7 +206,7 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                🛠️ ✨
+                 
               </motion.div>
 
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
@@ -215,22 +229,22 @@ const ImplementationPage = () => {
 
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>💻 </span>
+                    <span style={styles.keyPointIcon}> </span>
                     <span>Translates designs into working code</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔗 </span>
+                    <span style={styles.keyPointIcon}> </span>
                     <span>Integrates components and systems</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🧪 </span>
+                    <span style={styles.keyPointIcon}> </span>
                     <span>Requires testing and validation</span>
                   </div>
 
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🤝 </span>
+                    <span style={styles.keyPointIcon}> </span>
                     <span>Involves collaboration and communication</span>
                   </div>
                 </div>
@@ -307,7 +321,7 @@ const ImplementationPage = () => {
 
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Implementation is iterative!
+                   <strong>Remember:</strong> Implementation is iterative!
                   You'll often refactor and improve as you build. Embrace
                   feedback and adapt as needed.
                 </p>
@@ -373,7 +387,7 @@ const ImplementationPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {"🔍 What Went Wrong?"}
+                        {" What Went Wrong?"}
                       </motion.button>
                     </div>
                   </motion.div>
@@ -488,7 +502,7 @@ const ImplementationPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -540,20 +554,7 @@ const ImplementationPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😂
-                </motion.div>
+                <div style={styles.jokeIcon} />
                 <h2 style={styles.jokeTitle}>Implementation Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
@@ -566,7 +567,7 @@ const ImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    A: Because he used up all his cache! 💸
+                    A: Because he used up all his cache! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -579,7 +580,7 @@ const ImplementationPage = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
                   >
-                    A: By pushing all the right buttons! 😅
+                    A: By pushing all the right buttons! 
                   </motion.p>
                 </div>
                 <div style={styles.jokeBox}>
@@ -597,7 +598,7 @@ const ImplementationPage = () => {
                     <br />
                     The tester says "Let's break it!"
                     <br />
-                    The project manager says "Let's document it!" 📝
+                    The project manager says "Let's document it!" 
                   </motion.p>
                 </div>
                 <motion.div
@@ -607,7 +608,7 @@ const ImplementationPage = () => {
                   transition={{ delay: 4 }}
                 >
                   <p style={styles.wisdomText}>
-                    💭 <em>"The best code is no code at all."</em> - Jeff Atwood
+                     <em>"The best code is no code at all."</em> - Jeff Atwood
                   </p>
                   <p style={styles.wisdomExplanation}>
                     Simplicity in implementation leads to maintainable and
@@ -622,7 +623,7 @@ const ImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   
                   <motion.button
@@ -632,7 +633,7 @@ const ImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
                   
                   <motion.button
@@ -656,7 +657,7 @@ const ImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🔍 ✨
+                    Next: Testing  
                   </motion.button>
                 </div>
               </motion.div>
@@ -676,17 +677,15 @@ const ImplementationPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge!</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Implementation phase concepts.
@@ -702,7 +701,7 @@ const ImplementationPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Back to Start
+                     Back to Start
                   </motion.button>
                   <motion.button
                     style={styles.nextPhaseButton}
@@ -725,7 +724,7 @@ const ImplementationPage = () => {
                       },
                     }}
                   >
-                    Next: Testing 🔍 ✨
+                    Next: Testing  
                   </motion.button>
                 </div>
               </motion.div>
@@ -753,7 +752,6 @@ const ImplementationPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["🛠️ ", "🚀 ", "💻 ", "🧪 ", "✨ "][i % 5]}
         </motion.div>
       ))}
     </div>

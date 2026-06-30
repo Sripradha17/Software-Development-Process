@@ -1,78 +1,86 @@
 /**
  * Reusable Navigation Menu Component
- * 
- * A collapsible dropdown menu that can be used throughout the application.
- * Features hover effects, automatic closing on item selection, and responsive design.
- * 
+ *
+ * A collapsible dropdown menu used throughout the application. Animates open
+ * and closed, highlights the link matching the current route, and closes
+ * automatically once an item is selected.
+ *
  * @param {Object} props - Component props
  * @param {Array} props.items - Array of menu items with 'label' and 'path' properties
  * @param {string} props.title - Display title for the menu button
  */
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import styles from "../styles/index.js";
 
-// React imports for component functionality
-import React, { useState } from 'react';    // Core React hooks for state management
-import { Link } from 'react-router-dom';     // Router Link component for navigation
-import styles from '../styles/index.js';     // Centralized styling configuration
-
-/**
- * Menu Component
- * 
- * Creates a collapsible navigation menu with the following features:
- * - Toggle open/close functionality
- * - Hover effects for better UX
- * - Automatic menu closing after item selection
- * - Responsive styling with custom styles
- */
 const Menu = ({ items, title }) => {
-  // State for controlling menu visibility
-  const [open, setOpen] = useState(false);        // Controls dropdown open/closed state
-  
-  // State for hover effects on menu items
-  const [hovered, setHovered] = useState(null);   // Tracks which menu item is currently hovered
+  const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(null);
+  const location = useLocation();
 
   return (
-    // Main menu container with custom styling
     <div style={styles.menuContainer}>
-      {/* Menu toggle button with hamburger icon */}
-      <button 
-        style={styles.menuButton} 
-        onClick={() => setOpen(!open)}    // Toggle menu open/closed state
+      <button
+        style={styles.menuButton}
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
-        {title} &#9776;  {/* Title text with hamburger icon (≡) */}
+        {title}
+        <span
+          style={{
+            display: "inline-block",
+            marginLeft: "0.5rem",
+            width: 0,
+            height: 0,
+            borderLeft: "5px solid transparent",
+            borderRight: "5px solid transparent",
+            borderTop: "6px solid currentColor",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform 0.2s ease",
+          }}
+        />
       </button>
-      
-      {/* Conditional rendering of dropdown menu */}
-      {open && (
-        <ul style={{ 
-          ...styles.menuDropdown,    // Base dropdown styles
-          listStyle: 'none',         // Remove default list bullets
-          margin: 0,                 // Reset default margins
-          padding: 0                 // Reset default padding
-        }}>
-          {/* Map through menu items to create navigation links */}
-          {items.map((item, idx) => (
-            <li key={item.label} style={{ margin: 0, padding: 0 }}>
-              <Link
-                to={item.path}         // Navigation destination
-                style={{
-                  ...styles.menuItem,   // Base menu item styles
-                  // Apply hover styles conditionally
-                  ...(hovered === idx ? styles.menuItemHover : {}),
-                  display: 'block',     // Full-width clickable area
-                  width: '100%',        // Full container width
-                  textDecoration: 'none', // Remove default link underline
-                }}
-                // Hover event handlers for visual feedback
-                onMouseEnter={() => setHovered(idx)}    // Set hovered item index
-                onMouseLeave={() => setHovered(null)}   // Clear hover state
-                onClick={() => setOpen(false)}          // Close menu on item click
-              >
-                {item.label}  {/* Display menu item text */}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            style={styles.menuDropdown}
+          >
+            <ul style={{ listStyle: "none", margin: 0, padding: "0.5rem 0" }}>
+              {items?.map((item, idx) => {
+                const isActive = item.path === location.pathname;
+                return (
+                  <li key={item.label} style={{ margin: 0, padding: 0 }}>
+                    <Link
+                      to={item.path}
+                      style={{
+                        ...styles.menuItem,
+                        ...(hovered === idx ? styles.menuItemHover : {}),
+                        ...(isActive && hovered !== idx
+                          ? { color: "#38b2ac", background: "rgba(56, 178, 172, 0.12)" }
+                          : {}),
+                        display: "block",
+                        width: "100%",
+                        textDecoration: "none",
+                      }}
+                      onMouseEnter={() => setHovered(idx)}
+                      onMouseLeave={() => setHovered(null)}
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

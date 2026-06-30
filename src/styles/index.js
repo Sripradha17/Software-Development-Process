@@ -84,21 +84,20 @@
  * - Mobile-first approach with progressive enhancement
  * - Global font-size adjustments for different screen categories
  * - Container max-widths to prevent over-extension on large screens
+ *
+ * SCREEN SIZE BREAKPOINTS:
+ * - Small (Mobile): < 480px
+ * - Medium (Tablet Portrait): 480px - 768px
+ * - Large (Tablet Landscape/Small Laptop): 768px - 1024px
+ * - Extra Large (Desktop): > 1024px
+ *
+ * USAGE:
+ * import styles from './styles';
+ * <div style={styles.pageContainer}>...</div>
+ *
+ * Last Updated: December 2025
+ * ============================================
  */
-*
-* SCREEN SIZE BREAKPOINTS:
-* - Small (Mobile): < 480px
-* - Medium (Tablet Portrait): 480px - 768px
-* - Large (Tablet Landscape/Small Laptop): 768px - 1024px
-* - Extra Large (Desktop): > 1024px
-*
-* USAGE:
-* import styles from './styles';
-* <div style={styles.pageContainer}>...</div>
-*
-* Last Updated: December 2025
-* ============================================
-*/
 const style = {
   // =============================
   // GLOBAL STYLES (from index.css)
@@ -370,8 +369,11 @@ const style = {
   },
   
   simulationMetricIcon: {
-    fontSize: '1.2rem',
-    width: '1.5rem'
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #38b2ac, #319795)',
+    animation: 'accentDotPulse 1.8s ease-in-out infinite',
   },
   
   simulationMetricName: {
@@ -520,7 +522,7 @@ const style = {
   },
   
   simulationQuizButton: {
-    background: 'linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%)',
+    background: 'linear-gradient(135deg, #325fa1 0%, #28456e 100%)',
     color: '#e2e8f0',
     border: 'none',
     padding: '0.75rem 1.5rem',
@@ -529,11 +531,11 @@ const style = {
     fontWeight: '600',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(155, 89, 182, 0.3)'
+    boxShadow: '0 4px 15px rgba(50, 95, 161, 0.3)'
   },
-  
+
   simulationCaseStudyButton: {
-    background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+    background: 'linear-gradient(135deg, #4a5568 0%, #374151 100%)',
     color: '#e2e8f0',
     border: 'none',
     padding: '0.75rem 1.5rem',
@@ -542,31 +544,35 @@ const style = {
     fontWeight: '600',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(230, 126, 34, 0.3)'
+    boxShadow: '0 4px 15px rgba(74, 85, 104, 0.3)'
   },
-  
+
   simulationAchievementBadge: {
-    background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+    background: 'linear-gradient(135deg, #2c7a7b 0%, #1a6b66 100%)',
     borderRadius: '12px',
     padding: '1.5rem',
     textAlign: 'center',
-    border: '3px solid #f39c12',
-    boxShadow: '0 10px 30px rgba(243, 156, 18, 0.3)'
+    border: '3px solid #38b2ac',
+    boxShadow: '0 10px 30px rgba(56, 178, 172, 0.3)'
   },
-  
+
   simulationBadgeContent: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     gap: '1rem'
   },
-  
+
   simulationBadgeIcon: {
-    fontSize: '3rem'
+    width: '40px',
+    height: '8px',
+    borderRadius: '999px',
+    background: 'linear-gradient(90deg, #38b2ac, #4bb1b4, #38b2ac)',
+    animation: 'accentGlowPulse 2s ease-in-out infinite',
   },
   
   simulationBadgeText: {
-    color: '#795548',
+    color: '#e2e8f0',
     fontWeight: '600'
   },
   
@@ -660,7 +666,11 @@ const style = {
   },
   
   trackerMetricIcon: {
-    fontSize: '1.2rem'
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #38b2ac, #4bb1b4ff)',
+    animation: 'accentDotPulse 1.8s ease-in-out infinite',
   },
   
   trackerMetricLabel: {
@@ -1029,15 +1039,15 @@ const style = {
   cardTitle: {
     fontSize: "clamp(1.5rem, 3vw, 2rem)",
     fontWeight: "700",
-    color: "rgb(2 253 255)",
+    color: "#e2e8f0",
     marginBottom: "20px",
   },
   cardDescription: {
     fontSize: "clamp(0.8rem, 1.5vw, 0.9rem)",
     lineHeight: 1.5,
     opacity: 0.95,
-    textShadow: "rgb(60 171 0) 3px 4px 2px",
-    color: "rgb(2 253 255)",
+    textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)",
+    color: "#cbd5e0",
   },
   stageCircle: {
     width: "100%",
@@ -1059,24 +1069,23 @@ const style = {
   },
   circleTitle: {
     padding: "10px",
-    textShadow: "rgb(60 171 0) 3px 4px 2px",
+    textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)",
     zIndex: 2,
     position: "relative",
-    color: "rgb(2 253 255)",
+    color: "#ffffff",
   },
   storyButton: {
-    background:
-      "linear-gradient(45deg, #A7FFF0, #0b3833ff, #1e7a74ff, #05463eff)",
+    background: "linear-gradient(135deg, #1a6b66, #2c7a7b, #38b2ac)",
     backgroundSize: "300% 300%",
     border: "none",
-    color: "#004F4F",
+    color: "#e2e8f0",
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
     fontWeight: 600,
     padding: "1rem 2.5rem",
     borderRadius: "50px",
     cursor: "pointer",
     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-    border: "2px solid rgba(0, 79, 79, 0.25)",
+    border: "2px solid rgba(56, 178, 172, 0.35)",
     backdropFilter: "blur(10px)",
     position: "relative",
     overflow: "hidden",
@@ -1085,8 +1094,7 @@ const style = {
     transition: "all 0.3s ease",
   },
   storyButtonSpan: {
-    background:
-      "linear-gradient(45deg, #6ada4eff, #37b92cff,#338f21ff, #29610fff)",
+    background: "linear-gradient(45deg, #e2e8f0, #b2f5ea, #e2e8f0)",
     backgroundSize: "200% 200%",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -1145,9 +1153,12 @@ const style = {
     zIndex: 2,
   },
   introIcon: {
-    fontSize: "clamp(60px, 10vw, 100px)",
-    marginBottom: "30px",
-    filter: "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))",
+    width: "72px",
+    height: "6px",
+    margin: "0 auto 30px",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #38b2ac, #4bb1b4ff, #319795)",
+    animation: "accentGlowPulse 2.6s ease-in-out infinite",
   },
   contentIntroTitle: {
     fontSize: "clamp(2rem, 5vw, 3.5rem)",
@@ -1189,7 +1200,11 @@ const style = {
   },
   floatingBean: {
     position: "absolute",
-    fontSize: "clamp(20px, 3vw, 30px)",
+    width: "8px",
+    height: "8px",
+    borderRadius: "50%",
+    background: "radial-gradient(circle, #4bb1b4ff, transparent)",
+    boxShadow: "0 0 10px rgba(75, 177, 180, 0.7)",
     zIndex: 1,
     pointerEvents: "none",
   },
@@ -1248,10 +1263,12 @@ const style = {
     border: "2px solid rgba(255, 255, 255, 0.5)",
   },
   chapterIcon: {
-    fontSize: "clamp(50px, 8vw, 80px)",
-    textAlign: "center",
-    marginBottom: "20px",
-    filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))",
+    width: "56px",
+    height: "6px",
+    margin: "0 auto 20px",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #4bb1b4ff, #325fa1ff)",
+    animation: "accentGlowPulse 2.6s ease-in-out infinite",
   },
   chapterTitle: {
     fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
@@ -1268,7 +1285,7 @@ const style = {
     fontSize: "clamp(1rem, 2vw, 1.4rem)",
     fontWeight: "600",
     textAlign: "center",
-    color: "#ffeb3b", // Bright yellow for subtitle
+    color: "#4bb1b4", // Brand teal for subtitle
     marginBottom: "40px",
     fontStyle: "italic",
     textShadow: "0 2px 8px rgba(0,0,0,0.7)", // Add shadow for readability
@@ -1295,22 +1312,24 @@ const style = {
   bulletPoint: {
     paddingLeft: "20px",
     fontWeight: "700",
-    color: "#ffeb3b", // Bright yellow for bullets
+    color: "#4bb1b4", // Brand teal for bullets
     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   quoteLine: {
     fontStyle: "italic",
-    color: "#00eaff", // Bright cyan for quotes
-    borderLeft: "4px solid #ffeb3b", // Bright yellow border
+    color: "#9fd8d4", // Soft pale teal for quotes
+    borderLeft: "4px solid #4bb1b4", // Brand teal border
     paddingLeft: "20px",
     fontWeight: "700",
     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   illustration: {
-    fontSize: "clamp(40px, 6vw, 60px)",
-    textAlign: "center",
-    marginTop: "30px",
-    filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))",
+    width: "48px",
+    height: "5px",
+    margin: "30px auto 0",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #38b2ac, #319795)",
+    animation: "accentGlowPulse 2.6s ease-in-out infinite",
   },
   planButtonContainer: {
     marginTop: "40px",
@@ -1395,27 +1414,17 @@ const style = {
     pointerEvents: "none",
     zIndex: 1,
     opacity: 0,
+    width: "6px",
+    height: "6px",
+    borderRadius: "50%",
+    background: "radial-gradient(circle, #38b2ac, transparent)",
+    boxShadow: "0 0 8px rgba(56, 178, 172, 0.8)",
   },
   // ============================================
   // PLANNING, ANALYSIS & DESIGN PAGES STYLES
   // ============================================
-  // Floating navigation
-  floatingNav: {
-    position: "fixed",
-    top: "50%",
-    left: "clamp(10px, 2vw, 20px)",
-    transform: "translateY(-50%)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "clamp(10px, 1.5vw, 15px)",
-    zIndex: 1001,
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    padding: "clamp(10px, 1.5vw, 15px) clamp(8px, 1.2vw, 10px)",
-    borderRadius: "50px",
-    backdropFilter: "blur(10px)",
-    border: "2px solid rgba(255, 255, 255, 0.2)",
-    pointerEvents: "auto",
-  },
+  // Floating navigation (see the active `floatingNav` definition further
+  // below, paired with the `.floating-nav` CSS class for responsive layout)
   navItem: {
     background: "rgba(255, 255, 255, 0.9)",
     border: "none",
@@ -1458,9 +1467,12 @@ const style = {
     padding: "clamp(1rem, 3vw, 2rem)",
   },
   heroIcon: {
-    fontSize: "clamp(60px, 10vw, 100px)",
-    marginBottom: "2rem",
-    textAlign: "center",
+    width: "80px",
+    height: "7px",
+    margin: "0 auto 2rem",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #38b2ac, #319795, #4bb1b4ff)",
+    animation: "accentGlowPulse 2.6s ease-in-out infinite",
   },
   subtitle: {
     fontSize: "clamp(1rem, 2vw, 1.3rem)",
@@ -1518,8 +1530,12 @@ const style = {
     textShadow: "0 2px 8px rgba(0,0,0,0.7)",
   },
   keyPointIcon: {
-    fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+    width: "10px",
+    height: "10px",
+    borderRadius: "50%",
     flexShrink: 0,
+    background: "linear-gradient(135deg, #38b2ac, #4bb1b4ff)",
+    animation: "accentDotPulse 1.8s ease-in-out infinite",
   },
   // Steps section
   stepsGrid: {
@@ -1554,8 +1570,12 @@ const style = {
     marginBottom: "1rem",
   },
   stepIcon: {
-    fontSize: "clamp(2rem, 4vw, 3rem)",
+    width: "14px",
+    height: "14px",
+    borderRadius: "50%",
     marginBottom: "1rem",
+    background: "linear-gradient(135deg, #4bb1b4ff, #325fa1ff)",
+    animation: "accentDotPulse 1.8s ease-in-out infinite",
   },
   stepTitle: {
     fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
@@ -1613,7 +1633,12 @@ const style = {
     color: "white",
   },
   typeEmoji: {
-    fontSize: "clamp(2rem, 4vw, 2.5rem)",
+    width: "14px",
+    height: "14px",
+    borderRadius: "50%",
+    flexShrink: 0,
+    background: "rgba(255, 255, 255, 0.9)",
+    animation: "accentDotPulse 1.8s ease-in-out infinite",
   },
   typeName: {
     fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
@@ -1722,11 +1747,12 @@ const style = {
     borderTop: "4px solid #38b2ac",
   },
   drawbackIcon: {
-    fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-    marginBottom: "1rem",
-    textAlign: "center",
-    color: "#319795",
-    textShadow: "0 2px 8px rgba(26, 188, 156, 0.15)",
+    width: "48px",
+    height: "5px",
+    margin: "0 auto 1rem",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #319795, #38b2ac)",
+    animation: "accentGlowPulse 2.4s ease-in-out infinite",
   },
   drawbackTitle: {
     fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
@@ -1780,9 +1806,12 @@ const style = {
     border: "2px solid rgba(255,255,255,0.15)",
   },
   jokeIcon: {
-    fontSize: "clamp(60px, 10vw, 80px)",
-    textAlign: "center",
-    marginBottom: "1.5rem",
+    width: "60px",
+    height: "6px",
+    margin: "0 auto 1.5rem",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #4bb1b4ff, #38b2ac)",
+    animation: "accentGlowPulse 2.2s ease-in-out infinite",
   },
   jokeTitle: {
     fontSize: "clamp(1.5rem, 3vw, 2rem)",
@@ -2001,11 +2030,12 @@ const style = {
     minHeight: "320px"
   },
   simulationCardIcon: {
-    fontSize: "3rem",
-    marginBottom: "1rem",
-    textAlign: "center",
-    display: "block",
-    lineHeight: "1"
+    width: "40px",
+    height: "6px",
+    margin: "0 auto 1rem",
+    borderRadius: "999px",
+    background: "linear-gradient(90deg, #38b2ac, #319795)",
+    animation: "accentGlowPulse 2.4s ease-in-out infinite",
   },
   simulationCardTitle: {
     fontSize: "1.3rem",
@@ -2184,7 +2214,11 @@ const style = {
     fontSize: '0.85rem'
   },
   impactIcon: {
-    fontSize: '1rem'
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #38b2ac, #319795)',
+    animation: 'accentDotPulse 1.8s ease-in-out infinite',
   },
   impactText: {
     flex: 1,
@@ -2504,14 +2538,14 @@ const style = {
     display: "inline-flex",
     alignItems: "center",
     gap: "0.25rem",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4a5cad 0%, #38406e 100%)",
     color: "white",
     padding: "0.2rem 0.5rem",
     borderRadius: "12px",
     fontSize: "0.7rem",
     fontWeight: "600",
     marginLeft: "0.5rem",
-    boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)",
+    boxShadow: "0 2px 8px rgba(74, 92, 173, 0.3)",
     verticalAlign: "middle"
   },
   aiEnhancedCard: {
@@ -2521,14 +2555,14 @@ const style = {
     position: "absolute",
     top: "1rem",
     right: "1rem",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #4a5cad 0%, #38406e 100%)",
     color: "white",
     padding: "0.3rem 0.6rem",
     borderRadius: "12px",
     fontSize: "0.75rem",
     fontWeight: "600",
     zIndex: 2,
-    boxShadow: "0 2px 8px rgba(102, 126, 234, 0.3)"
+    boxShadow: "0 2px 8px rgba(74, 92, 173, 0.3)"
   },
   
   //modal section
@@ -2650,7 +2684,12 @@ const style = {
     color: "white",
   },
   drawbackTypeEmoji: {
-    fontSize: "clamp(2rem, 4vw, 2.5rem)",
+    width: "14px",
+    height: "14px",
+    borderRadius: "50%",
+    flexShrink: 0,
+    background: "rgba(255, 255, 255, 0.9)",
+    animation: "accentDotPulse 1.8s ease-in-out infinite",
   },
   drawbackTypeName: {
     fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
@@ -3094,12 +3133,7 @@ const style = {
   // ============================================
   
   floatingNav: {
-    position: 'fixed',
-    top: '50%',
-    left: 'clamp(10px, 2vw, 20px)',
-    transform: 'translateY(-50%)',
     display: 'flex',
-    flexDirection: 'column',
     gap: 'clamp(10px, 1.5vw, 15px)',
     zIndex: 1000,
     backgroundColor: 'rgba(55, 65, 81, 0.4)',
@@ -3107,13 +3141,14 @@ const style = {
     borderRadius: '50px',
     backdropFilter: 'blur(10px)',
     border: '2px solid rgba(74, 85, 104, 0.5)',
+    pointerEvents: 'auto',
   },
 
   floatingNavToggle: {
     width: '50px',
     height: '50px',
     borderRadius: '50%',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #4a5cad 0%, #38406e 100%)',
     border: 'none',
     color: '#e2e8f0',
     fontSize: '18px',
@@ -4092,8 +4127,12 @@ const style = {
   },
 
   resultIcon: {
-    fontSize: 'clamp(3rem, 8vw, 5rem)',
-    marginBottom: '1.5rem',
+    width: '64px',
+    height: '7px',
+    margin: '0 auto 1.5rem',
+    borderRadius: '999px',
+    background: 'linear-gradient(90deg, #38b2ac, #319795, #4bb1b4ff)',
+    animation: 'accentGlowPulse 2.4s ease-in-out infinite',
   },
 
   resultTitle: {
@@ -4539,6 +4578,33 @@ const style = {
     fontSize: '1rem',
     fontWeight: '600',
     color: '#e2e8f0',
+    border: '1px solid #1a6b66',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+    backgroundColor: '#1a6b66',
+  },
+
+  // Phase nav buttons share one teal-to-blue family (see developmentStages colors)
+  planButtonBlue: {
+    padding: '0.75rem 1.5rem',
+    fontSize: '1rem',
+    fontWeight: '600',
+    color: '#e2e8f0',
+    border: '1px solid #2c9d93',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+    backgroundColor: '#2c9d93',
+  },
+
+  planButtonPurple: {
+    padding: '0.75rem 1.5rem',
+    fontSize: '1rem',
+    fontWeight: '600',
+    color: '#e2e8f0',
     border: '1px solid #38b2ac',
     borderRadius: '8px',
     cursor: 'pointer',
@@ -4547,74 +4613,43 @@ const style = {
     backgroundColor: '#38b2ac',
   },
 
-  // Plan button with blue gradient
-  planButtonBlue: {
-    padding: '0.75rem 1.5rem',
-    fontSize: '1rem',
-    fontWeight: '600',
-    color: '#e2e8f0',
-    border: '1px solid #2980b9',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    backgroundColor: '#2980b9',
-  },
-
-  // Plan button with purple gradient
-  planButtonPurple: {
-    padding: '0.75rem 1.5rem',
-    fontSize: '1rem',
-    fontWeight: '600',
-    color: '#e2e8f0',
-    border: '1px solid #8e44ad',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    backgroundColor: '#8e44ad',
-  },
-
-  // Plan button with green gradient
   planButtonGreen: {
     padding: '0.75rem 1.5rem',
     fontSize: '1rem',
     fontWeight: '600',
     color: '#e2e8f0',
-    border: '1px solid #27ae60',
+    border: '1px solid #4bb1b4',
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    backgroundColor: '#27ae60',
+    backgroundColor: '#4bb1b4',
   },
 
-  // Plan button with red gradient
   planButtonRed: {
     padding: '0.75rem 1.5rem',
     fontSize: '1rem',
     fontWeight: '600',
     color: '#e2e8f0',
-    border: '1px solid #e74c3c',
+    border: '1px solid #4496a5',
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    backgroundColor: '#e74c3c',
+    backgroundColor: '#4496a5',
   },
 
-  // Plan button with dark gradient
   planButtonDark: {
     padding: '0.75rem 1.5rem',
     fontSize: '1rem',
     fontWeight: '600',
     color: '#e2e8f0',
-    border: '1px solid #4a5568',
+    border: '1px solid #3d7ea6',
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    backgroundColor: '#374151',
+    backgroundColor: '#3d7ea6',
   },
 
   // Combined style functions for story lines
@@ -5274,13 +5309,13 @@ const style = {
     alignItems: 'center',
     gap: '0.5rem',
     padding: '0.5rem 1rem',
-    background: 'rgba(103, 126, 234, 0.2)',
+    background: 'rgba(74, 92, 173, 0.2)',
     borderRadius: '20px',
     fontSize: '0.85rem',
     fontWeight: '600',
     marginBottom: '1rem',
-    border: '1px solid rgba(103, 126, 234, 0.3)',
-    color: '#667eea',
+    border: '1px solid rgba(74, 92, 173, 0.3)',
+    color: '#8a98d6',
   },
 
   subSteps: {

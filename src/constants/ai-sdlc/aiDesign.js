@@ -35,7 +35,7 @@ const aiDesignSteps = [
   {
     id: 1,
     title: "AI-Driven Architecture",
-    icon: "🤖🏗️",
+    icon: "",
     description:
       "AI suggests optimal system structures based on scalability, reliability, and historical data.",
     color: "#FF6B6B",
@@ -43,7 +43,7 @@ const aiDesignSteps = [
   {
     id: 2,
     title: "Automated Database Modeling",
-    icon: "🤖🗄️",
+    icon: "",
     description:
       "AI analyzes data usage and recommends efficient schemas and relationships.",
     color: "#4ECDC4",
@@ -51,7 +51,7 @@ const aiDesignSteps = [
   {
     id: 3,
     title: "AI API Blueprinting",
-    icon: "🤖🔌",
+    icon: "",
     description:
       "AI generates API designs and documentation from requirements and usage patterns.",
     color: "#45B7D1",
@@ -59,7 +59,7 @@ const aiDesignSteps = [
   {
     id: 4,
     title: "AI-Powered UI/UX Prototyping",
-    icon: "🤖🎨",
+    icon: "",
     description:
       "AI creates wireframes and user flows, optimizing for accessibility and conversion.",
     color: "#96CEB4",
@@ -67,7 +67,7 @@ const aiDesignSteps = [
   {
     id: 5,
     title: "Security by AI",
-    icon: "🤖🔒",
+    icon: "",
     description:
       "AI identifies vulnerabilities and suggests security best practices in design.",
     color: "#FFEAA7",
@@ -75,7 +75,7 @@ const aiDesignSteps = [
   {
     id: 6,
     title: "AI Design Documentation",
-    icon: "🤖📐",
+    icon: "",
     description:
       "AI generates diagrams, specs, and keeps design docs up to date automatically.",
     color: "#DDA0DD",
@@ -86,43 +86,43 @@ const aiDesignTypes = [
   {
     id: "ai-architecture",
     name: "AI Architecture Design",
-    icon: "🤖🏛️",
-    emoji: "🤖🏗️",
+    icon: "",
+    emoji: "",
     color: "#667eea",
     story: {
       title: "The AI-Optimized Social Platform",
       scenario:
         "SocialNet used AI to simulate traffic and recommend microservices splits for reliability.",
-      failure: "❌ Ignoring AI's advice, they kept a monolith and faced outages.",
-      fix: "✅ They adopted AI-driven microservices, achieving 99.99% uptime.",
+      failure: " Ignoring AI's advice, they kept a monolith and faced outages.",
+      fix: " They adopted AI-driven microservices, achieving 99.99% uptime.",
     },
   },
   {
     id: "ai-database",
     name: "AI Database Design",
-    icon: "🤖💾",
-    emoji: "🤖🗄️",
+    icon: "",
+    emoji: "",
     color: "#4ECDC4",
     story: {
       title: "The AI-Refactored E-Learning DB",
       scenario:
         "EduTech used AI to analyze query patterns and recommend table structures for speed and clarity.",
-      failure: "❌ They ignored AI's normalization advice, leading to slow queries and data errors.",
-      fix: "✅ They refactored with AI's schema, improving performance 10x.",
+      failure: " They ignored AI's normalization advice, leading to slow queries and data errors.",
+      fix: " They refactored with AI's schema, improving performance 10x.",
     },
   },
   {
     id: "ai-uiux",
     name: "AI UI/UX Design",
-    icon: "🤖🖌️",
-    emoji: "🤖🎨",
+    icon: "",
+    emoji: "",
     color: "#F8B500",
     story: {
       title: "The AI-Tested Food App",
       scenario:
         "FoodieGo used AI to A/B test layouts and optimize for user speed and satisfaction.",
-      failure: "❌ Ignoring AI's test results, they kept slow, confusing designs.",
-      fix: "✅ They implemented AI's winning layouts, boosting conversion to 42%.",
+      failure: " Ignoring AI's test results, they kept slow, confusing designs.",
+      fix: " They implemented AI's winning layouts, boosting conversion to 42%.",
     },
   },
 ];
@@ -131,7 +131,7 @@ const aiDesignDrawbacks = [
   {
     id: 1,
     title: "AI Overfitting in Design",
-    icon: "🤖🔴",
+    icon: "",
     problem: "AI may optimize for past data, missing new user needs.",
     color: "#FF6B6B",
     resolution:
@@ -140,7 +140,7 @@ const aiDesignDrawbacks = [
   {
     id: 2,
     title: "Automation Bias",
-    icon: "🤖✨",
+    icon: "",
     problem: "Designers may blindly trust AI suggestions without review.",
     color: "#4ECDC4",
     resolution:
@@ -149,7 +149,7 @@ const aiDesignDrawbacks = [
   {
     id: 3,
     title: "Data Privacy Risks",
-    icon: "🤖🛡️",
+    icon: "",
     problem: "AI design tools may expose sensitive user data.",
     color: "#45B7D1",
     resolution:
@@ -158,7 +158,7 @@ const aiDesignDrawbacks = [
   {
     id: 4,
     title: "Opaque Reasoning",
-    icon: "🤖🎯",
+    icon: "",
     problem: "AI design choices can be hard to explain to stakeholders.",
     color: "#96CEB4",
     resolution:
@@ -167,7 +167,7 @@ const aiDesignDrawbacks = [
   {
     id: 5,
     title: "Skill Gaps",
-    icon: "🤖📚",
+    icon: "",
     problem: "Teams may lack expertise to interpret and act on AI design outputs.",
     color: "#DDA0DD",
     resolution:

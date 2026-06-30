@@ -213,8 +213,7 @@ describe('IntroPage', () => {
   describe('Interactive Features', () => {
     it('displays correct feature information', () => {
       renderWithRouter(<IntroPage />);
-      
-      expect(screen.getByText('🚀')).toBeInTheDocument();
+
       expect(screen.getByText('Interactive Learning')).toBeInTheDocument();
       expect(screen.getByText('Engage with hands-on activities and simulations')).toBeInTheDocument();
     });

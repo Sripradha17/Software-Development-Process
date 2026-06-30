@@ -82,13 +82,13 @@ const ReviewPage = () => {
 
   // Helper for navigation items
   const navItems = [
-    { key: "intro", icon: "📊", label: "Intro" },
-    { key: "visualization", icon: "📊", label: "Visualization" },
-    { key: "steps", icon: "🔄", label: "Steps" },
-    { key: "types", icon: "📖", label: "Types" },
-    { key: "drawbacks", icon: "⚠", label: "Drawbacks" },
-    { key: "joke", icon: "😄", label: "Joke" },
-    { key: "quiz", icon: "🧠", label: "Quiz" },
+    { key: "intro", icon: "", label: "Intro" },
+    { key: "visualization", icon: "", label: "Visualization" },
+    { key: "steps", icon: "", label: "Steps" },
+    { key: "types", icon: "", label: "Types" },
+    { key: "drawbacks", icon: "", label: "Drawbacks" },
+    { key: "joke", icon: "", label: "Joke" },
+    { key: "quiz", icon: "", label: "Quiz" },
   ];
 
   return (
@@ -101,7 +101,7 @@ const ReviewPage = () => {
       </Link>
        
       {/* Floating navigation */}
-      <div style={styles.floatingNav}>
+      <div style={styles.floatingNav} className="floating-nav">
         {navItems.map((item) => (
           <motion.button
             key={item.key}
@@ -131,7 +131,7 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.heroIcon} animate={floatAnimation}>
-                📝 ✨
+                 
               </motion.div>
               <motion.h1 style={styles.mainTitle} variants={itemVariants}>
                 Review in Software Development
@@ -151,19 +151,19 @@ const ReviewPage = () => {
                 </p>
                 <div style={styles.keyPoints}>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🐞</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Identifies bugs before they reach users</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🔄</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Validates functionality meets requirements</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>⚡</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Ensures performance and scalability</span>
                   </div>
                   <div style={styles.keyPoint}>
-                    <span style={styles.keyPointIcon}>🛡️</span>
+                    <span style={styles.keyPointIcon}></span>
                     <span>Builds confidence in code changes</span>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ const ReviewPage = () => {
               </div>
               <motion.div style={styles.stepFlow} variants={itemVariants}>
                 <p style={styles.flowText}>
-                  💡 <strong>Remember:</strong> Review is not just about finding
+                   <strong>Remember:</strong> Review is not just about finding
                   bugs—it's about building confidence. Good review catches
                   issues early when they're cheap to fix, validates that
                   features work as intended, and gives you the confidence to
@@ -298,7 +298,7 @@ const ReviewPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        🔍 What Went Wrong?
+                         What Went Wrong?
                       </motion.button>
                     </div>
                   </motion.div>
@@ -412,7 +412,7 @@ const ReviewPage = () => {
                       >
                         {selectedDrawback === drawback.id
                           ? "Hide Solution"
-                          : "💡 Show Solution"}
+                          : " Show Solution"}
                       </motion.button>
                       <AnimatePresence>
                         {selectedDrawback === drawback.id && (
@@ -464,20 +464,7 @@ const ReviewPage = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div style={styles.jokeContainer} variants={itemVariants}>
-                <motion.div
-                  style={styles.jokeIcon}
-                  animate={{
-                    rotate: [0, 10, -10, 10, 0],
-                    scale: [1, 1.1, 1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  😄
-                </motion.div>
+                <div style={styles.jokeIcon} />
                 <h2 style={styles.jokeTitle}>Code Review Humor Break!</h2>
                 <div style={styles.jokeBox}>
                   <p style={styles.jokeSetup}>
@@ -527,7 +514,7 @@ const ReviewPage = () => {
                   transition={{ delay: 0.8 }}
                 >
                   <p style={styles.wisdomText}>
-                    💡 Review Wisdom: "Code review is not about finding
+                     Review Wisdom: "Code review is not about finding
                     mistakes, it's about learning and improving together."
                   </p>
                   <p style={styles.wisdomExplanation}>
@@ -541,7 +528,7 @@ const ReviewPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    🏠 Home
+                     Home
                   </motion.button>
                   
                   <motion.button
@@ -550,7 +537,7 @@ const ReviewPage = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Test Knowledge 🧠
+                    Test Knowledge 
                   </motion.button>
                   
                   <motion.button
@@ -573,7 +560,7 @@ const ReviewPage = () => {
                       },
                     }}
                   >
-                    🛠 Next: Maintenance
+                     Next: Maintenance
                   </motion.button>
                 </div>
               </motion.div>
@@ -593,17 +580,15 @@ const ReviewPage = () => {
               <motion.div style={styles.cardContainer} variants={itemVariants}>
                 <motion.div
                   style={{
-                    fontSize: "clamp(4rem, 8vw, 8rem)",
-                    textAlign: "center",
-                    marginBottom: "2rem",
+                    width: "72px",
+                    height: "7px",
+                    margin: "0 auto 2rem",
+                    borderRadius: "999px",
+                    background: "linear-gradient(90deg, #38b2ac, #319795)",
                   }}
-                  animate={{
-                    y: [0, -10, 0],
-                    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  }}
-                >
-                  🧠
-                </motion.div>
+                  animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 10px rgba(56,178,172,0.5)", "0 0 24px rgba(56,178,172,0.9)", "0 0 10px rgba(56,178,172,0.5)"] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 <h2 style={styles.sectionTitle}>Test Your Knowledge</h2>
                 <p style={styles.sectionSubtitle}>
                   Let's see how well you understand the Review phase concepts.
@@ -618,7 +603,7 @@ const ReviewPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <h3 style={styles.congratsTitle}>🎉 Congratulations!</h3>
+                    <h3 style={styles.congratsTitle}> Congratulations!</h3>
                     <p style={styles.congratsText}>
                       You've completed all stages of the Software Development Process!
                       Now put your knowledge to the test with interactive project simulations.
@@ -632,7 +617,7 @@ const ReviewPage = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      🏠 Home
+                       Home
                     </motion.button>
                     <motion.button
                       style={styles.simulationButton}
@@ -658,7 +643,7 @@ const ReviewPage = () => {
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                       >
-                        ⚙️ Try Traditional SDLC Simulations
+                         Try Traditional SDLC Simulations
                       </motion.span>
                     </motion.button>
                   </div>
@@ -690,7 +675,7 @@ const ReviewPage = () => {
             delay: Math.random() * 3,
           }}
         >
-          {["📊", "🔄", "🔍", "🐞", "🛡️", "⚡"][i]}
+          {["", "", "", "", "", ""][i]}
         </motion.div>
       ))}
     </div>

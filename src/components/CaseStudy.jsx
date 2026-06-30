@@ -193,15 +193,13 @@ const CaseStudy = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div 
-              style={styles.resultIcon} 
+            <motion.div
+              style={styles.resultIcon}
               variants={itemVariants}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.1 }}
-            >
-              {score >= config.passingScore ? '🏆' : '📚'}
-            </motion.div>
+            />
             
             <motion.h1 
               style={styles.resultTitle} 
@@ -385,10 +383,10 @@ const CaseStudy = () => {
                       <span style={styles.optionLabel}>{option.id.toUpperCase()}</span>
                       <span style={styles.optionText}>{option.text}</span>
                       {showExplanation && option.isCorrect && (
-                        <span style={styles.correctIcon}>✓</span>
+                        <span style={styles.correctIcon}></span>
                       )}
                       {showExplanation && selectedAnswer === option.id && !option.isCorrect && (
-                        <span style={styles.incorrectIcon}>✗</span>
+                        <span style={styles.incorrectIcon}></span>
                       )}
                     </motion.div>
                   ))}
